@@ -1,0 +1,1 @@
+'C:\Users\akita\Documents\TPT02\TPT02.cydsn\Generated_Source\PSoC4\CyBootAsmGnu.s' -o .o -T SOURCE_ASM__ARM_GCC_GENERIC -I 'C:\Users\akita\Documents\TPT02\TPT02.cydsn' -I 'C:\Users\akita\Documents\TPT02\TPT02.cydsn\Generated_Source\PSoC4' -f 'C:\Users\akita\Documents\TPT02\TPT02.cydsn\CortexM0\ARM_GCC_493\Debug\.deps\SOURCE_ASM__ARM_GCC_GENERIC.d'

@@ -1,0 +1,2189 @@
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"cyPm.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.CySysPmHibPinsDisableInputBuf,"ax",%progbits
+  18              		.align	2
+  19              		.code	16
+  20              		.thumb_func
+  21              		.type	CySysPmHibPinsDisableInputBuf, %function
+  22              	CySysPmHibPinsDisableInputBuf:
+  23              	.LFB0:
+  24              		.file 1 "Generated_Source\\PSoC4\\cyPm.h"
+   1:Generated_Source\PSoC4/cyPm.h **** /***************************************************************************//**
+   2:Generated_Source\PSoC4/cyPm.h **** * \file cyPm.h
+   3:Generated_Source\PSoC4/cyPm.h **** * \version 5.50
+   4:Generated_Source\PSoC4/cyPm.h **** *
+   5:Generated_Source\PSoC4/cyPm.h **** * \brief Provides the function definitions for the power management API.
+   6:Generated_Source\PSoC4/cyPm.h **** *
+   7:Generated_Source\PSoC4/cyPm.h **** * \note Documentation of the API's in this file is located in the System
+   8:Generated_Source\PSoC4/cyPm.h **** * Reference Guide provided with PSoC Creator.
+   9:Generated_Source\PSoC4/cyPm.h **** *
+  10:Generated_Source\PSoC4/cyPm.h **** ********************************************************************************
+  11:Generated_Source\PSoC4/cyPm.h **** * \copyright
+  12:Generated_Source\PSoC4/cyPm.h **** * Copyright 2011-2016, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC4/cyPm.h **** * You may use this file only in accordance with the license, terms, conditions,
+  14:Generated_Source\PSoC4/cyPm.h **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:Generated_Source\PSoC4/cyPm.h **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC4/cyPm.h **** *******************************************************************************/
+  17:Generated_Source\PSoC4/cyPm.h **** 
+  18:Generated_Source\PSoC4/cyPm.h **** #if !defined(CY_BOOT_CYPM_H)
+  19:Generated_Source\PSoC4/cyPm.h **** #define CY_BOOT_CYPM_H
+  20:Generated_Source\PSoC4/cyPm.h **** 
+  21:Generated_Source\PSoC4/cyPm.h **** #include "cytypes.h"
+  22:Generated_Source\PSoC4/cyPm.h **** #include "cypins.h"
+  23:Generated_Source\PSoC4/cyPm.h **** 
+  24:Generated_Source\PSoC4/cyPm.h **** 
+  25:Generated_Source\PSoC4/cyPm.h **** /**
+  26:Generated_Source\PSoC4/cyPm.h **** * \addtogroup group_power_management Power Management API
+  27:Generated_Source\PSoC4/cyPm.h **** * @{
+  28:Generated_Source\PSoC4/cyPm.h **** 
+  29:Generated_Source\PSoC4/cyPm.h **** \brief PSoC 4 devices support the following power modes (in order of high to low power consumption)
+  30:Generated_Source\PSoC4/cyPm.h **** Deep Sleep, Hibernate, and Stop. Active, Sleep and Deep-Sleep are standard ARM defined power modes,
+  31:Generated_Source\PSoC4/cyPm.h **** ARM CPUs. Hibernate/Stop are even lower power modes that are entered from firmware just like Deep-S
+  32:Generated_Source\PSoC4/cyPm.h **** the CPU (and all peripherals) goes through a full reset.
+  33:Generated_Source\PSoC4/cyPm.h **** 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 2
+
+
+  34:Generated_Source\PSoC4/cyPm.h **** There is a full range of power modes supported by PSoC devices to control power consumption and the
+  35:Generated_Source\PSoC4/cyPm.h **** resources. See the following table for the supported power modes.
+  36:Generated_Source\PSoC4/cyPm.h **** 
+  37:Generated_Source\PSoC4/cyPm.h **** Mode        | PSoC 4000              | Rest Devices           |
+  38:Generated_Source\PSoC4/cyPm.h **** ----------- | ---------------------- | ---------------------- |
+  39:Generated_Source\PSoC4/cyPm.h **** Active      |          Y             |       Y                |
+  40:Generated_Source\PSoC4/cyPm.h **** Sleep       |          Y             |       Y                |
+  41:Generated_Source\PSoC4/cyPm.h **** Deep Sleep  |          Y             |       Y                |
+  42:Generated_Source\PSoC4/cyPm.h **** Hibernate   |          Y             |       Y                |
+  43:Generated_Source\PSoC4/cyPm.h **** Stop        |                        |       Y                |
+  44:Generated_Source\PSoC4/cyPm.h **** 
+  45:Generated_Source\PSoC4/cyPm.h **** For the ARM-based devices (PSoC 4), an interrupt is required for the CPU to wake up. The Power Mana
+  46:Generated_Source\PSoC4/cyPm.h **** assumes that wakeup time is configured with a separate component (component-based wakeup time confi
+  47:Generated_Source\PSoC4/cyPm.h **** interrupt to be issued on terminal count.
+  48:Generated_Source\PSoC4/cyPm.h **** 
+  49:Generated_Source\PSoC4/cyPm.h **** All pending interrupts should be cleared before the device is put into low power mode, even if they
+  50:Generated_Source\PSoC4/cyPm.h **** 
+  51:Generated_Source\PSoC4/cyPm.h **** The Power Management API is provided in the CyPm.c and CyPm.h files.
+  52:Generated_Source\PSoC4/cyPm.h **** 
+  53:Generated_Source\PSoC4/cyPm.h **** 
+  54:Generated_Source\PSoC4/cyPm.h **** \section group_power_management_implementation Implementation
+  55:Generated_Source\PSoC4/cyPm.h **** For PSoC 4100 and PSoC 4200 devices, the software should set EXT_VCCD bit in the PWR_CONTROL regist
+  56:Generated_Source\PSoC4/cyPm.h **** shorted to Vddd on the board. This impacts the chip internal state transitions where it is necessar
+  57:Generated_Source\PSoC4/cyPm.h **** Vccd is connected or floating to achieve minimum current in low power modes. Note Setting this bit 
+  58:Generated_Source\PSoC4/cyPm.h **** regulator and will lead to a system reset unless both Vddd and Vccd pins are supplied externally. R
+  59:Generated_Source\PSoC4/cyPm.h **** TRM for more information.
+  60:Generated_Source\PSoC4/cyPm.h **** 
+  61:Generated_Source\PSoC4/cyPm.h **** It is safe to call PM APIs from the ISR. The wakeup conditions for Sleep and DeepSleep low power mo
+  62:Generated_Source\PSoC4/cyPm.h **** in the following table.
+  63:Generated_Source\PSoC4/cyPm.h **** 
+  64:Generated_Source\PSoC4/cyPm.h **** Interrupts State  |  Condition                      | Wakeup    |   ISR Execution   |
+  65:Generated_Source\PSoC4/cyPm.h **** ------------------|---------------------------------|-----------|------------------ |
+  66:Generated_Source\PSoC4/cyPm.h **** Unmasked          | IRQ priority > current level    | Yes       |   Yes             |
+  67:Generated_Source\PSoC4/cyPm.h **** Unmasked          | IRQ priority ≤ current level    | No        |   No              |
+  68:Generated_Source\PSoC4/cyPm.h **** Masked            | IRQ priority > current level    | Yes       |   No              |
+  69:Generated_Source\PSoC4/cyPm.h **** Masked            | IRQ priority ≤ current level    | No        |   No              |
+  70:Generated_Source\PSoC4/cyPm.h **** 
+  71:Generated_Source\PSoC4/cyPm.h **** 
+  72:Generated_Source\PSoC4/cyPm.h **** \section group_power_management_clocks Clock Configuration
+  73:Generated_Source\PSoC4/cyPm.h **** For PSoC 4100 BLE and PSoC 4200 BLE devices, the HFCLK source should be set to IMO before switching
+  74:Generated_Source\PSoC4/cyPm.h **** power mode. The IMO should be enabled (by calling CySysClkImoStart(), if it is not) and HFCLK sourc
+  75:Generated_Source\PSoC4/cyPm.h **** to IMO by calling CySysClkWriteHfclkDirect(CY_SYS_CLK_HFCLK_IMO).
+  76:Generated_Source\PSoC4/cyPm.h **** 
+  77:Generated_Source\PSoC4/cyPm.h **** If the System clock frequency is increased by switching to the IMO, the CySysFlashSetWaitCycles() f
+  78:Generated_Source\PSoC4/cyPm.h **** appropriate parameter should be called beforehand. Also, it can optionally be called after lowering
+  79:Generated_Source\PSoC4/cyPm.h **** frequency in order to improve CPU performance. See CySysFlashSetWaitCycles() description for the de
+  80:Generated_Source\PSoC4/cyPm.h **** 
+  81:Generated_Source\PSoC4/cyPm.h **** 
+  82:Generated_Source\PSoC4/cyPm.h **** 
+  83:Generated_Source\PSoC4/cyPm.h **** 
+  84:Generated_Source\PSoC4/cyPm.h **** 
+  85:Generated_Source\PSoC4/cyPm.h **** */
+  86:Generated_Source\PSoC4/cyPm.h **** void CySysPmSleep(void);
+  87:Generated_Source\PSoC4/cyPm.h **** void CySysPmDeepSleep(void);
+  88:Generated_Source\PSoC4/cyPm.h **** 
+  89:Generated_Source\PSoC4/cyPm.h **** #if(CY_IP_SRSSV2)
+  90:Generated_Source\PSoC4/cyPm.h ****     void CySysPmHibernate(void);
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 3
+
+
+  91:Generated_Source\PSoC4/cyPm.h ****     void CySysPmFreezeIo(void);
+  92:Generated_Source\PSoC4/cyPm.h ****     void CySysPmUnfreezeIo(void);
+  93:Generated_Source\PSoC4/cyPm.h ****     uint32 CySysPmGetResetReason(void);
+  94:Generated_Source\PSoC4/cyPm.h ****     void CySysPmStop(void);
+  95:Generated_Source\PSoC4/cyPm.h ****     void CySysPmSetWakeupPolarity(uint32 polarity);
+  96:Generated_Source\PSoC4/cyPm.h **** #else
+  97:Generated_Source\PSoC4/cyPm.h ****     void CySysPmSetWakeupHoldoff(uint32 hfclkFrequencyMhz);
+  98:Generated_Source\PSoC4/cyPm.h **** #endif /* (CY_IP_SRSSV2) */
+  99:Generated_Source\PSoC4/cyPm.h **** 
+ 100:Generated_Source\PSoC4/cyPm.h **** /** @} group_power_management */
+ 101:Generated_Source\PSoC4/cyPm.h **** 
+ 102:Generated_Source\PSoC4/cyPm.h **** 
+ 103:Generated_Source\PSoC4/cyPm.h **** /*******************************************************************************
+ 104:Generated_Source\PSoC4/cyPm.h **** * The ARM compilers have the __wfi() intrinsic that inserts a WFI instruction
+ 105:Generated_Source\PSoC4/cyPm.h **** * into the instruction stream generated by the compiler. The GCC compiler has to
+ 106:Generated_Source\PSoC4/cyPm.h **** * execute assembly language instruction.
+ 107:Generated_Source\PSoC4/cyPm.h **** *******************************************************************************/
+ 108:Generated_Source\PSoC4/cyPm.h **** #if defined(__ARMCC_VERSION)    /* Instristic for Keil compilers */
+ 109:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_WFI       __wfi()
+ 110:Generated_Source\PSoC4/cyPm.h **** #else   /* ASM for GCC & IAR */
+ 111:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_WFI       __asm volatile ("WFI \n")
+ 112:Generated_Source\PSoC4/cyPm.h **** #endif /* __ARMCC_VERSION */
+ 113:Generated_Source\PSoC4/cyPm.h **** 
+ 114:Generated_Source\PSoC4/cyPm.h **** #if(CY_IP_SRSSV2)
+ 115:Generated_Source\PSoC4/cyPm.h **** 
+ 116:Generated_Source\PSoC4/cyPm.h ****     /* CySysPmSetWakeupPolarity() */
+ 117:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_STOP_WAKEUP_ACTIVE_LOW        ((uint32)(0x0u))    /**< Logical zero will wakeup t
+ 118:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_STOP_WAKEUP_ACTIVE_HIGH       ((uint32)(0x1u))    /**< Logical one will wakeup th
+ 119:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_STOP_WAKEUP_POLARITY          (CY_PM_STOP_WAKEUP_ACTIVE_LOW)
+ 120:Generated_Source\PSoC4/cyPm.h **** 
+ 121:Generated_Source\PSoC4/cyPm.h ****     /* CySysPmGetResetReason() */
+ 122:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_RESET_REASON_UNKN             (0u)    /**< Unknown reset reason. */
+ 123:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_RESET_REASON_XRES             (1u)    /**< Transition from OFF/XRES to RESET */
+ 124:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_RESET_REASON_WAKEUP_HIB       (2u)    /**< Transition/wakeup from HIBERNATE to RE
+ 125:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_RESET_REASON_WAKEUP_STOP      (3u)    /**< Transition/wakeup from STOP to RESET *
+ 126:Generated_Source\PSoC4/cyPm.h **** 
+ 127:Generated_Source\PSoC4/cyPm.h **** #endif /* (CY_IP_SRSSV2) */
+ 128:Generated_Source\PSoC4/cyPm.h **** 
+ 129:Generated_Source\PSoC4/cyPm.h **** 
+ 130:Generated_Source\PSoC4/cyPm.h **** /***************************************
+ 131:Generated_Source\PSoC4/cyPm.h **** *              Registers
+ 132:Generated_Source\PSoC4/cyPm.h **** ***************************************/
+ 133:Generated_Source\PSoC4/cyPm.h **** 
+ 134:Generated_Source\PSoC4/cyPm.h **** /* Power Mode Control */
+ 135:Generated_Source\PSoC4/cyPm.h **** #define CY_PM_PWR_CONTROL_REG               (*(reg32 *) CYREG_PWR_CONTROL)
+ 136:Generated_Source\PSoC4/cyPm.h **** #define CY_PM_PWR_CONTROL_PTR               ( (reg32 *) CYREG_PWR_CONTROL)
+ 137:Generated_Source\PSoC4/cyPm.h **** 
+ 138:Generated_Source\PSoC4/cyPm.h **** /* CPU System Control Register */
+ 139:Generated_Source\PSoC4/cyPm.h **** #if (CY_IP_CPUSS_CM0)
+ 140:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_CPU_SCR_REG                   (*(reg32 *) CYREG_CM0_SCR)
+ 141:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_CPU_SCR_PTR                   ( (reg32 *) CYREG_CM0_SCR)
+ 142:Generated_Source\PSoC4/cyPm.h **** #else /* CY_IP_CPUSS_CM0PLUS */
+ 143:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_CPU_SCR_REG                   (*(reg32 *) CYREG_CM0P_SCR)
+ 144:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_CPU_SCR_PTR                   ( (reg32 *) CYREG_CM0P_SCR)
+ 145:Generated_Source\PSoC4/cyPm.h **** #endif /* (CY_IP_CPUSS_CM0) */
+ 146:Generated_Source\PSoC4/cyPm.h **** 
+ 147:Generated_Source\PSoC4/cyPm.h **** /* Power System Key & Delay Register */
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 4
+
+
+ 148:Generated_Source\PSoC4/cyPm.h **** #define CY_PM_PWR_KEY_DELAY_REG             (*(reg32 *) CYREG_PWR_KEY_DELAY)
+ 149:Generated_Source\PSoC4/cyPm.h **** #define CY_PM_PWR_KEY_DELAY_PTR             ( (reg32 *) CYREG_PWR_KEY_DELAY)
+ 150:Generated_Source\PSoC4/cyPm.h **** 
+ 151:Generated_Source\PSoC4/cyPm.h **** 
+ 152:Generated_Source\PSoC4/cyPm.h **** #if(CY_IP_SRSSV2)
+ 153:Generated_Source\PSoC4/cyPm.h ****     /* Hibernate wakeup value for PWR_KEY_DELAY */
+ 154:Generated_Source\PSoC4/cyPm.h ****     #define CY_SFLASH_HIB_KEY_DELAY_REG     (*(reg16 *) CYREG_SFLASH_HIB_KEY_DELAY)
+ 155:Generated_Source\PSoC4/cyPm.h ****     #define CY_SFLASH_HIB_KEY_DELAY_PTR     ( (reg16 *) CYREG_SFLASH_HIB_KEY_DELAY)
+ 156:Generated_Source\PSoC4/cyPm.h **** #endif  /* (CY_IP_SRSSV2) */
+ 157:Generated_Source\PSoC4/cyPm.h **** 
+ 158:Generated_Source\PSoC4/cyPm.h **** /* Deep Sleep wakeup value for PWR_KEY_DELAY */
+ 159:Generated_Source\PSoC4/cyPm.h **** #define CY_SFLASH_DPSLP_KEY_DELAY_REG       (*(reg16 *) CYREG_SFLASH_DPSLP_KEY_DELAY)
+ 160:Generated_Source\PSoC4/cyPm.h **** #define CY_SFLASH_DPSLP_KEY_DELAY_PTR       ( (reg16 *) CYREG_SFLASH_DPSLP_KEY_DELAY)
+ 161:Generated_Source\PSoC4/cyPm.h **** 
+ 162:Generated_Source\PSoC4/cyPm.h **** /* Power Stop Mode Register */
+ 163:Generated_Source\PSoC4/cyPm.h **** #if(CY_IP_SRSSV2)
+ 164:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_PWR_STOP_REG              (*(reg32 *) CYREG_PWR_STOP)
+ 165:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_PWR_STOP_PTR              ( (reg32 *) CYREG_PWR_STOP)
+ 166:Generated_Source\PSoC4/cyPm.h **** #endif /* (CY_IP_SRSSV2) */
+ 167:Generated_Source\PSoC4/cyPm.h **** 
+ 168:Generated_Source\PSoC4/cyPm.h **** #if (CY_PSOC4_4100 || CY_PSOC4_4200)
+ 169:Generated_Source\PSoC4/cyPm.h ****     /* CPU Subsystem Configuration */
+ 170:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_CPUSS_CONFIG_REG             (*(reg32 *) CYREG_CPUSS_CONFIG)
+ 171:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_CPUSS_CONFIG_PTR             ( (reg32 *) CYREG_CPUSS_CONFIG)
+ 172:Generated_Source\PSoC4/cyPm.h **** #endif /* (CY_PSOC4_4100 || CY_PSOC4_4200) */
+ 173:Generated_Source\PSoC4/cyPm.h **** 
+ 174:Generated_Source\PSoC4/cyPm.h **** 
+ 175:Generated_Source\PSoC4/cyPm.h **** /***************************************
+ 176:Generated_Source\PSoC4/cyPm.h **** *       Register Constants
+ 177:Generated_Source\PSoC4/cyPm.h **** ***************************************/
+ 178:Generated_Source\PSoC4/cyPm.h **** 
+ 179:Generated_Source\PSoC4/cyPm.h **** /* CM0 System Control Register Constants */
+ 180:Generated_Source\PSoC4/cyPm.h **** #define CY_PM_CPU_SCR_SLEEPDEEP             ((uint32)(0x04u))
+ 181:Generated_Source\PSoC4/cyPm.h **** 
+ 182:Generated_Source\PSoC4/cyPm.h **** #if(CY_IP_SRSSV2)
+ 183:Generated_Source\PSoC4/cyPm.h ****     /* Power Mode Control Constants */
+ 184:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_PWR_CONTROL_HIBERNATE         (0x80000000u)
+ 185:Generated_Source\PSoC4/cyPm.h **** 
+ 186:Generated_Source\PSoC4/cyPm.h ****     /* Power Mode Stop Constants */
+ 187:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_PWR_STOP_POLARITY_SHIFT       (16u)
+ 188:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_PWR_STOP_POLARITY             ((uint32)((uint32)1u << CY_PM_PWR_STOP_POLARITY_SHI
+ 189:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_PWR_STOP_FREEZE_SHIFT         (17u)
+ 190:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_PWR_STOP_FREEZE               ((uint32)((uint32)1u << CY_PM_PWR_STOP_FREEZE_SHIFT
+ 191:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_PWR_STOP_UNLOCK_SHIFT         (8u)
+ 192:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_PWR_STOP_UNLOCK_MASK          ((uint32)((uint32)0xFFu << CY_PM_PWR_STOP_UNLOCK_SH
+ 193:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_PWR_STOP_UNLOCK               ((uint32)((uint32)0x3Au << CY_PM_PWR_STOP_UNLOCK_SH
+ 194:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_PWR_STOP_STOP_SHIFT           (31u)
+ 195:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_PWR_STOP_STOP                 ((uint32)((uint32)1u << CY_PM_PWR_STOP_STOP_SHIFT))
+ 196:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_PWR_STOP_TOKEN_MASK           ((uint32)(0xFFu))
+ 197:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_PWR_STOP_TOKEN_XRES           ((uint32)(0x00u))
+ 198:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_PWR_STOP_TOKEN_HIB            ((uint32)(0xF1u))
+ 199:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_PWR_STOP_TOKEN_STOP           ((uint32)(0xF2u))
+ 200:Generated_Source\PSoC4/cyPm.h **** #else
+ 201:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_PWR_KEY_DELAY_REG_DEFAULT     ((uint32) 248u)
+ 202:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_PWR_KEY_DELAY_FREQ_DEFAULT    (48u)
+ 203:Generated_Source\PSoC4/cyPm.h **** #endif /* (CY_IP_SRSSV2) */
+ 204:Generated_Source\PSoC4/cyPm.h **** 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 5
+
+
+ 205:Generated_Source\PSoC4/cyPm.h **** #if (CY_PSOC4_4100 || CY_PSOC4_4200)
+ 206:Generated_Source\PSoC4/cyPm.h ****     /* 0 - normal operation, 1 - Flash Accelerator in bypass mode */
+ 207:Generated_Source\PSoC4/cyPm.h ****     #define CY_PM_CPUSS_CONFIG_FLSH_ACC_BYPASS      ((uint32) 0x02u)
+ 208:Generated_Source\PSoC4/cyPm.h **** #endif /* (CY_PSOC4_4100 || CY_PSOC4_4200) */
+ 209:Generated_Source\PSoC4/cyPm.h **** 
+ 210:Generated_Source\PSoC4/cyPm.h **** 
+ 211:Generated_Source\PSoC4/cyPm.h **** #if (CY_IP_SRSSV2)
+ 212:Generated_Source\PSoC4/cyPm.h ****     #if (CY_IP_HOBTO_DEVICE)
+ 213:Generated_Source\PSoC4/cyPm.h ****         /*******************************************************************************
+ 214:Generated_Source\PSoC4/cyPm.h ****         * Function Name: CySysPmHibPinsDisableInputBuf
+ 215:Generated_Source\PSoC4/cyPm.h ****         ****************************************************************************//**
+ 216:Generated_Source\PSoC4/cyPm.h ****         *
+ 217:Generated_Source\PSoC4/cyPm.h ****         *  Disable the input buffer for all the port. This is required before Hibernate
+ 218:Generated_Source\PSoC4/cyPm.h ****         *  mode entry as the operation of the input buffer is not guaranteed if VCCD
+ 219:Generated_Source\PSoC4/cyPm.h ****         *  drops down to 1.0 V.
+ 220:Generated_Source\PSoC4/cyPm.h ****         *
+ 221:Generated_Source\PSoC4/cyPm.h ****         *******************************************************************************/
+ 222:Generated_Source\PSoC4/cyPm.h ****         static CY_INLINE void CySysPmHibPinsDisableInputBuf(void)
+ 223:Generated_Source\PSoC4/cyPm.h ****         {
+  25              		.loc 1 223 0
+  26              		.cfi_startproc
+  27 0000 80B5     		push	{r7, lr}
+  28              		.cfi_def_cfa_offset 8
+  29              		.cfi_offset 7, -8
+  30              		.cfi_offset 14, -4
+  31 0002 00AF     		add	r7, sp, #0
+  32              		.cfi_def_cfa_register 7
+ 224:Generated_Source\PSoC4/cyPm.h ****             #ifdef CYREG_GPIO_PRT0_PC
+ 225:Generated_Source\PSoC4/cyPm.h ****                 CY_CLEAR_REG32_FIELD(CYREG_GPIO_PRT0_PC, CYFLD_GPIO_PRT_PORT_IB_MODE_SEL);
+  33              		.loc 1 225 0
+  34 0004 154B     		ldr	r3, .L2
+  35 0006 154A     		ldr	r2, .L2
+  36 0008 1268     		ldr	r2, [r2]
+  37 000a 9200     		lsl	r2, r2, #2
+  38 000c 9208     		lsr	r2, r2, #2
+  39 000e 1A60     		str	r2, [r3]
+ 226:Generated_Source\PSoC4/cyPm.h ****             #endif /* CYREG_GPIO_PRT0_PC */
+ 227:Generated_Source\PSoC4/cyPm.h **** 
+ 228:Generated_Source\PSoC4/cyPm.h ****             #ifdef CYREG_GPIO_PRT1_PC
+ 229:Generated_Source\PSoC4/cyPm.h ****                 CY_CLEAR_REG32_FIELD( CYREG_GPIO_PRT1_PC, CYFLD_GPIO_PRT_PORT_IB_MODE_SEL);
+  40              		.loc 1 229 0
+  41 0010 134B     		ldr	r3, .L2+4
+  42 0012 134A     		ldr	r2, .L2+4
+  43 0014 1268     		ldr	r2, [r2]
+  44 0016 9200     		lsl	r2, r2, #2
+  45 0018 9208     		lsr	r2, r2, #2
+  46 001a 1A60     		str	r2, [r3]
+ 230:Generated_Source\PSoC4/cyPm.h ****             #endif /* CYREG_GPIO_PRT1_PC */
+ 231:Generated_Source\PSoC4/cyPm.h **** 
+ 232:Generated_Source\PSoC4/cyPm.h ****             #ifdef CYREG_GPIO_PRT2_PC
+ 233:Generated_Source\PSoC4/cyPm.h ****                 CY_CLEAR_REG32_FIELD( CYREG_GPIO_PRT2_PC, CYFLD_GPIO_PRT_PORT_IB_MODE_SEL);
+  47              		.loc 1 233 0
+  48 001c 114B     		ldr	r3, .L2+8
+  49 001e 114A     		ldr	r2, .L2+8
+  50 0020 1268     		ldr	r2, [r2]
+  51 0022 9200     		lsl	r2, r2, #2
+  52 0024 9208     		lsr	r2, r2, #2
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 6
+
+
+  53 0026 1A60     		str	r2, [r3]
+ 234:Generated_Source\PSoC4/cyPm.h ****             #endif /* CYREG_GPIO_PRT2_PC */
+ 235:Generated_Source\PSoC4/cyPm.h **** 
+ 236:Generated_Source\PSoC4/cyPm.h ****             #ifdef CYREG_GPIO_PRT3_PC
+ 237:Generated_Source\PSoC4/cyPm.h ****                 CY_CLEAR_REG32_FIELD( CYREG_GPIO_PRT3_PC, CYFLD_GPIO_PRT_PORT_IB_MODE_SEL);
+  54              		.loc 1 237 0
+  55 0028 0F4B     		ldr	r3, .L2+12
+  56 002a 0F4A     		ldr	r2, .L2+12
+  57 002c 1268     		ldr	r2, [r2]
+  58 002e 9200     		lsl	r2, r2, #2
+  59 0030 9208     		lsr	r2, r2, #2
+  60 0032 1A60     		str	r2, [r3]
+ 238:Generated_Source\PSoC4/cyPm.h ****             #endif /* CYREG_GPIO_PRT3_PC */
+ 239:Generated_Source\PSoC4/cyPm.h **** 
+ 240:Generated_Source\PSoC4/cyPm.h ****             #ifdef CYREG_GPIO_PRT4_PC
+ 241:Generated_Source\PSoC4/cyPm.h ****                 CY_CLEAR_REG32_FIELD( CYREG_GPIO_PRT4_PC, CYFLD_GPIO_PRT_PORT_IB_MODE_SEL);
+  61              		.loc 1 241 0
+  62 0034 0D4B     		ldr	r3, .L2+16
+  63 0036 0D4A     		ldr	r2, .L2+16
+  64 0038 1268     		ldr	r2, [r2]
+  65 003a 9200     		lsl	r2, r2, #2
+  66 003c 9208     		lsr	r2, r2, #2
+  67 003e 1A60     		str	r2, [r3]
+ 242:Generated_Source\PSoC4/cyPm.h ****             #endif /* CYREG_GPIO_PRT4_PC */
+ 243:Generated_Source\PSoC4/cyPm.h **** 
+ 244:Generated_Source\PSoC4/cyPm.h ****             #ifdef CYREG_GPIO_PRT5_PC
+ 245:Generated_Source\PSoC4/cyPm.h ****                 CY_CLEAR_REG32_FIELD( CYREG_GPIO_PRT5_PC, CYFLD_GPIO_PRT_PORT_IB_MODE_SEL);
+  68              		.loc 1 245 0
+  69 0040 0B4B     		ldr	r3, .L2+20
+  70 0042 0B4A     		ldr	r2, .L2+20
+  71 0044 1268     		ldr	r2, [r2]
+  72 0046 9200     		lsl	r2, r2, #2
+  73 0048 9208     		lsr	r2, r2, #2
+  74 004a 1A60     		str	r2, [r3]
+ 246:Generated_Source\PSoC4/cyPm.h ****             #endif /* CYREG_GPIO_PRT5_PC */
+ 247:Generated_Source\PSoC4/cyPm.h **** 
+ 248:Generated_Source\PSoC4/cyPm.h ****             #ifdef CYREG_GPIO_PRT6_PC
+ 249:Generated_Source\PSoC4/cyPm.h ****                 CY_CLEAR_REG32_FIELD( CYREG_GPIO_PRT6_PC, CYFLD_GPIO_PRT_PORT_IB_MODE_SEL);
+  75              		.loc 1 249 0
+  76 004c 094B     		ldr	r3, .L2+24
+  77 004e 094A     		ldr	r2, .L2+24
+  78 0050 1268     		ldr	r2, [r2]
+  79 0052 9200     		lsl	r2, r2, #2
+  80 0054 9208     		lsr	r2, r2, #2
+  81 0056 1A60     		str	r2, [r3]
+ 250:Generated_Source\PSoC4/cyPm.h ****             #endif /* CYREG_GPIO_PRT6_PC */
+ 251:Generated_Source\PSoC4/cyPm.h **** 
+ 252:Generated_Source\PSoC4/cyPm.h ****             #ifdef CYREG_GPIO_PRT7_PC
+ 253:Generated_Source\PSoC4/cyPm.h ****                 CY_CLEAR_REG32_FIELD( CYREG_GPIO_PRT7_PC, CYFLD_GPIO_PRT_PORT_IB_MODE_SEL);
+ 254:Generated_Source\PSoC4/cyPm.h ****             #endif /* CYREG_GPIO_PRT7_PC */
+ 255:Generated_Source\PSoC4/cyPm.h **** 
+ 256:Generated_Source\PSoC4/cyPm.h ****             #ifdef CYREG_GPIO_PRT8_PC
+ 257:Generated_Source\PSoC4/cyPm.h ****                 CY_CLEAR_REG32_FIELD( CYREG_GPIO_PRT8_PC, CYFLD_GPIO_PRT_PORT_IB_MODE_SEL);
+ 258:Generated_Source\PSoC4/cyPm.h ****             #endif /* CYREG_GPIO_PRT8_PC */
+ 259:Generated_Source\PSoC4/cyPm.h **** 
+ 260:Generated_Source\PSoC4/cyPm.h ****             #ifdef CYREG_GPIO_PRT9_PC
+ 261:Generated_Source\PSoC4/cyPm.h ****                 CY_CLEAR_REG32_FIELD( CYREG_GPIO_PRT9_PC, CYFLD_GPIO_PRT_PORT_IB_MODE_SEL);
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 7
+
+
+ 262:Generated_Source\PSoC4/cyPm.h ****             #endif /* CYREG_GPIO_PRT9_PC */
+ 263:Generated_Source\PSoC4/cyPm.h **** 
+ 264:Generated_Source\PSoC4/cyPm.h ****             #ifdef CYREG_GPIO_PRT10_PC
+ 265:Generated_Source\PSoC4/cyPm.h ****                 CY_CLEAR_REG32_FIELD(CYREG_GPIO_PRT10_PC, CYFLD_GPIO_PRT_PORT_IB_MODE_SEL);
+ 266:Generated_Source\PSoC4/cyPm.h ****             #endif /* CYREG_GPIO_PRT10_PC */
+ 267:Generated_Source\PSoC4/cyPm.h **** 
+ 268:Generated_Source\PSoC4/cyPm.h ****             #ifdef CYREG_GPIO_PRT11_PC
+ 269:Generated_Source\PSoC4/cyPm.h ****                 CY_CLEAR_REG32_FIELD(CYREG_GPIO_PRT11_PC, CYFLD_GPIO_PRT_PORT_IB_MODE_SEL);
+ 270:Generated_Source\PSoC4/cyPm.h ****             #endif /* CYREG_GPIO_PRT11_PC */
+ 271:Generated_Source\PSoC4/cyPm.h **** 
+ 272:Generated_Source\PSoC4/cyPm.h ****             #ifdef CYREG_GPIO_PRT12_PC
+ 273:Generated_Source\PSoC4/cyPm.h ****                 CY_CLEAR_REG32_FIELD(CYREG_GPIO_PRT12_PC, CYFLD_GPIO_PRT_PORT_IB_MODE_SEL);
+ 274:Generated_Source\PSoC4/cyPm.h ****             #endif /* CYREG_GPIO_PRT12_PC */
+ 275:Generated_Source\PSoC4/cyPm.h **** 
+ 276:Generated_Source\PSoC4/cyPm.h ****             #ifdef CYREG_GPIO_PRT13_PC
+ 277:Generated_Source\PSoC4/cyPm.h ****                 CY_CLEAR_REG32_FIELD(CYREG_GPIO_PRT13_PC, CYFLD_GPIO_PRT_PORT_IB_MODE_SEL);
+ 278:Generated_Source\PSoC4/cyPm.h ****             #endif /* CYREG_GPIO_PRT13_PC */
+ 279:Generated_Source\PSoC4/cyPm.h **** 
+ 280:Generated_Source\PSoC4/cyPm.h ****             #ifdef CYREG_GPIO_PRT14_PC
+ 281:Generated_Source\PSoC4/cyPm.h ****                 CY_CLEAR_REG32_FIELD(CYREG_GPIO_PRT14_PC, CYFLD_GPIO_PRT_PORT_IB_MODE_SEL);
+ 282:Generated_Source\PSoC4/cyPm.h ****             #endif /* CYREG_GPIO_PRT14_PC */
+ 283:Generated_Source\PSoC4/cyPm.h **** 
+ 284:Generated_Source\PSoC4/cyPm.h ****             #ifdef CYREG_GPIO_PRT15_PC
+ 285:Generated_Source\PSoC4/cyPm.h ****                 CY_CLEAR_REG32_FIELD(CYREG_GPIO_PRT15_PC, CYFLD_GPIO_PRT_PORT_IB_MODE_SEL);
+ 286:Generated_Source\PSoC4/cyPm.h ****             #endif /* CYREG_GPIO_PRT15_PC */
+ 287:Generated_Source\PSoC4/cyPm.h ****         }
+  82              		.loc 1 287 0
+  83 0058 BD46     		mov	sp, r7
+  84              		@ sp needed
+  85 005a 80BD     		pop	{r7, pc}
+  86              	.L3:
+  87              		.align	2
+  88              	.L2:
+  89 005c 08000440 		.word	1074003976
+  90 0060 08010440 		.word	1074004232
+  91 0064 08020440 		.word	1074004488
+  92 0068 08030440 		.word	1074004744
+  93 006c 08040440 		.word	1074005000
+  94 0070 08050440 		.word	1074005256
+  95 0074 08060440 		.word	1074005512
+  96              		.cfi_endproc
+  97              	.LFE0:
+  98              		.size	CySysPmHibPinsDisableInputBuf, .-CySysPmHibPinsDisableInputBuf
+  99              		.section	.text.CySysPmSleep,"ax",%progbits
+ 100              		.align	2
+ 101              		.global	CySysPmSleep
+ 102              		.code	16
+ 103              		.thumb_func
+ 104              		.type	CySysPmSleep, %function
+ 105              	CySysPmSleep:
+ 106              	.LFB3:
+ 107              		.file 2 "Generated_Source\\PSoC4\\cyPm.c"
+   1:Generated_Source\PSoC4/cyPm.c **** /***************************************************************************//**
+   2:Generated_Source\PSoC4/cyPm.c **** * \file cyPm.c
+   3:Generated_Source\PSoC4/cyPm.c **** * \version 5.50
+   4:Generated_Source\PSoC4/cyPm.c **** *
+   5:Generated_Source\PSoC4/cyPm.c **** * \brief Provides an API for the power management.
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 8
+
+
+   6:Generated_Source\PSoC4/cyPm.c **** *
+   7:Generated_Source\PSoC4/cyPm.c **** * \note Documentation of the API's in this file is located in the System
+   8:Generated_Source\PSoC4/cyPm.c **** * Reference Guide provided with PSoC Creator.
+   9:Generated_Source\PSoC4/cyPm.c **** *
+  10:Generated_Source\PSoC4/cyPm.c **** ********************************************************************************
+  11:Generated_Source\PSoC4/cyPm.c **** * \copyright
+  12:Generated_Source\PSoC4/cyPm.c **** * Copyright 2011-2016, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC4/cyPm.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:Generated_Source\PSoC4/cyPm.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:Generated_Source\PSoC4/cyPm.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC4/cyPm.c **** *******************************************************************************/
+  17:Generated_Source\PSoC4/cyPm.c **** 
+  18:Generated_Source\PSoC4/cyPm.c **** #include "cyPm.h"
+  19:Generated_Source\PSoC4/cyPm.c **** #include "CyLib.h"
+  20:Generated_Source\PSoC4/cyPm.c **** 
+  21:Generated_Source\PSoC4/cyPm.c **** 
+  22:Generated_Source\PSoC4/cyPm.c **** /*******************************************************************************
+  23:Generated_Source\PSoC4/cyPm.c **** * Function Name: CySysPmSleep
+  24:Generated_Source\PSoC4/cyPm.c **** ****************************************************************************//**
+  25:Generated_Source\PSoC4/cyPm.c **** *
+  26:Generated_Source\PSoC4/cyPm.c **** * Puts the part into the Sleep state. This is a CPU-centric power mode.
+  27:Generated_Source\PSoC4/cyPm.c **** * It means that the CPU has indicated that it is in the sleep mode and
+  28:Generated_Source\PSoC4/cyPm.c **** * its main clock can be removed. It is identical to Active from a peripheral
+  29:Generated_Source\PSoC4/cyPm.c **** * point of view. Any enabled interrupts can cause wakeup from the Sleep mode.
+  30:Generated_Source\PSoC4/cyPm.c **** *
+  31:Generated_Source\PSoC4/cyPm.c **** *******************************************************************************/
+  32:Generated_Source\PSoC4/cyPm.c **** void CySysPmSleep(void)
+  33:Generated_Source\PSoC4/cyPm.c **** {
+ 108              		.loc 2 33 0
+ 109              		.cfi_startproc
+ 110 0000 90B5     		push	{r4, r7, lr}
+ 111              		.cfi_def_cfa_offset 12
+ 112              		.cfi_offset 4, -12
+ 113              		.cfi_offset 7, -8
+ 114              		.cfi_offset 14, -4
+ 115 0002 83B0     		sub	sp, sp, #12
+ 116              		.cfi_def_cfa_offset 24
+ 117 0004 00AF     		add	r7, sp, #0
+ 118              		.cfi_def_cfa_register 7
+  34:Generated_Source\PSoC4/cyPm.c ****     uint8 interruptState;
+  35:Generated_Source\PSoC4/cyPm.c **** 
+  36:Generated_Source\PSoC4/cyPm.c ****     interruptState = CyEnterCriticalSection();
+ 119              		.loc 2 36 0
+ 120 0006 FC1D     		add	r4, r7, #7
+ 121 0008 FFF7FEFF 		bl	CyEnterCriticalSection
+ 122 000c 031C     		mov	r3, r0
+ 123 000e 2370     		strb	r3, [r4]
+  37:Generated_Source\PSoC4/cyPm.c **** 
+  38:Generated_Source\PSoC4/cyPm.c ****     /* CPU enters Sleep mode upon execution of WFI */
+  39:Generated_Source\PSoC4/cyPm.c ****     CY_PM_CPU_SCR_REG &= (uint32) (~CY_PM_CPU_SCR_SLEEPDEEP);
+ 124              		.loc 2 39 0
+ 125 0010 074B     		ldr	r3, .L5
+ 126 0012 074A     		ldr	r2, .L5
+ 127 0014 1268     		ldr	r2, [r2]
+ 128 0016 0421     		mov	r1, #4
+ 129 0018 8A43     		bic	r2, r1
+ 130 001a 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 9
+
+
+  40:Generated_Source\PSoC4/cyPm.c **** 
+  41:Generated_Source\PSoC4/cyPm.c ****     /* Sleep and wait for interrupt */
+  42:Generated_Source\PSoC4/cyPm.c ****     CY_PM_WFI;
+ 131              		.loc 2 42 0
+ 132              	@ 42 "Generated_Source\PSoC4\cyPm.c" 1
+ 133 001c 30BF     		WFI 
+ 134              	
+ 135              	@ 0 "" 2
+  43:Generated_Source\PSoC4/cyPm.c **** 
+  44:Generated_Source\PSoC4/cyPm.c ****     CyExitCriticalSection(interruptState);
+ 136              		.loc 2 44 0
+ 137              		.code	16
+ 138 001e FB1D     		add	r3, r7, #7
+ 139 0020 1B78     		ldrb	r3, [r3]
+ 140 0022 181C     		mov	r0, r3
+ 141 0024 FFF7FEFF 		bl	CyExitCriticalSection
+  45:Generated_Source\PSoC4/cyPm.c **** }
+ 142              		.loc 2 45 0
+ 143 0028 BD46     		mov	sp, r7
+ 144 002a 03B0     		add	sp, sp, #12
+ 145              		@ sp needed
+ 146 002c 90BD     		pop	{r4, r7, pc}
+ 147              	.L6:
+ 148 002e C046     		.align	2
+ 149              	.L5:
+ 150 0030 10ED00E0 		.word	-536810224
+ 151              		.cfi_endproc
+ 152              	.LFE3:
+ 153              		.size	CySysPmSleep, .-CySysPmSleep
+ 154              		.section	.text.CySysPmDeepSleep,"ax",%progbits
+ 155              		.align	2
+ 156              		.global	CySysPmDeepSleep
+ 157              		.code	16
+ 158              		.thumb_func
+ 159              		.type	CySysPmDeepSleep, %function
+ 160              	CySysPmDeepSleep:
+ 161              	.LFB4:
+  46:Generated_Source\PSoC4/cyPm.c **** 
+  47:Generated_Source\PSoC4/cyPm.c **** 
+  48:Generated_Source\PSoC4/cyPm.c **** /*******************************************************************************
+  49:Generated_Source\PSoC4/cyPm.c **** * Function Name: CySysPmDeepSleep
+  50:Generated_Source\PSoC4/cyPm.c **** ****************************************************************************//**
+  51:Generated_Source\PSoC4/cyPm.c **** *
+  52:Generated_Source\PSoC4/cyPm.c **** * Puts the part into the Deep Sleep state. If the firmware attempts to enter
+  53:Generated_Source\PSoC4/cyPm.c **** * this mode before the system is ready (that is, when
+  54:Generated_Source\PSoC4/cyPm.c **** * PWR_CONTROL.LPM_READY = 0), then the device will go into the Sleep mode
+  55:Generated_Source\PSoC4/cyPm.c **** * instead and automatically enter the originally intended mode when the
+  56:Generated_Source\PSoC4/cyPm.c **** * holdoff expires.
+  57:Generated_Source\PSoC4/cyPm.c **** *
+  58:Generated_Source\PSoC4/cyPm.c **** * The wakeup occurs when an interrupt is received from a DeepSleep or
+  59:Generated_Source\PSoC4/cyPm.c **** * Hibernate peripheral. For more details, see a corresponding
+  60:Generated_Source\PSoC4/cyPm.c **** * peripheral's datasheet.
+  61:Generated_Source\PSoC4/cyPm.c **** *
+  62:Generated_Source\PSoC4/cyPm.c **** *******************************************************************************/
+  63:Generated_Source\PSoC4/cyPm.c **** void CySysPmDeepSleep(void)
+  64:Generated_Source\PSoC4/cyPm.c **** {
+ 162              		.loc 2 64 0
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 10
+
+
+ 163              		.cfi_startproc
+ 164 0000 90B5     		push	{r4, r7, lr}
+ 165              		.cfi_def_cfa_offset 12
+ 166              		.cfi_offset 4, -12
+ 167              		.cfi_offset 7, -8
+ 168              		.cfi_offset 14, -4
+ 169 0002 83B0     		sub	sp, sp, #12
+ 170              		.cfi_def_cfa_offset 24
+ 171 0004 00AF     		add	r7, sp, #0
+ 172              		.cfi_def_cfa_register 7
+  65:Generated_Source\PSoC4/cyPm.c ****     uint8 interruptState;
+  66:Generated_Source\PSoC4/cyPm.c ****     #if(CY_IP_SRSSV2)
+  67:Generated_Source\PSoC4/cyPm.c ****         volatile uint32 clkSelectReg;
+  68:Generated_Source\PSoC4/cyPm.c ****     #endif /* (CY_IP_SRSSV2) */
+  69:Generated_Source\PSoC4/cyPm.c **** 
+  70:Generated_Source\PSoC4/cyPm.c ****     interruptState = CyEnterCriticalSection();
+ 173              		.loc 2 70 0
+ 174 0006 FC1D     		add	r4, r7, #7
+ 175 0008 FFF7FEFF 		bl	CyEnterCriticalSection
+ 176 000c 031C     		mov	r3, r0
+ 177 000e 2370     		strb	r3, [r4]
+  71:Generated_Source\PSoC4/cyPm.c **** 
+  72:Generated_Source\PSoC4/cyPm.c ****     #if(CY_IP_SRSSV2)
+  73:Generated_Source\PSoC4/cyPm.c ****         /* Device enters DeepSleep mode when CPU asserts SLEEPDEEP signal */
+  74:Generated_Source\PSoC4/cyPm.c ****         CY_PM_PWR_CONTROL_REG &= (uint32) (~CY_PM_PWR_CONTROL_HIBERNATE);
+ 178              		.loc 2 74 0
+ 179 0010 114B     		ldr	r3, .L8
+ 180 0012 114A     		ldr	r2, .L8
+ 181 0014 1268     		ldr	r2, [r2]
+ 182 0016 5200     		lsl	r2, r2, #1
+ 183 0018 5208     		lsr	r2, r2, #1
+ 184 001a 1A60     		str	r2, [r3]
+  75:Generated_Source\PSoC4/cyPm.c ****     #endif /* (CY_IP_SRSSV2) */
+  76:Generated_Source\PSoC4/cyPm.c **** 
+  77:Generated_Source\PSoC4/cyPm.c ****     #if (CY_IP_CPUSS && CY_IP_SRSSV2)
+  78:Generated_Source\PSoC4/cyPm.c ****         CY_PM_CPUSS_CONFIG_REG |= CY_PM_CPUSS_CONFIG_FLSH_ACC_BYPASS;
+  79:Generated_Source\PSoC4/cyPm.c ****     #endif /* (CY_IP_CPUSS && CY_IP_SRSSV2) */
+  80:Generated_Source\PSoC4/cyPm.c **** 
+  81:Generated_Source\PSoC4/cyPm.c ****     /* Adjust delay to wait for references to settle on wakeup from Deep Sleep */
+  82:Generated_Source\PSoC4/cyPm.c ****     CY_PM_PWR_KEY_DELAY_REG = CY_SFLASH_DPSLP_KEY_DELAY_REG;
+ 185              		.loc 2 82 0
+ 186 001c 0F4B     		ldr	r3, .L8+4
+ 187 001e 104A     		ldr	r2, .L8+8
+ 188 0020 1288     		ldrh	r2, [r2]
+ 189 0022 92B2     		uxth	r2, r2
+ 190 0024 1A60     		str	r2, [r3]
+  83:Generated_Source\PSoC4/cyPm.c **** 
+  84:Generated_Source\PSoC4/cyPm.c ****     /* CPU enters DeepSleep/Hibernate mode upon execution of WFI */
+  85:Generated_Source\PSoC4/cyPm.c ****     CY_PM_CPU_SCR_REG |= CY_PM_CPU_SCR_SLEEPDEEP;
+ 191              		.loc 2 85 0
+ 192 0026 0F4B     		ldr	r3, .L8+12
+ 193 0028 0E4A     		ldr	r2, .L8+12
+ 194 002a 1268     		ldr	r2, [r2]
+ 195 002c 0421     		mov	r1, #4
+ 196 002e 0A43     		orr	r2, r1
+ 197 0030 1A60     		str	r2, [r3]
+  86:Generated_Source\PSoC4/cyPm.c **** 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 11
+
+
+  87:Generated_Source\PSoC4/cyPm.c ****     #if(CY_IP_SRSSV2)
+  88:Generated_Source\PSoC4/cyPm.c ****         /* Preserve system clock configuration and
+  89:Generated_Source\PSoC4/cyPm.c ****         * reduce sysclk to <=12 MHz (Cypress ID #158710, #179888).
+  90:Generated_Source\PSoC4/cyPm.c ****         */
+  91:Generated_Source\PSoC4/cyPm.c ****         clkSelectReg = CY_SYS_CLK_SELECT_REG;
+ 198              		.loc 2 91 0
+ 199 0032 0D4B     		ldr	r3, .L8+16
+ 200 0034 1B68     		ldr	r3, [r3]
+ 201 0036 3B60     		str	r3, [r7]
+  92:Generated_Source\PSoC4/cyPm.c ****         CySysClkWriteSysclkDiv(CY_SYS_CLK_SYSCLK_DIV4);
+ 202              		.loc 2 92 0
+ 203 0038 0220     		mov	r0, #2
+ 204 003a FFF7FEFF 		bl	CySysClkWriteSysclkDiv
+  93:Generated_Source\PSoC4/cyPm.c ****     #endif /* (CY_IP_SRSSV2) */
+  94:Generated_Source\PSoC4/cyPm.c **** 
+  95:Generated_Source\PSoC4/cyPm.c ****     /* Sleep and wait for interrupt */
+  96:Generated_Source\PSoC4/cyPm.c ****     CY_PM_WFI;
+ 205              		.loc 2 96 0
+ 206              	@ 96 "Generated_Source\PSoC4\cyPm.c" 1
+ 207 003e 30BF     		WFI 
+ 208              	
+ 209              	@ 0 "" 2
+  97:Generated_Source\PSoC4/cyPm.c **** 
+  98:Generated_Source\PSoC4/cyPm.c ****     #if(CY_IP_SRSSV2)
+  99:Generated_Source\PSoC4/cyPm.c ****         /* Restore system clock configuration */
+ 100:Generated_Source\PSoC4/cyPm.c ****         CY_SYS_CLK_SELECT_REG = clkSelectReg;
+ 210              		.loc 2 100 0
+ 211              		.code	16
+ 212 0040 094B     		ldr	r3, .L8+16
+ 213 0042 3A68     		ldr	r2, [r7]
+ 214 0044 1A60     		str	r2, [r3]
+ 101:Generated_Source\PSoC4/cyPm.c ****     #endif /* (CY_IP_SRSSV2) */
+ 102:Generated_Source\PSoC4/cyPm.c **** 
+ 103:Generated_Source\PSoC4/cyPm.c ****     #if (CY_IP_CPUSS && CY_IP_SRSSV2)
+ 104:Generated_Source\PSoC4/cyPm.c ****         CY_PM_CPUSS_CONFIG_REG &= (uint32) (~CY_PM_CPUSS_CONFIG_FLSH_ACC_BYPASS);
+ 105:Generated_Source\PSoC4/cyPm.c ****     #endif /* (CY_IP_CPUSS && CY_IP_SRSSV2) */
+ 106:Generated_Source\PSoC4/cyPm.c **** 
+ 107:Generated_Source\PSoC4/cyPm.c ****     CyExitCriticalSection(interruptState);
+ 215              		.loc 2 107 0
+ 216 0046 FB1D     		add	r3, r7, #7
+ 217 0048 1B78     		ldrb	r3, [r3]
+ 218 004a 181C     		mov	r0, r3
+ 219 004c FFF7FEFF 		bl	CyExitCriticalSection
+ 108:Generated_Source\PSoC4/cyPm.c **** }
+ 220              		.loc 2 108 0
+ 221 0050 BD46     		mov	sp, r7
+ 222 0052 03B0     		add	sp, sp, #12
+ 223              		@ sp needed
+ 224 0054 90BD     		pop	{r4, r7, pc}
+ 225              	.L9:
+ 226 0056 C046     		.align	2
+ 227              	.L8:
+ 228 0058 00000B40 		.word	1074462720
+ 229 005c 0C000B40 		.word	1074462732
+ 230 0060 52F1FF0F 		.word	268431698
+ 231 0064 10ED00E0 		.word	-536810224
+ 232 0068 00010B40 		.word	1074462976
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 12
+
+
+ 233              		.cfi_endproc
+ 234              	.LFE4:
+ 235              		.size	CySysPmDeepSleep, .-CySysPmDeepSleep
+ 236              		.section	.text.CySysPmHibernate,"ax",%progbits
+ 237              		.align	2
+ 238              		.global	CySysPmHibernate
+ 239              		.code	16
+ 240              		.thumb_func
+ 241              		.type	CySysPmHibernate, %function
+ 242              	CySysPmHibernate:
+ 243              	.LFB5:
+ 109:Generated_Source\PSoC4/cyPm.c **** 
+ 110:Generated_Source\PSoC4/cyPm.c **** 
+ 111:Generated_Source\PSoC4/cyPm.c **** #if(CY_IP_SRSSV2)
+ 112:Generated_Source\PSoC4/cyPm.c **** 
+ 113:Generated_Source\PSoC4/cyPm.c ****     /*******************************************************************************
+ 114:Generated_Source\PSoC4/cyPm.c ****     * Function Name: CySysPmHibernate
+ 115:Generated_Source\PSoC4/cyPm.c ****     ****************************************************************************//**
+ 116:Generated_Source\PSoC4/cyPm.c ****     *
+ 117:Generated_Source\PSoC4/cyPm.c ****     * Puts the part into the Hibernate state. Only SRAM and UDBs are retained;
+ 118:Generated_Source\PSoC4/cyPm.c ****     * most internal supplies are off. Wakeup is possible from a pin or a hibernate
+ 119:Generated_Source\PSoC4/cyPm.c ****     * comparator only.
+ 120:Generated_Source\PSoC4/cyPm.c ****     *
+ 121:Generated_Source\PSoC4/cyPm.c ****     * It is expected that the firmware has already frozen the IO-Cells using
+ 122:Generated_Source\PSoC4/cyPm.c ****     * CySysPmFreezeIo() function before the call to this function. If this is
+ 123:Generated_Source\PSoC4/cyPm.c ****     * omitted, the IO-cells will be frozen in the same way as they are
+ 124:Generated_Source\PSoC4/cyPm.c ****     * in the Active to Deep Sleep transition, but will lose their state on wake up
+ 125:Generated_Source\PSoC4/cyPm.c ****     * (because of the reset occurring at that time).
+ 126:Generated_Source\PSoC4/cyPm.c ****     *
+ 127:Generated_Source\PSoC4/cyPm.c ****     * Because all the CPU state is lost, the CPU will start up at the reset vector.
+ 128:Generated_Source\PSoC4/cyPm.c ****     * To save the firmware state through the Hibernate low power mode, a
+ 129:Generated_Source\PSoC4/cyPm.c ****     * corresponding variable should be defined with CY_NOINIT attribute. It
+ 130:Generated_Source\PSoC4/cyPm.c ****     * prevents data from being initialized to zero on startup. The interrupt
+ 131:Generated_Source\PSoC4/cyPm.c ****     * cause of the hibernate peripheral is retained, such that it can be either
+ 132:Generated_Source\PSoC4/cyPm.c ****     * read by the firmware or cause an interrupt after the firmware has booted and
+ 133:Generated_Source\PSoC4/cyPm.c ****     * enabled the corresponding interrupt. To distinguish the wakeup from
+ 134:Generated_Source\PSoC4/cyPm.c ****     * the Hibernate mode and the general Reset event, the
+ 135:Generated_Source\PSoC4/cyPm.c ****     * \ref CySysPmGetResetReason() function could be used.
+ 136:Generated_Source\PSoC4/cyPm.c ****     *
+ 137:Generated_Source\PSoC4/cyPm.c ****     *******************************************************************************/
+ 138:Generated_Source\PSoC4/cyPm.c ****     void CySysPmHibernate(void)
+ 139:Generated_Source\PSoC4/cyPm.c ****     {
+ 244              		.loc 2 139 0
+ 245              		.cfi_startproc
+ 246 0000 90B5     		push	{r4, r7, lr}
+ 247              		.cfi_def_cfa_offset 12
+ 248              		.cfi_offset 4, -12
+ 249              		.cfi_offset 7, -8
+ 250              		.cfi_offset 14, -4
+ 251 0002 83B0     		sub	sp, sp, #12
+ 252              		.cfi_def_cfa_offset 24
+ 253 0004 00AF     		add	r7, sp, #0
+ 254              		.cfi_def_cfa_register 7
+ 140:Generated_Source\PSoC4/cyPm.c ****         uint8 interruptState;
+ 141:Generated_Source\PSoC4/cyPm.c **** 
+ 142:Generated_Source\PSoC4/cyPm.c ****         interruptState = CyEnterCriticalSection();
+ 255              		.loc 2 142 0
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 13
+
+
+ 256 0006 FC1D     		add	r4, r7, #7
+ 257 0008 FFF7FEFF 		bl	CyEnterCriticalSection
+ 258 000c 031C     		mov	r3, r0
+ 259 000e 2370     		strb	r3, [r4]
+ 143:Generated_Source\PSoC4/cyPm.c **** 
+ 144:Generated_Source\PSoC4/cyPm.c ****         #if (CY_IP_HOBTO_DEVICE)
+ 145:Generated_Source\PSoC4/cyPm.c ****             /* Disable input buffers for all ports */
+ 146:Generated_Source\PSoC4/cyPm.c ****             CySysPmHibPinsDisableInputBuf();
+ 260              		.loc 2 146 0
+ 261 0010 FFF7FEFF 		bl	CySysPmHibPinsDisableInputBuf
+ 147:Generated_Source\PSoC4/cyPm.c ****         #endif /* (CY_IP_HOBTO_DEVICE) */
+ 148:Generated_Source\PSoC4/cyPm.c **** 
+ 149:Generated_Source\PSoC4/cyPm.c ****         /* Device enters Hibernate mode when CPU asserts SLEEPDEEP signal */
+ 150:Generated_Source\PSoC4/cyPm.c ****         CY_PM_PWR_CONTROL_REG |= CY_PM_PWR_CONTROL_HIBERNATE;
+ 262              		.loc 2 150 0
+ 263 0014 114B     		ldr	r3, .L11
+ 264 0016 114A     		ldr	r2, .L11
+ 265 0018 1268     		ldr	r2, [r2]
+ 266 001a 8021     		mov	r1, #128
+ 267 001c 0906     		lsl	r1, r1, #24
+ 268 001e 0A43     		orr	r2, r1
+ 269 0020 1A60     		str	r2, [r3]
+ 151:Generated_Source\PSoC4/cyPm.c **** 
+ 152:Generated_Source\PSoC4/cyPm.c ****         /* Adjust delay to wait for references to settle on wakeup from hibernate */
+ 153:Generated_Source\PSoC4/cyPm.c ****         CY_PM_PWR_KEY_DELAY_REG = CY_SFLASH_HIB_KEY_DELAY_REG;
+ 270              		.loc 2 153 0
+ 271 0022 0F4B     		ldr	r3, .L11+4
+ 272 0024 0F4A     		ldr	r2, .L11+8
+ 273 0026 1288     		ldrh	r2, [r2]
+ 274 0028 92B2     		uxth	r2, r2
+ 275 002a 1A60     		str	r2, [r3]
+ 154:Generated_Source\PSoC4/cyPm.c **** 
+ 155:Generated_Source\PSoC4/cyPm.c ****         /* CPU enters DeepSleep/Hibernate mode upon execution of WFI */
+ 156:Generated_Source\PSoC4/cyPm.c ****         CY_PM_CPU_SCR_REG |= CY_PM_CPU_SCR_SLEEPDEEP;
+ 276              		.loc 2 156 0
+ 277 002c 0E4B     		ldr	r3, .L11+12
+ 278 002e 0E4A     		ldr	r2, .L11+12
+ 279 0030 1268     		ldr	r2, [r2]
+ 280 0032 0421     		mov	r1, #4
+ 281 0034 0A43     		orr	r2, r1
+ 282 0036 1A60     		str	r2, [r3]
+ 157:Generated_Source\PSoC4/cyPm.c **** 
+ 158:Generated_Source\PSoC4/cyPm.c ****         /* Save token that will retain through a STOP/WAKEUP sequence
+ 159:Generated_Source\PSoC4/cyPm.c ****          * thus could be used by CySysPmGetResetReason() to differentiate
+ 160:Generated_Source\PSoC4/cyPm.c ****          * WAKEUP from a general RESET event.
+ 161:Generated_Source\PSoC4/cyPm.c ****          */
+ 162:Generated_Source\PSoC4/cyPm.c ****         CY_PM_PWR_STOP_REG = (CY_PM_PWR_STOP_REG & (uint32)(~CY_PM_PWR_STOP_TOKEN_MASK)) | CY_PM_PW
+ 283              		.loc 2 162 0
+ 284 0038 0C4B     		ldr	r3, .L11+16
+ 285 003a 0C4A     		ldr	r2, .L11+16
+ 286 003c 1268     		ldr	r2, [r2]
+ 287 003e FF21     		mov	r1, #255
+ 288 0040 8A43     		bic	r2, r1
+ 289 0042 F121     		mov	r1, #241
+ 290 0044 0A43     		orr	r2, r1
+ 291 0046 1A60     		str	r2, [r3]
+ 163:Generated_Source\PSoC4/cyPm.c **** 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 14
+
+
+ 164:Generated_Source\PSoC4/cyPm.c ****         /* Sleep and wait for interrupt. Wakeup from Hibernate is performed
+ 165:Generated_Source\PSoC4/cyPm.c ****          * through RESET state, causing a normal Boot procedure to occur.
+ 166:Generated_Source\PSoC4/cyPm.c ****          * The WFI instruction doesn't put the core to sleep if its wake condition
+ 167:Generated_Source\PSoC4/cyPm.c ****          * is true when the instruction is executed.
+ 168:Generated_Source\PSoC4/cyPm.c ****          */
+ 169:Generated_Source\PSoC4/cyPm.c ****         CY_PM_WFI;
+ 292              		.loc 2 169 0
+ 293              	@ 169 "Generated_Source\PSoC4\cyPm.c" 1
+ 294 0048 30BF     		WFI 
+ 295              	
+ 296              	@ 0 "" 2
+ 170:Generated_Source\PSoC4/cyPm.c **** 
+ 171:Generated_Source\PSoC4/cyPm.c ****         CyExitCriticalSection(interruptState);
+ 297              		.loc 2 171 0
+ 298              		.code	16
+ 299 004a FB1D     		add	r3, r7, #7
+ 300 004c 1B78     		ldrb	r3, [r3]
+ 301 004e 181C     		mov	r0, r3
+ 302 0050 FFF7FEFF 		bl	CyExitCriticalSection
+ 172:Generated_Source\PSoC4/cyPm.c ****     }
+ 303              		.loc 2 172 0
+ 304 0054 BD46     		mov	sp, r7
+ 305 0056 03B0     		add	sp, sp, #12
+ 306              		@ sp needed
+ 307 0058 90BD     		pop	{r4, r7, pc}
+ 308              	.L12:
+ 309 005a C046     		.align	2
+ 310              	.L11:
+ 311 005c 00000B40 		.word	1074462720
+ 312 0060 0C000B40 		.word	1074462732
+ 313 0064 50F1FF0F 		.word	268431696
+ 314 0068 10ED00E0 		.word	-536810224
+ 315 006c 2C000B40 		.word	1074462764
+ 316              		.cfi_endproc
+ 317              	.LFE5:
+ 318              		.size	CySysPmHibernate, .-CySysPmHibernate
+ 319              		.section	.text.CySysPmStop,"ax",%progbits
+ 320              		.align	2
+ 321              		.global	CySysPmStop
+ 322              		.code	16
+ 323              		.thumb_func
+ 324              		.type	CySysPmStop, %function
+ 325              	CySysPmStop:
+ 326              	.LFB6:
+ 173:Generated_Source\PSoC4/cyPm.c **** 
+ 174:Generated_Source\PSoC4/cyPm.c **** 
+ 175:Generated_Source\PSoC4/cyPm.c ****     /*******************************************************************************
+ 176:Generated_Source\PSoC4/cyPm.c ****     * Function Name: CySysPmStop
+ 177:Generated_Source\PSoC4/cyPm.c ****     ****************************************************************************//**
+ 178:Generated_Source\PSoC4/cyPm.c ****     *
+ 179:Generated_Source\PSoC4/cyPm.c ****     * Puts the part into the Stop state. All internal supplies are off;
+ 180:Generated_Source\PSoC4/cyPm.c ****     * no state is retained.
+ 181:Generated_Source\PSoC4/cyPm.c ****     *
+ 182:Generated_Source\PSoC4/cyPm.c ****     * Wakeup from Stop is performed by toggling the wakeup pin, causing
+ 183:Generated_Source\PSoC4/cyPm.c ****     * a normal boot procedure to occur. To configure the wakeup pin,
+ 184:Generated_Source\PSoC4/cyPm.c ****     * the Digital Input Pin component should be placed on the schematic,
+ 185:Generated_Source\PSoC4/cyPm.c ****     * assigned to the wakeup pin, and resistively pulled up or down to the inverse
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 15
+
+
+ 186:Generated_Source\PSoC4/cyPm.c ****     * state of the wakeup polarity. To distinguish the wakeup from the Stop mode
+ 187:Generated_Source\PSoC4/cyPm.c ****     * and the general Reset event, \ref CySysPmGetResetReason() function could be
+ 188:Generated_Source\PSoC4/cyPm.c ****     * used.  The wakeup pin is active low by default. The wakeup pin polarity
+ 189:Generated_Source\PSoC4/cyPm.c ****     * could be changed with the \ref CySysPmSetWakeupPolarity() function.
+ 190:Generated_Source\PSoC4/cyPm.c ****     *
+ 191:Generated_Source\PSoC4/cyPm.c ****     * This function freezes IO cells implicitly. It is not possible to enter
+ 192:Generated_Source\PSoC4/cyPm.c ****     * the STOP mode before freezing the IO cells. The IO cells remain frozen after
+ 193:Generated_Source\PSoC4/cyPm.c ****     * awake from the Stop mode until the firmware unfreezes them after booting
+ 194:Generated_Source\PSoC4/cyPm.c ****     * explicitly with \ref CySysPmUnfreezeIo() function call.
+ 195:Generated_Source\PSoC4/cyPm.c ****     *
+ 196:Generated_Source\PSoC4/cyPm.c ****     *******************************************************************************/
+ 197:Generated_Source\PSoC4/cyPm.c ****     void CySysPmStop(void)
+ 198:Generated_Source\PSoC4/cyPm.c ****     {
+ 327              		.loc 2 198 0
+ 328              		.cfi_startproc
+ 329 0000 80B5     		push	{r7, lr}
+ 330              		.cfi_def_cfa_offset 8
+ 331              		.cfi_offset 7, -8
+ 332              		.cfi_offset 14, -4
+ 333 0002 00AF     		add	r7, sp, #0
+ 334              		.cfi_def_cfa_register 7
+ 199:Generated_Source\PSoC4/cyPm.c ****         (void) CyEnterCriticalSection();
+ 335              		.loc 2 199 0
+ 336 0004 FFF7FEFF 		bl	CyEnterCriticalSection
+ 200:Generated_Source\PSoC4/cyPm.c **** 
+ 201:Generated_Source\PSoC4/cyPm.c ****         /* Update token to indicate Stop mode transition. Preserve only polarity. */
+ 202:Generated_Source\PSoC4/cyPm.c ****         CY_PM_PWR_STOP_REG = (CY_PM_PWR_STOP_REG & CY_PM_PWR_STOP_POLARITY) | CY_PM_PWR_STOP_TOKEN_
+ 337              		.loc 2 202 0
+ 338 0008 0B4B     		ldr	r3, .L14
+ 339 000a 0B4A     		ldr	r2, .L14
+ 340 000c 1168     		ldr	r1, [r2]
+ 341 000e 8022     		mov	r2, #128
+ 342 0010 5202     		lsl	r2, r2, #9
+ 343 0012 0A40     		and	r2, r1
+ 344 0014 F221     		mov	r1, #242
+ 345 0016 0A43     		orr	r2, r1
+ 346 0018 1A60     		str	r2, [r3]
+ 203:Generated_Source\PSoC4/cyPm.c **** 
+ 204:Generated_Source\PSoC4/cyPm.c ****         /* Freeze IO-Cells to save IO-Cell state */
+ 205:Generated_Source\PSoC4/cyPm.c ****         CySysPmFreezeIo();
+ 347              		.loc 2 205 0
+ 348 001a FFF7FEFF 		bl	CySysPmFreezeIo
+ 206:Generated_Source\PSoC4/cyPm.c **** 
+ 207:Generated_Source\PSoC4/cyPm.c ****         /* Initiates transition to Stop state */
+ 208:Generated_Source\PSoC4/cyPm.c ****         CY_PM_PWR_STOP_REG = CY_PM_PWR_STOP_REG | CY_PM_PWR_STOP_STOP;
+ 349              		.loc 2 208 0
+ 350 001e 064B     		ldr	r3, .L14
+ 351 0020 054A     		ldr	r2, .L14
+ 352 0022 1268     		ldr	r2, [r2]
+ 353 0024 8021     		mov	r1, #128
+ 354 0026 0906     		lsl	r1, r1, #24
+ 355 0028 0A43     		orr	r2, r1
+ 356 002a 1A60     		str	r2, [r3]
+ 209:Generated_Source\PSoC4/cyPm.c **** 
+ 210:Generated_Source\PSoC4/cyPm.c ****         /* Depending on the clock frequency and internal timing delays,
+ 211:Generated_Source\PSoC4/cyPm.c ****          * the final AHB transaction may or may not complete. To guard against
+ 212:Generated_Source\PSoC4/cyPm.c ****          * accidentally executing an unintended instruction, it is recommended
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 16
+
+
+ 213:Generated_Source\PSoC4/cyPm.c ****          * to add 2 NOP cycles after the final write to the STOP register.
+ 214:Generated_Source\PSoC4/cyPm.c ****          */
+ 215:Generated_Source\PSoC4/cyPm.c ****         CY_NOP;
+ 357              		.loc 2 215 0
+ 358              	@ 215 "Generated_Source\PSoC4\cyPm.c" 1
+ 359 002c C046     		NOP
+ 360              	
+ 361              	@ 0 "" 2
+ 216:Generated_Source\PSoC4/cyPm.c ****         CY_NOP;
+ 362              		.loc 2 216 0
+ 363              	@ 216 "Generated_Source\PSoC4\cyPm.c" 1
+ 364 002e C046     		NOP
+ 365              	
+ 366              	@ 0 "" 2
+ 217:Generated_Source\PSoC4/cyPm.c **** 
+ 218:Generated_Source\PSoC4/cyPm.c ****         /* Should never get to this WFI instruction */
+ 219:Generated_Source\PSoC4/cyPm.c ****         CY_PM_WFI;
+ 367              		.loc 2 219 0
+ 368              	@ 219 "Generated_Source\PSoC4\cyPm.c" 1
+ 369 0030 30BF     		WFI 
+ 370              	
+ 371              	@ 0 "" 2
+ 220:Generated_Source\PSoC4/cyPm.c **** 
+ 221:Generated_Source\PSoC4/cyPm.c ****         /* Wakeup from Stop is performed by toggling of Wakeup pin,
+ 222:Generated_Source\PSoC4/cyPm.c ****          * causing a normal Boot procedure to occur. No need to exit
+ 223:Generated_Source\PSoC4/cyPm.c ****          * from the critical section.
+ 224:Generated_Source\PSoC4/cyPm.c ****          */
+ 225:Generated_Source\PSoC4/cyPm.c ****     }
+ 372              		.loc 2 225 0
+ 373              		.code	16
+ 374 0032 BD46     		mov	sp, r7
+ 375              		@ sp needed
+ 376 0034 80BD     		pop	{r7, pc}
+ 377              	.L15:
+ 378 0036 C046     		.align	2
+ 379              	.L14:
+ 380 0038 2C000B40 		.word	1074462764
+ 381              		.cfi_endproc
+ 382              	.LFE6:
+ 383              		.size	CySysPmStop, .-CySysPmStop
+ 384              		.section	.text.CySysPmSetWakeupPolarity,"ax",%progbits
+ 385              		.align	2
+ 386              		.global	CySysPmSetWakeupPolarity
+ 387              		.code	16
+ 388              		.thumb_func
+ 389              		.type	CySysPmSetWakeupPolarity, %function
+ 390              	CySysPmSetWakeupPolarity:
+ 391              	.LFB7:
+ 226:Generated_Source\PSoC4/cyPm.c **** 
+ 227:Generated_Source\PSoC4/cyPm.c **** 
+ 228:Generated_Source\PSoC4/cyPm.c ****     /*******************************************************************************
+ 229:Generated_Source\PSoC4/cyPm.c ****     * Function Name: CySysPmSetWakeupPolarity
+ 230:Generated_Source\PSoC4/cyPm.c ****     ****************************************************************************//**
+ 231:Generated_Source\PSoC4/cyPm.c ****     *
+ 232:Generated_Source\PSoC4/cyPm.c ****     * Wake up from the stop mode is performed by toggling the wakeup pin,
+ 233:Generated_Source\PSoC4/cyPm.c ****     * causing a normal boot procedure to occur. This function assigns
+ 234:Generated_Source\PSoC4/cyPm.c ****     * the wakeup pin active level. Setting the wakeup pin to this level will cause
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 17
+
+
+ 235:Generated_Source\PSoC4/cyPm.c ****     * the wakeup from stop mode. The wakeup pin is active low by default.
+ 236:Generated_Source\PSoC4/cyPm.c ****     *
+ 237:Generated_Source\PSoC4/cyPm.c ****     * \param polarity
+ 238:Generated_Source\PSoC4/cyPm.c ****     * - \ref CY_PM_STOP_WAKEUP_ACTIVE_LOW Logical zero will wakeup the chip
+ 239:Generated_Source\PSoC4/cyPm.c ****     * - \ref CY_PM_STOP_WAKEUP_ACTIVE_HIGH Logical one will wakeup the chip
+ 240:Generated_Source\PSoC4/cyPm.c ****     *
+ 241:Generated_Source\PSoC4/cyPm.c ****     *******************************************************************************/
+ 242:Generated_Source\PSoC4/cyPm.c ****     void CySysPmSetWakeupPolarity(uint32 polarity)
+ 243:Generated_Source\PSoC4/cyPm.c ****     {
+ 392              		.loc 2 243 0
+ 393              		.cfi_startproc
+ 394 0000 90B5     		push	{r4, r7, lr}
+ 395              		.cfi_def_cfa_offset 12
+ 396              		.cfi_offset 4, -12
+ 397              		.cfi_offset 7, -8
+ 398              		.cfi_offset 14, -4
+ 399 0002 85B0     		sub	sp, sp, #20
+ 400              		.cfi_def_cfa_offset 32
+ 401 0004 00AF     		add	r7, sp, #0
+ 402              		.cfi_def_cfa_register 7
+ 403 0006 7860     		str	r0, [r7, #4]
+ 244:Generated_Source\PSoC4/cyPm.c ****         uint8 interruptState;
+ 245:Generated_Source\PSoC4/cyPm.c **** 
+ 246:Generated_Source\PSoC4/cyPm.c ****         interruptState = CyEnterCriticalSection();
+ 404              		.loc 2 246 0
+ 405 0008 0F23     		mov	r3, #15
+ 406 000a FC18     		add	r4, r7, r3
+ 407 000c FFF7FEFF 		bl	CyEnterCriticalSection
+ 408 0010 031C     		mov	r3, r0
+ 409 0012 2370     		strb	r3, [r4]
+ 247:Generated_Source\PSoC4/cyPm.c **** 
+ 248:Generated_Source\PSoC4/cyPm.c ****         CY_PM_PWR_STOP_REG = (CY_PM_STOP_WAKEUP_ACTIVE_LOW != polarity) ?
+ 410              		.loc 2 248 0
+ 411 0014 0B4A     		ldr	r2, .L19
+ 249:Generated_Source\PSoC4/cyPm.c ****                             (CY_PM_PWR_STOP_REG | CY_PM_PWR_STOP_POLARITY) :
+ 412              		.loc 2 249 0
+ 413 0016 7B68     		ldr	r3, [r7, #4]
+ 414 0018 002B     		cmp	r3, #0
+ 415 001a 05D0     		beq	.L17
+ 416              		.loc 2 249 0 is_stmt 0 discriminator 1
+ 417 001c 094B     		ldr	r3, .L19
+ 418 001e 1B68     		ldr	r3, [r3]
+ 419 0020 8021     		mov	r1, #128
+ 420 0022 4902     		lsl	r1, r1, #9
+ 421 0024 0B43     		orr	r3, r1
+ 422 0026 03E0     		b	.L18
+ 423              	.L17:
+ 250:Generated_Source\PSoC4/cyPm.c ****                             (CY_PM_PWR_STOP_REG & (uint32) (~CY_PM_PWR_STOP_POLARITY));
+ 424              		.loc 2 250 0 is_stmt 1 discriminator 2
+ 425 0028 064B     		ldr	r3, .L19
+ 426 002a 1B68     		ldr	r3, [r3]
+ 249:Generated_Source\PSoC4/cyPm.c ****                             (CY_PM_PWR_STOP_REG | CY_PM_PWR_STOP_POLARITY) :
+ 427              		.loc 2 249 0 discriminator 2
+ 428 002c 0649     		ldr	r1, .L19+4
+ 429 002e 0B40     		and	r3, r1
+ 430              	.L18:
+ 248:Generated_Source\PSoC4/cyPm.c ****                             (CY_PM_PWR_STOP_REG | CY_PM_PWR_STOP_POLARITY) :
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 18
+
+
+ 431              		.loc 2 248 0
+ 432 0030 1360     		str	r3, [r2]
+ 251:Generated_Source\PSoC4/cyPm.c **** 
+ 252:Generated_Source\PSoC4/cyPm.c ****         CyExitCriticalSection(interruptState);
+ 433              		.loc 2 252 0
+ 434 0032 0F23     		mov	r3, #15
+ 435 0034 FB18     		add	r3, r7, r3
+ 436 0036 1B78     		ldrb	r3, [r3]
+ 437 0038 181C     		mov	r0, r3
+ 438 003a FFF7FEFF 		bl	CyExitCriticalSection
+ 253:Generated_Source\PSoC4/cyPm.c ****     }
+ 439              		.loc 2 253 0
+ 440 003e BD46     		mov	sp, r7
+ 441 0040 05B0     		add	sp, sp, #20
+ 442              		@ sp needed
+ 443 0042 90BD     		pop	{r4, r7, pc}
+ 444              	.L20:
+ 445              		.align	2
+ 446              	.L19:
+ 447 0044 2C000B40 		.word	1074462764
+ 448 0048 FFFFFEFF 		.word	-65537
+ 449              		.cfi_endproc
+ 450              	.LFE7:
+ 451              		.size	CySysPmSetWakeupPolarity, .-CySysPmSetWakeupPolarity
+ 452              		.section	.text.CySysPmGetResetReason,"ax",%progbits
+ 453              		.align	2
+ 454              		.global	CySysPmGetResetReason
+ 455              		.code	16
+ 456              		.thumb_func
+ 457              		.type	CySysPmGetResetReason, %function
+ 458              	CySysPmGetResetReason:
+ 459              	.LFB8:
+ 254:Generated_Source\PSoC4/cyPm.c **** 
+ 255:Generated_Source\PSoC4/cyPm.c **** 
+ 256:Generated_Source\PSoC4/cyPm.c ****     /*******************************************************************************
+ 257:Generated_Source\PSoC4/cyPm.c ****     * Function Name: CySysPmGetResetReason
+ 258:Generated_Source\PSoC4/cyPm.c ****     ****************************************************************************//**
+ 259:Generated_Source\PSoC4/cyPm.c ****     *
+ 260:Generated_Source\PSoC4/cyPm.c ****     * Retrieves the last reset reason - transition from OFF/XRES/STOP/HIBERNATE to
+ 261:Generated_Source\PSoC4/cyPm.c ****     * the RESET state. Note that waking up from STOP using XRES will be perceived
+ 262:Generated_Source\PSoC4/cyPm.c ****     * as a general RESET.
+ 263:Generated_Source\PSoC4/cyPm.c ****     *
+ 264:Generated_Source\PSoC4/cyPm.c ****     * \return CY_PM_RESET_REASON_UNKN          Unknown reset reason.
+ 265:Generated_Source\PSoC4/cyPm.c ****     * \return CY_PM_RESET_REASON_XRES          Transition from OFF/XRES to RESET
+ 266:Generated_Source\PSoC4/cyPm.c ****     * \return CY_PM_RESET_REASON_WAKEUP_HIB    Transition/wakeup from HIBERNATE to RESET
+ 267:Generated_Source\PSoC4/cyPm.c ****     * \return CY_PM_RESET_REASON_WAKEUP_STOP   Transition/wakeup from STOP to RESET
+ 268:Generated_Source\PSoC4/cyPm.c ****     *
+ 269:Generated_Source\PSoC4/cyPm.c ****     *******************************************************************************/
+ 270:Generated_Source\PSoC4/cyPm.c ****     uint32 CySysPmGetResetReason(void)
+ 271:Generated_Source\PSoC4/cyPm.c ****     {
+ 460              		.loc 2 271 0
+ 461              		.cfi_startproc
+ 462 0000 80B5     		push	{r7, lr}
+ 463              		.cfi_def_cfa_offset 8
+ 464              		.cfi_offset 7, -8
+ 465              		.cfi_offset 14, -4
+ 466 0002 82B0     		sub	sp, sp, #8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 19
+
+
+ 467              		.cfi_def_cfa_offset 16
+ 468 0004 00AF     		add	r7, sp, #0
+ 469              		.cfi_def_cfa_register 7
+ 272:Generated_Source\PSoC4/cyPm.c ****         uint32 reason = CY_PM_RESET_REASON_UNKN;
+ 470              		.loc 2 272 0
+ 471 0006 0023     		mov	r3, #0
+ 472 0008 7B60     		str	r3, [r7, #4]
+ 273:Generated_Source\PSoC4/cyPm.c **** 
+ 274:Generated_Source\PSoC4/cyPm.c ****         switch(CY_PM_PWR_STOP_REG & CY_PM_PWR_STOP_TOKEN_MASK)
+ 473              		.loc 2 274 0
+ 474 000a 0C4B     		ldr	r3, .L28
+ 475 000c 1B68     		ldr	r3, [r3]
+ 476 000e FF22     		mov	r2, #255
+ 477 0010 1340     		and	r3, r2
+ 478 0012 F12B     		cmp	r3, #241
+ 479 0014 07D0     		beq	.L23
+ 480 0016 F22B     		cmp	r3, #242
+ 481 0018 08D0     		beq	.L24
+ 482 001a 002B     		cmp	r3, #0
+ 483 001c 00D0     		beq	.L25
+ 275:Generated_Source\PSoC4/cyPm.c ****         {
+ 276:Generated_Source\PSoC4/cyPm.c ****         /* Power up, XRES */
+ 277:Generated_Source\PSoC4/cyPm.c ****         case CY_PM_PWR_STOP_TOKEN_XRES:
+ 278:Generated_Source\PSoC4/cyPm.c ****             reason = CY_PM_RESET_REASON_XRES;
+ 279:Generated_Source\PSoC4/cyPm.c ****             break;
+ 280:Generated_Source\PSoC4/cyPm.c **** 
+ 281:Generated_Source\PSoC4/cyPm.c ****         /* Wakeup from Hibernate */
+ 282:Generated_Source\PSoC4/cyPm.c ****         case CY_PM_PWR_STOP_TOKEN_HIB:
+ 283:Generated_Source\PSoC4/cyPm.c ****             reason = CY_PM_RESET_REASON_WAKEUP_HIB;
+ 284:Generated_Source\PSoC4/cyPm.c ****             break;
+ 285:Generated_Source\PSoC4/cyPm.c **** 
+ 286:Generated_Source\PSoC4/cyPm.c ****         /* Wakeup from Stop (through WAKEUP pin assert) */
+ 287:Generated_Source\PSoC4/cyPm.c ****         case CY_PM_PWR_STOP_TOKEN_STOP:
+ 288:Generated_Source\PSoC4/cyPm.c ****             reason = CY_PM_RESET_REASON_WAKEUP_STOP;
+ 289:Generated_Source\PSoC4/cyPm.c ****             break;
+ 290:Generated_Source\PSoC4/cyPm.c **** 
+ 291:Generated_Source\PSoC4/cyPm.c ****         /* Unknown reason */
+ 292:Generated_Source\PSoC4/cyPm.c ****         default:
+ 293:Generated_Source\PSoC4/cyPm.c ****             break;
+ 484              		.loc 2 293 0
+ 485 001e 08E0     		b	.L26
+ 486              	.L25:
+ 278:Generated_Source\PSoC4/cyPm.c ****             break;
+ 487              		.loc 2 278 0
+ 488 0020 0123     		mov	r3, #1
+ 489 0022 7B60     		str	r3, [r7, #4]
+ 279:Generated_Source\PSoC4/cyPm.c **** 
+ 490              		.loc 2 279 0
+ 491 0024 05E0     		b	.L26
+ 492              	.L23:
+ 283:Generated_Source\PSoC4/cyPm.c ****             break;
+ 493              		.loc 2 283 0
+ 494 0026 0223     		mov	r3, #2
+ 495 0028 7B60     		str	r3, [r7, #4]
+ 284:Generated_Source\PSoC4/cyPm.c **** 
+ 496              		.loc 2 284 0
+ 497 002a 02E0     		b	.L26
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 20
+
+
+ 498              	.L24:
+ 288:Generated_Source\PSoC4/cyPm.c ****             break;
+ 499              		.loc 2 288 0
+ 500 002c 0323     		mov	r3, #3
+ 501 002e 7B60     		str	r3, [r7, #4]
+ 289:Generated_Source\PSoC4/cyPm.c **** 
+ 502              		.loc 2 289 0
+ 503 0030 C046     		mov	r8, r8
+ 504              	.L26:
+ 294:Generated_Source\PSoC4/cyPm.c ****         }
+ 295:Generated_Source\PSoC4/cyPm.c **** 
+ 296:Generated_Source\PSoC4/cyPm.c ****         return (reason);
+ 505              		.loc 2 296 0
+ 506 0032 7B68     		ldr	r3, [r7, #4]
+ 297:Generated_Source\PSoC4/cyPm.c ****     }
+ 507              		.loc 2 297 0
+ 508 0034 181C     		mov	r0, r3
+ 509 0036 BD46     		mov	sp, r7
+ 510 0038 02B0     		add	sp, sp, #8
+ 511              		@ sp needed
+ 512 003a 80BD     		pop	{r7, pc}
+ 513              	.L29:
+ 514              		.align	2
+ 515              	.L28:
+ 516 003c 2C000B40 		.word	1074462764
+ 517              		.cfi_endproc
+ 518              	.LFE8:
+ 519              		.size	CySysPmGetResetReason, .-CySysPmGetResetReason
+ 520              		.section	.text.CySysPmFreezeIo,"ax",%progbits
+ 521              		.align	2
+ 522              		.global	CySysPmFreezeIo
+ 523              		.code	16
+ 524              		.thumb_func
+ 525              		.type	CySysPmFreezeIo, %function
+ 526              	CySysPmFreezeIo:
+ 527              	.LFB9:
+ 298:Generated_Source\PSoC4/cyPm.c **** 
+ 299:Generated_Source\PSoC4/cyPm.c **** 
+ 300:Generated_Source\PSoC4/cyPm.c ****     /*******************************************************************************
+ 301:Generated_Source\PSoC4/cyPm.c ****     * Function Name: CySysPmFreezeIo
+ 302:Generated_Source\PSoC4/cyPm.c ****     ****************************************************************************//**
+ 303:Generated_Source\PSoC4/cyPm.c ****     *
+ 304:Generated_Source\PSoC4/cyPm.c ****     * Freezes IO-Cells directly to save the IO-Cell state on wake up from the
+ 305:Generated_Source\PSoC4/cyPm.c ****     * Hibernate or Stop state. It is not required to call this function before
+ 306:Generated_Source\PSoC4/cyPm.c ****     * entering the Stop mode, since \ref CySysPmStop() function freezes IO-Cells
+ 307:Generated_Source\PSoC4/cyPm.c ****     * implicitly.
+ 308:Generated_Source\PSoC4/cyPm.c ****     *
+ 309:Generated_Source\PSoC4/cyPm.c ****     * This API is not available for PSoC 4000 family of devices.
+ 310:Generated_Source\PSoC4/cyPm.c ****     *
+ 311:Generated_Source\PSoC4/cyPm.c ****     *******************************************************************************/
+ 312:Generated_Source\PSoC4/cyPm.c ****     void CySysPmFreezeIo(void)
+ 313:Generated_Source\PSoC4/cyPm.c ****     {
+ 528              		.loc 2 313 0
+ 529              		.cfi_startproc
+ 530 0000 90B5     		push	{r4, r7, lr}
+ 531              		.cfi_def_cfa_offset 12
+ 532              		.cfi_offset 4, -12
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 21
+
+
+ 533              		.cfi_offset 7, -8
+ 534              		.cfi_offset 14, -4
+ 535 0002 83B0     		sub	sp, sp, #12
+ 536              		.cfi_def_cfa_offset 24
+ 537 0004 00AF     		add	r7, sp, #0
+ 538              		.cfi_def_cfa_register 7
+ 314:Generated_Source\PSoC4/cyPm.c ****         uint8 interruptState;
+ 315:Generated_Source\PSoC4/cyPm.c **** 
+ 316:Generated_Source\PSoC4/cyPm.c ****         interruptState = CyEnterCriticalSection();
+ 539              		.loc 2 316 0
+ 540 0006 FC1D     		add	r4, r7, #7
+ 541 0008 FFF7FEFF 		bl	CyEnterCriticalSection
+ 542 000c 031C     		mov	r3, r0
+ 543 000e 2370     		strb	r3, [r4]
+ 317:Generated_Source\PSoC4/cyPm.c **** 
+ 318:Generated_Source\PSoC4/cyPm.c ****         /* Check FREEZE state to avoid recurrent IO-Cells freeze attempt,
+ 319:Generated_Source\PSoC4/cyPm.c ****          * since the second call to this function will cause accidental switch
+ 320:Generated_Source\PSoC4/cyPm.c ****          * to the STOP mode (the system will enter STOP mode immediately after
+ 321:Generated_Source\PSoC4/cyPm.c ****          * writing to STOP bit since both UNLOCK and FREEZE have been set correctly
+ 322:Generated_Source\PSoC4/cyPm.c ****          * in a previous call to this function).
+ 323:Generated_Source\PSoC4/cyPm.c ****          */
+ 324:Generated_Source\PSoC4/cyPm.c ****         if (0u == (CY_PM_PWR_STOP_REG & CY_PM_PWR_STOP_FREEZE))
+ 544              		.loc 2 324 0
+ 545 0010 0E4B     		ldr	r3, .L32
+ 546 0012 1A68     		ldr	r2, [r3]
+ 547 0014 8023     		mov	r3, #128
+ 548 0016 9B02     		lsl	r3, r3, #10
+ 549 0018 1340     		and	r3, r2
+ 550 001a 0FD1     		bne	.L31
+ 325:Generated_Source\PSoC4/cyPm.c ****         {
+ 326:Generated_Source\PSoC4/cyPm.c ****             /* Preserve last reset reason and disable overrides the next freeze command by peripher
+ 327:Generated_Source\PSoC4/cyPm.c ****             CY_PM_PWR_STOP_REG = CY_PM_PWR_STOP_STOP | CY_PM_PWR_STOP_FREEZE | CY_PM_PWR_STOP_UNLOC
+ 551              		.loc 2 327 0
+ 552 001c 0B4B     		ldr	r3, .L32
+ 328:Generated_Source\PSoC4/cyPm.c ****                                 (CY_PM_PWR_STOP_REG & (CY_PM_PWR_STOP_TOKEN_MASK | CY_PM_PWR_STOP_P
+ 553              		.loc 2 328 0
+ 554 001e 0B4A     		ldr	r2, .L32
+ 555 0020 1268     		ldr	r2, [r2]
+ 556 0022 0B49     		ldr	r1, .L32+4
+ 557 0024 0A40     		and	r2, r1
+ 327:Generated_Source\PSoC4/cyPm.c ****                                 (CY_PM_PWR_STOP_REG & (CY_PM_PWR_STOP_TOKEN_MASK | CY_PM_PWR_STOP_P
+ 558              		.loc 2 327 0
+ 559 0026 0B49     		ldr	r1, .L32+8
+ 560 0028 0A43     		orr	r2, r1
+ 561 002a 1A60     		str	r2, [r3]
+ 329:Generated_Source\PSoC4/cyPm.c **** 
+ 330:Generated_Source\PSoC4/cyPm.c ****             /* If reading after writing, read this register three times to delay
+ 331:Generated_Source\PSoC4/cyPm.c ****             *  enough time for internal settling.
+ 332:Generated_Source\PSoC4/cyPm.c ****             */
+ 333:Generated_Source\PSoC4/cyPm.c ****             (void) CY_PM_PWR_STOP_REG;
+ 562              		.loc 2 333 0
+ 563 002c 074B     		ldr	r3, .L32
+ 564 002e 1B68     		ldr	r3, [r3]
+ 334:Generated_Source\PSoC4/cyPm.c ****             (void) CY_PM_PWR_STOP_REG;
+ 565              		.loc 2 334 0
+ 566 0030 064B     		ldr	r3, .L32
+ 567 0032 1B68     		ldr	r3, [r3]
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 22
+
+
+ 335:Generated_Source\PSoC4/cyPm.c **** 
+ 336:Generated_Source\PSoC4/cyPm.c ****             /* Second write causes the freeze of IO-Cells to save IO-Cell state */
+ 337:Generated_Source\PSoC4/cyPm.c ****             CY_PM_PWR_STOP_REG = CY_PM_PWR_STOP_REG;
+ 568              		.loc 2 337 0
+ 569 0034 054B     		ldr	r3, .L32
+ 570 0036 054A     		ldr	r2, .L32
+ 571 0038 1268     		ldr	r2, [r2]
+ 572 003a 1A60     		str	r2, [r3]
+ 573              	.L31:
+ 338:Generated_Source\PSoC4/cyPm.c ****         }
+ 339:Generated_Source\PSoC4/cyPm.c **** 
+ 340:Generated_Source\PSoC4/cyPm.c ****         CyExitCriticalSection(interruptState);
+ 574              		.loc 2 340 0
+ 575 003c FB1D     		add	r3, r7, #7
+ 576 003e 1B78     		ldrb	r3, [r3]
+ 577 0040 181C     		mov	r0, r3
+ 578 0042 FFF7FEFF 		bl	CyExitCriticalSection
+ 341:Generated_Source\PSoC4/cyPm.c ****     }
+ 579              		.loc 2 341 0
+ 580 0046 BD46     		mov	sp, r7
+ 581 0048 03B0     		add	sp, sp, #12
+ 582              		@ sp needed
+ 583 004a 90BD     		pop	{r4, r7, pc}
+ 584              	.L33:
+ 585              		.align	2
+ 586              	.L32:
+ 587 004c 2C000B40 		.word	1074462764
+ 588 0050 FF000100 		.word	65791
+ 589 0054 003A0280 		.word	-2147337728
+ 590              		.cfi_endproc
+ 591              	.LFE9:
+ 592              		.size	CySysPmFreezeIo, .-CySysPmFreezeIo
+ 593              		.section	.text.CySysPmUnfreezeIo,"ax",%progbits
+ 594              		.align	2
+ 595              		.global	CySysPmUnfreezeIo
+ 596              		.code	16
+ 597              		.thumb_func
+ 598              		.type	CySysPmUnfreezeIo, %function
+ 599              	CySysPmUnfreezeIo:
+ 600              	.LFB10:
+ 342:Generated_Source\PSoC4/cyPm.c **** 
+ 343:Generated_Source\PSoC4/cyPm.c **** 
+ 344:Generated_Source\PSoC4/cyPm.c ****     /*******************************************************************************
+ 345:Generated_Source\PSoC4/cyPm.c ****     * Function Name: CySysPmUnfreezeIo
+ 346:Generated_Source\PSoC4/cyPm.c ****     ****************************************************************************//**
+ 347:Generated_Source\PSoC4/cyPm.c ****     *
+ 348:Generated_Source\PSoC4/cyPm.c ****     * The IO-Cells remain frozen after awake from Hibernate or Stop mode until
+ 349:Generated_Source\PSoC4/cyPm.c ****     * the firmware unfreezes them after booting. The call of this function
+ 350:Generated_Source\PSoC4/cyPm.c ****     * unfreezes IO-Cells explicitly.
+ 351:Generated_Source\PSoC4/cyPm.c ****     *
+ 352:Generated_Source\PSoC4/cyPm.c ****     * If the firmware intent is to retain the data value on the port, then the
+ 353:Generated_Source\PSoC4/cyPm.c ****     * value must be read and re-written to the data register before calling this
+ 354:Generated_Source\PSoC4/cyPm.c ****     * API. Furthermore, the drive mode must be re-programmed.  If this is not done,
+ 355:Generated_Source\PSoC4/cyPm.c ****     * the pin state will change to default state the moment the freeze is removed.
+ 356:Generated_Source\PSoC4/cyPm.c ****     *
+ 357:Generated_Source\PSoC4/cyPm.c ****     * This API is not available for PSoC 4000 family of devices.
+ 358:Generated_Source\PSoC4/cyPm.c ****     *
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 23
+
+
+ 359:Generated_Source\PSoC4/cyPm.c ****     *******************************************************************************/
+ 360:Generated_Source\PSoC4/cyPm.c ****     void CySysPmUnfreezeIo(void)
+ 361:Generated_Source\PSoC4/cyPm.c ****     {
+ 601              		.loc 2 361 0
+ 602              		.cfi_startproc
+ 603 0000 90B5     		push	{r4, r7, lr}
+ 604              		.cfi_def_cfa_offset 12
+ 605              		.cfi_offset 4, -12
+ 606              		.cfi_offset 7, -8
+ 607              		.cfi_offset 14, -4
+ 608 0002 83B0     		sub	sp, sp, #12
+ 609              		.cfi_def_cfa_offset 24
+ 610 0004 00AF     		add	r7, sp, #0
+ 611              		.cfi_def_cfa_register 7
+ 362:Generated_Source\PSoC4/cyPm.c ****         uint8 interruptState;
+ 363:Generated_Source\PSoC4/cyPm.c **** 
+ 364:Generated_Source\PSoC4/cyPm.c ****         interruptState = CyEnterCriticalSection();
+ 612              		.loc 2 364 0
+ 613 0006 FC1D     		add	r4, r7, #7
+ 614 0008 FFF7FEFF 		bl	CyEnterCriticalSection
+ 615 000c 031C     		mov	r3, r0
+ 616 000e 2370     		strb	r3, [r4]
+ 365:Generated_Source\PSoC4/cyPm.c **** 
+ 366:Generated_Source\PSoC4/cyPm.c ****         /* Preserve last reset reason and wakeup polarity. Then, unfreeze I/O:
+ 367:Generated_Source\PSoC4/cyPm.c ****          * write PWR_STOP.FREEZE=0, .UNLOCK=0x3A, .STOP=0, .TOKEN
+ 368:Generated_Source\PSoC4/cyPm.c ****          */
+ 369:Generated_Source\PSoC4/cyPm.c ****         CY_PM_PWR_STOP_REG = CY_PM_PWR_STOP_UNLOCK |
+ 617              		.loc 2 369 0
+ 618 0010 0D4B     		ldr	r3, .L35
+ 370:Generated_Source\PSoC4/cyPm.c ****                             (CY_PM_PWR_STOP_REG & (CY_PM_PWR_STOP_TOKEN_MASK | CY_PM_PWR_STOP_POLAR
+ 619              		.loc 2 370 0
+ 620 0012 0D4A     		ldr	r2, .L35
+ 621 0014 1268     		ldr	r2, [r2]
+ 622 0016 0D49     		ldr	r1, .L35+4
+ 623 0018 0A40     		and	r2, r1
+ 369:Generated_Source\PSoC4/cyPm.c ****                             (CY_PM_PWR_STOP_REG & (CY_PM_PWR_STOP_TOKEN_MASK | CY_PM_PWR_STOP_POLAR
+ 624              		.loc 2 369 0
+ 625 001a E821     		mov	r1, #232
+ 626 001c 8901     		lsl	r1, r1, #6
+ 627 001e 0A43     		orr	r2, r1
+ 628 0020 1A60     		str	r2, [r3]
+ 371:Generated_Source\PSoC4/cyPm.c **** 
+ 372:Generated_Source\PSoC4/cyPm.c ****         /* If reading after writing, read this register three times to delay
+ 373:Generated_Source\PSoC4/cyPm.c ****         *  enough time for internal settling.
+ 374:Generated_Source\PSoC4/cyPm.c ****         */
+ 375:Generated_Source\PSoC4/cyPm.c ****         (void) CY_PM_PWR_STOP_REG;
+ 629              		.loc 2 375 0
+ 630 0022 094B     		ldr	r3, .L35
+ 631 0024 1B68     		ldr	r3, [r3]
+ 376:Generated_Source\PSoC4/cyPm.c ****         (void) CY_PM_PWR_STOP_REG;
+ 632              		.loc 2 376 0
+ 633 0026 084B     		ldr	r3, .L35
+ 634 0028 1B68     		ldr	r3, [r3]
+ 377:Generated_Source\PSoC4/cyPm.c **** 
+ 378:Generated_Source\PSoC4/cyPm.c ****         /* Lock STOP mode: write PWR_STOP.FREEZE=0, UNLOCK=0x00, STOP=0, .TOKEN */
+ 379:Generated_Source\PSoC4/cyPm.c ****         CY_PM_PWR_STOP_REG &= (CY_PM_PWR_STOP_TOKEN_MASK | CY_PM_PWR_STOP_POLARITY);
+ 635              		.loc 2 379 0
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 24
+
+
+ 636 002a 074B     		ldr	r3, .L35
+ 637 002c 064A     		ldr	r2, .L35
+ 638 002e 1268     		ldr	r2, [r2]
+ 639 0030 0649     		ldr	r1, .L35+4
+ 640 0032 0A40     		and	r2, r1
+ 641 0034 1A60     		str	r2, [r3]
+ 380:Generated_Source\PSoC4/cyPm.c **** 
+ 381:Generated_Source\PSoC4/cyPm.c ****         CyExitCriticalSection(interruptState);
+ 642              		.loc 2 381 0
+ 643 0036 FB1D     		add	r3, r7, #7
+ 644 0038 1B78     		ldrb	r3, [r3]
+ 645 003a 181C     		mov	r0, r3
+ 646 003c FFF7FEFF 		bl	CyExitCriticalSection
+ 382:Generated_Source\PSoC4/cyPm.c ****     }
+ 647              		.loc 2 382 0
+ 648 0040 BD46     		mov	sp, r7
+ 649 0042 03B0     		add	sp, sp, #12
+ 650              		@ sp needed
+ 651 0044 90BD     		pop	{r4, r7, pc}
+ 652              	.L36:
+ 653 0046 C046     		.align	2
+ 654              	.L35:
+ 655 0048 2C000B40 		.word	1074462764
+ 656 004c FF000100 		.word	65791
+ 657              		.cfi_endproc
+ 658              	.LFE10:
+ 659              		.size	CySysPmUnfreezeIo, .-CySysPmUnfreezeIo
+ 660              		.text
+ 661              	.Letext0:
+ 662              		.file 3 "Generated_Source\\PSoC4\\cytypes.h"
+ 663              		.section	.debug_info,"",%progbits
+ 664              	.Ldebug_info0:
+ 665 0000 0A020000 		.4byte	0x20a
+ 666 0004 0400     		.2byte	0x4
+ 667 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 668 000a 04       		.byte	0x4
+ 669 000b 01       		.uleb128 0x1
+ 670 000c EC000000 		.4byte	.LASF26
+ 671 0010 01       		.byte	0x1
+ 672 0011 1F020000 		.4byte	.LASF27
+ 673 0015 32000000 		.4byte	.LASF28
+ 674 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 675 001d 00000000 		.4byte	0
+ 676 0021 00000000 		.4byte	.Ldebug_line0
+ 677 0025 02       		.uleb128 0x2
+ 678 0026 01       		.byte	0x1
+ 679 0027 06       		.byte	0x6
+ 680 0028 3D020000 		.4byte	.LASF0
+ 681 002c 02       		.uleb128 0x2
+ 682 002d 01       		.byte	0x1
+ 683 002e 08       		.byte	0x8
+ 684 002f 92000000 		.4byte	.LASF1
+ 685 0033 02       		.uleb128 0x2
+ 686 0034 02       		.byte	0x2
+ 687 0035 05       		.byte	0x5
+ 688 0036 FB010000 		.4byte	.LASF2
+ 689 003a 02       		.uleb128 0x2
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 25
+
+
+ 690 003b 02       		.byte	0x2
+ 691 003c 07       		.byte	0x7
+ 692 003d 49020000 		.4byte	.LASF3
+ 693 0041 02       		.uleb128 0x2
+ 694 0042 04       		.byte	0x4
+ 695 0043 05       		.byte	0x5
+ 696 0044 16020000 		.4byte	.LASF4
+ 697 0048 02       		.uleb128 0x2
+ 698 0049 04       		.byte	0x4
+ 699 004a 07       		.byte	0x7
+ 700 004b AF000000 		.4byte	.LASF5
+ 701 004f 02       		.uleb128 0x2
+ 702 0050 08       		.byte	0x8
+ 703 0051 05       		.byte	0x5
+ 704 0052 DB010000 		.4byte	.LASF6
+ 705 0056 02       		.uleb128 0x2
+ 706 0057 08       		.byte	0x8
+ 707 0058 07       		.byte	0x7
+ 708 0059 95010000 		.4byte	.LASF7
+ 709 005d 03       		.uleb128 0x3
+ 710 005e 04       		.byte	0x4
+ 711 005f 05       		.byte	0x5
+ 712 0060 696E7400 		.ascii	"int\000"
+ 713 0064 02       		.uleb128 0x2
+ 714 0065 04       		.byte	0x4
+ 715 0066 07       		.byte	0x7
+ 716 0067 88010000 		.4byte	.LASF8
+ 717 006b 04       		.uleb128 0x4
+ 718 006c C1000000 		.4byte	.LASF9
+ 719 0070 03       		.byte	0x3
+ 720 0071 B901     		.2byte	0x1b9
+ 721 0073 2C000000 		.4byte	0x2c
+ 722 0077 04       		.uleb128 0x4
+ 723 0078 7A010000 		.4byte	.LASF10
+ 724 007c 03       		.byte	0x3
+ 725 007d BA01     		.2byte	0x1ba
+ 726 007f 3A000000 		.4byte	0x3a
+ 727 0083 04       		.uleb128 0x4
+ 728 0084 81010000 		.4byte	.LASF11
+ 729 0088 03       		.byte	0x3
+ 730 0089 BB01     		.2byte	0x1bb
+ 731 008b 48000000 		.4byte	0x48
+ 732 008f 02       		.uleb128 0x2
+ 733 0090 04       		.byte	0x4
+ 734 0091 04       		.byte	0x4
+ 735 0092 8C000000 		.4byte	.LASF12
+ 736 0096 02       		.uleb128 0x2
+ 737 0097 08       		.byte	0x8
+ 738 0098 04       		.byte	0x4
+ 739 0099 D3000000 		.4byte	.LASF13
+ 740 009d 02       		.uleb128 0x2
+ 741 009e 01       		.byte	0x1
+ 742 009f 08       		.byte	0x8
+ 743 00a0 E9010000 		.4byte	.LASF14
+ 744 00a4 04       		.uleb128 0x4
+ 745 00a5 00000000 		.4byte	.LASF15
+ 746 00a9 03       		.byte	0x3
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 26
+
+
+ 747 00aa 6402     		.2byte	0x264
+ 748 00ac B0000000 		.4byte	0xb0
+ 749 00b0 05       		.uleb128 0x5
+ 750 00b1 77000000 		.4byte	0x77
+ 751 00b5 04       		.uleb128 0x4
+ 752 00b6 06000000 		.4byte	.LASF16
+ 753 00ba 03       		.byte	0x3
+ 754 00bb 6502     		.2byte	0x265
+ 755 00bd C1000000 		.4byte	0xc1
+ 756 00c1 05       		.uleb128 0x5
+ 757 00c2 83000000 		.4byte	0x83
+ 758 00c6 02       		.uleb128 0x2
+ 759 00c7 04       		.byte	0x4
+ 760 00c8 07       		.byte	0x7
+ 761 00c9 D2010000 		.4byte	.LASF17
+ 762 00cd 06       		.uleb128 0x6
+ 763 00ce 6E000000 		.4byte	.LASF29
+ 764 00d2 01       		.byte	0x1
+ 765 00d3 DE       		.byte	0xde
+ 766 00d4 00000000 		.4byte	.LFB0
+ 767 00d8 78000000 		.4byte	.LFE0-.LFB0
+ 768 00dc 01       		.uleb128 0x1
+ 769 00dd 9C       		.byte	0x9c
+ 770 00de 07       		.uleb128 0x7
+ 771 00df 25000000 		.4byte	.LASF18
+ 772 00e3 02       		.byte	0x2
+ 773 00e4 20       		.byte	0x20
+ 774 00e5 00000000 		.4byte	.LFB3
+ 775 00e9 34000000 		.4byte	.LFE3-.LFB3
+ 776 00ed 01       		.uleb128 0x1
+ 777 00ee 9C       		.byte	0x9c
+ 778 00ef 02010000 		.4byte	0x102
+ 779 00f3 08       		.uleb128 0x8
+ 780 00f4 A0000000 		.4byte	.LASF20
+ 781 00f8 02       		.byte	0x2
+ 782 00f9 22       		.byte	0x22
+ 783 00fa 6B000000 		.4byte	0x6b
+ 784 00fe 02       		.uleb128 0x2
+ 785 00ff 91       		.byte	0x91
+ 786 0100 6F       		.sleb128 -17
+ 787 0101 00       		.byte	0
+ 788 0102 07       		.uleb128 0x7
+ 789 0103 05020000 		.4byte	.LASF19
+ 790 0107 02       		.byte	0x2
+ 791 0108 3F       		.byte	0x3f
+ 792 0109 00000000 		.4byte	.LFB4
+ 793 010d 6C000000 		.4byte	.LFE4-.LFB4
+ 794 0111 01       		.uleb128 0x1
+ 795 0112 9C       		.byte	0x9c
+ 796 0113 34010000 		.4byte	0x134
+ 797 0117 08       		.uleb128 0x8
+ 798 0118 A0000000 		.4byte	.LASF20
+ 799 011c 02       		.byte	0x2
+ 800 011d 41       		.byte	0x41
+ 801 011e 6B000000 		.4byte	0x6b
+ 802 0122 02       		.uleb128 0x2
+ 803 0123 91       		.byte	0x91
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 27
+
+
+ 804 0124 6F       		.sleb128 -17
+ 805 0125 08       		.uleb128 0x8
+ 806 0126 EE010000 		.4byte	.LASF21
+ 807 012a 02       		.byte	0x2
+ 808 012b 43       		.byte	0x43
+ 809 012c C1000000 		.4byte	0xc1
+ 810 0130 02       		.uleb128 0x2
+ 811 0131 91       		.byte	0x91
+ 812 0132 68       		.sleb128 -24
+ 813 0133 00       		.byte	0
+ 814 0134 07       		.uleb128 0x7
+ 815 0135 5D000000 		.4byte	.LASF22
+ 816 0139 02       		.byte	0x2
+ 817 013a 8A       		.byte	0x8a
+ 818 013b 00000000 		.4byte	.LFB5
+ 819 013f 70000000 		.4byte	.LFE5-.LFB5
+ 820 0143 01       		.uleb128 0x1
+ 821 0144 9C       		.byte	0x9c
+ 822 0145 58010000 		.4byte	0x158
+ 823 0149 08       		.uleb128 0x8
+ 824 014a A0000000 		.4byte	.LASF20
+ 825 014e 02       		.byte	0x2
+ 826 014f 8C       		.byte	0x8c
+ 827 0150 6B000000 		.4byte	0x6b
+ 828 0154 02       		.uleb128 0x2
+ 829 0155 91       		.byte	0x91
+ 830 0156 6F       		.sleb128 -17
+ 831 0157 00       		.byte	0
+ 832 0158 09       		.uleb128 0x9
+ 833 0159 C7000000 		.4byte	.LASF30
+ 834 015d 02       		.byte	0x2
+ 835 015e C5       		.byte	0xc5
+ 836 015f 00000000 		.4byte	.LFB6
+ 837 0163 3C000000 		.4byte	.LFE6-.LFB6
+ 838 0167 01       		.uleb128 0x1
+ 839 0168 9C       		.byte	0x9c
+ 840 0169 07       		.uleb128 0x7
+ 841 016a 0C000000 		.4byte	.LASF23
+ 842 016e 02       		.byte	0x2
+ 843 016f F2       		.byte	0xf2
+ 844 0170 00000000 		.4byte	.LFB7
+ 845 0174 4C000000 		.4byte	.LFE7-.LFB7
+ 846 0178 01       		.uleb128 0x1
+ 847 0179 9C       		.byte	0x9c
+ 848 017a 9B010000 		.4byte	0x19b
+ 849 017e 0A       		.uleb128 0xa
+ 850 017f B3010000 		.4byte	.LASF31
+ 851 0183 02       		.byte	0x2
+ 852 0184 F2       		.byte	0xf2
+ 853 0185 83000000 		.4byte	0x83
+ 854 0189 02       		.uleb128 0x2
+ 855 018a 91       		.byte	0x91
+ 856 018b 64       		.sleb128 -28
+ 857 018c 08       		.uleb128 0x8
+ 858 018d A0000000 		.4byte	.LASF20
+ 859 0191 02       		.byte	0x2
+ 860 0192 F4       		.byte	0xf4
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 28
+
+
+ 861 0193 6B000000 		.4byte	0x6b
+ 862 0197 02       		.uleb128 0x2
+ 863 0198 91       		.byte	0x91
+ 864 0199 6F       		.sleb128 -17
+ 865 019a 00       		.byte	0
+ 866 019b 0B       		.uleb128 0xb
+ 867 019c BC010000 		.4byte	.LASF32
+ 868 01a0 02       		.byte	0x2
+ 869 01a1 0E01     		.2byte	0x10e
+ 870 01a3 83000000 		.4byte	0x83
+ 871 01a7 00000000 		.4byte	.LFB8
+ 872 01ab 40000000 		.4byte	.LFE8-.LFB8
+ 873 01af 01       		.uleb128 0x1
+ 874 01b0 9C       		.byte	0x9c
+ 875 01b1 C5010000 		.4byte	0x1c5
+ 876 01b5 0C       		.uleb128 0xc
+ 877 01b6 AC010000 		.4byte	.LASF24
+ 878 01ba 02       		.byte	0x2
+ 879 01bb 1001     		.2byte	0x110
+ 880 01bd 83000000 		.4byte	0x83
+ 881 01c1 02       		.uleb128 0x2
+ 882 01c2 91       		.byte	0x91
+ 883 01c3 74       		.sleb128 -12
+ 884 01c4 00       		.byte	0
+ 885 01c5 0D       		.uleb128 0xd
+ 886 01c6 5C020000 		.4byte	.LASF25
+ 887 01ca 02       		.byte	0x2
+ 888 01cb 3801     		.2byte	0x138
+ 889 01cd 00000000 		.4byte	.LFB9
+ 890 01d1 58000000 		.4byte	.LFE9-.LFB9
+ 891 01d5 01       		.uleb128 0x1
+ 892 01d6 9C       		.byte	0x9c
+ 893 01d7 EB010000 		.4byte	0x1eb
+ 894 01db 0C       		.uleb128 0xc
+ 895 01dc A0000000 		.4byte	.LASF20
+ 896 01e0 02       		.byte	0x2
+ 897 01e1 3A01     		.2byte	0x13a
+ 898 01e3 6B000000 		.4byte	0x6b
+ 899 01e7 02       		.uleb128 0x2
+ 900 01e8 91       		.byte	0x91
+ 901 01e9 6F       		.sleb128 -17
+ 902 01ea 00       		.byte	0
+ 903 01eb 0E       		.uleb128 0xe
+ 904 01ec DA000000 		.4byte	.LASF33
+ 905 01f0 02       		.byte	0x2
+ 906 01f1 6801     		.2byte	0x168
+ 907 01f3 00000000 		.4byte	.LFB10
+ 908 01f7 50000000 		.4byte	.LFE10-.LFB10
+ 909 01fb 01       		.uleb128 0x1
+ 910 01fc 9C       		.byte	0x9c
+ 911 01fd 0C       		.uleb128 0xc
+ 912 01fe A0000000 		.4byte	.LASF20
+ 913 0202 02       		.byte	0x2
+ 914 0203 6A01     		.2byte	0x16a
+ 915 0205 6B000000 		.4byte	0x6b
+ 916 0209 02       		.uleb128 0x2
+ 917 020a 91       		.byte	0x91
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 29
+
+
+ 918 020b 6F       		.sleb128 -17
+ 919 020c 00       		.byte	0
+ 920 020d 00       		.byte	0
+ 921              		.section	.debug_abbrev,"",%progbits
+ 922              	.Ldebug_abbrev0:
+ 923 0000 01       		.uleb128 0x1
+ 924 0001 11       		.uleb128 0x11
+ 925 0002 01       		.byte	0x1
+ 926 0003 25       		.uleb128 0x25
+ 927 0004 0E       		.uleb128 0xe
+ 928 0005 13       		.uleb128 0x13
+ 929 0006 0B       		.uleb128 0xb
+ 930 0007 03       		.uleb128 0x3
+ 931 0008 0E       		.uleb128 0xe
+ 932 0009 1B       		.uleb128 0x1b
+ 933 000a 0E       		.uleb128 0xe
+ 934 000b 55       		.uleb128 0x55
+ 935 000c 17       		.uleb128 0x17
+ 936 000d 11       		.uleb128 0x11
+ 937 000e 01       		.uleb128 0x1
+ 938 000f 10       		.uleb128 0x10
+ 939 0010 17       		.uleb128 0x17
+ 940 0011 00       		.byte	0
+ 941 0012 00       		.byte	0
+ 942 0013 02       		.uleb128 0x2
+ 943 0014 24       		.uleb128 0x24
+ 944 0015 00       		.byte	0
+ 945 0016 0B       		.uleb128 0xb
+ 946 0017 0B       		.uleb128 0xb
+ 947 0018 3E       		.uleb128 0x3e
+ 948 0019 0B       		.uleb128 0xb
+ 949 001a 03       		.uleb128 0x3
+ 950 001b 0E       		.uleb128 0xe
+ 951 001c 00       		.byte	0
+ 952 001d 00       		.byte	0
+ 953 001e 03       		.uleb128 0x3
+ 954 001f 24       		.uleb128 0x24
+ 955 0020 00       		.byte	0
+ 956 0021 0B       		.uleb128 0xb
+ 957 0022 0B       		.uleb128 0xb
+ 958 0023 3E       		.uleb128 0x3e
+ 959 0024 0B       		.uleb128 0xb
+ 960 0025 03       		.uleb128 0x3
+ 961 0026 08       		.uleb128 0x8
+ 962 0027 00       		.byte	0
+ 963 0028 00       		.byte	0
+ 964 0029 04       		.uleb128 0x4
+ 965 002a 16       		.uleb128 0x16
+ 966 002b 00       		.byte	0
+ 967 002c 03       		.uleb128 0x3
+ 968 002d 0E       		.uleb128 0xe
+ 969 002e 3A       		.uleb128 0x3a
+ 970 002f 0B       		.uleb128 0xb
+ 971 0030 3B       		.uleb128 0x3b
+ 972 0031 05       		.uleb128 0x5
+ 973 0032 49       		.uleb128 0x49
+ 974 0033 13       		.uleb128 0x13
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 30
+
+
+ 975 0034 00       		.byte	0
+ 976 0035 00       		.byte	0
+ 977 0036 05       		.uleb128 0x5
+ 978 0037 35       		.uleb128 0x35
+ 979 0038 00       		.byte	0
+ 980 0039 49       		.uleb128 0x49
+ 981 003a 13       		.uleb128 0x13
+ 982 003b 00       		.byte	0
+ 983 003c 00       		.byte	0
+ 984 003d 06       		.uleb128 0x6
+ 985 003e 2E       		.uleb128 0x2e
+ 986 003f 00       		.byte	0
+ 987 0040 03       		.uleb128 0x3
+ 988 0041 0E       		.uleb128 0xe
+ 989 0042 3A       		.uleb128 0x3a
+ 990 0043 0B       		.uleb128 0xb
+ 991 0044 3B       		.uleb128 0x3b
+ 992 0045 0B       		.uleb128 0xb
+ 993 0046 27       		.uleb128 0x27
+ 994 0047 19       		.uleb128 0x19
+ 995 0048 11       		.uleb128 0x11
+ 996 0049 01       		.uleb128 0x1
+ 997 004a 12       		.uleb128 0x12
+ 998 004b 06       		.uleb128 0x6
+ 999 004c 40       		.uleb128 0x40
+ 1000 004d 18       		.uleb128 0x18
+ 1001 004e 9742     		.uleb128 0x2117
+ 1002 0050 19       		.uleb128 0x19
+ 1003 0051 00       		.byte	0
+ 1004 0052 00       		.byte	0
+ 1005 0053 07       		.uleb128 0x7
+ 1006 0054 2E       		.uleb128 0x2e
+ 1007 0055 01       		.byte	0x1
+ 1008 0056 3F       		.uleb128 0x3f
+ 1009 0057 19       		.uleb128 0x19
+ 1010 0058 03       		.uleb128 0x3
+ 1011 0059 0E       		.uleb128 0xe
+ 1012 005a 3A       		.uleb128 0x3a
+ 1013 005b 0B       		.uleb128 0xb
+ 1014 005c 3B       		.uleb128 0x3b
+ 1015 005d 0B       		.uleb128 0xb
+ 1016 005e 27       		.uleb128 0x27
+ 1017 005f 19       		.uleb128 0x19
+ 1018 0060 11       		.uleb128 0x11
+ 1019 0061 01       		.uleb128 0x1
+ 1020 0062 12       		.uleb128 0x12
+ 1021 0063 06       		.uleb128 0x6
+ 1022 0064 40       		.uleb128 0x40
+ 1023 0065 18       		.uleb128 0x18
+ 1024 0066 9642     		.uleb128 0x2116
+ 1025 0068 19       		.uleb128 0x19
+ 1026 0069 01       		.uleb128 0x1
+ 1027 006a 13       		.uleb128 0x13
+ 1028 006b 00       		.byte	0
+ 1029 006c 00       		.byte	0
+ 1030 006d 08       		.uleb128 0x8
+ 1031 006e 34       		.uleb128 0x34
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 31
+
+
+ 1032 006f 00       		.byte	0
+ 1033 0070 03       		.uleb128 0x3
+ 1034 0071 0E       		.uleb128 0xe
+ 1035 0072 3A       		.uleb128 0x3a
+ 1036 0073 0B       		.uleb128 0xb
+ 1037 0074 3B       		.uleb128 0x3b
+ 1038 0075 0B       		.uleb128 0xb
+ 1039 0076 49       		.uleb128 0x49
+ 1040 0077 13       		.uleb128 0x13
+ 1041 0078 02       		.uleb128 0x2
+ 1042 0079 18       		.uleb128 0x18
+ 1043 007a 00       		.byte	0
+ 1044 007b 00       		.byte	0
+ 1045 007c 09       		.uleb128 0x9
+ 1046 007d 2E       		.uleb128 0x2e
+ 1047 007e 00       		.byte	0
+ 1048 007f 3F       		.uleb128 0x3f
+ 1049 0080 19       		.uleb128 0x19
+ 1050 0081 03       		.uleb128 0x3
+ 1051 0082 0E       		.uleb128 0xe
+ 1052 0083 3A       		.uleb128 0x3a
+ 1053 0084 0B       		.uleb128 0xb
+ 1054 0085 3B       		.uleb128 0x3b
+ 1055 0086 0B       		.uleb128 0xb
+ 1056 0087 27       		.uleb128 0x27
+ 1057 0088 19       		.uleb128 0x19
+ 1058 0089 11       		.uleb128 0x11
+ 1059 008a 01       		.uleb128 0x1
+ 1060 008b 12       		.uleb128 0x12
+ 1061 008c 06       		.uleb128 0x6
+ 1062 008d 40       		.uleb128 0x40
+ 1063 008e 18       		.uleb128 0x18
+ 1064 008f 9642     		.uleb128 0x2116
+ 1065 0091 19       		.uleb128 0x19
+ 1066 0092 00       		.byte	0
+ 1067 0093 00       		.byte	0
+ 1068 0094 0A       		.uleb128 0xa
+ 1069 0095 05       		.uleb128 0x5
+ 1070 0096 00       		.byte	0
+ 1071 0097 03       		.uleb128 0x3
+ 1072 0098 0E       		.uleb128 0xe
+ 1073 0099 3A       		.uleb128 0x3a
+ 1074 009a 0B       		.uleb128 0xb
+ 1075 009b 3B       		.uleb128 0x3b
+ 1076 009c 0B       		.uleb128 0xb
+ 1077 009d 49       		.uleb128 0x49
+ 1078 009e 13       		.uleb128 0x13
+ 1079 009f 02       		.uleb128 0x2
+ 1080 00a0 18       		.uleb128 0x18
+ 1081 00a1 00       		.byte	0
+ 1082 00a2 00       		.byte	0
+ 1083 00a3 0B       		.uleb128 0xb
+ 1084 00a4 2E       		.uleb128 0x2e
+ 1085 00a5 01       		.byte	0x1
+ 1086 00a6 3F       		.uleb128 0x3f
+ 1087 00a7 19       		.uleb128 0x19
+ 1088 00a8 03       		.uleb128 0x3
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 32
+
+
+ 1089 00a9 0E       		.uleb128 0xe
+ 1090 00aa 3A       		.uleb128 0x3a
+ 1091 00ab 0B       		.uleb128 0xb
+ 1092 00ac 3B       		.uleb128 0x3b
+ 1093 00ad 05       		.uleb128 0x5
+ 1094 00ae 27       		.uleb128 0x27
+ 1095 00af 19       		.uleb128 0x19
+ 1096 00b0 49       		.uleb128 0x49
+ 1097 00b1 13       		.uleb128 0x13
+ 1098 00b2 11       		.uleb128 0x11
+ 1099 00b3 01       		.uleb128 0x1
+ 1100 00b4 12       		.uleb128 0x12
+ 1101 00b5 06       		.uleb128 0x6
+ 1102 00b6 40       		.uleb128 0x40
+ 1103 00b7 18       		.uleb128 0x18
+ 1104 00b8 9742     		.uleb128 0x2117
+ 1105 00ba 19       		.uleb128 0x19
+ 1106 00bb 01       		.uleb128 0x1
+ 1107 00bc 13       		.uleb128 0x13
+ 1108 00bd 00       		.byte	0
+ 1109 00be 00       		.byte	0
+ 1110 00bf 0C       		.uleb128 0xc
+ 1111 00c0 34       		.uleb128 0x34
+ 1112 00c1 00       		.byte	0
+ 1113 00c2 03       		.uleb128 0x3
+ 1114 00c3 0E       		.uleb128 0xe
+ 1115 00c4 3A       		.uleb128 0x3a
+ 1116 00c5 0B       		.uleb128 0xb
+ 1117 00c6 3B       		.uleb128 0x3b
+ 1118 00c7 05       		.uleb128 0x5
+ 1119 00c8 49       		.uleb128 0x49
+ 1120 00c9 13       		.uleb128 0x13
+ 1121 00ca 02       		.uleb128 0x2
+ 1122 00cb 18       		.uleb128 0x18
+ 1123 00cc 00       		.byte	0
+ 1124 00cd 00       		.byte	0
+ 1125 00ce 0D       		.uleb128 0xd
+ 1126 00cf 2E       		.uleb128 0x2e
+ 1127 00d0 01       		.byte	0x1
+ 1128 00d1 3F       		.uleb128 0x3f
+ 1129 00d2 19       		.uleb128 0x19
+ 1130 00d3 03       		.uleb128 0x3
+ 1131 00d4 0E       		.uleb128 0xe
+ 1132 00d5 3A       		.uleb128 0x3a
+ 1133 00d6 0B       		.uleb128 0xb
+ 1134 00d7 3B       		.uleb128 0x3b
+ 1135 00d8 05       		.uleb128 0x5
+ 1136 00d9 27       		.uleb128 0x27
+ 1137 00da 19       		.uleb128 0x19
+ 1138 00db 11       		.uleb128 0x11
+ 1139 00dc 01       		.uleb128 0x1
+ 1140 00dd 12       		.uleb128 0x12
+ 1141 00de 06       		.uleb128 0x6
+ 1142 00df 40       		.uleb128 0x40
+ 1143 00e0 18       		.uleb128 0x18
+ 1144 00e1 9642     		.uleb128 0x2116
+ 1145 00e3 19       		.uleb128 0x19
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 33
+
+
+ 1146 00e4 01       		.uleb128 0x1
+ 1147 00e5 13       		.uleb128 0x13
+ 1148 00e6 00       		.byte	0
+ 1149 00e7 00       		.byte	0
+ 1150 00e8 0E       		.uleb128 0xe
+ 1151 00e9 2E       		.uleb128 0x2e
+ 1152 00ea 01       		.byte	0x1
+ 1153 00eb 3F       		.uleb128 0x3f
+ 1154 00ec 19       		.uleb128 0x19
+ 1155 00ed 03       		.uleb128 0x3
+ 1156 00ee 0E       		.uleb128 0xe
+ 1157 00ef 3A       		.uleb128 0x3a
+ 1158 00f0 0B       		.uleb128 0xb
+ 1159 00f1 3B       		.uleb128 0x3b
+ 1160 00f2 05       		.uleb128 0x5
+ 1161 00f3 27       		.uleb128 0x27
+ 1162 00f4 19       		.uleb128 0x19
+ 1163 00f5 11       		.uleb128 0x11
+ 1164 00f6 01       		.uleb128 0x1
+ 1165 00f7 12       		.uleb128 0x12
+ 1166 00f8 06       		.uleb128 0x6
+ 1167 00f9 40       		.uleb128 0x40
+ 1168 00fa 18       		.uleb128 0x18
+ 1169 00fb 9642     		.uleb128 0x2116
+ 1170 00fd 19       		.uleb128 0x19
+ 1171 00fe 00       		.byte	0
+ 1172 00ff 00       		.byte	0
+ 1173 0100 00       		.byte	0
+ 1174              		.section	.debug_aranges,"",%progbits
+ 1175 0000 5C000000 		.4byte	0x5c
+ 1176 0004 0200     		.2byte	0x2
+ 1177 0006 00000000 		.4byte	.Ldebug_info0
+ 1178 000a 04       		.byte	0x4
+ 1179 000b 00       		.byte	0
+ 1180 000c 0000     		.2byte	0
+ 1181 000e 0000     		.2byte	0
+ 1182 0010 00000000 		.4byte	.LFB0
+ 1183 0014 78000000 		.4byte	.LFE0-.LFB0
+ 1184 0018 00000000 		.4byte	.LFB3
+ 1185 001c 34000000 		.4byte	.LFE3-.LFB3
+ 1186 0020 00000000 		.4byte	.LFB4
+ 1187 0024 6C000000 		.4byte	.LFE4-.LFB4
+ 1188 0028 00000000 		.4byte	.LFB5
+ 1189 002c 70000000 		.4byte	.LFE5-.LFB5
+ 1190 0030 00000000 		.4byte	.LFB6
+ 1191 0034 3C000000 		.4byte	.LFE6-.LFB6
+ 1192 0038 00000000 		.4byte	.LFB7
+ 1193 003c 4C000000 		.4byte	.LFE7-.LFB7
+ 1194 0040 00000000 		.4byte	.LFB8
+ 1195 0044 40000000 		.4byte	.LFE8-.LFB8
+ 1196 0048 00000000 		.4byte	.LFB9
+ 1197 004c 58000000 		.4byte	.LFE9-.LFB9
+ 1198 0050 00000000 		.4byte	.LFB10
+ 1199 0054 50000000 		.4byte	.LFE10-.LFB10
+ 1200 0058 00000000 		.4byte	0
+ 1201 005c 00000000 		.4byte	0
+ 1202              		.section	.debug_ranges,"",%progbits
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 34
+
+
+ 1203              	.Ldebug_ranges0:
+ 1204 0000 00000000 		.4byte	.LFB0
+ 1205 0004 78000000 		.4byte	.LFE0
+ 1206 0008 00000000 		.4byte	.LFB3
+ 1207 000c 34000000 		.4byte	.LFE3
+ 1208 0010 00000000 		.4byte	.LFB4
+ 1209 0014 6C000000 		.4byte	.LFE4
+ 1210 0018 00000000 		.4byte	.LFB5
+ 1211 001c 70000000 		.4byte	.LFE5
+ 1212 0020 00000000 		.4byte	.LFB6
+ 1213 0024 3C000000 		.4byte	.LFE6
+ 1214 0028 00000000 		.4byte	.LFB7
+ 1215 002c 4C000000 		.4byte	.LFE7
+ 1216 0030 00000000 		.4byte	.LFB8
+ 1217 0034 40000000 		.4byte	.LFE8
+ 1218 0038 00000000 		.4byte	.LFB9
+ 1219 003c 58000000 		.4byte	.LFE9
+ 1220 0040 00000000 		.4byte	.LFB10
+ 1221 0044 50000000 		.4byte	.LFE10
+ 1222 0048 00000000 		.4byte	0
+ 1223 004c 00000000 		.4byte	0
+ 1224              		.section	.debug_line,"",%progbits
+ 1225              	.Ldebug_line0:
+ 1226 0000 52010000 		.section	.debug_str,"MS",%progbits,1
+ 1226      02004B00 
+ 1226      00000201 
+ 1226      FB0E0D00 
+ 1226      01010101 
+ 1227              	.LASF15:
+ 1228 0000 72656731 		.ascii	"reg16\000"
+ 1228      3600
+ 1229              	.LASF16:
+ 1230 0006 72656733 		.ascii	"reg32\000"
+ 1230      3200
+ 1231              	.LASF23:
+ 1232 000c 43795379 		.ascii	"CySysPmSetWakeupPolarity\000"
+ 1232      73506D53 
+ 1232      65745761 
+ 1232      6B657570 
+ 1232      506F6C61 
+ 1233              	.LASF18:
+ 1234 0025 43795379 		.ascii	"CySysPmSleep\000"
+ 1234      73506D53 
+ 1234      6C656570 
+ 1234      00
+ 1235              	.LASF28:
+ 1236 0032 433A5C55 		.ascii	"C:\\Users\\akita\\Documents\\TPT02\\TPT02.cydsn\000"
+ 1236      73657273 
+ 1236      5C616B69 
+ 1236      74615C44 
+ 1236      6F63756D 
+ 1237              	.LASF22:
+ 1238 005d 43795379 		.ascii	"CySysPmHibernate\000"
+ 1238      73506D48 
+ 1238      69626572 
+ 1238      6E617465 
+ 1238      00
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 35
+
+
+ 1239              	.LASF29:
+ 1240 006e 43795379 		.ascii	"CySysPmHibPinsDisableInputBuf\000"
+ 1240      73506D48 
+ 1240      69625069 
+ 1240      6E734469 
+ 1240      7361626C 
+ 1241              	.LASF12:
+ 1242 008c 666C6F61 		.ascii	"float\000"
+ 1242      7400
+ 1243              	.LASF1:
+ 1244 0092 756E7369 		.ascii	"unsigned char\000"
+ 1244      676E6564 
+ 1244      20636861 
+ 1244      7200
+ 1245              	.LASF20:
+ 1246 00a0 696E7465 		.ascii	"interruptState\000"
+ 1246      72727570 
+ 1246      74537461 
+ 1246      746500
+ 1247              	.LASF5:
+ 1248 00af 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1248      20756E73 
+ 1248      69676E65 
+ 1248      6420696E 
+ 1248      7400
+ 1249              	.LASF9:
+ 1250 00c1 75696E74 		.ascii	"uint8\000"
+ 1250      3800
+ 1251              	.LASF30:
+ 1252 00c7 43795379 		.ascii	"CySysPmStop\000"
+ 1252      73506D53 
+ 1252      746F7000 
+ 1253              	.LASF13:
+ 1254 00d3 646F7562 		.ascii	"double\000"
+ 1254      6C6500
+ 1255              	.LASF33:
+ 1256 00da 43795379 		.ascii	"CySysPmUnfreezeIo\000"
+ 1256      73506D55 
+ 1256      6E667265 
+ 1256      657A6549 
+ 1256      6F00
+ 1257              	.LASF26:
+ 1258 00ec 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1258      4320342E 
+ 1258      392E3320 
+ 1258      32303135 
+ 1258      30333033 
+ 1259 011f 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 1259      20726576 
+ 1259      6973696F 
+ 1259      6E203232 
+ 1259      31323230 
+ 1260 0152 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1260      66756E63 
+ 1260      74696F6E 
+ 1260      2D736563 
+ 1260      74696F6E 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 36
+
+
+ 1261              	.LASF10:
+ 1262 017a 75696E74 		.ascii	"uint16\000"
+ 1262      313600
+ 1263              	.LASF11:
+ 1264 0181 75696E74 		.ascii	"uint32\000"
+ 1264      333200
+ 1265              	.LASF8:
+ 1266 0188 756E7369 		.ascii	"unsigned int\000"
+ 1266      676E6564 
+ 1266      20696E74 
+ 1266      00
+ 1267              	.LASF7:
+ 1268 0195 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1268      206C6F6E 
+ 1268      6720756E 
+ 1268      7369676E 
+ 1268      65642069 
+ 1269              	.LASF24:
+ 1270 01ac 72656173 		.ascii	"reason\000"
+ 1270      6F6E00
+ 1271              	.LASF31:
+ 1272 01b3 706F6C61 		.ascii	"polarity\000"
+ 1272      72697479 
+ 1272      00
+ 1273              	.LASF32:
+ 1274 01bc 43795379 		.ascii	"CySysPmGetResetReason\000"
+ 1274      73506D47 
+ 1274      65745265 
+ 1274      73657452 
+ 1274      6561736F 
+ 1275              	.LASF17:
+ 1276 01d2 73697A65 		.ascii	"sizetype\000"
+ 1276      74797065 
+ 1276      00
+ 1277              	.LASF6:
+ 1278 01db 6C6F6E67 		.ascii	"long long int\000"
+ 1278      206C6F6E 
+ 1278      6720696E 
+ 1278      7400
+ 1279              	.LASF14:
+ 1280 01e9 63686172 		.ascii	"char\000"
+ 1280      00
+ 1281              	.LASF21:
+ 1282 01ee 636C6B53 		.ascii	"clkSelectReg\000"
+ 1282      656C6563 
+ 1282      74526567 
+ 1282      00
+ 1283              	.LASF2:
+ 1284 01fb 73686F72 		.ascii	"short int\000"
+ 1284      7420696E 
+ 1284      7400
+ 1285              	.LASF19:
+ 1286 0205 43795379 		.ascii	"CySysPmDeepSleep\000"
+ 1286      73506D44 
+ 1286      65657053 
+ 1286      6C656570 
+ 1286      00
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccgugjic.s 			page 37
+
+
+ 1287              	.LASF4:
+ 1288 0216 6C6F6E67 		.ascii	"long int\000"
+ 1288      20696E74 
+ 1288      00
+ 1289              	.LASF27:
+ 1290 021f 47656E65 		.ascii	"Generated_Source\\PSoC4\\cyPm.c\000"
+ 1290      72617465 
+ 1290      645F536F 
+ 1290      75726365 
+ 1290      5C50536F 
+ 1291              	.LASF0:
+ 1292 023d 7369676E 		.ascii	"signed char\000"
+ 1292      65642063 
+ 1292      68617200 
+ 1293              	.LASF3:
+ 1294 0249 73686F72 		.ascii	"short unsigned int\000"
+ 1294      7420756E 
+ 1294      7369676E 
+ 1294      65642069 
+ 1294      6E7400
+ 1295              	.LASF25:
+ 1296 025c 43795379 		.ascii	"CySysPmFreezeIo\000"
+ 1296      73506D46 
+ 1296      7265657A 
+ 1296      65496F00 
+ 1297              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
