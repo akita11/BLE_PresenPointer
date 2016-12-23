@@ -1367,6 +1367,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <part name="GND9" library="akita" deviceset="POW_GND" device=""/>
 <part name="SW5" library="akita" deviceset="SW_TACT" device="EVQPU02"/>
 <part name="GND10" library="akita" deviceset="POW_GND" device=""/>
+<part name="CNM1" library="akita" deviceset="CON_P01" device="SMD1MM"/>
 </parts>
 <sheets>
 <sheet>
@@ -1407,6 +1408,7 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <instance part="GND9" gate="1" x="104.14" y="63.5"/>
 <instance part="SW5" gate="1" x="99.06" y="22.86" rot="R270"/>
 <instance part="GND10" gate="1" x="104.14" y="17.78"/>
+<instance part="CNM1" gate="G$1" x="71.12" y="60.96" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -1727,6 +1729,15 @@ Basic schematic elements and footprints for 0603, 1206, and PTH resistors.</desc
 <pinref part="U1" gate="G$1" pin="P04"/>
 <wire x1="40.64" y1="53.34" x2="35.56" y2="53.34" width="0.1524" layer="91"/>
 <label x="30.48" y="53.34" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="TXD" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="P35"/>
+<wire x1="71.12" y1="50.8" x2="78.74" y2="50.8" width="0.1524" layer="91"/>
+<label x="73.66" y="50.8" size="1.778" layer="95"/>
+<pinref part="CNM1" gate="G$1" pin="1"/>
+<wire x1="78.74" y1="50.8" x2="78.74" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

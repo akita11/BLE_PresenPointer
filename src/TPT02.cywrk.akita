@@ -318,20 +318,6 @@
 <v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLFClk.lst</v>
 <v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
 <v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\debug.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\Disconnect_LED.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\Disconnect_LED_PM.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\hids.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\scps.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\SWBACK.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\SWBACK_PM.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\SWBLACKOUT.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\SWBLACKOUT_PM.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\SWID.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\SWID_PM.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -416,7 +402,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="799, 703" SelectedTabbedMdiWindow="6bd547e1-5c6a-4ddd-8753-8b09d9602a6b"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="49f9fec6-4843-451f-acc2-c82cfae7e8ac" /><DocumentWindow Key="fdea28c3-8977-49ad-8e90-223aaab15316" Guid="bea91a40-6ccc-4f1a-b6a0-07d6ad1d4bb2" /><DocumentWindow Key="ab8e3251-2a86-4fc5-b837-f8b550a2d555" Guid="9c9b625a-ba6f-4720-9b9c-6c6090bd51cd" /><DocumentWindow Key="9657ce0d-5015-4bdd-a0d5-01253c3a87aa" Guid="6bd547e1-5c6a-4ddd-8753-8b09d9602a6b" /><DocumentWindow Key="cbb8505a-970e-4718-8ea5-42cfd9390b6d" Guid="981f5fb9-3612-4879-894b-ad10b2710d0b" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="883, 447" SelectedTabbedMdiWindow="7e9ab775-6c86-4afc-b0b1-83736f3b666f"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="49f9fec6-4843-451f-acc2-c82cfae7e8ac" /><DocumentWindow Key="95b03954-60ab-41cd-a365-65294dae19c0" Guid="5fbc4d9d-b215-4ca3-9818-9da653d83c28" /><DocumentWindow Key="c1613aad-b170-46bd-8319-f1ebd5609d30" Guid="8f8fbb8f-0c36-415f-add9-fa2de5bc5618" /><DocumentWindow Key="d24a671c-7204-46ce-aa34-18fe03825701" Guid="bc7015b3-636f-4030-b8b5-e369a28c9dca" /><DocumentWindow Key="f7c0f327-3a73-4148-af70-6c2893d6666f" Guid="7e9ab775-6c86-4afc-b0b1-83736f3b666f" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
