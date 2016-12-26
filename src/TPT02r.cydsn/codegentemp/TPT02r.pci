@@ -1,0 +1,20 @@
+# TPT02r
+# 2016-12-26 07:30:45Z
+
+# IO_6@[IOP=(0)][IoId=(6)] is reserved: SWDDebugEnabled
+dont_use_io iocell 0 6
+# IO_7@[IOP=(0)][IoId=(7)] is reserved: SWDDebugEnabled
+dont_use_io iocell 0 7
+dont_use_location p4lpcompcell -1 -1 0
+set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
+set_io "Advertising_LED(0)" iocell 3 6
+set_io "CapsLock_LED(0)" iocell 0 4
+set_io "Disconnect_LED(0)" iocell 2 6
+set_io "SWID(0)" iocell 1 1
+set_io "\UART_DEB:tx(0)\" iocell 1 5
+set_io "\UART_DEB:rx(0)\" iocell 1 4
+set_io "Vref(0)" iocell 3 0
+set_io "SWMAIN(0)" iocell 3 7
+set_io "SWBACK(0)" iocell 3 5
+set_io "SWBLACKOUT(0)" iocell 0 1
+set_location "\ADC:cy_psoc4_sar\" p4sarcell -1 -1 0

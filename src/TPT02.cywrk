@@ -3,11 +3,12 @@
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
 <CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize" version="5" xml_contents_version="3" name="TPT02" persistent="TPT02.cywrk" platform="NOT_USED">
-<current_project name=".\TPT02.cydsn\TPT02.cyprj" />
+<current_project name=".\TPT02r.cydsn\TPT02r.cyprj" />
 <wrkspc_folders />
 <files />
 <projects>
 <v>.\TPT02.cydsn\TPT02.cyprj</v>
+<v>.\TPT02r.cydsn\TPT02r.cyprj</v>
 </projects>
 <workspace_id v="305beeaf-bbeb-45b8-8ee4-28a4751f624d" />
 <WriteAppVersionLastSavedWith v="4.0.0.432" />
