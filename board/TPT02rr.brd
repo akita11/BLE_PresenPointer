@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.7.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.25" altunitdist="mm" altunit="mm"/>
+<grid distance="1.27" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.25" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -548,11 +548,11 @@ design rules under a new name.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="C5" library="akita" package="0603" value="10u" x="11.02" y="23.89" smashed="yes" rot="R270">
+<element name="C2" library="akita" package="0603" value="10u" x="11.02" y="23.89" smashed="yes" rot="R270">
 <attribute name="NAME" x="10.631" y="25.537" size="0.8128" layer="25" font="vector"/>
 <attribute name="VALUE" x="9.242" y="24.906" size="0.8128" layer="27" font="vector" rot="R270"/>
 </element>
-<element name="C6" library="akita" package="0603" value="10u" x="15" y="18" smashed="yes" rot="R180">
+<element name="C1" library="akita" package="0603" value="10u" x="15" y="18" smashed="yes" rot="R180">
 <attribute name="NAME" x="14.361" y="18.897" size="0.8128" layer="25" font="vector"/>
 <attribute name="VALUE" x="16.016" y="19.778" size="0.8128" layer="27" font="vector" rot="R180"/>
 </element>
@@ -604,8 +604,8 @@ design rules under a new name.</description>
 <signals>
 <signal name="GND">
 <contactref element="CN1" pad="P$2"/>
-<contactref element="C5" pad="2"/>
-<contactref element="C6" pad="2"/>
+<contactref element="C2" pad="2"/>
+<contactref element="C1" pad="2"/>
 <contactref element="CNM" pad="P$1"/>
 <contactref element="SW3" pad="B2"/>
 <contactref element="SW3" pad="B1"/>
@@ -702,7 +702,7 @@ design rules under a new name.</description>
 <wire x1="12" y1="7.5" x2="8" y2="11.5" width="0.4064" layer="16"/>
 <via x="8" y="11.5" extent="1-16" drill="0.3"/>
 <contactref element="U2" pad="P$4"/>
-<contactref element="C5" pad="1"/>
+<contactref element="C2" pad="1"/>
 <contactref element="U2" pad="P$2"/>
 <wire x1="11.02" y1="24.74" x2="9.51" y2="24.74" width="0.8128" layer="1"/>
 <wire x1="9.51" y1="24.74" x2="8.5" y2="23.73" width="0.8128" layer="1"/>
@@ -820,7 +820,7 @@ design rules under a new name.</description>
 <wire x1="22" y1="14.25" x2="21.25" y2="15" width="0.8128" layer="16"/>
 </signal>
 <signal name="VBAT">
-<contactref element="C6" pad="1"/>
+<contactref element="C1" pad="1"/>
 <contactref element="SW4" pad="P$1"/>
 <via x="22.5" y="18" extent="1-16" drill="0.3"/>
 <wire x1="22.5" y1="18" x2="17.25" y2="18" width="0.8128" layer="1"/>
