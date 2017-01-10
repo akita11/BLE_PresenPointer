@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.5" altunitdist="mm" altunit="mm"/>
+<grid distance="1.27" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.5" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -211,14 +211,12 @@ v1.3</text>
 <text x="-2.5" y="2" size="1.27" layer="25">&gt;NAME</text>
 <text x="-2.5" y="-3" size="1.27" layer="27">&gt;VALUE</text>
 </package>
-<package name="SW_EVQPLBA08">
-<description>Panasonic, EVQPLxBA08</description>
+<package name="SW_EVQPLBA08_NOGND">
+<description>Panasonic's EQVQPLBA08, no GND terminal</description>
 <smd name="A1" x="-1.85" y="2.2" dx="0.6" dy="1" layer="1" rot="R180"/>
 <smd name="A2" x="-1.85" y="-2.2" dx="0.6" dy="1" layer="1" rot="R180"/>
 <smd name="B1" x="1.85" y="2.2" dx="0.6" dy="1" layer="1" rot="R180"/>
 <smd name="B2" x="1.85" y="-2.2" dx="0.6" dy="1" layer="1" rot="R180"/>
-<smd name="G1" x="2.525" y="0" dx="0.45" dy="1" layer="1"/>
-<smd name="G2" x="-2.525" y="0" dx="0.45" dy="1" layer="1"/>
 <wire x1="2.3" y1="2.3" x2="2.3" y2="0.75" width="0.127" layer="21"/>
 <wire x1="1.15" y1="2.3" x2="-1.15" y2="2.3" width="0.127" layer="21"/>
 <wire x1="-2.3" y1="2.3" x2="-2.3" y2="0.75" width="0.127" layer="21"/>
@@ -567,11 +565,11 @@ design rules under a new name.</description>
 <attribute name="NAME" x="16.75" y="18.7" size="1.27" layer="25"/>
 <attribute name="VALUE" x="17.5" y="19.7" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="SW3" library="akita" package="SW_EVQPLBA08" value="" x="4" y="15" smashed="yes" rot="R90">
+<element name="SW3" library="akita" package="SW_EVQPLBA08_NOGND" value="" x="4" y="15" smashed="yes" rot="R90">
 <attribute name="NAME" x="8" y="13" size="1.27" layer="25" rot="R90"/>
 <attribute name="VALUE" x="8" y="12.5" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="SW2" library="akita" package="SW_EVQPLBA08" value="" x="26" y="15" smashed="yes" rot="R180">
+<element name="SW2" library="akita" package="SW_EVQPLBA08_NOGND" value="" x="26" y="15" smashed="yes" rot="R180">
 <attribute name="NAME" x="23.25" y="13" size="1.27" layer="25" rot="R90"/>
 <attribute name="VALUE" x="28.5" y="19" size="1.27" layer="27" rot="R180"/>
 </element>
@@ -980,11 +978,11 @@ design rules under a new name.</description>
 <approved hash="19,16,bfd6a9a0ab70bd06"/>
 <approved hash="19,16,569c64e6623e5044"/>
 <approved hash="19,16,9bdcf5aafbe09596"/>
+<approved hash="4,1,ed7733cf4fb49174"/>
 <approved hash="4,1,463b9664aa0719d9"/>
 <approved hash="4,1,709507af831a7712"/>
-<approved hash="4,1,6640326632466660"/>
 <approved hash="4,1,1b404f664f461b60"/>
-<approved hash="4,1,ed7733cf4fb49174"/>
+<approved hash="4,1,6640326632466660"/>
 <approved hash="19,16,db7998e3e71b59ea"/>
 <approved hash="19,16,695291d928b5bd6d"/>
 <approved hash="19,16,ffd1465c14f65091"/>
