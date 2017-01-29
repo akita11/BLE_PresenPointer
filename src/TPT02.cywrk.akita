@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="TPT02\TPT02">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="TPT02\TPT02r\Source Files\main.c">
 <ExpandedNodeIds>
 <v>TPT02</v>
 <v>TPT02\TPT02\TopDesign</v>
@@ -219,7 +219,6 @@
 <v>TPT02\TPT02r\Source Files\main.c</v>
 <v>TPT02\TPT02r\Source Files\scps.c</v>
 <v>TPT02\TPT02r\BLE_HID_Keyboard.pdf</v>
-<v>TPT02\TPT02r\Generated_Source</v>
 <v>TPT02\TPT02r\Generated_Source\PSoC4</v>
 <v>TPT02\TPT02r\Generated_Source\PSoC4\ADC</v>
 <v>TPT02\TPT02r\Generated_Source\PSoC4\ADC\ADC.c</v>
@@ -405,13 +404,6 @@
 <v>TPT02\TPT02r\Source Files\scps.c</v>
 <v>TPT02\TPT02r\BLE_HID_Keyboard.pdf</v>
 <v>TPT02\TPT02r\Generated_Source</v>
-<v>TPT02\TPT02r\Generated_Source\PSoC4</v>
-<v>TPT02\TPT02r\Generated_Source\PSoC4\ADC</v>
-<v>TPT02\TPT02r\Generated_Source\PSoC4\ADC\ADC.c</v>
-<v>TPT02\TPT02r\Generated_Source\PSoC4\ADC\ADC.h</v>
-<v>TPT02\TPT02r\Generated_Source\PSoC4\ADC\ADC_INT.c</v>
-<v>TPT02\TPT02r\Generated_Source\PSoC4\ADC\ADC_PM.c</v>
-<v>TPT02\TPT02r\Generated_Source\PSoC4\ADC_intClock</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -575,37 +567,6 @@
 <VisibleNodeIds>
 <v>TPT02</v>
 <v>TPT02\TPT02</v>
-<v>TPT02\TPT02\CortexM0</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_INT.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_intClock.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_IRQ.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_PM.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\Advertising_LED.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\Advertising_LED_PM.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\bas.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_bas.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_bless_isr.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_dis.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_eventHandler.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_gatt.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_HAL_INT.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_HAL_PVT.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_hids.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_scps.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\CapsLock_LED.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\CapsLock_LED_PM.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\Cm0Start.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLFClk.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -697,6 +658,20 @@
 <v>TPT02\TPT02r\ADC_SAR_SEQ_P4_v2_40.pdf</v>
 <v>TPT02\TPT02r\BLE_v3_20.pdf</v>
 <v>TPT02\TPT02r\Capacitor_v1_0.pdf</v>
+<v>TPT02\TPT02r\cy_gsref_v2_0.pdf</v>
+<v>TPT02\TPT02r\cy_isr_v1_70</v>
+<v>TPT02\TPT02r\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
+<v>TPT02\TPT02r\cy_pins_v2_20</v>
+<v>TPT02\TPT02r\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>TPT02\TPT02r\Gnd_v1_0</v>
+<v>TPT02\TPT02r\Gnd_v1_0\Gnd_v1_0.pdf</v>
+<v>TPT02\TPT02r\LED_v1_0</v>
+<v>TPT02\TPT02r\LED_v1_0\LED_v1_0.pdf</v>
+<v>TPT02\TPT02r\Power_v1_0.pdf</v>
+<v>TPT02\TPT02r\Resistor_v1_0</v>
+<v>TPT02\TPT02r\Resistor_v1_0\Resistor_v1_0.pdf</v>
+<v>TPT02\TPT02r\SCB_P4_v3_20.pdf</v>
+<v>TPT02\TPT02r\SwitchSPST_v1_0.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -711,10 +686,10 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\TPT02.cydsn\TPT02.cydwr" />
-<name v=".\TPT02.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\TPT02.cydsn\main.c" />
-<name v=".\TPT02.cydsn\hids.c" />
+<name v=".\TPT02r.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\TPT02r.cydsn\TPT02r.cydwr" />
+<name v=".\TPT02r.cydsn\hids.c" />
+<name v=".\TPT02r.cydsn\main.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -722,7 +697,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="883, 447" SelectedTabbedMdiWindow="00ee3239-d99c-43e1-9590-60a9935d89c7"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="49f9fec6-4843-451f-acc2-c82cfae7e8ac" /><DocumentWindow Key="5d4008b0-d2d1-4251-bd25-76a31e7b5e4e" Guid="a71db77b-14db-49f5-8122-69b3a689e6df" /><DocumentWindow Key="e9dc8a8a-43ec-476d-b0b9-0e2617b6559d" Guid="9c5d7699-8519-4ac0-827a-12ec871ddb83" /><DocumentWindow Key="db5fac45-2af4-4cc4-8b02-8d53a1e148ac" Guid="16d6f540-6d3c-48db-9503-5ce274f374bd" /><DocumentWindow Key="cf6e81c6-0493-48f0-92a4-25bace3398c5" Guid="00ee3239-d99c-43e1-9590-60a9935d89c7" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="892, 703" SelectedTabbedMdiWindow="7d5d51e5-c0cf-4003-b648-88cf1c129193"><DocumentWindow Key="1f3488ae-882a-4ded-a1e1-791c96e6a7c9" Guid="7d5d51e5-c0cf-4003-b648-88cf1c129193" /><DocumentWindow Key="98db9a5f-6967-48c5-bbeb-68f4df2b0ad9" Guid="fab52f3e-7833-4a87-8ca8-6c3a33a2d3fe" /><DocumentWindow Key="514ba42c-8875-42ab-8212-5581a4a3ac78" Guid="fc45cdb1-d9a5-4e9d-8f1b-1a9b4a1de094" /><DocumentWindow Key="e66c5aed-22d1-430c-9d6c-471016a6854e" Guid="19bc9bc3-df49-4771-b664-fc2e9dbfb078" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

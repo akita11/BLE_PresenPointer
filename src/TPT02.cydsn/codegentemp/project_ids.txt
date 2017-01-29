@@ -1,6 +1,6 @@
-C:\Users\akita\Documents\TPT02\src\TPT02.cydsn\TPT02.cyprj|02cbe580-c57e-4cdc-be58-304c5d4cbc91
-C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|fbbc584d-10c2-4894-8a80-e55c4428529a
-C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|3b56cc5f-45c6-4b05-afa8-1f4d2afb0a03
-C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|b0b0a915-5d4c-4203-be26-6d7770ce09bc
-C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|ba40cbb1-a47f-4f2d-9097-2bd761853bf1
-C:\Users\akita\Documents\TPT02\src\TPT02_old.cydsn\TPT02_old.cyprj|28562704-3999-469e-be27-28233e9cff1b
+C:\Users\akita\Documents\TPT02\src\TPT02.cydsn\TPT02.cyprj|926d6708-18f1-447a-a482-6fb96c3b41d5
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|8a21a0c1-438c-4e94-bbb4-6876f635c902
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|83f8d88b-b29d-4809-9762-4c84a945e4d7
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|31606b70-6bea-42b1-af17-69eebeec55dd
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|12a4591d-e7ae-4bda-b847-e3e49dfd3aed
+C:\Users\akita\Documents\TPT02\src\TPT02r.cydsn\TPT02r.cyprj|31907f3f-00c4-46fb-a6c7-cb01b76cb72a

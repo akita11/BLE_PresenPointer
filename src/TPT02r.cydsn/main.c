@@ -135,6 +135,13 @@ void AppCallBack(uint32 event, void* eventParam)
             break;
         case CYBLE_EVT_GAP_DEVICE_CONNECTED:
             DBG_PRINTF("CYBLE_EVT_GAP_DEVICE_CONNECTED \r\n");
+            int i;
+            for (i = 0; i < 5; i++){
+                Advertising_LED_Write(LED_ON);
+                CyDelay(100);
+                Advertising_LED_Write(LED_OFF);
+                CyDelay(100);
+            }
             Advertising_LED_Write(LED_OFF);
             break;
         case CYBLE_EVT_GAP_DEVICE_DISCONNECTED:
