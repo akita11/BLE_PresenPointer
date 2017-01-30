@@ -23,8 +23,8 @@
 /***************************************
 * Conditional Compilation Parameters
 ***************************************/
-#define DEBUG_UART_ENABLED          ENABLED
-//#define DEBUG_UART_ENABLED          DISABLED
+//#define DEBUG_UART_ENABLED          ENABLED
+#define DEBUG_UART_ENABLED          DISABLED
 
 
 /***************************************

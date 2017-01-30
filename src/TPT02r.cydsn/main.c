@@ -389,7 +389,7 @@ static void LowPowerImplementation(void)
 #if (DEBUG_UART_ENABLED == ENABLED)
     UART_DEB_Start();
 #endif /* (DEBUG_UART_ENABLED == ENABLED) */
-    DBG_PRINTF("BLE HID Keyboard Example Project \r\n");
+    DBG_PRINTF("FingerPresenterBLE\r\n");
 
     Disconnect_LED_Write(LED_OFF);
     Advertising_LED_Write(LED_OFF);
