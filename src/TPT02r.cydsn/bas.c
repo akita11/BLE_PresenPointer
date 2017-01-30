@@ -262,8 +262,7 @@ void SimulateBattery(void)
     static uint8 batteryLevel = SIM_BATTERY_MIN;
     CYBLE_API_RESULT_T apiResult;
     
-//    if((CyBle_GattGetBusyStatus() == CYBLE_STACK_STATE_FREE) && (--batteryTimer == 0u))
-    if(0)
+    if((CyBle_GattGetBusyStatus() == CYBLE_STACK_STATE_FREE) && (--batteryTimer == 0u))
     {
         batteryTimer = BATTERY_TIMEOUT;
         

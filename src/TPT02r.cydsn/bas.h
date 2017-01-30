@@ -21,7 +21,7 @@
 *  Conditional Compilation Parameters
 ***************************************/
 #define BAS_MEASURE_ENABLE          (0)     /* Set to 1 to enable Battery Level measurement using sequencer ADC */
-#define BAS_SIMULATE_ENABLE         (1)     /* Set to 1 to enable Battery Level simulation */
+#define BAS_SIMULATE_ENABLE         (0)     /* Set to 1 to enable Battery Level simulation */
 #define BAS_MEASURE_LP_LED          (0)     /* Set to 1 to indicate <10% of battery level on LED */
 
 #if (BAS_MEASURE_ENABLE != 0)

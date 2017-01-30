@@ -736,6 +736,8 @@
 <name v=".\TPT02r.cydsn\hids.c" />
 <name v=".\TPT02r.cydsn\main.c" />
 <name v=".\TPT02r.cydsn\common.h" />
+<name v=".\TPT02r.cydsn\bas.c" />
+<name v=".\TPT02r.cydsn\bas.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -743,7 +745,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="799, 703" SelectedTabbedMdiWindow="5e3ea2dc-74f5-4c70-aaea-574486a1c740"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="49f9fec6-4843-451f-acc2-c82cfae7e8ac" /><DocumentWindow Key="ebe75e47-79aa-4e51-98fa-9061f7e7f255" Guid="953b54b6-dfe3-4102-b739-8f7d9f210517" /><DocumentWindow Key="4d14de44-6c0c-41a8-b20e-ff4df6e64ba2" Guid="549c6903-a05d-4df8-9b47-cce493b5bd31" /><DocumentWindow Key="dc1f3125-cb18-49c9-987d-b4b8d014cbac" Guid="e6b98b13-f369-4ca8-9546-1e32a5c958f4" /><DocumentWindow Key="afdd64ca-690b-4f99-946c-da4925eb6fc3" Guid="1414450c-c3ef-46c2-8052-576a2bbd6d1b" /><DocumentWindow Key="0975ef54-89d0-4f42-b1d4-735e9b6d6fad" Guid="5e3ea2dc-74f5-4c70-aaea-574486a1c740" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="799, 703" SelectedTabbedMdiWindow="8d65c9a9-bd15-4884-8c2a-67bcd7e2eb2b"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="49f9fec6-4843-451f-acc2-c82cfae7e8ac" /><DocumentWindow Key="9fa32c14-ce90-4b2a-a481-38257d4b11eb" Guid="452173c9-5333-4d2b-a7d1-5adf6f18417a" /><DocumentWindow Key="5f1e5a18-5096-4528-a389-80172b10c031" Guid="14b86168-3213-4eb7-8276-831fcbd69764" /><DocumentWindow Key="de5be7b4-2052-4eb0-b3ab-5f2bfe8fb1a5" Guid="e535ef49-613c-4f78-8cea-cf0fe5ee217d" /><DocumentWindow Key="eb5fab94-9397-44fb-aa95-d10f91204331" Guid="d805a7f8-454b-400a-a4d9-c6a966aa4725" /><DocumentWindow Key="92821820-11a0-480d-bcf5-618908bab742" Guid="3597f7ba-f525-4425-acef-e3a5454365dd" /><DocumentWindow Key="7a4a5352-d69e-49a9-86a1-2c951e4af852" Guid="8d65c9a9-bd15-4884-8c2a-67bcd7e2eb2b" /><DocumentWindow Key="0b2923db-e64c-4822-b17a-41dc21047890" Guid="f0fa7249-4160-4c4c-a2c6-88edb81d16d4" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
