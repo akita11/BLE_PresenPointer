@@ -190,6 +190,7 @@ void SimulateKeyboard(void)
     {
 //        if(mainPress < KEYBOARD_JITTER_SIZE) mainPress++;
 //        else if(mainPress == KEYBOARD_JITTER_SIZE)
+        Ton = 0; // reset sleep timer if SW pressed
         mainPress++;
         if(mainPress == 1)
         {
@@ -204,6 +205,7 @@ void SimulateKeyboard(void)
     {
 //        if(backPress < KEYBOARD_JITTER_SIZE) backPress++;
 //        else if(backPress == KEYBOARD_JITTER_SIZE)
+        Ton = 0; // reset sleep timer if SW pressed
         backPress++;
         if (backPress == 1)
         {
@@ -218,6 +220,7 @@ void SimulateKeyboard(void)
     {
 //        if(blackoutPress < KEYBOARD_JITTER_SIZE) blackoutPress++;
 //        else if(blackoutPress == KEYBOARD_JITTER_SIZE)
+        Ton = 0; // reset sleep timer if SW pressed
         blackoutPress++;
         if (blackoutPress == 1)
         {
@@ -231,6 +234,11 @@ void SimulateKeyboard(void)
     if((CyBle_GattGetBusyStatus() == CYBLE_STACK_STATE_FREE) && (fPress == 1))
     {
         fPress = 0;
+
+        // flash LED when button pressed
+        Advertising_LED_Write(0);
+        CyDelay(1);
+        Advertising_LED_Write(1);
 
         apiResult = CyBle_HidssGetCharacteristicValue(CYBLE_HUMAN_INTERFACE_DEVICE_SERVICE_INDEX, 
             CYBLE_HIDS_PROTOCOL_MODE, sizeof(protocol), &protocol);

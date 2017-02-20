@@ -211,6 +211,7 @@ void AppCallBack(uint32 event, void* eventParam)
 
 }
 
+int Ton = 0;
 
 /*******************************************************************************
 * Function Name: Timer_Interrupt
@@ -244,6 +245,8 @@ CY_ISR(Timer_Interrupt)
         /* Clears interrupt request  */
         CySysWdtClearInterrupt(WDT_INTERRUPT_SOURCE);
     }
+    Ton++;
+    if ((Ton % 10) == 0) DBG_PRINTF("Ton=%d\r\n", Ton);
 }
 
 /*******************************************************************************
@@ -405,6 +408,21 @@ static void LowPowerImplementation(void)
 
     while(1) 
     {           
+/*        
+        if(0u == SWMAIN_Read()){
+            DBG_PRINTF("going to shut down");
+//            CySysPmStop();
+            CySysPmHibernate();
+            DBG_PRINTF("done");
+        }
+*/
+
+        if (Ton == 10 * 60 * 10){ // 10 min
+//        if (Ton == 30 * 10){ // 30 sec
+            DBG_PRINTF("going to shut down");
+            CySysPmHibernate();
+            DBG_PRINTF("done");
+        }
         /* CyBle_ProcessEvents() allows BLE stack to process pending events */
         CyBle_ProcessEvents();
 

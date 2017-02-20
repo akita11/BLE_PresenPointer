@@ -58,5 +58,6 @@ void ShowError(void);
     #define DBG_PRINTF(...)
 #endif /* (DEBUG_UART_ENABLED == ENABLED) */
 
+int Ton;
 
 /* [] END OF FILE */
