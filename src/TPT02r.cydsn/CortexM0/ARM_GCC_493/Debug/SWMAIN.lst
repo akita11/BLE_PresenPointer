@@ -1,0 +1,1168 @@
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"SWMAIN.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.SWMAIN_SetDriveMode,"ax",%progbits
+  18              		.align	2
+  19              		.global	SWMAIN_SetDriveMode
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	SWMAIN_SetDriveMode, %function
+  23              	SWMAIN_SetDriveMode:
+  24              	.LFB0:
+  25              		.file 1 "Generated_Source\\PSoC4\\SWMAIN.c"
+   1:Generated_Source\PSoC4/SWMAIN.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/SWMAIN.c **** * File Name: SWMAIN.c  
+   3:Generated_Source\PSoC4/SWMAIN.c **** * Version 2.20
+   4:Generated_Source\PSoC4/SWMAIN.c **** *
+   5:Generated_Source\PSoC4/SWMAIN.c **** * Description:
+   6:Generated_Source\PSoC4/SWMAIN.c **** *  This file contains API to enable firmware control of a Pins component.
+   7:Generated_Source\PSoC4/SWMAIN.c **** *
+   8:Generated_Source\PSoC4/SWMAIN.c **** ********************************************************************************
+   9:Generated_Source\PSoC4/SWMAIN.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  10:Generated_Source\PSoC4/SWMAIN.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  11:Generated_Source\PSoC4/SWMAIN.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  12:Generated_Source\PSoC4/SWMAIN.c **** * the software package with which this file was provided.
+  13:Generated_Source\PSoC4/SWMAIN.c **** *******************************************************************************/
+  14:Generated_Source\PSoC4/SWMAIN.c **** 
+  15:Generated_Source\PSoC4/SWMAIN.c **** #include "cytypes.h"
+  16:Generated_Source\PSoC4/SWMAIN.c **** #include "SWMAIN.h"
+  17:Generated_Source\PSoC4/SWMAIN.c **** 
+  18:Generated_Source\PSoC4/SWMAIN.c **** 
+  19:Generated_Source\PSoC4/SWMAIN.c **** #if defined(SWMAIN__PC)
+  20:Generated_Source\PSoC4/SWMAIN.c ****     #define SWMAIN_SetP4PinDriveMode(shift, mode)  \
+  21:Generated_Source\PSoC4/SWMAIN.c ****     do { \
+  22:Generated_Source\PSoC4/SWMAIN.c ****         SWMAIN_PC =   (SWMAIN_PC & \
+  23:Generated_Source\PSoC4/SWMAIN.c ****                                 (uint32)(~(uint32)(SWMAIN_DRIVE_MODE_IND_MASK << \
+  24:Generated_Source\PSoC4/SWMAIN.c ****                                 (SWMAIN_DRIVE_MODE_BITS * (shift))))) | \
+  25:Generated_Source\PSoC4/SWMAIN.c ****                                 (uint32)((uint32)(mode) << \
+  26:Generated_Source\PSoC4/SWMAIN.c ****                                 (SWMAIN_DRIVE_MODE_BITS * (shift))); \
+  27:Generated_Source\PSoC4/SWMAIN.c ****     } while (0)
+  28:Generated_Source\PSoC4/SWMAIN.c **** #else
+  29:Generated_Source\PSoC4/SWMAIN.c ****     #if (CY_PSOC4_4200L)
+  30:Generated_Source\PSoC4/SWMAIN.c ****         #define SWMAIN_SetP4PinDriveMode(shift, mode)  \
+  31:Generated_Source\PSoC4/SWMAIN.c ****         do { \
+  32:Generated_Source\PSoC4/SWMAIN.c ****             SWMAIN_USBIO_CTRL_REG = (SWMAIN_USBIO_CTRL_REG & \
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 2
+
+
+  33:Generated_Source\PSoC4/SWMAIN.c ****                                     (uint32)(~(uint32)(SWMAIN_DRIVE_MODE_IND_MASK << \
+  34:Generated_Source\PSoC4/SWMAIN.c ****                                     (SWMAIN_DRIVE_MODE_BITS * (shift))))) | \
+  35:Generated_Source\PSoC4/SWMAIN.c ****                                     (uint32)((uint32)(mode) << \
+  36:Generated_Source\PSoC4/SWMAIN.c ****                                     (SWMAIN_DRIVE_MODE_BITS * (shift))); \
+  37:Generated_Source\PSoC4/SWMAIN.c ****         } while (0)
+  38:Generated_Source\PSoC4/SWMAIN.c ****     #endif
+  39:Generated_Source\PSoC4/SWMAIN.c **** #endif
+  40:Generated_Source\PSoC4/SWMAIN.c ****   
+  41:Generated_Source\PSoC4/SWMAIN.c **** 
+  42:Generated_Source\PSoC4/SWMAIN.c **** #if defined(SWMAIN__PC) || (CY_PSOC4_4200L) 
+  43:Generated_Source\PSoC4/SWMAIN.c ****     /*******************************************************************************
+  44:Generated_Source\PSoC4/SWMAIN.c ****     * Function Name: SWMAIN_SetDriveMode
+  45:Generated_Source\PSoC4/SWMAIN.c ****     ****************************************************************************//**
+  46:Generated_Source\PSoC4/SWMAIN.c ****     *
+  47:Generated_Source\PSoC4/SWMAIN.c ****     * \brief Sets the drive mode for each of the Pins component's pins.
+  48:Generated_Source\PSoC4/SWMAIN.c ****     * 
+  49:Generated_Source\PSoC4/SWMAIN.c ****     * <b>Note</b> This affects all pins in the Pins component instance. Use the
+  50:Generated_Source\PSoC4/SWMAIN.c ****     * Per-Pin APIs if you wish to control individual pin's drive modes.
+  51:Generated_Source\PSoC4/SWMAIN.c ****     *
+  52:Generated_Source\PSoC4/SWMAIN.c ****     * <b>Note</b> USBIOs have limited drive functionality. Refer to the Drive Mode
+  53:Generated_Source\PSoC4/SWMAIN.c ****     * parameter for more information.
+  54:Generated_Source\PSoC4/SWMAIN.c ****     *
+  55:Generated_Source\PSoC4/SWMAIN.c ****     * \param mode
+  56:Generated_Source\PSoC4/SWMAIN.c ****     *  Mode for the selected signals. Valid options are documented in 
+  57:Generated_Source\PSoC4/SWMAIN.c ****     *  \ref driveMode.
+  58:Generated_Source\PSoC4/SWMAIN.c ****     *
+  59:Generated_Source\PSoC4/SWMAIN.c ****     * \return
+  60:Generated_Source\PSoC4/SWMAIN.c ****     *  None
+  61:Generated_Source\PSoC4/SWMAIN.c ****     *
+  62:Generated_Source\PSoC4/SWMAIN.c ****     * \sideeffect
+  63:Generated_Source\PSoC4/SWMAIN.c ****     *  If you use read-modify-write operations that are not atomic, the ISR can
+  64:Generated_Source\PSoC4/SWMAIN.c ****     *  cause corruption of this function. An ISR that interrupts this function 
+  65:Generated_Source\PSoC4/SWMAIN.c ****     *  and performs writes to the Pins component Drive Mode registers can cause 
+  66:Generated_Source\PSoC4/SWMAIN.c ****     *  corrupted port data. To avoid this issue, you should either use the Per-Pin
+  67:Generated_Source\PSoC4/SWMAIN.c ****     *  APIs (primary method) or disable interrupts around this function.
+  68:Generated_Source\PSoC4/SWMAIN.c ****     *
+  69:Generated_Source\PSoC4/SWMAIN.c ****     * \funcusage
+  70:Generated_Source\PSoC4/SWMAIN.c ****     *  \snippet SWMAIN_SUT.c usage_SWMAIN_SetDriveMode
+  71:Generated_Source\PSoC4/SWMAIN.c ****     *******************************************************************************/
+  72:Generated_Source\PSoC4/SWMAIN.c ****     void SWMAIN_SetDriveMode(uint8 mode)
+  73:Generated_Source\PSoC4/SWMAIN.c ****     {
+  26              		.loc 1 73 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              		.cfi_def_cfa_offset 8
+  30              		.cfi_offset 7, -8
+  31              		.cfi_offset 14, -4
+  32 0002 82B0     		sub	sp, sp, #8
+  33              		.cfi_def_cfa_offset 16
+  34 0004 00AF     		add	r7, sp, #0
+  35              		.cfi_def_cfa_register 7
+  36 0006 021C     		mov	r2, r0
+  37 0008 FB1D     		add	r3, r7, #7
+  38 000a 1A70     		strb	r2, [r3]
+  74:Generated_Source\PSoC4/SWMAIN.c **** 		SWMAIN_SetP4PinDriveMode(SWMAIN__0__SHIFT, mode);
+  39              		.loc 1 74 0
+  40 000c 064B     		ldr	r3, .L2
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 3
+
+
+  41 000e 064A     		ldr	r2, .L2
+  42 0010 1268     		ldr	r2, [r2]
+  43 0012 0649     		ldr	r1, .L2+4
+  44 0014 1140     		and	r1, r2
+  45 0016 FA1D     		add	r2, r7, #7
+  46 0018 1278     		ldrb	r2, [r2]
+  47 001a 5205     		lsl	r2, r2, #21
+  48 001c 0A43     		orr	r2, r1
+  49 001e 1A60     		str	r2, [r3]
+  75:Generated_Source\PSoC4/SWMAIN.c ****     }
+  50              		.loc 1 75 0
+  51 0020 BD46     		mov	sp, r7
+  52 0022 02B0     		add	sp, sp, #8
+  53              		@ sp needed
+  54 0024 80BD     		pop	{r7, pc}
+  55              	.L3:
+  56 0026 C046     		.align	2
+  57              	.L2:
+  58 0028 08030440 		.word	1074004744
+  59 002c FFFF1FFF 		.word	-14680065
+  60              		.cfi_endproc
+  61              	.LFE0:
+  62              		.size	SWMAIN_SetDriveMode, .-SWMAIN_SetDriveMode
+  63              		.section	.text.SWMAIN_Write,"ax",%progbits
+  64              		.align	2
+  65              		.global	SWMAIN_Write
+  66              		.code	16
+  67              		.thumb_func
+  68              		.type	SWMAIN_Write, %function
+  69              	SWMAIN_Write:
+  70              	.LFB1:
+  76:Generated_Source\PSoC4/SWMAIN.c **** #endif
+  77:Generated_Source\PSoC4/SWMAIN.c **** 
+  78:Generated_Source\PSoC4/SWMAIN.c **** 
+  79:Generated_Source\PSoC4/SWMAIN.c **** /*******************************************************************************
+  80:Generated_Source\PSoC4/SWMAIN.c **** * Function Name: SWMAIN_Write
+  81:Generated_Source\PSoC4/SWMAIN.c **** ****************************************************************************//**
+  82:Generated_Source\PSoC4/SWMAIN.c **** *
+  83:Generated_Source\PSoC4/SWMAIN.c **** * \brief Writes the value to the physical port (data output register), masking
+  84:Generated_Source\PSoC4/SWMAIN.c **** *  and shifting the bits appropriately. 
+  85:Generated_Source\PSoC4/SWMAIN.c **** *
+  86:Generated_Source\PSoC4/SWMAIN.c **** * The data output register controls the signal applied to the physical pin in 
+  87:Generated_Source\PSoC4/SWMAIN.c **** * conjunction with the drive mode parameter. This function avoids changing 
+  88:Generated_Source\PSoC4/SWMAIN.c **** * other bits in the port by using the appropriate method (read-modify-write or
+  89:Generated_Source\PSoC4/SWMAIN.c **** * bit banding).
+  90:Generated_Source\PSoC4/SWMAIN.c **** *
+  91:Generated_Source\PSoC4/SWMAIN.c **** * <b>Note</b> This function should not be used on a hardware digital output pin 
+  92:Generated_Source\PSoC4/SWMAIN.c **** * as it is driven by the hardware signal attached to it.
+  93:Generated_Source\PSoC4/SWMAIN.c **** *
+  94:Generated_Source\PSoC4/SWMAIN.c **** * \param value
+  95:Generated_Source\PSoC4/SWMAIN.c **** *  Value to write to the component instance.
+  96:Generated_Source\PSoC4/SWMAIN.c **** *
+  97:Generated_Source\PSoC4/SWMAIN.c **** * \return 
+  98:Generated_Source\PSoC4/SWMAIN.c **** *  None 
+  99:Generated_Source\PSoC4/SWMAIN.c **** *
+ 100:Generated_Source\PSoC4/SWMAIN.c **** * \sideeffect
+ 101:Generated_Source\PSoC4/SWMAIN.c **** *  If you use read-modify-write operations that are not atomic; the Interrupt 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 4
+
+
+ 102:Generated_Source\PSoC4/SWMAIN.c **** *  Service Routines (ISR) can cause corruption of this function. An ISR that 
+ 103:Generated_Source\PSoC4/SWMAIN.c **** *  interrupts this function and performs writes to the Pins component data 
+ 104:Generated_Source\PSoC4/SWMAIN.c **** *  register can cause corrupted port data. To avoid this issue, you should 
+ 105:Generated_Source\PSoC4/SWMAIN.c **** *  either use the Per-Pin APIs (primary method) or disable interrupts around 
+ 106:Generated_Source\PSoC4/SWMAIN.c **** *  this function.
+ 107:Generated_Source\PSoC4/SWMAIN.c **** *
+ 108:Generated_Source\PSoC4/SWMAIN.c **** * \funcusage
+ 109:Generated_Source\PSoC4/SWMAIN.c **** *  \snippet SWMAIN_SUT.c usage_SWMAIN_Write
+ 110:Generated_Source\PSoC4/SWMAIN.c **** *******************************************************************************/
+ 111:Generated_Source\PSoC4/SWMAIN.c **** void SWMAIN_Write(uint8 value)
+ 112:Generated_Source\PSoC4/SWMAIN.c **** {
+  71              		.loc 1 112 0
+  72              		.cfi_startproc
+  73 0000 80B5     		push	{r7, lr}
+  74              		.cfi_def_cfa_offset 8
+  75              		.cfi_offset 7, -8
+  76              		.cfi_offset 14, -4
+  77 0002 84B0     		sub	sp, sp, #16
+  78              		.cfi_def_cfa_offset 24
+  79 0004 00AF     		add	r7, sp, #0
+  80              		.cfi_def_cfa_register 7
+  81 0006 021C     		mov	r2, r0
+  82 0008 FB1D     		add	r3, r7, #7
+  83 000a 1A70     		strb	r2, [r3]
+ 113:Generated_Source\PSoC4/SWMAIN.c ****     uint8 drVal = (uint8)(SWMAIN_DR & (uint8)(~SWMAIN_MASK));
+  84              		.loc 1 113 0
+  85 000c 0D4B     		ldr	r3, .L5
+  86 000e 1B68     		ldr	r3, [r3]
+  87 0010 DAB2     		uxtb	r2, r3
+  88 0012 0F23     		mov	r3, #15
+  89 0014 FB18     		add	r3, r7, r3
+  90 0016 7F21     		mov	r1, #127
+  91 0018 0A40     		and	r2, r1
+  92 001a 1A70     		strb	r2, [r3]
+ 114:Generated_Source\PSoC4/SWMAIN.c ****     drVal = (drVal | ((uint8)(value << SWMAIN_SHIFT) & SWMAIN_MASK));
+  93              		.loc 1 114 0
+  94 001c FB1D     		add	r3, r7, #7
+  95 001e 1B78     		ldrb	r3, [r3]
+  96 0020 DB01     		lsl	r3, r3, #7
+  97 0022 D9B2     		uxtb	r1, r3
+  98 0024 0F23     		mov	r3, #15
+  99 0026 FB18     		add	r3, r7, r3
+ 100 0028 0F22     		mov	r2, #15
+ 101 002a BA18     		add	r2, r7, r2
+ 102 002c 1278     		ldrb	r2, [r2]
+ 103 002e 0A43     		orr	r2, r1
+ 104 0030 1A70     		strb	r2, [r3]
+ 115:Generated_Source\PSoC4/SWMAIN.c ****     SWMAIN_DR = (uint32)drVal;
+ 105              		.loc 1 115 0
+ 106 0032 044B     		ldr	r3, .L5
+ 107 0034 0F22     		mov	r2, #15
+ 108 0036 BA18     		add	r2, r7, r2
+ 109 0038 1278     		ldrb	r2, [r2]
+ 110 003a 1A60     		str	r2, [r3]
+ 116:Generated_Source\PSoC4/SWMAIN.c **** }
+ 111              		.loc 1 116 0
+ 112 003c BD46     		mov	sp, r7
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 5
+
+
+ 113 003e 04B0     		add	sp, sp, #16
+ 114              		@ sp needed
+ 115 0040 80BD     		pop	{r7, pc}
+ 116              	.L6:
+ 117 0042 C046     		.align	2
+ 118              	.L5:
+ 119 0044 00030440 		.word	1074004736
+ 120              		.cfi_endproc
+ 121              	.LFE1:
+ 122              		.size	SWMAIN_Write, .-SWMAIN_Write
+ 123              		.section	.text.SWMAIN_Read,"ax",%progbits
+ 124              		.align	2
+ 125              		.global	SWMAIN_Read
+ 126              		.code	16
+ 127              		.thumb_func
+ 128              		.type	SWMAIN_Read, %function
+ 129              	SWMAIN_Read:
+ 130              	.LFB2:
+ 117:Generated_Source\PSoC4/SWMAIN.c **** 
+ 118:Generated_Source\PSoC4/SWMAIN.c **** 
+ 119:Generated_Source\PSoC4/SWMAIN.c **** /*******************************************************************************
+ 120:Generated_Source\PSoC4/SWMAIN.c **** * Function Name: SWMAIN_Read
+ 121:Generated_Source\PSoC4/SWMAIN.c **** ****************************************************************************//**
+ 122:Generated_Source\PSoC4/SWMAIN.c **** *
+ 123:Generated_Source\PSoC4/SWMAIN.c **** * \brief Reads the associated physical port (pin status register) and masks 
+ 124:Generated_Source\PSoC4/SWMAIN.c **** *  the required bits according to the width and bit position of the component
+ 125:Generated_Source\PSoC4/SWMAIN.c **** *  instance. 
+ 126:Generated_Source\PSoC4/SWMAIN.c **** *
+ 127:Generated_Source\PSoC4/SWMAIN.c **** * The pin's status register returns the current logic level present on the 
+ 128:Generated_Source\PSoC4/SWMAIN.c **** * physical pin.
+ 129:Generated_Source\PSoC4/SWMAIN.c **** *
+ 130:Generated_Source\PSoC4/SWMAIN.c **** * \return 
+ 131:Generated_Source\PSoC4/SWMAIN.c **** *  The current value for the pins in the component as a right justified number.
+ 132:Generated_Source\PSoC4/SWMAIN.c **** *
+ 133:Generated_Source\PSoC4/SWMAIN.c **** * \funcusage
+ 134:Generated_Source\PSoC4/SWMAIN.c **** *  \snippet SWMAIN_SUT.c usage_SWMAIN_Read  
+ 135:Generated_Source\PSoC4/SWMAIN.c **** *******************************************************************************/
+ 136:Generated_Source\PSoC4/SWMAIN.c **** uint8 SWMAIN_Read(void)
+ 137:Generated_Source\PSoC4/SWMAIN.c **** {
+ 131              		.loc 1 137 0
+ 132              		.cfi_startproc
+ 133 0000 80B5     		push	{r7, lr}
+ 134              		.cfi_def_cfa_offset 8
+ 135              		.cfi_offset 7, -8
+ 136              		.cfi_offset 14, -4
+ 137 0002 00AF     		add	r7, sp, #0
+ 138              		.cfi_def_cfa_register 7
+ 138:Generated_Source\PSoC4/SWMAIN.c ****     return (uint8)((SWMAIN_PS & SWMAIN_MASK) >> SWMAIN_SHIFT);
+ 139              		.loc 1 138 0
+ 140 0004 044B     		ldr	r3, .L9
+ 141 0006 1B68     		ldr	r3, [r3]
+ 142 0008 8022     		mov	r2, #128
+ 143 000a 1340     		and	r3, r2
+ 144 000c DB09     		lsr	r3, r3, #7
+ 145 000e DBB2     		uxtb	r3, r3
+ 139:Generated_Source\PSoC4/SWMAIN.c **** }
+ 146              		.loc 1 139 0
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 6
+
+
+ 147 0010 181C     		mov	r0, r3
+ 148 0012 BD46     		mov	sp, r7
+ 149              		@ sp needed
+ 150 0014 80BD     		pop	{r7, pc}
+ 151              	.L10:
+ 152 0016 C046     		.align	2
+ 153              	.L9:
+ 154 0018 04030440 		.word	1074004740
+ 155              		.cfi_endproc
+ 156              	.LFE2:
+ 157              		.size	SWMAIN_Read, .-SWMAIN_Read
+ 158              		.section	.text.SWMAIN_ReadDataReg,"ax",%progbits
+ 159              		.align	2
+ 160              		.global	SWMAIN_ReadDataReg
+ 161              		.code	16
+ 162              		.thumb_func
+ 163              		.type	SWMAIN_ReadDataReg, %function
+ 164              	SWMAIN_ReadDataReg:
+ 165              	.LFB3:
+ 140:Generated_Source\PSoC4/SWMAIN.c **** 
+ 141:Generated_Source\PSoC4/SWMAIN.c **** 
+ 142:Generated_Source\PSoC4/SWMAIN.c **** /*******************************************************************************
+ 143:Generated_Source\PSoC4/SWMAIN.c **** * Function Name: SWMAIN_ReadDataReg
+ 144:Generated_Source\PSoC4/SWMAIN.c **** ****************************************************************************//**
+ 145:Generated_Source\PSoC4/SWMAIN.c **** *
+ 146:Generated_Source\PSoC4/SWMAIN.c **** * \brief Reads the associated physical port's data output register and masks 
+ 147:Generated_Source\PSoC4/SWMAIN.c **** *  the correct bits according to the width and bit position of the component 
+ 148:Generated_Source\PSoC4/SWMAIN.c **** *  instance. 
+ 149:Generated_Source\PSoC4/SWMAIN.c **** *
+ 150:Generated_Source\PSoC4/SWMAIN.c **** * The data output register controls the signal applied to the physical pin in 
+ 151:Generated_Source\PSoC4/SWMAIN.c **** * conjunction with the drive mode parameter. This is not the same as the 
+ 152:Generated_Source\PSoC4/SWMAIN.c **** * preferred SWMAIN_Read() API because the 
+ 153:Generated_Source\PSoC4/SWMAIN.c **** * SWMAIN_ReadDataReg() reads the data register instead of the status 
+ 154:Generated_Source\PSoC4/SWMAIN.c **** * register. For output pins this is a useful function to determine the value 
+ 155:Generated_Source\PSoC4/SWMAIN.c **** * just written to the pin.
+ 156:Generated_Source\PSoC4/SWMAIN.c **** *
+ 157:Generated_Source\PSoC4/SWMAIN.c **** * \return 
+ 158:Generated_Source\PSoC4/SWMAIN.c **** *  The current value of the data register masked and shifted into a right 
+ 159:Generated_Source\PSoC4/SWMAIN.c **** *  justified number for the component instance.
+ 160:Generated_Source\PSoC4/SWMAIN.c **** *
+ 161:Generated_Source\PSoC4/SWMAIN.c **** * \funcusage
+ 162:Generated_Source\PSoC4/SWMAIN.c **** *  \snippet SWMAIN_SUT.c usage_SWMAIN_ReadDataReg 
+ 163:Generated_Source\PSoC4/SWMAIN.c **** *******************************************************************************/
+ 164:Generated_Source\PSoC4/SWMAIN.c **** uint8 SWMAIN_ReadDataReg(void)
+ 165:Generated_Source\PSoC4/SWMAIN.c **** {
+ 166              		.loc 1 165 0
+ 167              		.cfi_startproc
+ 168 0000 80B5     		push	{r7, lr}
+ 169              		.cfi_def_cfa_offset 8
+ 170              		.cfi_offset 7, -8
+ 171              		.cfi_offset 14, -4
+ 172 0002 00AF     		add	r7, sp, #0
+ 173              		.cfi_def_cfa_register 7
+ 166:Generated_Source\PSoC4/SWMAIN.c ****     return (uint8)((SWMAIN_DR & SWMAIN_MASK) >> SWMAIN_SHIFT);
+ 174              		.loc 1 166 0
+ 175 0004 044B     		ldr	r3, .L13
+ 176 0006 1B68     		ldr	r3, [r3]
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 7
+
+
+ 177 0008 8022     		mov	r2, #128
+ 178 000a 1340     		and	r3, r2
+ 179 000c DB09     		lsr	r3, r3, #7
+ 180 000e DBB2     		uxtb	r3, r3
+ 167:Generated_Source\PSoC4/SWMAIN.c **** }
+ 181              		.loc 1 167 0
+ 182 0010 181C     		mov	r0, r3
+ 183 0012 BD46     		mov	sp, r7
+ 184              		@ sp needed
+ 185 0014 80BD     		pop	{r7, pc}
+ 186              	.L14:
+ 187 0016 C046     		.align	2
+ 188              	.L13:
+ 189 0018 00030440 		.word	1074004736
+ 190              		.cfi_endproc
+ 191              	.LFE3:
+ 192              		.size	SWMAIN_ReadDataReg, .-SWMAIN_ReadDataReg
+ 193              		.section	.text.SWMAIN_SetInterruptMode,"ax",%progbits
+ 194              		.align	2
+ 195              		.global	SWMAIN_SetInterruptMode
+ 196              		.code	16
+ 197              		.thumb_func
+ 198              		.type	SWMAIN_SetInterruptMode, %function
+ 199              	SWMAIN_SetInterruptMode:
+ 200              	.LFB4:
+ 168:Generated_Source\PSoC4/SWMAIN.c **** 
+ 169:Generated_Source\PSoC4/SWMAIN.c **** 
+ 170:Generated_Source\PSoC4/SWMAIN.c **** /*******************************************************************************
+ 171:Generated_Source\PSoC4/SWMAIN.c **** * Function Name: SWMAIN_SetInterruptMode
+ 172:Generated_Source\PSoC4/SWMAIN.c **** ****************************************************************************//**
+ 173:Generated_Source\PSoC4/SWMAIN.c **** *
+ 174:Generated_Source\PSoC4/SWMAIN.c **** * \brief Configures the interrupt mode for each of the Pins component's
+ 175:Generated_Source\PSoC4/SWMAIN.c **** *  pins. Alternatively you may set the interrupt mode for all the pins
+ 176:Generated_Source\PSoC4/SWMAIN.c **** *  specified in the Pins component.
+ 177:Generated_Source\PSoC4/SWMAIN.c **** *
+ 178:Generated_Source\PSoC4/SWMAIN.c **** *  <b>Note</b> The interrupt is port-wide and therefore any enabled pin
+ 179:Generated_Source\PSoC4/SWMAIN.c **** *  interrupt may trigger it.
+ 180:Generated_Source\PSoC4/SWMAIN.c **** *
+ 181:Generated_Source\PSoC4/SWMAIN.c **** * \param position
+ 182:Generated_Source\PSoC4/SWMAIN.c **** *  The pin position as listed in the Pins component. You may OR these to be 
+ 183:Generated_Source\PSoC4/SWMAIN.c **** *  able to configure the interrupt mode of multiple pins within a Pins 
+ 184:Generated_Source\PSoC4/SWMAIN.c **** *  component. Or you may use SWMAIN_INTR_ALL to configure the
+ 185:Generated_Source\PSoC4/SWMAIN.c **** *  interrupt mode of all the pins in the Pins component.       
+ 186:Generated_Source\PSoC4/SWMAIN.c **** *  - SWMAIN_0_INTR       (First pin in the list)
+ 187:Generated_Source\PSoC4/SWMAIN.c **** *  - SWMAIN_1_INTR       (Second pin in the list)
+ 188:Generated_Source\PSoC4/SWMAIN.c **** *  - ...
+ 189:Generated_Source\PSoC4/SWMAIN.c **** *  - SWMAIN_INTR_ALL     (All pins in Pins component)
+ 190:Generated_Source\PSoC4/SWMAIN.c **** *
+ 191:Generated_Source\PSoC4/SWMAIN.c **** * \param mode
+ 192:Generated_Source\PSoC4/SWMAIN.c **** *  Interrupt mode for the selected pins. Valid options are documented in
+ 193:Generated_Source\PSoC4/SWMAIN.c **** *  \ref intrMode.
+ 194:Generated_Source\PSoC4/SWMAIN.c **** *
+ 195:Generated_Source\PSoC4/SWMAIN.c **** * \return 
+ 196:Generated_Source\PSoC4/SWMAIN.c **** *  None
+ 197:Generated_Source\PSoC4/SWMAIN.c **** *  
+ 198:Generated_Source\PSoC4/SWMAIN.c **** * \sideeffect
+ 199:Generated_Source\PSoC4/SWMAIN.c **** *  It is recommended that the interrupt be disabled before calling this 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 8
+
+
+ 200:Generated_Source\PSoC4/SWMAIN.c **** *  function to avoid unintended interrupt requests. Note that the interrupt
+ 201:Generated_Source\PSoC4/SWMAIN.c **** *  type is port wide, and therefore will trigger for any enabled pin on the 
+ 202:Generated_Source\PSoC4/SWMAIN.c **** *  port.
+ 203:Generated_Source\PSoC4/SWMAIN.c **** *
+ 204:Generated_Source\PSoC4/SWMAIN.c **** * \funcusage
+ 205:Generated_Source\PSoC4/SWMAIN.c **** *  \snippet SWMAIN_SUT.c usage_SWMAIN_SetInterruptMode
+ 206:Generated_Source\PSoC4/SWMAIN.c **** *******************************************************************************/
+ 207:Generated_Source\PSoC4/SWMAIN.c **** void SWMAIN_SetInterruptMode(uint16 position, uint16 mode)
+ 208:Generated_Source\PSoC4/SWMAIN.c **** {
+ 201              		.loc 1 208 0
+ 202              		.cfi_startproc
+ 203 0000 80B5     		push	{r7, lr}
+ 204              		.cfi_def_cfa_offset 8
+ 205              		.cfi_offset 7, -8
+ 206              		.cfi_offset 14, -4
+ 207 0002 84B0     		sub	sp, sp, #16
+ 208              		.cfi_def_cfa_offset 24
+ 209 0004 00AF     		add	r7, sp, #0
+ 210              		.cfi_def_cfa_register 7
+ 211 0006 021C     		mov	r2, r0
+ 212 0008 BB1D     		add	r3, r7, #6
+ 213 000a 1A80     		strh	r2, [r3]
+ 214 000c 3B1D     		add	r3, r7, #4
+ 215 000e 0A1C     		add	r2, r1, #0
+ 216 0010 1A80     		strh	r2, [r3]
+ 209:Generated_Source\PSoC4/SWMAIN.c ****     uint32 intrCfg;
+ 210:Generated_Source\PSoC4/SWMAIN.c ****     
+ 211:Generated_Source\PSoC4/SWMAIN.c ****     intrCfg =  SWMAIN_INTCFG & (uint32)(~(uint32)position);
+ 217              		.loc 1 211 0
+ 218 0012 0A4B     		ldr	r3, .L16
+ 219 0014 1B68     		ldr	r3, [r3]
+ 220 0016 BA1D     		add	r2, r7, #6
+ 221 0018 1288     		ldrh	r2, [r2]
+ 222 001a D243     		mvn	r2, r2
+ 223 001c 1340     		and	r3, r2
+ 224 001e FB60     		str	r3, [r7, #12]
+ 212:Generated_Source\PSoC4/SWMAIN.c ****     SWMAIN_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+ 225              		.loc 1 212 0
+ 226 0020 064B     		ldr	r3, .L16
+ 227 0022 BA1D     		add	r2, r7, #6
+ 228 0024 391D     		add	r1, r7, #4
+ 229 0026 1288     		ldrh	r2, [r2]
+ 230 0028 0988     		ldrh	r1, [r1]
+ 231 002a 0A40     		and	r2, r1
+ 232 002c 92B2     		uxth	r2, r2
+ 233 002e 111C     		mov	r1, r2
+ 234 0030 FA68     		ldr	r2, [r7, #12]
+ 235 0032 0A43     		orr	r2, r1
+ 236 0034 1A60     		str	r2, [r3]
+ 213:Generated_Source\PSoC4/SWMAIN.c **** }
+ 237              		.loc 1 213 0
+ 238 0036 BD46     		mov	sp, r7
+ 239 0038 04B0     		add	sp, sp, #16
+ 240              		@ sp needed
+ 241 003a 80BD     		pop	{r7, pc}
+ 242              	.L17:
+ 243              		.align	2
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 9
+
+
+ 244              	.L16:
+ 245 003c 0C030440 		.word	1074004748
+ 246              		.cfi_endproc
+ 247              	.LFE4:
+ 248              		.size	SWMAIN_SetInterruptMode, .-SWMAIN_SetInterruptMode
+ 249              		.section	.text.SWMAIN_ClearInterrupt,"ax",%progbits
+ 250              		.align	2
+ 251              		.global	SWMAIN_ClearInterrupt
+ 252              		.code	16
+ 253              		.thumb_func
+ 254              		.type	SWMAIN_ClearInterrupt, %function
+ 255              	SWMAIN_ClearInterrupt:
+ 256              	.LFB5:
+ 214:Generated_Source\PSoC4/SWMAIN.c **** 
+ 215:Generated_Source\PSoC4/SWMAIN.c **** 
+ 216:Generated_Source\PSoC4/SWMAIN.c **** /*******************************************************************************
+ 217:Generated_Source\PSoC4/SWMAIN.c **** * Function Name: SWMAIN_ClearInterrupt
+ 218:Generated_Source\PSoC4/SWMAIN.c **** ****************************************************************************//**
+ 219:Generated_Source\PSoC4/SWMAIN.c **** *
+ 220:Generated_Source\PSoC4/SWMAIN.c **** * \brief Clears any active interrupts attached with the component and returns 
+ 221:Generated_Source\PSoC4/SWMAIN.c **** *  the value of the interrupt status register allowing determination of which
+ 222:Generated_Source\PSoC4/SWMAIN.c **** *  pins generated an interrupt event.
+ 223:Generated_Source\PSoC4/SWMAIN.c **** *
+ 224:Generated_Source\PSoC4/SWMAIN.c **** * \return 
+ 225:Generated_Source\PSoC4/SWMAIN.c **** *  The right-shifted current value of the interrupt status register. Each pin 
+ 226:Generated_Source\PSoC4/SWMAIN.c **** *  has one bit set if it generated an interrupt event. For example, bit 0 is 
+ 227:Generated_Source\PSoC4/SWMAIN.c **** *  for pin 0 and bit 1 is for pin 1 of the Pins component.
+ 228:Generated_Source\PSoC4/SWMAIN.c **** *  
+ 229:Generated_Source\PSoC4/SWMAIN.c **** * \sideeffect
+ 230:Generated_Source\PSoC4/SWMAIN.c **** *  Clears all bits of the physical port's interrupt status register, not just
+ 231:Generated_Source\PSoC4/SWMAIN.c **** *  those associated with the Pins component.
+ 232:Generated_Source\PSoC4/SWMAIN.c **** *
+ 233:Generated_Source\PSoC4/SWMAIN.c **** * \funcusage
+ 234:Generated_Source\PSoC4/SWMAIN.c **** *  \snippet SWMAIN_SUT.c usage_SWMAIN_ClearInterrupt
+ 235:Generated_Source\PSoC4/SWMAIN.c **** *******************************************************************************/
+ 236:Generated_Source\PSoC4/SWMAIN.c **** uint8 SWMAIN_ClearInterrupt(void)
+ 237:Generated_Source\PSoC4/SWMAIN.c **** {
+ 257              		.loc 1 237 0
+ 258              		.cfi_startproc
+ 259 0000 80B5     		push	{r7, lr}
+ 260              		.cfi_def_cfa_offset 8
+ 261              		.cfi_offset 7, -8
+ 262              		.cfi_offset 14, -4
+ 263 0002 82B0     		sub	sp, sp, #8
+ 264              		.cfi_def_cfa_offset 16
+ 265 0004 00AF     		add	r7, sp, #0
+ 266              		.cfi_def_cfa_register 7
+ 238:Generated_Source\PSoC4/SWMAIN.c **** 	uint8 maskedStatus = (uint8)(SWMAIN_INTSTAT & SWMAIN_MASK);
+ 267              		.loc 1 238 0
+ 268 0006 094B     		ldr	r3, .L20
+ 269 0008 1B68     		ldr	r3, [r3]
+ 270 000a DAB2     		uxtb	r2, r3
+ 271 000c FB1D     		add	r3, r7, #7
+ 272 000e 7F21     		mov	r1, #127
+ 273 0010 8A43     		bic	r2, r1
+ 274 0012 1A70     		strb	r2, [r3]
+ 239:Generated_Source\PSoC4/SWMAIN.c **** 	SWMAIN_INTSTAT = maskedStatus;
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 10
+
+
+ 275              		.loc 1 239 0
+ 276 0014 054B     		ldr	r3, .L20
+ 277 0016 FA1D     		add	r2, r7, #7
+ 278 0018 1278     		ldrb	r2, [r2]
+ 279 001a 1A60     		str	r2, [r3]
+ 240:Generated_Source\PSoC4/SWMAIN.c ****     return maskedStatus >> SWMAIN_SHIFT;
+ 280              		.loc 1 240 0
+ 281 001c FB1D     		add	r3, r7, #7
+ 282 001e 1B78     		ldrb	r3, [r3]
+ 283 0020 DB09     		lsr	r3, r3, #7
+ 284 0022 DBB2     		uxtb	r3, r3
+ 241:Generated_Source\PSoC4/SWMAIN.c **** }
+ 285              		.loc 1 241 0
+ 286 0024 181C     		mov	r0, r3
+ 287 0026 BD46     		mov	sp, r7
+ 288 0028 02B0     		add	sp, sp, #8
+ 289              		@ sp needed
+ 290 002a 80BD     		pop	{r7, pc}
+ 291              	.L21:
+ 292              		.align	2
+ 293              	.L20:
+ 294 002c 10030440 		.word	1074004752
+ 295              		.cfi_endproc
+ 296              	.LFE5:
+ 297              		.size	SWMAIN_ClearInterrupt, .-SWMAIN_ClearInterrupt
+ 298              		.text
+ 299              	.Letext0:
+ 300              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 301              		.section	.debug_info,"",%progbits
+ 302              	.Ldebug_info0:
+ 303 0000 96010000 		.4byte	0x196
+ 304 0004 0400     		.2byte	0x4
+ 305 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 306 000a 04       		.byte	0x4
+ 307 000b 01       		.uleb128 0x1
+ 308 000c CA000000 		.4byte	.LASF28
+ 309 0010 01       		.byte	0x1
+ 310 0011 06000000 		.4byte	.LASF29
+ 311 0015 3E000000 		.4byte	.LASF30
+ 312 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 313 001d 00000000 		.4byte	0
+ 314 0021 00000000 		.4byte	.Ldebug_line0
+ 315 0025 02       		.uleb128 0x2
+ 316 0026 01       		.byte	0x1
+ 317 0027 06       		.byte	0x6
+ 318 0028 0C020000 		.4byte	.LASF0
+ 319 002c 02       		.uleb128 0x2
+ 320 002d 01       		.byte	0x1
+ 321 002e 08       		.byte	0x8
+ 322 002f 74000000 		.4byte	.LASF1
+ 323 0033 02       		.uleb128 0x2
+ 324 0034 02       		.byte	0x2
+ 325 0035 05       		.byte	0x5
+ 326 0036 D3010000 		.4byte	.LASF2
+ 327 003a 02       		.uleb128 0x2
+ 328 003b 02       		.byte	0x2
+ 329 003c 07       		.byte	0x7
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 11
+
+
+ 330 003d 9A000000 		.4byte	.LASF3
+ 331 0041 02       		.uleb128 0x2
+ 332 0042 04       		.byte	0x4
+ 333 0043 05       		.byte	0x5
+ 334 0044 F7010000 		.4byte	.LASF4
+ 335 0048 02       		.uleb128 0x2
+ 336 0049 04       		.byte	0x4
+ 337 004a 07       		.byte	0x7
+ 338 004b 88000000 		.4byte	.LASF5
+ 339 004f 02       		.uleb128 0x2
+ 340 0050 08       		.byte	0x8
+ 341 0051 05       		.byte	0x5
+ 342 0052 AD010000 		.4byte	.LASF6
+ 343 0056 02       		.uleb128 0x2
+ 344 0057 08       		.byte	0x8
+ 345 0058 07       		.byte	0x7
+ 346 0059 84010000 		.4byte	.LASF7
+ 347 005d 03       		.uleb128 0x3
+ 348 005e 04       		.byte	0x4
+ 349 005f 05       		.byte	0x5
+ 350 0060 696E7400 		.ascii	"int\000"
+ 351 0064 02       		.uleb128 0x2
+ 352 0065 04       		.byte	0x4
+ 353 0066 07       		.byte	0x7
+ 354 0067 77010000 		.4byte	.LASF8
+ 355 006b 04       		.uleb128 0x4
+ 356 006c DD010000 		.4byte	.LASF9
+ 357 0070 02       		.byte	0x2
+ 358 0071 B901     		.2byte	0x1b9
+ 359 0073 2C000000 		.4byte	0x2c
+ 360 0077 04       		.uleb128 0x4
+ 361 0078 58010000 		.4byte	.LASF10
+ 362 007c 02       		.byte	0x2
+ 363 007d BA01     		.2byte	0x1ba
+ 364 007f 3A000000 		.4byte	0x3a
+ 365 0083 04       		.uleb128 0x4
+ 366 0084 68010000 		.4byte	.LASF11
+ 367 0088 02       		.byte	0x2
+ 368 0089 BB01     		.2byte	0x1bb
+ 369 008b 48000000 		.4byte	0x48
+ 370 008f 02       		.uleb128 0x2
+ 371 0090 04       		.byte	0x4
+ 372 0091 04       		.byte	0x4
+ 373 0092 6E000000 		.4byte	.LASF12
+ 374 0096 02       		.uleb128 0x2
+ 375 0097 08       		.byte	0x8
+ 376 0098 04       		.byte	0x4
+ 377 0099 C3000000 		.4byte	.LASF13
+ 378 009d 02       		.uleb128 0x2
+ 379 009e 01       		.byte	0x1
+ 380 009f 08       		.byte	0x8
+ 381 00a0 C8010000 		.4byte	.LASF14
+ 382 00a4 04       		.uleb128 0x4
+ 383 00a5 00000000 		.4byte	.LASF15
+ 384 00a9 02       		.byte	0x2
+ 385 00aa 6502     		.2byte	0x265
+ 386 00ac B0000000 		.4byte	0xb0
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 12
+
+
+ 387 00b0 05       		.uleb128 0x5
+ 388 00b1 83000000 		.4byte	0x83
+ 389 00b5 06       		.uleb128 0x6
+ 390 00b6 E3010000 		.4byte	.LASF16
+ 391 00ba 01       		.byte	0x1
+ 392 00bb 48       		.byte	0x48
+ 393 00bc 00000000 		.4byte	.LFB0
+ 394 00c0 30000000 		.4byte	.LFE0-.LFB0
+ 395 00c4 01       		.uleb128 0x1
+ 396 00c5 9C       		.byte	0x9c
+ 397 00c6 D9000000 		.4byte	0xd9
+ 398 00ca 07       		.uleb128 0x7
+ 399 00cb 9B010000 		.4byte	.LASF18
+ 400 00cf 01       		.byte	0x1
+ 401 00d0 48       		.byte	0x48
+ 402 00d1 6B000000 		.4byte	0x6b
+ 403 00d5 02       		.uleb128 0x2
+ 404 00d6 91       		.byte	0x91
+ 405 00d7 77       		.sleb128 -9
+ 406 00d8 00       		.byte	0
+ 407 00d9 06       		.uleb128 0x6
+ 408 00da A0010000 		.4byte	.LASF17
+ 409 00de 01       		.byte	0x1
+ 410 00df 6F       		.byte	0x6f
+ 411 00e0 00000000 		.4byte	.LFB1
+ 412 00e4 48000000 		.4byte	.LFE1-.LFB1
+ 413 00e8 01       		.uleb128 0x1
+ 414 00e9 9C       		.byte	0x9c
+ 415 00ea 0B010000 		.4byte	0x10b
+ 416 00ee 07       		.uleb128 0x7
+ 417 00ef CD010000 		.4byte	.LASF19
+ 418 00f3 01       		.byte	0x1
+ 419 00f4 6F       		.byte	0x6f
+ 420 00f5 6B000000 		.4byte	0x6b
+ 421 00f9 02       		.uleb128 0x2
+ 422 00fa 91       		.byte	0x91
+ 423 00fb 6F       		.sleb128 -17
+ 424 00fc 08       		.uleb128 0x8
+ 425 00fd 82000000 		.4byte	.LASF24
+ 426 0101 01       		.byte	0x1
+ 427 0102 71       		.byte	0x71
+ 428 0103 6B000000 		.4byte	0x6b
+ 429 0107 02       		.uleb128 0x2
+ 430 0108 91       		.byte	0x91
+ 431 0109 77       		.sleb128 -9
+ 432 010a 00       		.byte	0
+ 433 010b 09       		.uleb128 0x9
+ 434 010c 00020000 		.4byte	.LASF20
+ 435 0110 01       		.byte	0x1
+ 436 0111 88       		.byte	0x88
+ 437 0112 6B000000 		.4byte	0x6b
+ 438 0116 00000000 		.4byte	.LFB2
+ 439 011a 1C000000 		.4byte	.LFE2-.LFB2
+ 440 011e 01       		.uleb128 0x1
+ 441 011f 9C       		.byte	0x9c
+ 442 0120 09       		.uleb128 0x9
+ 443 0121 18020000 		.4byte	.LASF21
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 13
+
+
+ 444 0125 01       		.byte	0x1
+ 445 0126 A4       		.byte	0xa4
+ 446 0127 6B000000 		.4byte	0x6b
+ 447 012b 00000000 		.4byte	.LFB3
+ 448 012f 1C000000 		.4byte	.LFE3-.LFB3
+ 449 0133 01       		.uleb128 0x1
+ 450 0134 9C       		.byte	0x9c
+ 451 0135 06       		.uleb128 0x6
+ 452 0136 26000000 		.4byte	.LASF22
+ 453 013a 01       		.byte	0x1
+ 454 013b CF       		.byte	0xcf
+ 455 013c 00000000 		.4byte	.LFB4
+ 456 0140 40000000 		.4byte	.LFE4-.LFB4
+ 457 0144 01       		.uleb128 0x1
+ 458 0145 9C       		.byte	0x9c
+ 459 0146 75010000 		.4byte	0x175
+ 460 014a 07       		.uleb128 0x7
+ 461 014b 5F010000 		.4byte	.LASF23
+ 462 014f 01       		.byte	0x1
+ 463 0150 CF       		.byte	0xcf
+ 464 0151 77000000 		.4byte	0x77
+ 465 0155 02       		.uleb128 0x2
+ 466 0156 91       		.byte	0x91
+ 467 0157 6E       		.sleb128 -18
+ 468 0158 07       		.uleb128 0x7
+ 469 0159 9B010000 		.4byte	.LASF18
+ 470 015d 01       		.byte	0x1
+ 471 015e CF       		.byte	0xcf
+ 472 015f 77000000 		.4byte	0x77
+ 473 0163 02       		.uleb128 0x2
+ 474 0164 91       		.byte	0x91
+ 475 0165 6C       		.sleb128 -20
+ 476 0166 08       		.uleb128 0x8
+ 477 0167 6F010000 		.4byte	.LASF25
+ 478 016b 01       		.byte	0x1
+ 479 016c D1       		.byte	0xd1
+ 480 016d 83000000 		.4byte	0x83
+ 481 0171 02       		.uleb128 0x2
+ 482 0172 91       		.byte	0x91
+ 483 0173 74       		.sleb128 -12
+ 484 0174 00       		.byte	0
+ 485 0175 0A       		.uleb128 0xa
+ 486 0176 AD000000 		.4byte	.LASF26
+ 487 017a 01       		.byte	0x1
+ 488 017b EC       		.byte	0xec
+ 489 017c 6B000000 		.4byte	0x6b
+ 490 0180 00000000 		.4byte	.LFB5
+ 491 0184 30000000 		.4byte	.LFE5-.LFB5
+ 492 0188 01       		.uleb128 0x1
+ 493 0189 9C       		.byte	0x9c
+ 494 018a 08       		.uleb128 0x8
+ 495 018b BB010000 		.4byte	.LASF27
+ 496 018f 01       		.byte	0x1
+ 497 0190 EE       		.byte	0xee
+ 498 0191 6B000000 		.4byte	0x6b
+ 499 0195 02       		.uleb128 0x2
+ 500 0196 91       		.byte	0x91
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 14
+
+
+ 501 0197 77       		.sleb128 -9
+ 502 0198 00       		.byte	0
+ 503 0199 00       		.byte	0
+ 504              		.section	.debug_abbrev,"",%progbits
+ 505              	.Ldebug_abbrev0:
+ 506 0000 01       		.uleb128 0x1
+ 507 0001 11       		.uleb128 0x11
+ 508 0002 01       		.byte	0x1
+ 509 0003 25       		.uleb128 0x25
+ 510 0004 0E       		.uleb128 0xe
+ 511 0005 13       		.uleb128 0x13
+ 512 0006 0B       		.uleb128 0xb
+ 513 0007 03       		.uleb128 0x3
+ 514 0008 0E       		.uleb128 0xe
+ 515 0009 1B       		.uleb128 0x1b
+ 516 000a 0E       		.uleb128 0xe
+ 517 000b 55       		.uleb128 0x55
+ 518 000c 17       		.uleb128 0x17
+ 519 000d 11       		.uleb128 0x11
+ 520 000e 01       		.uleb128 0x1
+ 521 000f 10       		.uleb128 0x10
+ 522 0010 17       		.uleb128 0x17
+ 523 0011 00       		.byte	0
+ 524 0012 00       		.byte	0
+ 525 0013 02       		.uleb128 0x2
+ 526 0014 24       		.uleb128 0x24
+ 527 0015 00       		.byte	0
+ 528 0016 0B       		.uleb128 0xb
+ 529 0017 0B       		.uleb128 0xb
+ 530 0018 3E       		.uleb128 0x3e
+ 531 0019 0B       		.uleb128 0xb
+ 532 001a 03       		.uleb128 0x3
+ 533 001b 0E       		.uleb128 0xe
+ 534 001c 00       		.byte	0
+ 535 001d 00       		.byte	0
+ 536 001e 03       		.uleb128 0x3
+ 537 001f 24       		.uleb128 0x24
+ 538 0020 00       		.byte	0
+ 539 0021 0B       		.uleb128 0xb
+ 540 0022 0B       		.uleb128 0xb
+ 541 0023 3E       		.uleb128 0x3e
+ 542 0024 0B       		.uleb128 0xb
+ 543 0025 03       		.uleb128 0x3
+ 544 0026 08       		.uleb128 0x8
+ 545 0027 00       		.byte	0
+ 546 0028 00       		.byte	0
+ 547 0029 04       		.uleb128 0x4
+ 548 002a 16       		.uleb128 0x16
+ 549 002b 00       		.byte	0
+ 550 002c 03       		.uleb128 0x3
+ 551 002d 0E       		.uleb128 0xe
+ 552 002e 3A       		.uleb128 0x3a
+ 553 002f 0B       		.uleb128 0xb
+ 554 0030 3B       		.uleb128 0x3b
+ 555 0031 05       		.uleb128 0x5
+ 556 0032 49       		.uleb128 0x49
+ 557 0033 13       		.uleb128 0x13
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 15
+
+
+ 558 0034 00       		.byte	0
+ 559 0035 00       		.byte	0
+ 560 0036 05       		.uleb128 0x5
+ 561 0037 35       		.uleb128 0x35
+ 562 0038 00       		.byte	0
+ 563 0039 49       		.uleb128 0x49
+ 564 003a 13       		.uleb128 0x13
+ 565 003b 00       		.byte	0
+ 566 003c 00       		.byte	0
+ 567 003d 06       		.uleb128 0x6
+ 568 003e 2E       		.uleb128 0x2e
+ 569 003f 01       		.byte	0x1
+ 570 0040 3F       		.uleb128 0x3f
+ 571 0041 19       		.uleb128 0x19
+ 572 0042 03       		.uleb128 0x3
+ 573 0043 0E       		.uleb128 0xe
+ 574 0044 3A       		.uleb128 0x3a
+ 575 0045 0B       		.uleb128 0xb
+ 576 0046 3B       		.uleb128 0x3b
+ 577 0047 0B       		.uleb128 0xb
+ 578 0048 27       		.uleb128 0x27
+ 579 0049 19       		.uleb128 0x19
+ 580 004a 11       		.uleb128 0x11
+ 581 004b 01       		.uleb128 0x1
+ 582 004c 12       		.uleb128 0x12
+ 583 004d 06       		.uleb128 0x6
+ 584 004e 40       		.uleb128 0x40
+ 585 004f 18       		.uleb128 0x18
+ 586 0050 9742     		.uleb128 0x2117
+ 587 0052 19       		.uleb128 0x19
+ 588 0053 01       		.uleb128 0x1
+ 589 0054 13       		.uleb128 0x13
+ 590 0055 00       		.byte	0
+ 591 0056 00       		.byte	0
+ 592 0057 07       		.uleb128 0x7
+ 593 0058 05       		.uleb128 0x5
+ 594 0059 00       		.byte	0
+ 595 005a 03       		.uleb128 0x3
+ 596 005b 0E       		.uleb128 0xe
+ 597 005c 3A       		.uleb128 0x3a
+ 598 005d 0B       		.uleb128 0xb
+ 599 005e 3B       		.uleb128 0x3b
+ 600 005f 0B       		.uleb128 0xb
+ 601 0060 49       		.uleb128 0x49
+ 602 0061 13       		.uleb128 0x13
+ 603 0062 02       		.uleb128 0x2
+ 604 0063 18       		.uleb128 0x18
+ 605 0064 00       		.byte	0
+ 606 0065 00       		.byte	0
+ 607 0066 08       		.uleb128 0x8
+ 608 0067 34       		.uleb128 0x34
+ 609 0068 00       		.byte	0
+ 610 0069 03       		.uleb128 0x3
+ 611 006a 0E       		.uleb128 0xe
+ 612 006b 3A       		.uleb128 0x3a
+ 613 006c 0B       		.uleb128 0xb
+ 614 006d 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 16
+
+
+ 615 006e 0B       		.uleb128 0xb
+ 616 006f 49       		.uleb128 0x49
+ 617 0070 13       		.uleb128 0x13
+ 618 0071 02       		.uleb128 0x2
+ 619 0072 18       		.uleb128 0x18
+ 620 0073 00       		.byte	0
+ 621 0074 00       		.byte	0
+ 622 0075 09       		.uleb128 0x9
+ 623 0076 2E       		.uleb128 0x2e
+ 624 0077 00       		.byte	0
+ 625 0078 3F       		.uleb128 0x3f
+ 626 0079 19       		.uleb128 0x19
+ 627 007a 03       		.uleb128 0x3
+ 628 007b 0E       		.uleb128 0xe
+ 629 007c 3A       		.uleb128 0x3a
+ 630 007d 0B       		.uleb128 0xb
+ 631 007e 3B       		.uleb128 0x3b
+ 632 007f 0B       		.uleb128 0xb
+ 633 0080 27       		.uleb128 0x27
+ 634 0081 19       		.uleb128 0x19
+ 635 0082 49       		.uleb128 0x49
+ 636 0083 13       		.uleb128 0x13
+ 637 0084 11       		.uleb128 0x11
+ 638 0085 01       		.uleb128 0x1
+ 639 0086 12       		.uleb128 0x12
+ 640 0087 06       		.uleb128 0x6
+ 641 0088 40       		.uleb128 0x40
+ 642 0089 18       		.uleb128 0x18
+ 643 008a 9742     		.uleb128 0x2117
+ 644 008c 19       		.uleb128 0x19
+ 645 008d 00       		.byte	0
+ 646 008e 00       		.byte	0
+ 647 008f 0A       		.uleb128 0xa
+ 648 0090 2E       		.uleb128 0x2e
+ 649 0091 01       		.byte	0x1
+ 650 0092 3F       		.uleb128 0x3f
+ 651 0093 19       		.uleb128 0x19
+ 652 0094 03       		.uleb128 0x3
+ 653 0095 0E       		.uleb128 0xe
+ 654 0096 3A       		.uleb128 0x3a
+ 655 0097 0B       		.uleb128 0xb
+ 656 0098 3B       		.uleb128 0x3b
+ 657 0099 0B       		.uleb128 0xb
+ 658 009a 27       		.uleb128 0x27
+ 659 009b 19       		.uleb128 0x19
+ 660 009c 49       		.uleb128 0x49
+ 661 009d 13       		.uleb128 0x13
+ 662 009e 11       		.uleb128 0x11
+ 663 009f 01       		.uleb128 0x1
+ 664 00a0 12       		.uleb128 0x12
+ 665 00a1 06       		.uleb128 0x6
+ 666 00a2 40       		.uleb128 0x40
+ 667 00a3 18       		.uleb128 0x18
+ 668 00a4 9742     		.uleb128 0x2117
+ 669 00a6 19       		.uleb128 0x19
+ 670 00a7 00       		.byte	0
+ 671 00a8 00       		.byte	0
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 17
+
+
+ 672 00a9 00       		.byte	0
+ 673              		.section	.debug_aranges,"",%progbits
+ 674 0000 44000000 		.4byte	0x44
+ 675 0004 0200     		.2byte	0x2
+ 676 0006 00000000 		.4byte	.Ldebug_info0
+ 677 000a 04       		.byte	0x4
+ 678 000b 00       		.byte	0
+ 679 000c 0000     		.2byte	0
+ 680 000e 0000     		.2byte	0
+ 681 0010 00000000 		.4byte	.LFB0
+ 682 0014 30000000 		.4byte	.LFE0-.LFB0
+ 683 0018 00000000 		.4byte	.LFB1
+ 684 001c 48000000 		.4byte	.LFE1-.LFB1
+ 685 0020 00000000 		.4byte	.LFB2
+ 686 0024 1C000000 		.4byte	.LFE2-.LFB2
+ 687 0028 00000000 		.4byte	.LFB3
+ 688 002c 1C000000 		.4byte	.LFE3-.LFB3
+ 689 0030 00000000 		.4byte	.LFB4
+ 690 0034 40000000 		.4byte	.LFE4-.LFB4
+ 691 0038 00000000 		.4byte	.LFB5
+ 692 003c 30000000 		.4byte	.LFE5-.LFB5
+ 693 0040 00000000 		.4byte	0
+ 694 0044 00000000 		.4byte	0
+ 695              		.section	.debug_ranges,"",%progbits
+ 696              	.Ldebug_ranges0:
+ 697 0000 00000000 		.4byte	.LFB0
+ 698 0004 30000000 		.4byte	.LFE0
+ 699 0008 00000000 		.4byte	.LFB1
+ 700 000c 48000000 		.4byte	.LFE1
+ 701 0010 00000000 		.4byte	.LFB2
+ 702 0014 1C000000 		.4byte	.LFE2
+ 703 0018 00000000 		.4byte	.LFB3
+ 704 001c 1C000000 		.4byte	.LFE3
+ 705 0020 00000000 		.4byte	.LFB4
+ 706 0024 40000000 		.4byte	.LFE4
+ 707 0028 00000000 		.4byte	.LFB5
+ 708 002c 30000000 		.4byte	.LFE5
+ 709 0030 00000000 		.4byte	0
+ 710 0034 00000000 		.4byte	0
+ 711              		.section	.debug_line,"",%progbits
+ 712              	.Ldebug_line0:
+ 713 0000 BA000000 		.section	.debug_str,"MS",%progbits,1
+ 713      02004300 
+ 713      00000201 
+ 713      FB0E0D00 
+ 713      01010101 
+ 714              	.LASF15:
+ 715 0000 72656733 		.ascii	"reg32\000"
+ 715      3200
+ 716              	.LASF29:
+ 717 0006 47656E65 		.ascii	"Generated_Source\\PSoC4\\SWMAIN.c\000"
+ 717      72617465 
+ 717      645F536F 
+ 717      75726365 
+ 717      5C50536F 
+ 718              	.LASF22:
+ 719 0026 53574D41 		.ascii	"SWMAIN_SetInterruptMode\000"
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 18
+
+
+ 719      494E5F53 
+ 719      6574496E 
+ 719      74657272 
+ 719      7570744D 
+ 720              	.LASF30:
+ 721 003e 433A5C55 		.ascii	"C:\\Users\\akita\\Documents\\TPT02\\src\\TPT02r.cyd"
+ 721      73657273 
+ 721      5C616B69 
+ 721      74615C44 
+ 721      6F63756D 
+ 722 006b 736E00   		.ascii	"sn\000"
+ 723              	.LASF12:
+ 724 006e 666C6F61 		.ascii	"float\000"
+ 724      7400
+ 725              	.LASF1:
+ 726 0074 756E7369 		.ascii	"unsigned char\000"
+ 726      676E6564 
+ 726      20636861 
+ 726      7200
+ 727              	.LASF24:
+ 728 0082 64725661 		.ascii	"drVal\000"
+ 728      6C00
+ 729              	.LASF5:
+ 730 0088 6C6F6E67 		.ascii	"long unsigned int\000"
+ 730      20756E73 
+ 730      69676E65 
+ 730      6420696E 
+ 730      7400
+ 731              	.LASF3:
+ 732 009a 73686F72 		.ascii	"short unsigned int\000"
+ 732      7420756E 
+ 732      7369676E 
+ 732      65642069 
+ 732      6E7400
+ 733              	.LASF26:
+ 734 00ad 53574D41 		.ascii	"SWMAIN_ClearInterrupt\000"
+ 734      494E5F43 
+ 734      6C656172 
+ 734      496E7465 
+ 734      72727570 
+ 735              	.LASF13:
+ 736 00c3 646F7562 		.ascii	"double\000"
+ 736      6C6500
+ 737              	.LASF28:
+ 738 00ca 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 738      4320342E 
+ 738      392E3320 
+ 738      32303135 
+ 738      30333033 
+ 739 00fd 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 739      20726576 
+ 739      6973696F 
+ 739      6E203232 
+ 739      31323230 
+ 740 0130 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 740      66756E63 
+ 740      74696F6E 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 19
+
+
+ 740      2D736563 
+ 740      74696F6E 
+ 741              	.LASF10:
+ 742 0158 75696E74 		.ascii	"uint16\000"
+ 742      313600
+ 743              	.LASF23:
+ 744 015f 706F7369 		.ascii	"position\000"
+ 744      74696F6E 
+ 744      00
+ 745              	.LASF11:
+ 746 0168 75696E74 		.ascii	"uint32\000"
+ 746      333200
+ 747              	.LASF25:
+ 748 016f 696E7472 		.ascii	"intrCfg\000"
+ 748      43666700 
+ 749              	.LASF8:
+ 750 0177 756E7369 		.ascii	"unsigned int\000"
+ 750      676E6564 
+ 750      20696E74 
+ 750      00
+ 751              	.LASF7:
+ 752 0184 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 752      206C6F6E 
+ 752      6720756E 
+ 752      7369676E 
+ 752      65642069 
+ 753              	.LASF18:
+ 754 019b 6D6F6465 		.ascii	"mode\000"
+ 754      00
+ 755              	.LASF17:
+ 756 01a0 53574D41 		.ascii	"SWMAIN_Write\000"
+ 756      494E5F57 
+ 756      72697465 
+ 756      00
+ 757              	.LASF6:
+ 758 01ad 6C6F6E67 		.ascii	"long long int\000"
+ 758      206C6F6E 
+ 758      6720696E 
+ 758      7400
+ 759              	.LASF27:
+ 760 01bb 6D61736B 		.ascii	"maskedStatus\000"
+ 760      65645374 
+ 760      61747573 
+ 760      00
+ 761              	.LASF14:
+ 762 01c8 63686172 		.ascii	"char\000"
+ 762      00
+ 763              	.LASF19:
+ 764 01cd 76616C75 		.ascii	"value\000"
+ 764      6500
+ 765              	.LASF2:
+ 766 01d3 73686F72 		.ascii	"short int\000"
+ 766      7420696E 
+ 766      7400
+ 767              	.LASF9:
+ 768 01dd 75696E74 		.ascii	"uint8\000"
+ 768      3800
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccUD1Sci.s 			page 20
+
+
+ 769              	.LASF16:
+ 770 01e3 53574D41 		.ascii	"SWMAIN_SetDriveMode\000"
+ 770      494E5F53 
+ 770      65744472 
+ 770      6976654D 
+ 770      6F646500 
+ 771              	.LASF4:
+ 772 01f7 6C6F6E67 		.ascii	"long int\000"
+ 772      20696E74 
+ 772      00
+ 773              	.LASF20:
+ 774 0200 53574D41 		.ascii	"SWMAIN_Read\000"
+ 774      494E5F52 
+ 774      65616400 
+ 775              	.LASF0:
+ 776 020c 7369676E 		.ascii	"signed char\000"
+ 776      65642063 
+ 776      68617200 
+ 777              	.LASF21:
+ 778 0218 53574D41 		.ascii	"SWMAIN_ReadDataReg\000"
+ 778      494E5F52 
+ 778      65616444 
+ 778      61746152 
+ 778      656700
+ 779              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

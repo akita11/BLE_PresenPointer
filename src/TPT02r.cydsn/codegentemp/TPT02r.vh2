@@ -2,7 +2,7 @@
 --	Conversion of TPT02r.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Mon Feb 20 17:28:14 2017
+--	Mon Mar 06 08:54:41 2017
 --
 
 USE cypress.cypress.all;

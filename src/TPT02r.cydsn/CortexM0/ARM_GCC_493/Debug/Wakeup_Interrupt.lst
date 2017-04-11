@@ -1,0 +1,1904 @@
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"Wakeup_Interrupt.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.Wakeup_Interrupt_Start,"ax",%progbits
+  18              		.align	2
+  19              		.global	Wakeup_Interrupt_Start
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	Wakeup_Interrupt_Start, %function
+  23              	Wakeup_Interrupt_Start:
+  24              	.LFB2:
+  25              		.file 1 "Generated_Source\\PSoC4\\Wakeup_Interrupt.c"
+   1:Generated_Source\PSoC4/Wakeup_Interrupt.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * File Name: Wakeup_Interrupt.c  
+   3:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Version 1.70
+   4:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+   5:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *  Description:
+   6:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   API for controlling the state of an interrupt.
+   7:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+   8:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+   9:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *  Note:
+  10:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+  11:Generated_Source\PSoC4/Wakeup_Interrupt.c **** ********************************************************************************
+  12:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *******************************************************************************/
+  17:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+  18:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+  19:Generated_Source\PSoC4/Wakeup_Interrupt.c **** #include <cydevice_trm.h>
+  20:Generated_Source\PSoC4/Wakeup_Interrupt.c **** #include <CyLib.h>
+  21:Generated_Source\PSoC4/Wakeup_Interrupt.c **** #include <Wakeup_Interrupt.h>
+  22:Generated_Source\PSoC4/Wakeup_Interrupt.c **** #include "cyapicallbacks.h"
+  23:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+  24:Generated_Source\PSoC4/Wakeup_Interrupt.c **** #if !defined(Wakeup_Interrupt__REMOVED) /* Check for removal by optimization */
+  25:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+  26:Generated_Source\PSoC4/Wakeup_Interrupt.c **** /*******************************************************************************
+  27:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *  Place your includes, defines and code here 
+  28:Generated_Source\PSoC4/Wakeup_Interrupt.c **** ********************************************************************************/
+  29:Generated_Source\PSoC4/Wakeup_Interrupt.c **** /* `#START Wakeup_Interrupt_intc` */
+  30:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+  31:Generated_Source\PSoC4/Wakeup_Interrupt.c **** /* `#END` */
+  32:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 2
+
+
+  33:Generated_Source\PSoC4/Wakeup_Interrupt.c **** extern cyisraddress CyRamVectors[CYINT_IRQ_BASE + CY_NUM_INTERRUPTS];
+  34:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+  35:Generated_Source\PSoC4/Wakeup_Interrupt.c **** /* Declared in startup, used to set unused interrupts to. */
+  36:Generated_Source\PSoC4/Wakeup_Interrupt.c **** CY_ISR_PROTO(IntDefaultHandler);
+  37:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+  38:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+  39:Generated_Source\PSoC4/Wakeup_Interrupt.c **** /*******************************************************************************
+  40:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Function Name: Wakeup_Interrupt_Start
+  41:Generated_Source\PSoC4/Wakeup_Interrupt.c **** ********************************************************************************
+  42:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+  43:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Summary:
+  44:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *  Set up the interrupt and enable it. This function disables the interrupt, 
+  45:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *  sets the default interrupt vector, sets the priority from the value in the
+  46:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *  Design Wide Resources Interrupt Editor, then enables the interrupt to the 
+  47:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *  interrupt controller.
+  48:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+  49:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Parameters:  
+  50:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+  51:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+  52:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Return:
+  53:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+  54:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+  55:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *******************************************************************************/
+  56:Generated_Source\PSoC4/Wakeup_Interrupt.c **** void Wakeup_Interrupt_Start(void)
+  57:Generated_Source\PSoC4/Wakeup_Interrupt.c **** {
+  26              		.loc 1 57 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              		.cfi_def_cfa_offset 8
+  30              		.cfi_offset 7, -8
+  31              		.cfi_offset 14, -4
+  32 0002 00AF     		add	r7, sp, #0
+  33              		.cfi_def_cfa_register 7
+  58:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     /* For all we know the interrupt is active. */
+  59:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     Wakeup_Interrupt_Disable();
+  34              		.loc 1 59 0
+  35 0004 FFF7FEFF 		bl	Wakeup_Interrupt_Disable
+  60:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+  61:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     /* Set the ISR to point to the Wakeup_Interrupt Interrupt. */
+  62:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     Wakeup_Interrupt_SetVector(&Wakeup_Interrupt_Interrupt);
+  36              		.loc 1 62 0
+  37 0008 054B     		ldr	r3, .L2
+  38 000a 181C     		mov	r0, r3
+  39 000c FFF7FEFF 		bl	Wakeup_Interrupt_SetVector
+  63:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+  64:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     /* Set the priority. */
+  65:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     Wakeup_Interrupt_SetPriority((uint8)Wakeup_Interrupt_INTC_PRIOR_NUMBER);
+  40              		.loc 1 65 0
+  41 0010 0320     		mov	r0, #3
+  42 0012 FFF7FEFF 		bl	Wakeup_Interrupt_SetPriority
+  66:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+  67:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     /* Enable it. */
+  68:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     Wakeup_Interrupt_Enable();
+  43              		.loc 1 68 0
+  44 0016 FFF7FEFF 		bl	Wakeup_Interrupt_Enable
+  69:Generated_Source\PSoC4/Wakeup_Interrupt.c **** }
+  45              		.loc 1 69 0
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 3
+
+
+  46 001a BD46     		mov	sp, r7
+  47              		@ sp needed
+  48 001c 80BD     		pop	{r7, pc}
+  49              	.L3:
+  50 001e C046     		.align	2
+  51              	.L2:
+  52 0020 00000000 		.word	Wakeup_Interrupt_Interrupt
+  53              		.cfi_endproc
+  54              	.LFE2:
+  55              		.size	Wakeup_Interrupt_Start, .-Wakeup_Interrupt_Start
+  56              		.section	.text.Wakeup_Interrupt_StartEx,"ax",%progbits
+  57              		.align	2
+  58              		.global	Wakeup_Interrupt_StartEx
+  59              		.code	16
+  60              		.thumb_func
+  61              		.type	Wakeup_Interrupt_StartEx, %function
+  62              	Wakeup_Interrupt_StartEx:
+  63              	.LFB3:
+  70:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+  71:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+  72:Generated_Source\PSoC4/Wakeup_Interrupt.c **** /*******************************************************************************
+  73:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Function Name: Wakeup_Interrupt_StartEx
+  74:Generated_Source\PSoC4/Wakeup_Interrupt.c **** ********************************************************************************
+  75:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+  76:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Summary:
+  77:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *  Sets up the interrupt and enables it. This function disables the interrupt,
+  78:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *  sets the interrupt vector based on the address passed in, sets the priority 
+  79:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
+  80:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *  the interrupt to the interrupt controller.
+  81:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *  
+  82:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+  83:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *  used to provide consistent definition across compilers:
+  84:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *  
+  85:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *  Function definition example:
+  86:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   CY_ISR(MyISR)
+  87:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   {
+  88:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   }
+  89:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Function prototype example:
+  90:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   CY_ISR_PROTO(MyISR);
+  91:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+  92:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Parameters:  
+  93:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   address: Address of the ISR to set in the interrupt vector table.
+  94:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+  95:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Return:
+  96:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+  97:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+  98:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *******************************************************************************/
+  99:Generated_Source\PSoC4/Wakeup_Interrupt.c **** void Wakeup_Interrupt_StartEx(cyisraddress address)
+ 100:Generated_Source\PSoC4/Wakeup_Interrupt.c **** {
+  64              		.loc 1 100 0
+  65              		.cfi_startproc
+  66 0000 80B5     		push	{r7, lr}
+  67              		.cfi_def_cfa_offset 8
+  68              		.cfi_offset 7, -8
+  69              		.cfi_offset 14, -4
+  70 0002 82B0     		sub	sp, sp, #8
+  71              		.cfi_def_cfa_offset 16
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 4
+
+
+  72 0004 00AF     		add	r7, sp, #0
+  73              		.cfi_def_cfa_register 7
+  74 0006 7860     		str	r0, [r7, #4]
+ 101:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     /* For all we know the interrupt is active. */
+ 102:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     Wakeup_Interrupt_Disable();
+  75              		.loc 1 102 0
+  76 0008 FFF7FEFF 		bl	Wakeup_Interrupt_Disable
+ 103:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 104:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     /* Set the ISR to point to the Wakeup_Interrupt Interrupt. */
+ 105:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     Wakeup_Interrupt_SetVector(address);
+  77              		.loc 1 105 0
+  78 000c 7B68     		ldr	r3, [r7, #4]
+  79 000e 181C     		mov	r0, r3
+  80 0010 FFF7FEFF 		bl	Wakeup_Interrupt_SetVector
+ 106:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 107:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     /* Set the priority. */
+ 108:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     Wakeup_Interrupt_SetPriority((uint8)Wakeup_Interrupt_INTC_PRIOR_NUMBER);
+  81              		.loc 1 108 0
+  82 0014 0320     		mov	r0, #3
+  83 0016 FFF7FEFF 		bl	Wakeup_Interrupt_SetPriority
+ 109:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 110:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     /* Enable it. */
+ 111:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     Wakeup_Interrupt_Enable();
+  84              		.loc 1 111 0
+  85 001a FFF7FEFF 		bl	Wakeup_Interrupt_Enable
+ 112:Generated_Source\PSoC4/Wakeup_Interrupt.c **** }
+  86              		.loc 1 112 0
+  87 001e BD46     		mov	sp, r7
+  88 0020 02B0     		add	sp, sp, #8
+  89              		@ sp needed
+  90 0022 80BD     		pop	{r7, pc}
+  91              		.cfi_endproc
+  92              	.LFE3:
+  93              		.size	Wakeup_Interrupt_StartEx, .-Wakeup_Interrupt_StartEx
+  94              		.section	.text.Wakeup_Interrupt_Stop,"ax",%progbits
+  95              		.align	2
+  96              		.global	Wakeup_Interrupt_Stop
+  97              		.code	16
+  98              		.thumb_func
+  99              		.type	Wakeup_Interrupt_Stop, %function
+ 100              	Wakeup_Interrupt_Stop:
+ 101              	.LFB4:
+ 113:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 114:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 115:Generated_Source\PSoC4/Wakeup_Interrupt.c **** /*******************************************************************************
+ 116:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Function Name: Wakeup_Interrupt_Stop
+ 117:Generated_Source\PSoC4/Wakeup_Interrupt.c **** ********************************************************************************
+ 118:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 119:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Summary:
+ 120:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Disables and removes the interrupt.
+ 121:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 122:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Parameters:  
+ 123:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+ 124:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 125:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Return:
+ 126:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+ 127:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 5
+
+
+ 128:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *******************************************************************************/
+ 129:Generated_Source\PSoC4/Wakeup_Interrupt.c **** void Wakeup_Interrupt_Stop(void)
+ 130:Generated_Source\PSoC4/Wakeup_Interrupt.c **** {
+ 102              		.loc 1 130 0
+ 103              		.cfi_startproc
+ 104 0000 80B5     		push	{r7, lr}
+ 105              		.cfi_def_cfa_offset 8
+ 106              		.cfi_offset 7, -8
+ 107              		.cfi_offset 14, -4
+ 108 0002 00AF     		add	r7, sp, #0
+ 109              		.cfi_def_cfa_register 7
+ 131:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     /* Disable this interrupt. */
+ 132:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     Wakeup_Interrupt_Disable();
+ 110              		.loc 1 132 0
+ 111 0004 FFF7FEFF 		bl	Wakeup_Interrupt_Disable
+ 133:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 134:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     /* Set the ISR to point to the passive one. */
+ 135:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     Wakeup_Interrupt_SetVector(&IntDefaultHandler);
+ 112              		.loc 1 135 0
+ 113 0008 024B     		ldr	r3, .L6
+ 114 000a 181C     		mov	r0, r3
+ 115 000c FFF7FEFF 		bl	Wakeup_Interrupt_SetVector
+ 136:Generated_Source\PSoC4/Wakeup_Interrupt.c **** }
+ 116              		.loc 1 136 0
+ 117 0010 BD46     		mov	sp, r7
+ 118              		@ sp needed
+ 119 0012 80BD     		pop	{r7, pc}
+ 120              	.L7:
+ 121              		.align	2
+ 122              	.L6:
+ 123 0014 00000000 		.word	IntDefaultHandler
+ 124              		.cfi_endproc
+ 125              	.LFE4:
+ 126              		.size	Wakeup_Interrupt_Stop, .-Wakeup_Interrupt_Stop
+ 127              		.section	.text.Wakeup_Interrupt_Interrupt,"ax",%progbits
+ 128              		.align	2
+ 129              		.global	Wakeup_Interrupt_Interrupt
+ 130              		.code	16
+ 131              		.thumb_func
+ 132              		.type	Wakeup_Interrupt_Interrupt, %function
+ 133              	Wakeup_Interrupt_Interrupt:
+ 134              	.LFB5:
+ 137:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 138:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 139:Generated_Source\PSoC4/Wakeup_Interrupt.c **** /*******************************************************************************
+ 140:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Function Name: Wakeup_Interrupt_Interrupt
+ 141:Generated_Source\PSoC4/Wakeup_Interrupt.c **** ********************************************************************************
+ 142:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 143:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Summary:
+ 144:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   The default Interrupt Service Routine for Wakeup_Interrupt.
+ 145:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 146:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Add custom code between the START and END comments to keep the next version
+ 147:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   of this file from over-writing your code.
+ 148:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 149:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Note You may use either the default ISR by using this API, or you may define
+ 150:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   your own separate ISR through ISR_StartEx().
+ 151:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 6
+
+
+ 152:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Parameters:  
+ 153:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+ 154:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 155:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Return:
+ 156:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+ 157:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 158:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *******************************************************************************/
+ 159:Generated_Source\PSoC4/Wakeup_Interrupt.c **** CY_ISR(Wakeup_Interrupt_Interrupt)
+ 160:Generated_Source\PSoC4/Wakeup_Interrupt.c **** {
+ 135              		.loc 1 160 0
+ 136              		.cfi_startproc
+ 137 0000 80B5     		push	{r7, lr}
+ 138              		.cfi_def_cfa_offset 8
+ 139              		.cfi_offset 7, -8
+ 140              		.cfi_offset 14, -4
+ 141 0002 00AF     		add	r7, sp, #0
+ 142              		.cfi_def_cfa_register 7
+ 161:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     #ifdef Wakeup_Interrupt_INTERRUPT_INTERRUPT_CALLBACK
+ 162:Generated_Source\PSoC4/Wakeup_Interrupt.c ****         Wakeup_Interrupt_Interrupt_InterruptCallback();
+ 163:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     #endif /* Wakeup_Interrupt_INTERRUPT_INTERRUPT_CALLBACK */ 
+ 164:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 165:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     /*  Place your Interrupt code here. */
+ 166:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     /* `#START Wakeup_Interrupt_Interrupt` */
+ 167:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 168:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     /* `#END` */
+ 169:Generated_Source\PSoC4/Wakeup_Interrupt.c **** }
+ 143              		.loc 1 169 0
+ 144 0004 BD46     		mov	sp, r7
+ 145              		@ sp needed
+ 146 0006 80BD     		pop	{r7, pc}
+ 147              		.cfi_endproc
+ 148              	.LFE5:
+ 149              		.size	Wakeup_Interrupt_Interrupt, .-Wakeup_Interrupt_Interrupt
+ 150              		.section	.text.Wakeup_Interrupt_SetVector,"ax",%progbits
+ 151              		.align	2
+ 152              		.global	Wakeup_Interrupt_SetVector
+ 153              		.code	16
+ 154              		.thumb_func
+ 155              		.type	Wakeup_Interrupt_SetVector, %function
+ 156              	Wakeup_Interrupt_SetVector:
+ 157              	.LFB6:
+ 170:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 171:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 172:Generated_Source\PSoC4/Wakeup_Interrupt.c **** /*******************************************************************************
+ 173:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Function Name: Wakeup_Interrupt_SetVector
+ 174:Generated_Source\PSoC4/Wakeup_Interrupt.c **** ********************************************************************************
+ 175:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 176:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Summary:
+ 177:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Change the ISR vector for the Interrupt. Note calling Wakeup_Interrupt_Start
+ 178:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   will override any effect this method would have had. To set the vector 
+ 179:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   before the component has been started use Wakeup_Interrupt_StartEx instead.
+ 180:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * 
+ 181:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ 182:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   used to provide consistent definition across compilers:
+ 183:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 184:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Function definition example:
+ 185:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   CY_ISR(MyISR)
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 7
+
+
+ 186:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   {
+ 187:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   }
+ 188:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 189:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Function prototype example:
+ 190:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *     CY_ISR_PROTO(MyISR);
+ 191:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 192:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Parameters:
+ 193:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 194:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 195:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Return:
+ 196:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+ 197:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 198:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *******************************************************************************/
+ 199:Generated_Source\PSoC4/Wakeup_Interrupt.c **** void Wakeup_Interrupt_SetVector(cyisraddress address)
+ 200:Generated_Source\PSoC4/Wakeup_Interrupt.c **** {
+ 158              		.loc 1 200 0
+ 159              		.cfi_startproc
+ 160 0000 80B5     		push	{r7, lr}
+ 161              		.cfi_def_cfa_offset 8
+ 162              		.cfi_offset 7, -8
+ 163              		.cfi_offset 14, -4
+ 164 0002 82B0     		sub	sp, sp, #8
+ 165              		.cfi_def_cfa_offset 16
+ 166 0004 00AF     		add	r7, sp, #0
+ 167              		.cfi_def_cfa_register 7
+ 168 0006 7860     		str	r0, [r7, #4]
+ 201:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     CyRamVectors[CYINT_IRQ_BASE + Wakeup_Interrupt__INTC_NUMBER] = address;
+ 169              		.loc 1 201 0
+ 170 0008 024B     		ldr	r3, .L10
+ 171 000a 7A68     		ldr	r2, [r7, #4]
+ 172 000c 9A64     		str	r2, [r3, #72]
+ 202:Generated_Source\PSoC4/Wakeup_Interrupt.c **** }
+ 173              		.loc 1 202 0
+ 174 000e BD46     		mov	sp, r7
+ 175 0010 02B0     		add	sp, sp, #8
+ 176              		@ sp needed
+ 177 0012 80BD     		pop	{r7, pc}
+ 178              	.L11:
+ 179              		.align	2
+ 180              	.L10:
+ 181 0014 00000000 		.word	CyRamVectors
+ 182              		.cfi_endproc
+ 183              	.LFE6:
+ 184              		.size	Wakeup_Interrupt_SetVector, .-Wakeup_Interrupt_SetVector
+ 185              		.section	.text.Wakeup_Interrupt_GetVector,"ax",%progbits
+ 186              		.align	2
+ 187              		.global	Wakeup_Interrupt_GetVector
+ 188              		.code	16
+ 189              		.thumb_func
+ 190              		.type	Wakeup_Interrupt_GetVector, %function
+ 191              	Wakeup_Interrupt_GetVector:
+ 192              	.LFB7:
+ 203:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 204:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 205:Generated_Source\PSoC4/Wakeup_Interrupt.c **** /*******************************************************************************
+ 206:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Function Name: Wakeup_Interrupt_GetVector
+ 207:Generated_Source\PSoC4/Wakeup_Interrupt.c **** ********************************************************************************
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 8
+
+
+ 208:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 209:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Summary:
+ 210:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 211:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 212:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Parameters:
+ 213:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+ 214:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 215:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Return:
+ 216:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Address of the ISR in the interrupt vector table.
+ 217:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 218:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *******************************************************************************/
+ 219:Generated_Source\PSoC4/Wakeup_Interrupt.c **** cyisraddress Wakeup_Interrupt_GetVector(void)
+ 220:Generated_Source\PSoC4/Wakeup_Interrupt.c **** {
+ 193              		.loc 1 220 0
+ 194              		.cfi_startproc
+ 195 0000 80B5     		push	{r7, lr}
+ 196              		.cfi_def_cfa_offset 8
+ 197              		.cfi_offset 7, -8
+ 198              		.cfi_offset 14, -4
+ 199 0002 00AF     		add	r7, sp, #0
+ 200              		.cfi_def_cfa_register 7
+ 221:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     return CyRamVectors[CYINT_IRQ_BASE + Wakeup_Interrupt__INTC_NUMBER];
+ 201              		.loc 1 221 0
+ 202 0004 024B     		ldr	r3, .L14
+ 203 0006 9B6C     		ldr	r3, [r3, #72]
+ 222:Generated_Source\PSoC4/Wakeup_Interrupt.c **** }
+ 204              		.loc 1 222 0
+ 205 0008 181C     		mov	r0, r3
+ 206 000a BD46     		mov	sp, r7
+ 207              		@ sp needed
+ 208 000c 80BD     		pop	{r7, pc}
+ 209              	.L15:
+ 210 000e C046     		.align	2
+ 211              	.L14:
+ 212 0010 00000000 		.word	CyRamVectors
+ 213              		.cfi_endproc
+ 214              	.LFE7:
+ 215              		.size	Wakeup_Interrupt_GetVector, .-Wakeup_Interrupt_GetVector
+ 216              		.section	.text.Wakeup_Interrupt_SetPriority,"ax",%progbits
+ 217              		.align	2
+ 218              		.global	Wakeup_Interrupt_SetPriority
+ 219              		.code	16
+ 220              		.thumb_func
+ 221              		.type	Wakeup_Interrupt_SetPriority, %function
+ 222              	Wakeup_Interrupt_SetPriority:
+ 223              	.LFB8:
+ 223:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 224:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 225:Generated_Source\PSoC4/Wakeup_Interrupt.c **** /*******************************************************************************
+ 226:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Function Name: Wakeup_Interrupt_SetPriority
+ 227:Generated_Source\PSoC4/Wakeup_Interrupt.c **** ********************************************************************************
+ 228:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 229:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Summary:
+ 230:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Sets the Priority of the Interrupt. 
+ 231:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 232:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Note calling Wakeup_Interrupt_Start or Wakeup_Interrupt_StartEx will 
+ 233:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   override any effect this API would have had. This API should only be called
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 9
+
+
+ 234:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   after Wakeup_Interrupt_Start or Wakeup_Interrupt_StartEx has been called. 
+ 235:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   To set the initial priority for the component, use the Design-Wide Resources
+ 236:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Interrupt Editor.
+ 237:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 238:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
+ 239:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 240:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Parameters:
+ 241:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   priority: Priority of the interrupt, 0 being the highest priority
+ 242:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 243:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *             PSoC 4: Priority is from 0 to 3.
+ 244:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 245:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Return:
+ 246:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+ 247:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 248:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *******************************************************************************/
+ 249:Generated_Source\PSoC4/Wakeup_Interrupt.c **** void Wakeup_Interrupt_SetPriority(uint8 priority)
+ 250:Generated_Source\PSoC4/Wakeup_Interrupt.c **** {
+ 224              		.loc 1 250 0
+ 225              		.cfi_startproc
+ 226 0000 90B5     		push	{r4, r7, lr}
+ 227              		.cfi_def_cfa_offset 12
+ 228              		.cfi_offset 4, -12
+ 229              		.cfi_offset 7, -8
+ 230              		.cfi_offset 14, -4
+ 231 0002 85B0     		sub	sp, sp, #20
+ 232              		.cfi_def_cfa_offset 32
+ 233 0004 00AF     		add	r7, sp, #0
+ 234              		.cfi_def_cfa_register 7
+ 235 0006 021C     		mov	r2, r0
+ 236 0008 FB1D     		add	r3, r7, #7
+ 237 000a 1A70     		strb	r2, [r3]
+ 251:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 	uint8 interruptState;
+ 252:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     uint32 priorityOffset = ((Wakeup_Interrupt__INTC_NUMBER % 4u) * 8u) + 6u;
+ 238              		.loc 1 252 0
+ 239 000c 1623     		mov	r3, #22
+ 240 000e FB60     		str	r3, [r7, #12]
+ 253:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     
+ 254:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 	interruptState = CyEnterCriticalSection();
+ 241              		.loc 1 254 0
+ 242 0010 0B23     		mov	r3, #11
+ 243 0012 FC18     		add	r4, r7, r3
+ 244 0014 FFF7FEFF 		bl	CyEnterCriticalSection
+ 245 0018 031C     		mov	r3, r0
+ 246 001a 2370     		strb	r3, [r4]
+ 255:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     *Wakeup_Interrupt_INTC_PRIOR = (*Wakeup_Interrupt_INTC_PRIOR & (uint32)(~Wakeup_Interrupt__INTC
+ 247              		.loc 1 255 0
+ 248 001c 0A4B     		ldr	r3, .L17
+ 249 001e 0A4A     		ldr	r2, .L17
+ 250 0020 1268     		ldr	r2, [r2]
+ 251 0022 0A49     		ldr	r1, .L17+4
+ 252 0024 1140     		and	r1, r2
+ 256:Generated_Source\PSoC4/Wakeup_Interrupt.c ****                                     ((uint32)priority << priorityOffset);
+ 253              		.loc 1 256 0
+ 254 0026 FA1D     		add	r2, r7, #7
+ 255 0028 1078     		ldrb	r0, [r2]
+ 256 002a FA68     		ldr	r2, [r7, #12]
+ 257 002c 9040     		lsl	r0, r0, r2
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 10
+
+
+ 258 002e 021C     		mov	r2, r0
+ 255:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     *Wakeup_Interrupt_INTC_PRIOR = (*Wakeup_Interrupt_INTC_PRIOR & (uint32)(~Wakeup_Interrupt__INTC
+ 259              		.loc 1 255 0
+ 260 0030 0A43     		orr	r2, r1
+ 261 0032 1A60     		str	r2, [r3]
+ 257:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 	CyExitCriticalSection(interruptState);
+ 262              		.loc 1 257 0
+ 263 0034 0B23     		mov	r3, #11
+ 264 0036 FB18     		add	r3, r7, r3
+ 265 0038 1B78     		ldrb	r3, [r3]
+ 266 003a 181C     		mov	r0, r3
+ 267 003c FFF7FEFF 		bl	CyExitCriticalSection
+ 258:Generated_Source\PSoC4/Wakeup_Interrupt.c **** }
+ 268              		.loc 1 258 0
+ 269 0040 BD46     		mov	sp, r7
+ 270 0042 05B0     		add	sp, sp, #20
+ 271              		@ sp needed
+ 272 0044 90BD     		pop	{r4, r7, pc}
+ 273              	.L18:
+ 274 0046 C046     		.align	2
+ 275              	.L17:
+ 276 0048 00E400E0 		.word	-536812544
+ 277 004c FFFF3FFF 		.word	-12582913
+ 278              		.cfi_endproc
+ 279              	.LFE8:
+ 280              		.size	Wakeup_Interrupt_SetPriority, .-Wakeup_Interrupt_SetPriority
+ 281              		.section	.text.Wakeup_Interrupt_GetPriority,"ax",%progbits
+ 282              		.align	2
+ 283              		.global	Wakeup_Interrupt_GetPriority
+ 284              		.code	16
+ 285              		.thumb_func
+ 286              		.type	Wakeup_Interrupt_GetPriority, %function
+ 287              	Wakeup_Interrupt_GetPriority:
+ 288              	.LFB9:
+ 259:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 260:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 261:Generated_Source\PSoC4/Wakeup_Interrupt.c **** /*******************************************************************************
+ 262:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Function Name: Wakeup_Interrupt_GetPriority
+ 263:Generated_Source\PSoC4/Wakeup_Interrupt.c **** ********************************************************************************
+ 264:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 265:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Summary:
+ 266:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Gets the Priority of the Interrupt.
+ 267:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 268:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Parameters:
+ 269:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+ 270:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 271:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Return:
+ 272:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Priority of the interrupt, 0 being the highest priority
+ 273:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 274:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *    PSoC 4: Priority is from 0 to 3.
+ 275:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 276:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *******************************************************************************/
+ 277:Generated_Source\PSoC4/Wakeup_Interrupt.c **** uint8 Wakeup_Interrupt_GetPriority(void)
+ 278:Generated_Source\PSoC4/Wakeup_Interrupt.c **** {
+ 289              		.loc 1 278 0
+ 290              		.cfi_startproc
+ 291 0000 80B5     		push	{r7, lr}
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 11
+
+
+ 292              		.cfi_def_cfa_offset 8
+ 293              		.cfi_offset 7, -8
+ 294              		.cfi_offset 14, -4
+ 295 0002 82B0     		sub	sp, sp, #8
+ 296              		.cfi_def_cfa_offset 16
+ 297 0004 00AF     		add	r7, sp, #0
+ 298              		.cfi_def_cfa_register 7
+ 279:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     uint32 priority;
+ 280:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 	uint32 priorityOffset = ((Wakeup_Interrupt__INTC_NUMBER % 4u) * 8u) + 6u;
+ 299              		.loc 1 280 0
+ 300 0006 1623     		mov	r3, #22
+ 301 0008 7B60     		str	r3, [r7, #4]
+ 281:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 282:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     priority = (*Wakeup_Interrupt_INTC_PRIOR & Wakeup_Interrupt__INTC_PRIOR_MASK) >> priorityOffset
+ 302              		.loc 1 282 0
+ 303 000a 074B     		ldr	r3, .L21
+ 304 000c 1A68     		ldr	r2, [r3]
+ 305 000e C023     		mov	r3, #192
+ 306 0010 1B04     		lsl	r3, r3, #16
+ 307 0012 1A40     		and	r2, r3
+ 308 0014 7B68     		ldr	r3, [r7, #4]
+ 309 0016 DA40     		lsr	r2, r2, r3
+ 310 0018 131C     		mov	r3, r2
+ 311 001a 3B60     		str	r3, [r7]
+ 283:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 284:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     return (uint8)priority;
+ 312              		.loc 1 284 0
+ 313 001c 3B68     		ldr	r3, [r7]
+ 314 001e DBB2     		uxtb	r3, r3
+ 285:Generated_Source\PSoC4/Wakeup_Interrupt.c **** }
+ 315              		.loc 1 285 0
+ 316 0020 181C     		mov	r0, r3
+ 317 0022 BD46     		mov	sp, r7
+ 318 0024 02B0     		add	sp, sp, #8
+ 319              		@ sp needed
+ 320 0026 80BD     		pop	{r7, pc}
+ 321              	.L22:
+ 322              		.align	2
+ 323              	.L21:
+ 324 0028 00E400E0 		.word	-536812544
+ 325              		.cfi_endproc
+ 326              	.LFE9:
+ 327              		.size	Wakeup_Interrupt_GetPriority, .-Wakeup_Interrupt_GetPriority
+ 328              		.section	.text.Wakeup_Interrupt_Enable,"ax",%progbits
+ 329              		.align	2
+ 330              		.global	Wakeup_Interrupt_Enable
+ 331              		.code	16
+ 332              		.thumb_func
+ 333              		.type	Wakeup_Interrupt_Enable, %function
+ 334              	Wakeup_Interrupt_Enable:
+ 335              	.LFB10:
+ 286:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 287:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 288:Generated_Source\PSoC4/Wakeup_Interrupt.c **** /*******************************************************************************
+ 289:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Function Name: Wakeup_Interrupt_Enable
+ 290:Generated_Source\PSoC4/Wakeup_Interrupt.c **** ********************************************************************************
+ 291:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 12
+
+
+ 292:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Summary:
+ 293:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
+ 294:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
+ 295:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   function, which sets the vector and the priority, has been called.
+ 296:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 297:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Parameters:
+ 298:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+ 299:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 300:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Return:
+ 301:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+ 302:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 303:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *******************************************************************************/
+ 304:Generated_Source\PSoC4/Wakeup_Interrupt.c **** void Wakeup_Interrupt_Enable(void)
+ 305:Generated_Source\PSoC4/Wakeup_Interrupt.c **** {
+ 336              		.loc 1 305 0
+ 337              		.cfi_startproc
+ 338 0000 80B5     		push	{r7, lr}
+ 339              		.cfi_def_cfa_offset 8
+ 340              		.cfi_offset 7, -8
+ 341              		.cfi_offset 14, -4
+ 342 0002 00AF     		add	r7, sp, #0
+ 343              		.cfi_def_cfa_register 7
+ 306:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     /* Enable the general interrupt. */
+ 307:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     *Wakeup_Interrupt_INTC_SET_EN = Wakeup_Interrupt__INTC_MASK;
+ 344              		.loc 1 307 0
+ 345 0004 024B     		ldr	r3, .L24
+ 346 0006 0422     		mov	r2, #4
+ 347 0008 1A60     		str	r2, [r3]
+ 308:Generated_Source\PSoC4/Wakeup_Interrupt.c **** }
+ 348              		.loc 1 308 0
+ 349 000a BD46     		mov	sp, r7
+ 350              		@ sp needed
+ 351 000c 80BD     		pop	{r7, pc}
+ 352              	.L25:
+ 353 000e C046     		.align	2
+ 354              	.L24:
+ 355 0010 00E100E0 		.word	-536813312
+ 356              		.cfi_endproc
+ 357              	.LFE10:
+ 358              		.size	Wakeup_Interrupt_Enable, .-Wakeup_Interrupt_Enable
+ 359              		.section	.text.Wakeup_Interrupt_GetState,"ax",%progbits
+ 360              		.align	2
+ 361              		.global	Wakeup_Interrupt_GetState
+ 362              		.code	16
+ 363              		.thumb_func
+ 364              		.type	Wakeup_Interrupt_GetState, %function
+ 365              	Wakeup_Interrupt_GetState:
+ 366              	.LFB11:
+ 309:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 310:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 311:Generated_Source\PSoC4/Wakeup_Interrupt.c **** /*******************************************************************************
+ 312:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Function Name: Wakeup_Interrupt_GetState
+ 313:Generated_Source\PSoC4/Wakeup_Interrupt.c **** ********************************************************************************
+ 314:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 315:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Summary:
+ 316:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 317:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 13
+
+
+ 318:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Parameters:
+ 319:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+ 320:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 321:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Return:
+ 322:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   1 if enabled, 0 if disabled.
+ 323:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 324:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *******************************************************************************/
+ 325:Generated_Source\PSoC4/Wakeup_Interrupt.c **** uint8 Wakeup_Interrupt_GetState(void)
+ 326:Generated_Source\PSoC4/Wakeup_Interrupt.c **** {
+ 367              		.loc 1 326 0
+ 368              		.cfi_startproc
+ 369 0000 80B5     		push	{r7, lr}
+ 370              		.cfi_def_cfa_offset 8
+ 371              		.cfi_offset 7, -8
+ 372              		.cfi_offset 14, -4
+ 373 0002 00AF     		add	r7, sp, #0
+ 374              		.cfi_def_cfa_register 7
+ 327:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     /* Get the state of the general interrupt. */
+ 328:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     return ((*Wakeup_Interrupt_INTC_SET_EN & (uint32)Wakeup_Interrupt__INTC_MASK) != 0u) ? 1u:0u;
+ 375              		.loc 1 328 0
+ 376 0004 054B     		ldr	r3, .L30
+ 377 0006 1B68     		ldr	r3, [r3]
+ 378 0008 0422     		mov	r2, #4
+ 379 000a 1340     		and	r3, r2
+ 380 000c 01D0     		beq	.L27
+ 381              		.loc 1 328 0 is_stmt 0 discriminator 1
+ 382 000e 0123     		mov	r3, #1
+ 383 0010 00E0     		b	.L28
+ 384              	.L27:
+ 385              		.loc 1 328 0 discriminator 2
+ 386 0012 0023     		mov	r3, #0
+ 387              	.L28:
+ 329:Generated_Source\PSoC4/Wakeup_Interrupt.c **** }
+ 388              		.loc 1 329 0 is_stmt 1 discriminator 4
+ 389 0014 181C     		mov	r0, r3
+ 390 0016 BD46     		mov	sp, r7
+ 391              		@ sp needed
+ 392 0018 80BD     		pop	{r7, pc}
+ 393              	.L31:
+ 394 001a C046     		.align	2
+ 395              	.L30:
+ 396 001c 00E100E0 		.word	-536813312
+ 397              		.cfi_endproc
+ 398              	.LFE11:
+ 399              		.size	Wakeup_Interrupt_GetState, .-Wakeup_Interrupt_GetState
+ 400              		.section	.text.Wakeup_Interrupt_Disable,"ax",%progbits
+ 401              		.align	2
+ 402              		.global	Wakeup_Interrupt_Disable
+ 403              		.code	16
+ 404              		.thumb_func
+ 405              		.type	Wakeup_Interrupt_Disable, %function
+ 406              	Wakeup_Interrupt_Disable:
+ 407              	.LFB12:
+ 330:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 331:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 332:Generated_Source\PSoC4/Wakeup_Interrupt.c **** /*******************************************************************************
+ 333:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Function Name: Wakeup_Interrupt_Disable
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 14
+
+
+ 334:Generated_Source\PSoC4/Wakeup_Interrupt.c **** ********************************************************************************
+ 335:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 336:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Summary:
+ 337:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Disables the Interrupt in the interrupt controller.
+ 338:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 339:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Parameters:
+ 340:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+ 341:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 342:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Return:
+ 343:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+ 344:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 345:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *******************************************************************************/
+ 346:Generated_Source\PSoC4/Wakeup_Interrupt.c **** void Wakeup_Interrupt_Disable(void)
+ 347:Generated_Source\PSoC4/Wakeup_Interrupt.c **** {
+ 408              		.loc 1 347 0
+ 409              		.cfi_startproc
+ 410 0000 80B5     		push	{r7, lr}
+ 411              		.cfi_def_cfa_offset 8
+ 412              		.cfi_offset 7, -8
+ 413              		.cfi_offset 14, -4
+ 414 0002 00AF     		add	r7, sp, #0
+ 415              		.cfi_def_cfa_register 7
+ 348:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     /* Disable the general interrupt. */
+ 349:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     *Wakeup_Interrupt_INTC_CLR_EN = Wakeup_Interrupt__INTC_MASK;
+ 416              		.loc 1 349 0
+ 417 0004 024B     		ldr	r3, .L33
+ 418 0006 0422     		mov	r2, #4
+ 419 0008 1A60     		str	r2, [r3]
+ 350:Generated_Source\PSoC4/Wakeup_Interrupt.c **** }
+ 420              		.loc 1 350 0
+ 421 000a BD46     		mov	sp, r7
+ 422              		@ sp needed
+ 423 000c 80BD     		pop	{r7, pc}
+ 424              	.L34:
+ 425 000e C046     		.align	2
+ 426              	.L33:
+ 427 0010 80E100E0 		.word	-536813184
+ 428              		.cfi_endproc
+ 429              	.LFE12:
+ 430              		.size	Wakeup_Interrupt_Disable, .-Wakeup_Interrupt_Disable
+ 431              		.section	.text.Wakeup_Interrupt_SetPending,"ax",%progbits
+ 432              		.align	2
+ 433              		.global	Wakeup_Interrupt_SetPending
+ 434              		.code	16
+ 435              		.thumb_func
+ 436              		.type	Wakeup_Interrupt_SetPending, %function
+ 437              	Wakeup_Interrupt_SetPending:
+ 438              	.LFB13:
+ 351:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 352:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 353:Generated_Source\PSoC4/Wakeup_Interrupt.c **** /*******************************************************************************
+ 354:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Function Name: Wakeup_Interrupt_SetPending
+ 355:Generated_Source\PSoC4/Wakeup_Interrupt.c **** ********************************************************************************
+ 356:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 357:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Summary:
+ 358:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ 359:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   generating the interrupt.
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 15
+
+
+ 360:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 361:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Parameters:
+ 362:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+ 363:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 364:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Return:
+ 365:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+ 366:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 367:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Side Effects:
+ 368:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
+ 369:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   entered (depending on the priority of this interrupt and other pending 
+ 370:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   interrupts).
+ 371:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 372:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *******************************************************************************/
+ 373:Generated_Source\PSoC4/Wakeup_Interrupt.c **** void Wakeup_Interrupt_SetPending(void)
+ 374:Generated_Source\PSoC4/Wakeup_Interrupt.c **** {
+ 439              		.loc 1 374 0
+ 440              		.cfi_startproc
+ 441 0000 80B5     		push	{r7, lr}
+ 442              		.cfi_def_cfa_offset 8
+ 443              		.cfi_offset 7, -8
+ 444              		.cfi_offset 14, -4
+ 445 0002 00AF     		add	r7, sp, #0
+ 446              		.cfi_def_cfa_register 7
+ 375:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     *Wakeup_Interrupt_INTC_SET_PD = Wakeup_Interrupt__INTC_MASK;
+ 447              		.loc 1 375 0
+ 448 0004 024B     		ldr	r3, .L36
+ 449 0006 0422     		mov	r2, #4
+ 450 0008 1A60     		str	r2, [r3]
+ 376:Generated_Source\PSoC4/Wakeup_Interrupt.c **** }
+ 451              		.loc 1 376 0
+ 452 000a BD46     		mov	sp, r7
+ 453              		@ sp needed
+ 454 000c 80BD     		pop	{r7, pc}
+ 455              	.L37:
+ 456 000e C046     		.align	2
+ 457              	.L36:
+ 458 0010 00E200E0 		.word	-536813056
+ 459              		.cfi_endproc
+ 460              	.LFE13:
+ 461              		.size	Wakeup_Interrupt_SetPending, .-Wakeup_Interrupt_SetPending
+ 462              		.section	.text.Wakeup_Interrupt_ClearPending,"ax",%progbits
+ 463              		.align	2
+ 464              		.global	Wakeup_Interrupt_ClearPending
+ 465              		.code	16
+ 466              		.thumb_func
+ 467              		.type	Wakeup_Interrupt_ClearPending, %function
+ 468              	Wakeup_Interrupt_ClearPending:
+ 469              	.LFB14:
+ 377:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 378:Generated_Source\PSoC4/Wakeup_Interrupt.c **** 
+ 379:Generated_Source\PSoC4/Wakeup_Interrupt.c **** /*******************************************************************************
+ 380:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Function Name: Wakeup_Interrupt_ClearPending
+ 381:Generated_Source\PSoC4/Wakeup_Interrupt.c **** ********************************************************************************
+ 382:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 383:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Summary:
+ 384:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Clears a pending interrupt in the interrupt controller.
+ 385:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 16
+
+
+ 386:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   Note Some interrupt sources are clear-on-read and require the block 
+ 387:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
+ 388:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
+ 389:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   pending state even though the interrupt itself is cleared using this API.
+ 390:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 391:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Parameters:
+ 392:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+ 393:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 394:Generated_Source\PSoC4/Wakeup_Interrupt.c **** * Return:
+ 395:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *   None
+ 396:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *
+ 397:Generated_Source\PSoC4/Wakeup_Interrupt.c **** *******************************************************************************/
+ 398:Generated_Source\PSoC4/Wakeup_Interrupt.c **** void Wakeup_Interrupt_ClearPending(void)
+ 399:Generated_Source\PSoC4/Wakeup_Interrupt.c **** {
+ 470              		.loc 1 399 0
+ 471              		.cfi_startproc
+ 472 0000 80B5     		push	{r7, lr}
+ 473              		.cfi_def_cfa_offset 8
+ 474              		.cfi_offset 7, -8
+ 475              		.cfi_offset 14, -4
+ 476 0002 00AF     		add	r7, sp, #0
+ 477              		.cfi_def_cfa_register 7
+ 400:Generated_Source\PSoC4/Wakeup_Interrupt.c ****     *Wakeup_Interrupt_INTC_CLR_PD = Wakeup_Interrupt__INTC_MASK;
+ 478              		.loc 1 400 0
+ 479 0004 024B     		ldr	r3, .L39
+ 480 0006 0422     		mov	r2, #4
+ 481 0008 1A60     		str	r2, [r3]
+ 401:Generated_Source\PSoC4/Wakeup_Interrupt.c **** }
+ 482              		.loc 1 401 0
+ 483 000a BD46     		mov	sp, r7
+ 484              		@ sp needed
+ 485 000c 80BD     		pop	{r7, pc}
+ 486              	.L40:
+ 487 000e C046     		.align	2
+ 488              	.L39:
+ 489 0010 80E200E0 		.word	-536812928
+ 490              		.cfi_endproc
+ 491              	.LFE14:
+ 492              		.size	Wakeup_Interrupt_ClearPending, .-Wakeup_Interrupt_ClearPending
+ 493              		.text
+ 494              	.Letext0:
+ 495              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 496              		.section	.debug_info,"",%progbits
+ 497              	.Ldebug_info0:
+ 498 0000 42020000 		.4byte	0x242
+ 499 0004 0400     		.2byte	0x4
+ 500 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 501 000a 04       		.byte	0x4
+ 502 000b 01       		.uleb128 0x1
+ 503 000c 3D010000 		.4byte	.LASF33
+ 504 0010 01       		.byte	0x1
+ 505 0011 DF010000 		.4byte	.LASF34
+ 506 0015 7D000000 		.4byte	.LASF35
+ 507 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 508 001d 00000000 		.4byte	0
+ 509 0021 00000000 		.4byte	.Ldebug_line0
+ 510 0025 02       		.uleb128 0x2
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 17
+
+
+ 511 0026 01       		.byte	0x1
+ 512 0027 06       		.byte	0x6
+ 513 0028 2D030000 		.4byte	.LASF0
+ 514 002c 02       		.uleb128 0x2
+ 515 002d 01       		.byte	0x1
+ 516 002e 08       		.byte	0x8
+ 517 002f E3000000 		.4byte	.LASF1
+ 518 0033 02       		.uleb128 0x2
+ 519 0034 02       		.byte	0x2
+ 520 0035 05       		.byte	0x5
+ 521 0036 D0020000 		.4byte	.LASF2
+ 522 003a 02       		.uleb128 0x2
+ 523 003b 02       		.byte	0x2
+ 524 003c 07       		.byte	0x7
+ 525 003d 6A000000 		.4byte	.LASF3
+ 526 0041 02       		.uleb128 0x2
+ 527 0042 04       		.byte	0x4
+ 528 0043 05       		.byte	0x5
+ 529 0044 EF020000 		.4byte	.LASF4
+ 530 0048 02       		.uleb128 0x2
+ 531 0049 04       		.byte	0x4
+ 532 004a 07       		.byte	0x7
+ 533 004b 00010000 		.4byte	.LASF5
+ 534 004f 02       		.uleb128 0x2
+ 535 0050 08       		.byte	0x8
+ 536 0051 05       		.byte	0x5
+ 537 0052 73020000 		.4byte	.LASF6
+ 538 0056 02       		.uleb128 0x2
+ 539 0057 08       		.byte	0x8
+ 540 0058 07       		.byte	0x7
+ 541 0059 11020000 		.4byte	.LASF7
+ 542 005d 03       		.uleb128 0x3
+ 543 005e 04       		.byte	0x4
+ 544 005f 05       		.byte	0x5
+ 545 0060 696E7400 		.ascii	"int\000"
+ 546 0064 02       		.uleb128 0x2
+ 547 0065 04       		.byte	0x4
+ 548 0066 07       		.byte	0x7
+ 549 0067 D2010000 		.4byte	.LASF8
+ 550 006b 04       		.uleb128 0x4
+ 551 006c DA020000 		.4byte	.LASF9
+ 552 0070 02       		.byte	0x2
+ 553 0071 B901     		.2byte	0x1b9
+ 554 0073 2C000000 		.4byte	0x2c
+ 555 0077 04       		.uleb128 0x4
+ 556 0078 CB010000 		.4byte	.LASF10
+ 557 007c 02       		.byte	0x2
+ 558 007d BB01     		.2byte	0x1bb
+ 559 007f 48000000 		.4byte	0x48
+ 560 0083 02       		.uleb128 0x2
+ 561 0084 04       		.byte	0x4
+ 562 0085 04       		.byte	0x4
+ 563 0086 DD000000 		.4byte	.LASF11
+ 564 008a 02       		.uleb128 0x2
+ 565 008b 08       		.byte	0x8
+ 566 008c 04       		.byte	0x4
+ 567 008d 36010000 		.4byte	.LASF12
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 18
+
+
+ 568 0091 02       		.uleb128 0x2
+ 569 0092 01       		.byte	0x1
+ 570 0093 08       		.byte	0x8
+ 571 0094 F8020000 		.4byte	.LASF13
+ 572 0098 04       		.uleb128 0x4
+ 573 0099 00000000 		.4byte	.LASF14
+ 574 009d 02       		.byte	0x2
+ 575 009e 6502     		.2byte	0x265
+ 576 00a0 A4000000 		.4byte	0xa4
+ 577 00a4 05       		.uleb128 0x5
+ 578 00a5 77000000 		.4byte	0x77
+ 579 00a9 04       		.uleb128 0x4
+ 580 00aa 28020000 		.4byte	.LASF15
+ 581 00ae 02       		.byte	0x2
+ 582 00af 7502     		.2byte	0x275
+ 583 00b1 B5000000 		.4byte	0xb5
+ 584 00b5 06       		.uleb128 0x6
+ 585 00b6 04       		.byte	0x4
+ 586 00b7 BB000000 		.4byte	0xbb
+ 587 00bb 07       		.uleb128 0x7
+ 588 00bc 02       		.uleb128 0x2
+ 589 00bd 04       		.byte	0x4
+ 590 00be 07       		.byte	0x7
+ 591 00bf 6A020000 		.4byte	.LASF16
+ 592 00c3 08       		.uleb128 0x8
+ 593 00c4 16030000 		.4byte	.LASF17
+ 594 00c8 01       		.byte	0x1
+ 595 00c9 38       		.byte	0x38
+ 596 00ca 00000000 		.4byte	.LFB2
+ 597 00ce 24000000 		.4byte	.LFE2-.LFB2
+ 598 00d2 01       		.uleb128 0x1
+ 599 00d3 9C       		.byte	0x9c
+ 600 00d4 09       		.uleb128 0x9
+ 601 00d5 81020000 		.4byte	.LASF20
+ 602 00d9 01       		.byte	0x1
+ 603 00da 63       		.byte	0x63
+ 604 00db 00000000 		.4byte	.LFB3
+ 605 00df 24000000 		.4byte	.LFE3-.LFB3
+ 606 00e3 01       		.uleb128 0x1
+ 607 00e4 9C       		.byte	0x9c
+ 608 00e5 F8000000 		.4byte	0xf8
+ 609 00e9 0A       		.uleb128 0xa
+ 610 00ea 09020000 		.4byte	.LASF22
+ 611 00ee 01       		.byte	0x1
+ 612 00ef 63       		.byte	0x63
+ 613 00f0 A9000000 		.4byte	0xa9
+ 614 00f4 02       		.uleb128 0x2
+ 615 00f5 91       		.byte	0x91
+ 616 00f6 74       		.sleb128 -12
+ 617 00f7 00       		.byte	0
+ 618 00f8 08       		.uleb128 0x8
+ 619 00f9 C7000000 		.4byte	.LASF18
+ 620 00fd 01       		.byte	0x1
+ 621 00fe 81       		.byte	0x81
+ 622 00ff 00000000 		.4byte	.LFB4
+ 623 0103 18000000 		.4byte	.LFE4-.LFB4
+ 624 0107 01       		.uleb128 0x1
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 19
+
+
+ 625 0108 9C       		.byte	0x9c
+ 626 0109 0B       		.uleb128 0xb
+ 627 010a B5020000 		.4byte	.LASF19
+ 628 010e 01       		.byte	0x1
+ 629 010f 9F       		.byte	0x9f
+ 630 0110 00000000 		.4byte	.LFB5
+ 631 0114 08000000 		.4byte	.LFE5-.LFB5
+ 632 0118 01       		.uleb128 0x1
+ 633 0119 9C       		.byte	0x9c
+ 634 011a 0C       		.uleb128 0xc
+ 635 011b 12010000 		.4byte	.LASF21
+ 636 011f 01       		.byte	0x1
+ 637 0120 C7       		.byte	0xc7
+ 638 0121 00000000 		.4byte	.LFB6
+ 639 0125 18000000 		.4byte	.LFE6-.LFB6
+ 640 0129 01       		.uleb128 0x1
+ 641 012a 9C       		.byte	0x9c
+ 642 012b 3E010000 		.4byte	0x13e
+ 643 012f 0A       		.uleb128 0xa
+ 644 0130 09020000 		.4byte	.LASF22
+ 645 0134 01       		.byte	0x1
+ 646 0135 C7       		.byte	0xc7
+ 647 0136 A9000000 		.4byte	0xa9
+ 648 013a 02       		.uleb128 0x2
+ 649 013b 91       		.byte	0x91
+ 650 013c 74       		.sleb128 -12
+ 651 013d 00       		.byte	0
+ 652 013e 0D       		.uleb128 0xd
+ 653 013f 9A020000 		.4byte	.LASF28
+ 654 0143 01       		.byte	0x1
+ 655 0144 DB       		.byte	0xdb
+ 656 0145 A9000000 		.4byte	0xa9
+ 657 0149 00000000 		.4byte	.LFB7
+ 658 014d 14000000 		.4byte	.LFE7-.LFB7
+ 659 0151 01       		.uleb128 0x1
+ 660 0152 9C       		.byte	0x9c
+ 661 0153 09       		.uleb128 0x9
+ 662 0154 06000000 		.4byte	.LASF23
+ 663 0158 01       		.byte	0x1
+ 664 0159 F9       		.byte	0xf9
+ 665 015a 00000000 		.4byte	.LFB8
+ 666 015e 50000000 		.4byte	.LFE8-.LFB8
+ 667 0162 01       		.uleb128 0x1
+ 668 0163 9C       		.byte	0x9c
+ 669 0164 93010000 		.4byte	0x193
+ 670 0168 0A       		.uleb128 0xa
+ 671 0169 2D010000 		.4byte	.LASF24
+ 672 016d 01       		.byte	0x1
+ 673 016e F9       		.byte	0xf9
+ 674 016f 6B000000 		.4byte	0x6b
+ 675 0173 02       		.uleb128 0x2
+ 676 0174 91       		.byte	0x91
+ 677 0175 67       		.sleb128 -25
+ 678 0176 0E       		.uleb128 0xe
+ 679 0177 F1000000 		.4byte	.LASF25
+ 680 017b 01       		.byte	0x1
+ 681 017c FB       		.byte	0xfb
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 20
+
+
+ 682 017d 6B000000 		.4byte	0x6b
+ 683 0181 02       		.uleb128 0x2
+ 684 0182 91       		.byte	0x91
+ 685 0183 6B       		.sleb128 -21
+ 686 0184 0E       		.uleb128 0xe
+ 687 0185 E0020000 		.4byte	.LASF26
+ 688 0189 01       		.byte	0x1
+ 689 018a FC       		.byte	0xfc
+ 690 018b 77000000 		.4byte	0x77
+ 691 018f 02       		.uleb128 0x2
+ 692 0190 91       		.byte	0x91
+ 693 0191 6C       		.sleb128 -20
+ 694 0192 00       		.byte	0
+ 695 0193 0F       		.uleb128 0xf
+ 696 0194 4D020000 		.4byte	.LASF36
+ 697 0198 01       		.byte	0x1
+ 698 0199 1501     		.2byte	0x115
+ 699 019b 6B000000 		.4byte	0x6b
+ 700 019f 00000000 		.4byte	.LFB9
+ 701 01a3 2C000000 		.4byte	.LFE9-.LFB9
+ 702 01a7 01       		.uleb128 0x1
+ 703 01a8 9C       		.byte	0x9c
+ 704 01a9 CC010000 		.4byte	0x1cc
+ 705 01ad 10       		.uleb128 0x10
+ 706 01ae 2D010000 		.4byte	.LASF24
+ 707 01b2 01       		.byte	0x1
+ 708 01b3 1701     		.2byte	0x117
+ 709 01b5 77000000 		.4byte	0x77
+ 710 01b9 02       		.uleb128 0x2
+ 711 01ba 91       		.byte	0x91
+ 712 01bb 70       		.sleb128 -16
+ 713 01bc 10       		.uleb128 0x10
+ 714 01bd E0020000 		.4byte	.LASF26
+ 715 01c1 01       		.byte	0x1
+ 716 01c2 1801     		.2byte	0x118
+ 717 01c4 77000000 		.4byte	0x77
+ 718 01c8 02       		.uleb128 0x2
+ 719 01c9 91       		.byte	0x91
+ 720 01ca 74       		.sleb128 -12
+ 721 01cb 00       		.byte	0
+ 722 01cc 11       		.uleb128 0x11
+ 723 01cd 35020000 		.4byte	.LASF27
+ 724 01d1 01       		.byte	0x1
+ 725 01d2 3001     		.2byte	0x130
+ 726 01d4 00000000 		.4byte	.LFB10
+ 727 01d8 14000000 		.4byte	.LFE10-.LFB10
+ 728 01dc 01       		.uleb128 0x1
+ 729 01dd 9C       		.byte	0x9c
+ 730 01de 12       		.uleb128 0x12
+ 731 01df AD000000 		.4byte	.LASF29
+ 732 01e3 01       		.byte	0x1
+ 733 01e4 4501     		.2byte	0x145
+ 734 01e6 6B000000 		.4byte	0x6b
+ 735 01ea 00000000 		.4byte	.LFB11
+ 736 01ee 20000000 		.4byte	.LFE11-.LFB11
+ 737 01f2 01       		.uleb128 0x1
+ 738 01f3 9C       		.byte	0x9c
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 21
+
+
+ 739 01f4 11       		.uleb128 0x11
+ 740 01f5 FD020000 		.4byte	.LASF30
+ 741 01f9 01       		.byte	0x1
+ 742 01fa 5A01     		.2byte	0x15a
+ 743 01fc 00000000 		.4byte	.LFB12
+ 744 0200 14000000 		.4byte	.LFE12-.LFB12
+ 745 0204 01       		.uleb128 0x1
+ 746 0205 9C       		.byte	0x9c
+ 747 0206 11       		.uleb128 0x11
+ 748 0207 30000000 		.4byte	.LASF31
+ 749 020b 01       		.byte	0x1
+ 750 020c 7501     		.2byte	0x175
+ 751 020e 00000000 		.4byte	.LFB13
+ 752 0212 14000000 		.4byte	.LFE13-.LFB13
+ 753 0216 01       		.uleb128 0x1
+ 754 0217 9C       		.byte	0x9c
+ 755 0218 11       		.uleb128 0x11
+ 756 0219 4C000000 		.4byte	.LASF32
+ 757 021d 01       		.byte	0x1
+ 758 021e 8E01     		.2byte	0x18e
+ 759 0220 00000000 		.4byte	.LFB14
+ 760 0224 14000000 		.4byte	.LFE14-.LFB14
+ 761 0228 01       		.uleb128 0x1
+ 762 0229 9C       		.byte	0x9c
+ 763 022a 13       		.uleb128 0x13
+ 764 022b A9000000 		.4byte	0xa9
+ 765 022f 3A020000 		.4byte	0x23a
+ 766 0233 14       		.uleb128 0x14
+ 767 0234 BC000000 		.4byte	0xbc
+ 768 0238 2F       		.byte	0x2f
+ 769 0239 00       		.byte	0
+ 770 023a 15       		.uleb128 0x15
+ 771 023b 23000000 		.4byte	.LASF37
+ 772 023f 01       		.byte	0x1
+ 773 0240 21       		.byte	0x21
+ 774 0241 2A020000 		.4byte	0x22a
+ 775 0245 00       		.byte	0
+ 776              		.section	.debug_abbrev,"",%progbits
+ 777              	.Ldebug_abbrev0:
+ 778 0000 01       		.uleb128 0x1
+ 779 0001 11       		.uleb128 0x11
+ 780 0002 01       		.byte	0x1
+ 781 0003 25       		.uleb128 0x25
+ 782 0004 0E       		.uleb128 0xe
+ 783 0005 13       		.uleb128 0x13
+ 784 0006 0B       		.uleb128 0xb
+ 785 0007 03       		.uleb128 0x3
+ 786 0008 0E       		.uleb128 0xe
+ 787 0009 1B       		.uleb128 0x1b
+ 788 000a 0E       		.uleb128 0xe
+ 789 000b 55       		.uleb128 0x55
+ 790 000c 17       		.uleb128 0x17
+ 791 000d 11       		.uleb128 0x11
+ 792 000e 01       		.uleb128 0x1
+ 793 000f 10       		.uleb128 0x10
+ 794 0010 17       		.uleb128 0x17
+ 795 0011 00       		.byte	0
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 22
+
+
+ 796 0012 00       		.byte	0
+ 797 0013 02       		.uleb128 0x2
+ 798 0014 24       		.uleb128 0x24
+ 799 0015 00       		.byte	0
+ 800 0016 0B       		.uleb128 0xb
+ 801 0017 0B       		.uleb128 0xb
+ 802 0018 3E       		.uleb128 0x3e
+ 803 0019 0B       		.uleb128 0xb
+ 804 001a 03       		.uleb128 0x3
+ 805 001b 0E       		.uleb128 0xe
+ 806 001c 00       		.byte	0
+ 807 001d 00       		.byte	0
+ 808 001e 03       		.uleb128 0x3
+ 809 001f 24       		.uleb128 0x24
+ 810 0020 00       		.byte	0
+ 811 0021 0B       		.uleb128 0xb
+ 812 0022 0B       		.uleb128 0xb
+ 813 0023 3E       		.uleb128 0x3e
+ 814 0024 0B       		.uleb128 0xb
+ 815 0025 03       		.uleb128 0x3
+ 816 0026 08       		.uleb128 0x8
+ 817 0027 00       		.byte	0
+ 818 0028 00       		.byte	0
+ 819 0029 04       		.uleb128 0x4
+ 820 002a 16       		.uleb128 0x16
+ 821 002b 00       		.byte	0
+ 822 002c 03       		.uleb128 0x3
+ 823 002d 0E       		.uleb128 0xe
+ 824 002e 3A       		.uleb128 0x3a
+ 825 002f 0B       		.uleb128 0xb
+ 826 0030 3B       		.uleb128 0x3b
+ 827 0031 05       		.uleb128 0x5
+ 828 0032 49       		.uleb128 0x49
+ 829 0033 13       		.uleb128 0x13
+ 830 0034 00       		.byte	0
+ 831 0035 00       		.byte	0
+ 832 0036 05       		.uleb128 0x5
+ 833 0037 35       		.uleb128 0x35
+ 834 0038 00       		.byte	0
+ 835 0039 49       		.uleb128 0x49
+ 836 003a 13       		.uleb128 0x13
+ 837 003b 00       		.byte	0
+ 838 003c 00       		.byte	0
+ 839 003d 06       		.uleb128 0x6
+ 840 003e 0F       		.uleb128 0xf
+ 841 003f 00       		.byte	0
+ 842 0040 0B       		.uleb128 0xb
+ 843 0041 0B       		.uleb128 0xb
+ 844 0042 49       		.uleb128 0x49
+ 845 0043 13       		.uleb128 0x13
+ 846 0044 00       		.byte	0
+ 847 0045 00       		.byte	0
+ 848 0046 07       		.uleb128 0x7
+ 849 0047 15       		.uleb128 0x15
+ 850 0048 00       		.byte	0
+ 851 0049 27       		.uleb128 0x27
+ 852 004a 19       		.uleb128 0x19
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 23
+
+
+ 853 004b 00       		.byte	0
+ 854 004c 00       		.byte	0
+ 855 004d 08       		.uleb128 0x8
+ 856 004e 2E       		.uleb128 0x2e
+ 857 004f 00       		.byte	0
+ 858 0050 3F       		.uleb128 0x3f
+ 859 0051 19       		.uleb128 0x19
+ 860 0052 03       		.uleb128 0x3
+ 861 0053 0E       		.uleb128 0xe
+ 862 0054 3A       		.uleb128 0x3a
+ 863 0055 0B       		.uleb128 0xb
+ 864 0056 3B       		.uleb128 0x3b
+ 865 0057 0B       		.uleb128 0xb
+ 866 0058 27       		.uleb128 0x27
+ 867 0059 19       		.uleb128 0x19
+ 868 005a 11       		.uleb128 0x11
+ 869 005b 01       		.uleb128 0x1
+ 870 005c 12       		.uleb128 0x12
+ 871 005d 06       		.uleb128 0x6
+ 872 005e 40       		.uleb128 0x40
+ 873 005f 18       		.uleb128 0x18
+ 874 0060 9642     		.uleb128 0x2116
+ 875 0062 19       		.uleb128 0x19
+ 876 0063 00       		.byte	0
+ 877 0064 00       		.byte	0
+ 878 0065 09       		.uleb128 0x9
+ 879 0066 2E       		.uleb128 0x2e
+ 880 0067 01       		.byte	0x1
+ 881 0068 3F       		.uleb128 0x3f
+ 882 0069 19       		.uleb128 0x19
+ 883 006a 03       		.uleb128 0x3
+ 884 006b 0E       		.uleb128 0xe
+ 885 006c 3A       		.uleb128 0x3a
+ 886 006d 0B       		.uleb128 0xb
+ 887 006e 3B       		.uleb128 0x3b
+ 888 006f 0B       		.uleb128 0xb
+ 889 0070 27       		.uleb128 0x27
+ 890 0071 19       		.uleb128 0x19
+ 891 0072 11       		.uleb128 0x11
+ 892 0073 01       		.uleb128 0x1
+ 893 0074 12       		.uleb128 0x12
+ 894 0075 06       		.uleb128 0x6
+ 895 0076 40       		.uleb128 0x40
+ 896 0077 18       		.uleb128 0x18
+ 897 0078 9642     		.uleb128 0x2116
+ 898 007a 19       		.uleb128 0x19
+ 899 007b 01       		.uleb128 0x1
+ 900 007c 13       		.uleb128 0x13
+ 901 007d 00       		.byte	0
+ 902 007e 00       		.byte	0
+ 903 007f 0A       		.uleb128 0xa
+ 904 0080 05       		.uleb128 0x5
+ 905 0081 00       		.byte	0
+ 906 0082 03       		.uleb128 0x3
+ 907 0083 0E       		.uleb128 0xe
+ 908 0084 3A       		.uleb128 0x3a
+ 909 0085 0B       		.uleb128 0xb
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 24
+
+
+ 910 0086 3B       		.uleb128 0x3b
+ 911 0087 0B       		.uleb128 0xb
+ 912 0088 49       		.uleb128 0x49
+ 913 0089 13       		.uleb128 0x13
+ 914 008a 02       		.uleb128 0x2
+ 915 008b 18       		.uleb128 0x18
+ 916 008c 00       		.byte	0
+ 917 008d 00       		.byte	0
+ 918 008e 0B       		.uleb128 0xb
+ 919 008f 2E       		.uleb128 0x2e
+ 920 0090 00       		.byte	0
+ 921 0091 3F       		.uleb128 0x3f
+ 922 0092 19       		.uleb128 0x19
+ 923 0093 03       		.uleb128 0x3
+ 924 0094 0E       		.uleb128 0xe
+ 925 0095 3A       		.uleb128 0x3a
+ 926 0096 0B       		.uleb128 0xb
+ 927 0097 3B       		.uleb128 0x3b
+ 928 0098 0B       		.uleb128 0xb
+ 929 0099 27       		.uleb128 0x27
+ 930 009a 19       		.uleb128 0x19
+ 931 009b 11       		.uleb128 0x11
+ 932 009c 01       		.uleb128 0x1
+ 933 009d 12       		.uleb128 0x12
+ 934 009e 06       		.uleb128 0x6
+ 935 009f 40       		.uleb128 0x40
+ 936 00a0 18       		.uleb128 0x18
+ 937 00a1 9742     		.uleb128 0x2117
+ 938 00a3 19       		.uleb128 0x19
+ 939 00a4 00       		.byte	0
+ 940 00a5 00       		.byte	0
+ 941 00a6 0C       		.uleb128 0xc
+ 942 00a7 2E       		.uleb128 0x2e
+ 943 00a8 01       		.byte	0x1
+ 944 00a9 3F       		.uleb128 0x3f
+ 945 00aa 19       		.uleb128 0x19
+ 946 00ab 03       		.uleb128 0x3
+ 947 00ac 0E       		.uleb128 0xe
+ 948 00ad 3A       		.uleb128 0x3a
+ 949 00ae 0B       		.uleb128 0xb
+ 950 00af 3B       		.uleb128 0x3b
+ 951 00b0 0B       		.uleb128 0xb
+ 952 00b1 27       		.uleb128 0x27
+ 953 00b2 19       		.uleb128 0x19
+ 954 00b3 11       		.uleb128 0x11
+ 955 00b4 01       		.uleb128 0x1
+ 956 00b5 12       		.uleb128 0x12
+ 957 00b6 06       		.uleb128 0x6
+ 958 00b7 40       		.uleb128 0x40
+ 959 00b8 18       		.uleb128 0x18
+ 960 00b9 9742     		.uleb128 0x2117
+ 961 00bb 19       		.uleb128 0x19
+ 962 00bc 01       		.uleb128 0x1
+ 963 00bd 13       		.uleb128 0x13
+ 964 00be 00       		.byte	0
+ 965 00bf 00       		.byte	0
+ 966 00c0 0D       		.uleb128 0xd
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 25
+
+
+ 967 00c1 2E       		.uleb128 0x2e
+ 968 00c2 00       		.byte	0
+ 969 00c3 3F       		.uleb128 0x3f
+ 970 00c4 19       		.uleb128 0x19
+ 971 00c5 03       		.uleb128 0x3
+ 972 00c6 0E       		.uleb128 0xe
+ 973 00c7 3A       		.uleb128 0x3a
+ 974 00c8 0B       		.uleb128 0xb
+ 975 00c9 3B       		.uleb128 0x3b
+ 976 00ca 0B       		.uleb128 0xb
+ 977 00cb 27       		.uleb128 0x27
+ 978 00cc 19       		.uleb128 0x19
+ 979 00cd 49       		.uleb128 0x49
+ 980 00ce 13       		.uleb128 0x13
+ 981 00cf 11       		.uleb128 0x11
+ 982 00d0 01       		.uleb128 0x1
+ 983 00d1 12       		.uleb128 0x12
+ 984 00d2 06       		.uleb128 0x6
+ 985 00d3 40       		.uleb128 0x40
+ 986 00d4 18       		.uleb128 0x18
+ 987 00d5 9742     		.uleb128 0x2117
+ 988 00d7 19       		.uleb128 0x19
+ 989 00d8 00       		.byte	0
+ 990 00d9 00       		.byte	0
+ 991 00da 0E       		.uleb128 0xe
+ 992 00db 34       		.uleb128 0x34
+ 993 00dc 00       		.byte	0
+ 994 00dd 03       		.uleb128 0x3
+ 995 00de 0E       		.uleb128 0xe
+ 996 00df 3A       		.uleb128 0x3a
+ 997 00e0 0B       		.uleb128 0xb
+ 998 00e1 3B       		.uleb128 0x3b
+ 999 00e2 0B       		.uleb128 0xb
+ 1000 00e3 49       		.uleb128 0x49
+ 1001 00e4 13       		.uleb128 0x13
+ 1002 00e5 02       		.uleb128 0x2
+ 1003 00e6 18       		.uleb128 0x18
+ 1004 00e7 00       		.byte	0
+ 1005 00e8 00       		.byte	0
+ 1006 00e9 0F       		.uleb128 0xf
+ 1007 00ea 2E       		.uleb128 0x2e
+ 1008 00eb 01       		.byte	0x1
+ 1009 00ec 3F       		.uleb128 0x3f
+ 1010 00ed 19       		.uleb128 0x19
+ 1011 00ee 03       		.uleb128 0x3
+ 1012 00ef 0E       		.uleb128 0xe
+ 1013 00f0 3A       		.uleb128 0x3a
+ 1014 00f1 0B       		.uleb128 0xb
+ 1015 00f2 3B       		.uleb128 0x3b
+ 1016 00f3 05       		.uleb128 0x5
+ 1017 00f4 27       		.uleb128 0x27
+ 1018 00f5 19       		.uleb128 0x19
+ 1019 00f6 49       		.uleb128 0x49
+ 1020 00f7 13       		.uleb128 0x13
+ 1021 00f8 11       		.uleb128 0x11
+ 1022 00f9 01       		.uleb128 0x1
+ 1023 00fa 12       		.uleb128 0x12
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 26
+
+
+ 1024 00fb 06       		.uleb128 0x6
+ 1025 00fc 40       		.uleb128 0x40
+ 1026 00fd 18       		.uleb128 0x18
+ 1027 00fe 9742     		.uleb128 0x2117
+ 1028 0100 19       		.uleb128 0x19
+ 1029 0101 01       		.uleb128 0x1
+ 1030 0102 13       		.uleb128 0x13
+ 1031 0103 00       		.byte	0
+ 1032 0104 00       		.byte	0
+ 1033 0105 10       		.uleb128 0x10
+ 1034 0106 34       		.uleb128 0x34
+ 1035 0107 00       		.byte	0
+ 1036 0108 03       		.uleb128 0x3
+ 1037 0109 0E       		.uleb128 0xe
+ 1038 010a 3A       		.uleb128 0x3a
+ 1039 010b 0B       		.uleb128 0xb
+ 1040 010c 3B       		.uleb128 0x3b
+ 1041 010d 05       		.uleb128 0x5
+ 1042 010e 49       		.uleb128 0x49
+ 1043 010f 13       		.uleb128 0x13
+ 1044 0110 02       		.uleb128 0x2
+ 1045 0111 18       		.uleb128 0x18
+ 1046 0112 00       		.byte	0
+ 1047 0113 00       		.byte	0
+ 1048 0114 11       		.uleb128 0x11
+ 1049 0115 2E       		.uleb128 0x2e
+ 1050 0116 00       		.byte	0
+ 1051 0117 3F       		.uleb128 0x3f
+ 1052 0118 19       		.uleb128 0x19
+ 1053 0119 03       		.uleb128 0x3
+ 1054 011a 0E       		.uleb128 0xe
+ 1055 011b 3A       		.uleb128 0x3a
+ 1056 011c 0B       		.uleb128 0xb
+ 1057 011d 3B       		.uleb128 0x3b
+ 1058 011e 05       		.uleb128 0x5
+ 1059 011f 27       		.uleb128 0x27
+ 1060 0120 19       		.uleb128 0x19
+ 1061 0121 11       		.uleb128 0x11
+ 1062 0122 01       		.uleb128 0x1
+ 1063 0123 12       		.uleb128 0x12
+ 1064 0124 06       		.uleb128 0x6
+ 1065 0125 40       		.uleb128 0x40
+ 1066 0126 18       		.uleb128 0x18
+ 1067 0127 9742     		.uleb128 0x2117
+ 1068 0129 19       		.uleb128 0x19
+ 1069 012a 00       		.byte	0
+ 1070 012b 00       		.byte	0
+ 1071 012c 12       		.uleb128 0x12
+ 1072 012d 2E       		.uleb128 0x2e
+ 1073 012e 00       		.byte	0
+ 1074 012f 3F       		.uleb128 0x3f
+ 1075 0130 19       		.uleb128 0x19
+ 1076 0131 03       		.uleb128 0x3
+ 1077 0132 0E       		.uleb128 0xe
+ 1078 0133 3A       		.uleb128 0x3a
+ 1079 0134 0B       		.uleb128 0xb
+ 1080 0135 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 27
+
+
+ 1081 0136 05       		.uleb128 0x5
+ 1082 0137 27       		.uleb128 0x27
+ 1083 0138 19       		.uleb128 0x19
+ 1084 0139 49       		.uleb128 0x49
+ 1085 013a 13       		.uleb128 0x13
+ 1086 013b 11       		.uleb128 0x11
+ 1087 013c 01       		.uleb128 0x1
+ 1088 013d 12       		.uleb128 0x12
+ 1089 013e 06       		.uleb128 0x6
+ 1090 013f 40       		.uleb128 0x40
+ 1091 0140 18       		.uleb128 0x18
+ 1092 0141 9742     		.uleb128 0x2117
+ 1093 0143 19       		.uleb128 0x19
+ 1094 0144 00       		.byte	0
+ 1095 0145 00       		.byte	0
+ 1096 0146 13       		.uleb128 0x13
+ 1097 0147 01       		.uleb128 0x1
+ 1098 0148 01       		.byte	0x1
+ 1099 0149 49       		.uleb128 0x49
+ 1100 014a 13       		.uleb128 0x13
+ 1101 014b 01       		.uleb128 0x1
+ 1102 014c 13       		.uleb128 0x13
+ 1103 014d 00       		.byte	0
+ 1104 014e 00       		.byte	0
+ 1105 014f 14       		.uleb128 0x14
+ 1106 0150 21       		.uleb128 0x21
+ 1107 0151 00       		.byte	0
+ 1108 0152 49       		.uleb128 0x49
+ 1109 0153 13       		.uleb128 0x13
+ 1110 0154 2F       		.uleb128 0x2f
+ 1111 0155 0B       		.uleb128 0xb
+ 1112 0156 00       		.byte	0
+ 1113 0157 00       		.byte	0
+ 1114 0158 15       		.uleb128 0x15
+ 1115 0159 34       		.uleb128 0x34
+ 1116 015a 00       		.byte	0
+ 1117 015b 03       		.uleb128 0x3
+ 1118 015c 0E       		.uleb128 0xe
+ 1119 015d 3A       		.uleb128 0x3a
+ 1120 015e 0B       		.uleb128 0xb
+ 1121 015f 3B       		.uleb128 0x3b
+ 1122 0160 0B       		.uleb128 0xb
+ 1123 0161 49       		.uleb128 0x49
+ 1124 0162 13       		.uleb128 0x13
+ 1125 0163 3F       		.uleb128 0x3f
+ 1126 0164 19       		.uleb128 0x19
+ 1127 0165 3C       		.uleb128 0x3c
+ 1128 0166 19       		.uleb128 0x19
+ 1129 0167 00       		.byte	0
+ 1130 0168 00       		.byte	0
+ 1131 0169 00       		.byte	0
+ 1132              		.section	.debug_aranges,"",%progbits
+ 1133 0000 7C000000 		.4byte	0x7c
+ 1134 0004 0200     		.2byte	0x2
+ 1135 0006 00000000 		.4byte	.Ldebug_info0
+ 1136 000a 04       		.byte	0x4
+ 1137 000b 00       		.byte	0
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 28
+
+
+ 1138 000c 0000     		.2byte	0
+ 1139 000e 0000     		.2byte	0
+ 1140 0010 00000000 		.4byte	.LFB2
+ 1141 0014 24000000 		.4byte	.LFE2-.LFB2
+ 1142 0018 00000000 		.4byte	.LFB3
+ 1143 001c 24000000 		.4byte	.LFE3-.LFB3
+ 1144 0020 00000000 		.4byte	.LFB4
+ 1145 0024 18000000 		.4byte	.LFE4-.LFB4
+ 1146 0028 00000000 		.4byte	.LFB5
+ 1147 002c 08000000 		.4byte	.LFE5-.LFB5
+ 1148 0030 00000000 		.4byte	.LFB6
+ 1149 0034 18000000 		.4byte	.LFE6-.LFB6
+ 1150 0038 00000000 		.4byte	.LFB7
+ 1151 003c 14000000 		.4byte	.LFE7-.LFB7
+ 1152 0040 00000000 		.4byte	.LFB8
+ 1153 0044 50000000 		.4byte	.LFE8-.LFB8
+ 1154 0048 00000000 		.4byte	.LFB9
+ 1155 004c 2C000000 		.4byte	.LFE9-.LFB9
+ 1156 0050 00000000 		.4byte	.LFB10
+ 1157 0054 14000000 		.4byte	.LFE10-.LFB10
+ 1158 0058 00000000 		.4byte	.LFB11
+ 1159 005c 20000000 		.4byte	.LFE11-.LFB11
+ 1160 0060 00000000 		.4byte	.LFB12
+ 1161 0064 14000000 		.4byte	.LFE12-.LFB12
+ 1162 0068 00000000 		.4byte	.LFB13
+ 1163 006c 14000000 		.4byte	.LFE13-.LFB13
+ 1164 0070 00000000 		.4byte	.LFB14
+ 1165 0074 14000000 		.4byte	.LFE14-.LFB14
+ 1166 0078 00000000 		.4byte	0
+ 1167 007c 00000000 		.4byte	0
+ 1168              		.section	.debug_ranges,"",%progbits
+ 1169              	.Ldebug_ranges0:
+ 1170 0000 00000000 		.4byte	.LFB2
+ 1171 0004 24000000 		.4byte	.LFE2
+ 1172 0008 00000000 		.4byte	.LFB3
+ 1173 000c 24000000 		.4byte	.LFE3
+ 1174 0010 00000000 		.4byte	.LFB4
+ 1175 0014 18000000 		.4byte	.LFE4
+ 1176 0018 00000000 		.4byte	.LFB5
+ 1177 001c 08000000 		.4byte	.LFE5
+ 1178 0020 00000000 		.4byte	.LFB6
+ 1179 0024 18000000 		.4byte	.LFE6
+ 1180 0028 00000000 		.4byte	.LFB7
+ 1181 002c 14000000 		.4byte	.LFE7
+ 1182 0030 00000000 		.4byte	.LFB8
+ 1183 0034 50000000 		.4byte	.LFE8
+ 1184 0038 00000000 		.4byte	.LFB9
+ 1185 003c 2C000000 		.4byte	.LFE9
+ 1186 0040 00000000 		.4byte	.LFB10
+ 1187 0044 14000000 		.4byte	.LFE10
+ 1188 0048 00000000 		.4byte	.LFB11
+ 1189 004c 20000000 		.4byte	.LFE11
+ 1190 0050 00000000 		.4byte	.LFB12
+ 1191 0054 14000000 		.4byte	.LFE12
+ 1192 0058 00000000 		.4byte	.LFB13
+ 1193 005c 14000000 		.4byte	.LFE13
+ 1194 0060 00000000 		.4byte	.LFB14
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 29
+
+
+ 1195 0064 14000000 		.4byte	.LFE14
+ 1196 0068 00000000 		.4byte	0
+ 1197 006c 00000000 		.4byte	0
+ 1198              		.section	.debug_line,"",%progbits
+ 1199              	.Ldebug_line0:
+ 1200 0000 5B010000 		.section	.debug_str,"MS",%progbits,1
+ 1200      02004D00 
+ 1200      00000201 
+ 1200      FB0E0D00 
+ 1200      01010101 
+ 1201              	.LASF14:
+ 1202 0000 72656733 		.ascii	"reg32\000"
+ 1202      3200
+ 1203              	.LASF23:
+ 1204 0006 57616B65 		.ascii	"Wakeup_Interrupt_SetPriority\000"
+ 1204      75705F49 
+ 1204      6E746572 
+ 1204      72757074 
+ 1204      5F536574 
+ 1205              	.LASF37:
+ 1206 0023 43795261 		.ascii	"CyRamVectors\000"
+ 1206      6D566563 
+ 1206      746F7273 
+ 1206      00
+ 1207              	.LASF31:
+ 1208 0030 57616B65 		.ascii	"Wakeup_Interrupt_SetPending\000"
+ 1208      75705F49 
+ 1208      6E746572 
+ 1208      72757074 
+ 1208      5F536574 
+ 1209              	.LASF32:
+ 1210 004c 57616B65 		.ascii	"Wakeup_Interrupt_ClearPending\000"
+ 1210      75705F49 
+ 1210      6E746572 
+ 1210      72757074 
+ 1210      5F436C65 
+ 1211              	.LASF3:
+ 1212 006a 73686F72 		.ascii	"short unsigned int\000"
+ 1212      7420756E 
+ 1212      7369676E 
+ 1212      65642069 
+ 1212      6E7400
+ 1213              	.LASF35:
+ 1214 007d 433A5C55 		.ascii	"C:\\Users\\akita\\Documents\\TPT02\\src\\TPT02r.cyd"
+ 1214      73657273 
+ 1214      5C616B69 
+ 1214      74615C44 
+ 1214      6F63756D 
+ 1215 00aa 736E00   		.ascii	"sn\000"
+ 1216              	.LASF29:
+ 1217 00ad 57616B65 		.ascii	"Wakeup_Interrupt_GetState\000"
+ 1217      75705F49 
+ 1217      6E746572 
+ 1217      72757074 
+ 1217      5F476574 
+ 1218              	.LASF18:
+ 1219 00c7 57616B65 		.ascii	"Wakeup_Interrupt_Stop\000"
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 30
+
+
+ 1219      75705F49 
+ 1219      6E746572 
+ 1219      72757074 
+ 1219      5F53746F 
+ 1220              	.LASF11:
+ 1221 00dd 666C6F61 		.ascii	"float\000"
+ 1221      7400
+ 1222              	.LASF1:
+ 1223 00e3 756E7369 		.ascii	"unsigned char\000"
+ 1223      676E6564 
+ 1223      20636861 
+ 1223      7200
+ 1224              	.LASF25:
+ 1225 00f1 696E7465 		.ascii	"interruptState\000"
+ 1225      72727570 
+ 1225      74537461 
+ 1225      746500
+ 1226              	.LASF5:
+ 1227 0100 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1227      20756E73 
+ 1227      69676E65 
+ 1227      6420696E 
+ 1227      7400
+ 1228              	.LASF21:
+ 1229 0112 57616B65 		.ascii	"Wakeup_Interrupt_SetVector\000"
+ 1229      75705F49 
+ 1229      6E746572 
+ 1229      72757074 
+ 1229      5F536574 
+ 1230              	.LASF24:
+ 1231 012d 7072696F 		.ascii	"priority\000"
+ 1231      72697479 
+ 1231      00
+ 1232              	.LASF12:
+ 1233 0136 646F7562 		.ascii	"double\000"
+ 1233      6C6500
+ 1234              	.LASF33:
+ 1235 013d 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1235      4320342E 
+ 1235      392E3320 
+ 1235      32303135 
+ 1235      30333033 
+ 1236 0170 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 1236      20726576 
+ 1236      6973696F 
+ 1236      6E203232 
+ 1236      31323230 
+ 1237 01a3 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1237      66756E63 
+ 1237      74696F6E 
+ 1237      2D736563 
+ 1237      74696F6E 
+ 1238              	.LASF10:
+ 1239 01cb 75696E74 		.ascii	"uint32\000"
+ 1239      333200
+ 1240              	.LASF8:
+ 1241 01d2 756E7369 		.ascii	"unsigned int\000"
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 31
+
+
+ 1241      676E6564 
+ 1241      20696E74 
+ 1241      00
+ 1242              	.LASF34:
+ 1243 01df 47656E65 		.ascii	"Generated_Source\\PSoC4\\Wakeup_Interrupt.c\000"
+ 1243      72617465 
+ 1243      645F536F 
+ 1243      75726365 
+ 1243      5C50536F 
+ 1244              	.LASF22:
+ 1245 0209 61646472 		.ascii	"address\000"
+ 1245      65737300 
+ 1246              	.LASF7:
+ 1247 0211 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1247      206C6F6E 
+ 1247      6720756E 
+ 1247      7369676E 
+ 1247      65642069 
+ 1248              	.LASF15:
+ 1249 0228 63796973 		.ascii	"cyisraddress\000"
+ 1249      72616464 
+ 1249      72657373 
+ 1249      00
+ 1250              	.LASF27:
+ 1251 0235 57616B65 		.ascii	"Wakeup_Interrupt_Enable\000"
+ 1251      75705F49 
+ 1251      6E746572 
+ 1251      72757074 
+ 1251      5F456E61 
+ 1252              	.LASF36:
+ 1253 024d 57616B65 		.ascii	"Wakeup_Interrupt_GetPriority\000"
+ 1253      75705F49 
+ 1253      6E746572 
+ 1253      72757074 
+ 1253      5F476574 
+ 1254              	.LASF16:
+ 1255 026a 73697A65 		.ascii	"sizetype\000"
+ 1255      74797065 
+ 1255      00
+ 1256              	.LASF6:
+ 1257 0273 6C6F6E67 		.ascii	"long long int\000"
+ 1257      206C6F6E 
+ 1257      6720696E 
+ 1257      7400
+ 1258              	.LASF20:
+ 1259 0281 57616B65 		.ascii	"Wakeup_Interrupt_StartEx\000"
+ 1259      75705F49 
+ 1259      6E746572 
+ 1259      72757074 
+ 1259      5F537461 
+ 1260              	.LASF28:
+ 1261 029a 57616B65 		.ascii	"Wakeup_Interrupt_GetVector\000"
+ 1261      75705F49 
+ 1261      6E746572 
+ 1261      72757074 
+ 1261      5F476574 
+ 1262              	.LASF19:
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cc4YzuCq.s 			page 32
+
+
+ 1263 02b5 57616B65 		.ascii	"Wakeup_Interrupt_Interrupt\000"
+ 1263      75705F49 
+ 1263      6E746572 
+ 1263      72757074 
+ 1263      5F496E74 
+ 1264              	.LASF2:
+ 1265 02d0 73686F72 		.ascii	"short int\000"
+ 1265      7420696E 
+ 1265      7400
+ 1266              	.LASF9:
+ 1267 02da 75696E74 		.ascii	"uint8\000"
+ 1267      3800
+ 1268              	.LASF26:
+ 1269 02e0 7072696F 		.ascii	"priorityOffset\000"
+ 1269      72697479 
+ 1269      4F666673 
+ 1269      657400
+ 1270              	.LASF4:
+ 1271 02ef 6C6F6E67 		.ascii	"long int\000"
+ 1271      20696E74 
+ 1271      00
+ 1272              	.LASF13:
+ 1273 02f8 63686172 		.ascii	"char\000"
+ 1273      00
+ 1274              	.LASF30:
+ 1275 02fd 57616B65 		.ascii	"Wakeup_Interrupt_Disable\000"
+ 1275      75705F49 
+ 1275      6E746572 
+ 1275      72757074 
+ 1275      5F446973 
+ 1276              	.LASF17:
+ 1277 0316 57616B65 		.ascii	"Wakeup_Interrupt_Start\000"
+ 1277      75705F49 
+ 1277      6E746572 
+ 1277      72757074 
+ 1277      5F537461 
+ 1278              	.LASF0:
+ 1279 032d 7369676E 		.ascii	"signed char\000"
+ 1279      65642063 
+ 1279      68617200 
+ 1280              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

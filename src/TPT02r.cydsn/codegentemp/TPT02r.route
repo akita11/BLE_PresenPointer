@@ -4,17 +4,17 @@ net ClockBlock_HFCLK
 	term   ":interrupt_12.clock"
 	switch ":m0s8clockblockcell.hfclk==>:interrupt_8.clock"
 	term   ":interrupt_8.clock"
-	switch ":m0s8clockblockcell.hfclk==>:interrupt_1.clock"
-	term   ":interrupt_1.clock"
+	switch ":m0s8clockblockcell.hfclk==>:interrupt_2.clock"
+	term   ":interrupt_2.clock"
 	switch ":m0s8clockblockcell.hfclk==>:interrupt_15.clock"
 	term   ":interrupt_15.clock"
 end ClockBlock_HFCLK
 net Net_142
-	term   ":logicalport_1.interrupt"
-	switch ":logicalport_1.interrupt==>Stub-:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v17+:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v19"
-	switch "Stub-:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v17+:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v19==>:interrupt_idmux_1.in_0"
-	switch ":interrupt_idmux_1.interrupt_idmux_1__out==>:interrupt_1.interrupt"
-	term   ":interrupt_1.interrupt"
+	term   ":logicalport_2.interrupt"
+	switch ":logicalport_2.interrupt==>Stub-:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v20+:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v22"
+	switch "Stub-:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v20+:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v22==>:interrupt_idmux_2.in_0"
+	switch ":interrupt_idmux_2.interrupt_idmux_2__out==>:interrupt_2.interrupt"
+	term   ":interrupt_2.interrupt"
 end Net_142
 net WDT_INT_OUT
 	term   ":m0s8wdtcell.wdt_int"

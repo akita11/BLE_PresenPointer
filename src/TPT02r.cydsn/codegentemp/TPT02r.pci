@@ -1,5 +1,5 @@
 # TPT02r
-# 2017-02-20 08:28:14Z
+# 2017-03-05 23:54:41Z
 
 # IO_6@[IOP=(0)][IoId=(6)] is reserved: SWDDebugEnabled
 dont_use_io iocell 0 6
@@ -10,7 +10,7 @@ set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
 set_io "Advertising_LED(0)" iocell 3 6
 set_io "CapsLock_LED(0)" iocell 0 4
 set_io "Disconnect_LED(0)" iocell 2 6
-set_io "SWID(0)" iocell 1 1
+set_io "SWID(0)" iocell 2 2
 set_io "\UART_DEB:tx(0)\" iocell 1 5
 set_io "\UART_DEB:rx(0)\" iocell 1 4
 set_io "Vref(0)" iocell 3 0

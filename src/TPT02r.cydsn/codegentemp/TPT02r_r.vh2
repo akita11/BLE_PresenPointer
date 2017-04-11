@@ -1,5 +1,5 @@
 -- Project:   TPT02r
--- Generated: 02/20/2017 17:28:14
+-- Generated: 03/06/2017 08:54:44
 -- PSoC Creator  4.0
 
 ENTITY TPT02r IS
@@ -105,9 +105,9 @@ ARCHITECTURE __DEFAULT__ OF TPT02r IS
     ATTRIBUTE Location OF CapsLock_LED(0) : LABEL IS "P0[4]";
     ATTRIBUTE lib_model OF Disconnect_LED(0) : LABEL IS "iocell3";
     ATTRIBUTE Location OF Disconnect_LED(0) : LABEL IS "P2[6]";
-    ATTRIBUTE Location OF SWID : LABEL IS "F(PICU,1)";
+    ATTRIBUTE Location OF SWID : LABEL IS "F(PICU,2)";
     ATTRIBUTE lib_model OF SWID(0) : LABEL IS "iocell4";
-    ATTRIBUTE Location OF SWID(0) : LABEL IS "P1[1]";
+    ATTRIBUTE Location OF SWID(0) : LABEL IS "P2[2]";
     ATTRIBUTE lib_model OF \UART_DEB:tx(0)\ : LABEL IS "iocell5";
     ATTRIBUTE Location OF \UART_DEB:tx(0)\ : LABEL IS "P1[5]";
     ATTRIBUTE lib_model OF \UART_DEB:rx(0)\ : LABEL IS "iocell6";
@@ -123,7 +123,7 @@ ARCHITECTURE __DEFAULT__ OF TPT02r IS
     ATTRIBUTE Location OF \BLE:cy_m0s8_ble\ : LABEL IS "F(BLE,0)";
     ATTRIBUTE Location OF \BLE:bless_isr\ : LABEL IS "[IntrContainer=(0)][IntrId=(12)]";
     ATTRIBUTE Location OF WDT_Interrupt : LABEL IS "[IntrContainer=(0)][IntrId=(8)]";
-    ATTRIBUTE Location OF Wakeup_Interrupt : LABEL IS "[IntrContainer=(0)][IntrId=(1)]";
+    ATTRIBUTE Location OF Wakeup_Interrupt : LABEL IS "[IntrContainer=(0)][IntrId=(2)]";
     ATTRIBUTE Location OF \UART_DEB:SCB\ : LABEL IS "F(SCB,0)";
     ATTRIBUTE Location OF \ADC:IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(15)]";
     ATTRIBUTE Location OF \ADC:cy_psoc4_sar\ : LABEL IS "F(SARADC,0)";

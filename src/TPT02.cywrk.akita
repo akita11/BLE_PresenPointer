@@ -658,20 +658,6 @@
 <v>TPT02\TPT02r\ADC_SAR_SEQ_P4_v2_40.pdf</v>
 <v>TPT02\TPT02r\BLE_v3_20.pdf</v>
 <v>TPT02\TPT02r\Capacitor_v1_0.pdf</v>
-<v>TPT02\TPT02r\cy_gsref_v2_0.pdf</v>
-<v>TPT02\TPT02r\cy_isr_v1_70</v>
-<v>TPT02\TPT02r\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
-<v>TPT02\TPT02r\cy_pins_v2_20</v>
-<v>TPT02\TPT02r\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>TPT02\TPT02r\Gnd_v1_0</v>
-<v>TPT02\TPT02r\Gnd_v1_0\Gnd_v1_0.pdf</v>
-<v>TPT02\TPT02r\LED_v1_0</v>
-<v>TPT02\TPT02r\LED_v1_0\LED_v1_0.pdf</v>
-<v>TPT02\TPT02r\Power_v1_0.pdf</v>
-<v>TPT02\TPT02r\Resistor_v1_0</v>
-<v>TPT02\TPT02r\Resistor_v1_0\Resistor_v1_0.pdf</v>
-<v>TPT02\TPT02r\SCB_P4_v3_20.pdf</v>
-<v>TPT02\TPT02r\SwitchSPST_v1_0.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -698,7 +684,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="799, 703" SelectedTabbedMdiWindow="a34a9db6-3880-422f-a0de-fbb785c34c6c"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="49f9fec6-4843-451f-acc2-c82cfae7e8ac" /><DocumentWindow Key="7f921617-91d3-4f5c-9ccd-b9f406aca7e9" Guid="48c2fa5b-c86f-41ec-b341-c036d48c02a5" /><DocumentWindow Key="4773a3dd-3452-495e-abe3-a44f8958ad9c" Guid="2e172f8a-e725-47f0-b147-95027a9f0447" /><DocumentWindow Key="b6884afa-cd8a-4b46-b4a6-dd086d9fa605" Guid="a34a9db6-3880-422f-a0de-fbb785c34c6c" /><DocumentWindow Key="fb431baa-67f1-43a1-8ba8-6193372ea64f" Guid="3b5fdea1-ffe1-43c0-81a2-4dc82d796fed" /><DocumentWindow Key="500bb520-94ae-4b05-b7c5-7d169c7f71c0" Guid="98697d2e-75eb-4773-95ee-eaa903c2f350" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="883, 447" SelectedTabbedMdiWindow="9f7d8f83-8cf7-4494-965a-2a20fbd4904a"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="49f9fec6-4843-451f-acc2-c82cfae7e8ac" /><DocumentWindow Key="89c8189e-a892-45ca-808e-ec93e1c40942" Guid="22e18f75-880e-46f6-b4b1-8123d26c0e4a" /><DocumentWindow Key="3a348576-083b-46bb-b69b-25f99f62ceef" Guid="7e5c33f8-f96d-46e7-87cc-c01c2a0100a6" /><DocumentWindow Key="1679c8af-8157-4993-a6a7-071945bc62e0" Guid="db7f185d-4b39-4374-a719-117b3f528d20" /><DocumentWindow Key="fcb3f4f6-4253-4357-b312-0c1966f9438e" Guid="4f836231-fd38-4fda-ae06-9801aafdadf4" /><DocumentWindow Key="0e3e8e59-88fe-4595-b60e-6e1060cfdcda" Guid="9f7d8f83-8cf7-4494-965a-2a20fbd4904a" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
