@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
   10:scps.c        **** *  CY8CKIT-042 BLE
   11:scps.c        **** * 
   12:scps.c        **** ********************************************************************************
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 2
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 2
 
 
   13:scps.c        **** * Copyright 2015, Cypress Semiconductor Corporation.  All rights reserved.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
   66 0018 D318     		add	r3, r2, r3
   67 001a 1B68     		ldr	r3, [r3]
   68 001c 9F46     		mov	pc, r3
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 3
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 3
 
 
   69              		.section	.rodata
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  111 0050 031C     		mov	r3, r0
  112 0052 1A1C     		mov	r2, r3
  113 0054 074B     		ldr	r3, .L13+12
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 4
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 4
 
 
  114 0056 1A80     		strh	r2, [r3]
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
   78:scps.c        **** * Summary:
   79:scps.c        **** *   Initializes the SCPS Service.
   80:scps.c        **** *
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 5
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 5
 
 
   81:scps.c        **** *******************************************************************************/
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  187 0038 9AB2     		uxth	r2, r3
  188 003a 034B     		ldr	r3, .L17+4
  189 003c 1A80     		strh	r2, [r3]
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 6
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 6
 
 
  190              	.L15:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  242 003d FF300000 		.4byte	.LASF3
  243 0041 02       		.uleb128 0x2
  244 0042 04       		.byte	0x4
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 7
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 7
 
 
  245 0043 05       		.byte	0x5
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  299 00ac 04       		.byte	0x4
  300 00ad 06       		.uleb128 0x6
  301 00ae 01       		.byte	0x1
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 8
 
 
  302 00af 03       		.byte	0x3
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  356 011c 07       		.uleb128 0x7
  357 011d 50180000 		.4byte	.LASF33
  358 0121 2A       		.sleb128 42
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 9
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 9
 
 
  359 0122 07       		.uleb128 0x7
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  413 0194 07       		.uleb128 0x7
  414 0195 16280000 		.4byte	.LASF52
  415 0199 C600     		.sleb128 70
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 10
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 10
 
 
  416 019b 07       		.uleb128 0x7
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  470 0219 07       		.uleb128 0x7
  471 021a 8D300000 		.4byte	.LASF71
  472 021e F000     		.sleb128 112
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 11
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 11
 
 
  473 0220 07       		.uleb128 0x7
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  527 0297 07       		.uleb128 0x7
  528 0298 FF120000 		.4byte	.LASF88
  529 029c 03       		.sleb128 3
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 12
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 12
 
 
  530 029d 07       		.uleb128 0x7
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  584 0309 07       		.uleb128 0x7
  585 030a C4040000 		.4byte	.LASF107
  586 030e 29       		.sleb128 41
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 13
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 13
 
 
  587 030f 07       		.uleb128 0x7
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  641 0382 04       		.uleb128 0x4
  642 0383 97060000 		.4byte	.LASF120
  643 0387 04       		.byte	0x4
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 14
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 14
 
 
  644 0388 9D01     		.2byte	0x19d
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  698 03f7 07       		.uleb128 0x7
  699 03f8 47100000 		.4byte	.LASF128
  700 03fc 05       		.sleb128 5
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 15
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 15
 
 
  701 03fd 07       		.uleb128 0x7
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  755 0460 82030000 		.4byte	0x382
  756 0464 00       		.byte	0
  757 0465 0F       		.uleb128 0xf
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 16
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 16
 
 
  758 0466 25010000 		.4byte	.LASF140
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  812 04dc 8A02     		.sleb128 266
  813 04de 07       		.uleb128 0x7
  814 04df 51260000 		.4byte	.LASF154
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 17
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 17
 
 
  815 04e3 8B02     		.sleb128 267
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  869 0561 9D02     		.sleb128 285
  870 0563 07       		.uleb128 0x7
  871 0564 48170000 		.4byte	.LASF173
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 18
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 18
 
 
  872 0568 9E02     		.sleb128 286
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  926 05e6 B002     		.sleb128 304
  927 05e8 07       		.uleb128 0x7
  928 05e9 F4290000 		.4byte	.LASF192
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 19
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 19
 
 
  929 05ed B102     		.sleb128 305
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  983 066b C302     		.sleb128 323
  984 066d 07       		.uleb128 0x7
  985 066e 892B0000 		.4byte	.LASF211
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 20
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 20
 
 
  986 0672 C402     		.sleb128 324
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  1040 06f0 D602     		.sleb128 342
  1041 06f2 07       		.uleb128 0x7
  1042 06f3 872F0000 		.4byte	.LASF230
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 21
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 21
 
 
  1043 06f7 D702     		.sleb128 343
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  1097 0775 E902     		.sleb128 361
  1098 0777 07       		.uleb128 0x7
  1099 0778 A6150000 		.4byte	.LASF249
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 22
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 22
 
 
  1100 077c EA02     		.sleb128 362
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  1154 07fa FC02     		.sleb128 380
  1155 07fc 07       		.uleb128 0x7
  1156 07fd AA1A0000 		.4byte	.LASF268
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 23
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 23
 
 
  1157 0801 FD02     		.sleb128 381
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  1211 087f 8F03     		.sleb128 399
  1212 0881 07       		.uleb128 0x7
  1213 0882 A2220000 		.4byte	.LASF287
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 24
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 24
 
 
  1214 0886 9003     		.sleb128 400
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  1268 0904 A203     		.sleb128 418
  1269 0906 07       		.uleb128 0x7
  1270 0907 3F000000 		.4byte	.LASF306
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 25
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 25
 
 
  1271 090b A303     		.sleb128 419
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  1325 0989 B503     		.sleb128 437
  1326 098b 07       		.uleb128 0x7
  1327 098c 222D0000 		.4byte	.LASF325
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 26
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 26
 
 
  1328 0990 B603     		.sleb128 438
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  1382 0a0e C803     		.sleb128 456
  1383 0a10 07       		.uleb128 0x7
  1384 0a11 F4170000 		.4byte	.LASF344
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 27
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 27
 
 
  1385 0a15 C903     		.sleb128 457
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  1439 0a93 DB03     		.sleb128 475
  1440 0a95 07       		.uleb128 0x7
  1441 0a96 240C0000 		.4byte	.LASF363
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 28
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 28
 
 
  1442 0a9a DC03     		.sleb128 476
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  1496 0b18 EE03     		.sleb128 494
  1497 0b1a 07       		.uleb128 0x7
  1498 0b1b AE280000 		.4byte	.LASF382
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 29
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 29
 
 
  1499 0b1f EF03     		.sleb128 495
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  1553 0b9d 8104     		.sleb128 513
  1554 0b9f 07       		.uleb128 0x7
  1555 0ba0 E81B0000 		.4byte	.LASF401
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 30
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 30
 
 
  1556 0ba4 8204     		.sleb128 514
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  1610 0c22 9404     		.sleb128 532
  1611 0c24 07       		.uleb128 0x7
  1612 0c25 EC210000 		.4byte	.LASF420
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 31
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 31
 
 
  1613 0c29 80C003   		.sleb128 57344
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  1667 0c91 13       		.uleb128 0x13
  1668 0c92 546F6E00 		.ascii	"Ton\000"
  1669 0c96 08       		.byte	0x8
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 32
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 32
 
 
  1670 0c97 3D       		.byte	0x3d
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  1724 0016 0B       		.uleb128 0xb
  1725 0017 0B       		.uleb128 0xb
  1726 0018 3E       		.uleb128 0x3e
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 33
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 33
 
 
  1727 0019 0B       		.uleb128 0xb
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  1781 004f 1C       		.uleb128 0x1c
  1782 0050 0D       		.uleb128 0xd
  1783 0051 00       		.byte	0
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 34
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 34
 
 
  1784 0052 00       		.byte	0
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  1838 0088 04       		.uleb128 0x4
  1839 0089 01       		.byte	0x1
  1840 008a 0B       		.uleb128 0xb
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 35
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 35
 
 
  1841 008b 0B       		.uleb128 0xb
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  1895 00c1 19       		.uleb128 0x19
  1896 00c2 03       		.uleb128 0x3
  1897 00c3 0E       		.uleb128 0xe
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 36
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 36
 
 
  1898 00c4 3A       		.uleb128 0x3a
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  1952 00fb 0B       		.uleb128 0xb
  1953 00fc 3B       		.uleb128 0x3b
  1954 00fd 0B       		.uleb128 0xb
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 37
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 37
 
 
  1955 00fe 49       		.uleb128 0x49
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2005      01010101 
  2006              	.LASF396:
  2007 0000 4359424C 		.ascii	"CYBLE_EVT_UDSC_READ_CHAR_RESPONSE\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 38
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 38
 
 
  2007      455F4556 
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2025      5553535F 
  2025      57524954 
  2026              	.LASF140:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 39
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 39
 
 
  2027 0125 63686172 		.ascii	"charIndex\000"
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2045      4541445F 
  2046              	.LASF30:
  2047 0253 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_CONNECTED\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 40
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 40
 
 
  2047      455F4556 
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2065      4541445F 
  2066              	.LASF157:
  2067 0386 4359424C 		.ascii	"CYBLE_EVT_GATTC_SRVC_DISCOVERY_COMPLETE\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 41
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 41
 
 
  2067      455F4556 
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2085      455F4552 
  2085      524F525F 
  2085      4D49435F 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 42
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 42
 
 
  2085      41555448 
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2105      455F4556 
  2105      545F424C 
  2105      53435F4E 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 43
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 43
 
 
  2105      4F544946 
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2123      4E4F5449 
  2124              	.LASF394:
  2125 070b 4359424C 		.ascii	"CYBLE_EVT_UDSC_INDICATION\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 44
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 44
 
 
  2125      455F4556 
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2143      53535F49 
  2143      4E444943 
  2144              	.LASF138:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 45
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 45
 
 
  2145 0843 4359424C 		.ascii	"CYBLE_SCPS_DESCR_COUNT\000"
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2163      545F5544 
  2163      53535F49 
  2163      4E444943 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 46
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 46
 
 
  2164              	.LASF145:
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2182      5F49535F 
  2183              	.LASF392:
  2184 0aa8 4359424C 		.ascii	"CYBLE_EVT_UDSS_READ_CHAR\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 47
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 47
 
 
  2184      455F4556 
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2202      53435F52 
  2202      4541445F 
  2203              	.LASF19:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 48
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 48
 
 
  2204 0bd5 4359424C 		.ascii	"CYBLE_EVT_HARDWARE_ERROR\000"
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2222      545F5753 
  2222      53435F52 
  2222      4541445F 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 49
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 49
 
 
  2223              	.LASF404:
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2242      455F4556 
  2242      545F4741 
  2242      5454435F 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 50
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 50
 
 
  2242      46494E44 
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2262      455F4556 
  2262      545F474C 
  2262      53435F52 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 51
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 51
 
 
  2262      4541445F 
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2280      53544F50 
  2281              	.LASF223:
  2282 1080 4359424C 		.ascii	"CYBLE_EVT_CPSS_CHAR_WRITE\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 52
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 52
 
 
  2282      455F4556 
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2300      455F4552 
  2300      524F525F 
  2300      434F4E54 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 53
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 53
 
 
  2300      524F4C4C 
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2318      57524954 
  2319              	.LASF326:
  2320 12e1 4359424C 		.ascii	"CYBLE_EVT_LLSS_WRITE_CHAR_REQ\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 54
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 54
 
 
  2320      455F4556 
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2338      545F4C4E 
  2338      53435F57 
  2338      52495445 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 55
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 55
 
 
  2339              	.LASF72:
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2357              	.LASF263:
  2358 154c 4359424C 		.ascii	"CYBLE_EVT_ESSC_READ_DESCR_RESPONSE\000"
  2358      455F4556 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 56
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 56
 
 
  2358      545F4553 
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2376      545F4941 
  2376      53535F57 
  2376      52495445 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 57
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 57
 
 
  2377              	.LASF342:
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2395              	.LASF250:
  2396 17d1 4359424C 		.ascii	"CYBLE_EVT_CTSC_WRITE_CHAR_RESPONSE\000"
  2396      455F4556 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 58
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 58
 
 
  2396      545F4354 
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2415              	.LASF353:
  2416 18fc 4359424C 		.ascii	"CYBLE_EVT_PLXSS_INDICATION_DISABLED\000"
  2416      455F4556 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 59
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 59
 
 
  2416      545F504C 
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2434      545F4854 
  2434      53435F4E 
  2434      4F544946 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 60
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 60
 
 
  2435              	.LASF6:
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2454 1b56 646F7562 		.ascii	"double\000"
  2454      6C6500
  2455              	.LASF105:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 61
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 61
 
 
  2456 1b5d 4359424C 		.ascii	"CYBLE_ERROR_DEVICE_ALREADY_EXISTS\000"
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2474 1c9f 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_CHANNEL_NOT_FOUND\000"
  2474      455F4552 
  2474      524F525F 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 62
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 62
 
 
  2474      4C324341 
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2494 1dca 4359424C 		.ascii	"CYBLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ\000"
  2494      455F4556 
  2494      545F4741 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 63
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 63
 
 
  2494      5454535F 
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2512      4E4F5449 
  2513              	.LASF256:
  2514 1f09 4359424C 		.ascii	"CYBLE_EVT_ESSS_INDICATION_CONFIRMATION\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 64
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 64
 
 
  2514      455F4556 
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2532      5800
  2533              	.LASF34:
  2534 2040 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_START_STOP\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 65
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 65
 
 
  2534      455F4556 
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2552      455F4556 
  2552      545F4350 
  2552      53435F49 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 66
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 66
 
 
  2552      4E444943 
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2570      5F524551 
  2571              	.LASF365:
  2572 227a 4359424C 		.ascii	"CYBLE_EVT_RSCSS_INDICATION_CONFIRMATION\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 67
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 67
 
 
  2572      455F4556 
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2590      455F4556 
  2590      545F5544 
  2590      53535F4E 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 68
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 68
 
 
  2590      4F544946 
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2610 24d2 4359424C 		.ascii	"CYBLE_EVT_TIMEOUT\000"
  2610      455F4556 
  2610      545F5449 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 69
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 69
 
 
  2610      4D454F55 
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2630 25e1 4359424C 		.ascii	"CYBLE_SCPS_SCAN_REFRESH_CCCD\000"
  2630      455F5343 
  2630      50535F53 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 70
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 70
 
 
  2630      43414E5F 
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2647              	.LASF139:
  2648 2748 636F6E6E 		.ascii	"connHandle\000"
  2648      48616E64 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 71
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 71
 
 
  2648      6C6500
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2666      52454144 
  2667              	.LASF285:
  2668 2881 4359424C 		.ascii	"CYBLE_EVT_HIDSC_READ_CHAR_RESPONSE\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 72
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 72
 
 
  2668      455F4556 
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2686      53435F52 
  2686      4541445F 
  2687              	.LASF367:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 73
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 73
 
 
  2688 29af 4359424C 		.ascii	"CYBLE_EVT_RSCSC_NOTIFICATION\000"
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2706      5353435F 
  2706      57524954 
  2707              	.LASF427:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 74
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 74
 
 
  2708 2aee 72657175 		.ascii	"requestScanRefresh\000"
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2726      545F414E 
  2726      4353435F 
  2726      4552524F 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 75
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 75
 
 
  2727              	.LASF182:
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2745              	.LASF325:
  2746 2d22 4359424C 		.ascii	"CYBLE_EVT_IPSC_READ_BLOB_RSP\000"
  2746      455F4556 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 76
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 76
 
 
  2746      545F4950 
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2764      7276616C 
  2764      00
  2765              	.LASF328:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 77
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 77
 
 
  2766 2e41 4359424C 		.ascii	"CYBLE_EVT_LLSC_WRITE_CHAR_RESPONSE\000"
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2784      455F4556 
  2784      545F474C 
  2784      53435F57 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 78
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 78
 
 
  2784      52495445 
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2802      57524954 
  2803              	.LASF71:
  2804 308d 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_REQ\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 79
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 79
 
 
  2804      455F4556 
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2824 319c 4359424C 		.ascii	"CYBLE_ERROR_INVALID_OPERATION\000"
  2824      455F4552 
  2824      524F525F 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 80
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 80
 
 
  2824      494E5641 
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2842      5454435F 
  2842      4C4F4E47 
  2843              	.LASF172:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 81
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 81
 
 
  2844 32da 4359424C 		.ascii	"CYBLE_EVT_ANSC_NOTIFICATION\000"
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 1
  2862      4353535F 
  2862      4E4F5449 
  2863              	.LASF170:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccH1G5Oi.s 			page 82
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccCz42eF.s 			page 82
 
 
  2864 3412 4359424C 		.ascii	"CYBLE_EVT_ANSS_NOTIFICATION_DISABLED\000"

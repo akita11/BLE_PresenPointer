@@ -385,7 +385,8 @@ static void LowPowerImplementation(void)
 *  This function process all BLE events and also implements the low power 
 *  functionality.
 *
-*******************************************************************************/int main()
+*******************************************************************************/
+int main()
 {
     CyGlobalIntEnable;  
 
@@ -419,7 +420,7 @@ static void LowPowerImplementation(void)
 
         if (Ton == 10 * 60 * 10){ // 10 min
 //        if (Ton == 30 * 10){ // 30 sec
-            DBG_PRINTF("going to shut down");
+            DBG_PRINTF("going to shutdown");
             int i;
             for (i = 0; i < 10; i++){
                 Advertising_LED_Write(0);
