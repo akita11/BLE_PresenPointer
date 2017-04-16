@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
   17:main.c        **** *
   18:main.c        **** ********************************************************************************
   19:main.c        **** * Copyright 2015, Cypress Semiconductor Corporation.  All rights reserved.
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 2
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 2
 
 
   20:main.c        **** * You may use this file only in accordance with the license, terms, conditions,
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
   64 001c 022B     		cmp	r3, #2
   65 001e 00D1     		bne	.LCB25
   66 0020 B2E0     		b	.L39	@long jump
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 3
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 3
 
 
   67              	.LCB25:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
   98:main.c        ****             DBG_PRINTF("CYBLE_EVT_PASSKEY_ENTRY_REQUEST press 'p' to enter passkey \r\n");
   99:main.c        ****             break;
  100:main.c        ****         case CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 4
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 4
 
 
  101:main.c        ****             DBG_PRINTF("CYBLE_EVT_PASSKEY_DISPLAY_REQUEST %6.6ld \r\n", *(uint32 *)eventParam);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  155:main.c        ****         case CYBLE_EVT_GATTS_XCNHG_MTU_REQ:
  156:main.c        ****             { 
  157:main.c        ****                 uint16 mtu;
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 5
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 5
 
 
  158:main.c        ****                 CyBle_GattGetMtuSize(&mtu);
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
   74              	.L8:
   75              	.LBE2:
   48:main.c        **** 	{
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 6
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 6
 
 
   76              		.loc 1 48 0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  127 0062 292B     		cmp	r3, #41
  128 0064 00D1     		bne	.LCB75
  129 0066 9DE0     		b	.L46	@long jump
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 7
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 7
 
 
  130              	.LCB75:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  181 00a2 89E0     		b	.L51	@long jump
  182              	.LCB115:
  183              	.LBB10:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 8
 
 
  184              		.loc 1 209 0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  230 00ea 3B68     		ldr	r3, [r7]
  231 00ec BB61     		str	r3, [r7, #24]
  111:main.c        ****         case CYBLE_EVT_GAP_AUTH_FAILED:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 9
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 9
 
 
  232              		.loc 1 111 0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  273 012c 6420     		mov	r0, #100
  274 012e FFF7FEFF 		bl	CyDelay
  139:main.c        ****                 Advertising_LED_Write(LED_ON);
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 10
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 10
 
 
  275              		.loc 1 139 0 discriminator 3
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  319              		.loc 1 166 0
  320 0174 21E0     		b	.L1
  321              	.L18:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 11
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 11
 
 
  180:main.c        ****             BasInit();
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  363              		.loc 1 169 0
  364 01a4 C046     		mov	r8, r8
  365 01a6 08E0     		b	.L1
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 12
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 12
 
 
  366              	.L47:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  217:main.c        **** * Function Name: Timer_Interrupt
  218:main.c        **** ********************************************************************************
  219:main.c        **** *
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 13
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 13
 
 
  220:main.c        **** * Summary:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  444 0032 134B     		ldr	r3, .L57+8
  445 0034 1B78     		ldrb	r3, [r3]
  446 0036 0122     		mov	r2, #1
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 14
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 14
 
 
  447 0038 5340     		eor	r3, r2
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  488              	.L57:
  489 0078 00000000 		.word	cyBle_state
  490 007c 00000000 		.word	ledTimer.8348
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 15
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 15
 
 
  491 0080 04000000 		.word	led.8347
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  525 001a 0121     		mov	r1, #1
  526 001c FFF7FEFF 		bl	CySysWdtSetClearOnMatch
  271:main.c        ****     /* Configure the WDT counter match comparison value */
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 16
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 16
 
 
  272:main.c        ****     CySysWdtWriteMatch(WDT_COUNTER, WDT_TIMEOUT);
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  291:main.c        **** {
  562              		.loc 1 291 0
  563              		.cfi_startproc
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 17
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 17
 
 
  564 0000 80B5     		push	{r7, lr}
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  317:main.c        **** *******************************************************************************/
  318:main.c        **** static void LowPowerImplementation(void)
  319:main.c        **** {
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 18
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 18
 
 
  593              		.loc 1 319 0
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  629 002e 1B78     		ldrb	r3, [r3]
  630 0030 032B     		cmp	r3, #3
  631 0032 0CD1     		bne	.L66
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 19
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 19
 
 
  337:main.c        ****         {
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  366:main.c        ****         CyExitCriticalSection(interruptStatus);
  656              		.loc 1 366 0
  657 005c BB1D     		add	r3, r7, #6
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 20
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 20
 
 
  658 005e 1B78     		ldrb	r3, [r3]
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  688              		.cfi_offset 14, -4
  689 0002 83B0     		sub	sp, sp, #12
  690              		.cfi_def_cfa_offset 24
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 21
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 21
 
 
  691 0004 00AF     		add	r7, sp, #0
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  714              		.loc 1 421 0
  715 0026 214B     		ldr	r3, .L79+4
  716 0028 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 22
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 22
 
 
  717 002a 214A     		ldr	r2, .L79+8
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  438:main.c        ****         LowPowerImplementation();
  753              		.loc 1 438 0
  754 0062 FFF7FEFF 		bl	LowPowerImplementation
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 23
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 23
 
 
  439:main.c        **** 
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  466:main.c        ****             if(cyBle_pendingFlashWrite != 0u)
  782              		.loc 1 466 0
  783 0090 0C4B     		ldr	r3, .L79+28
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 24
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 24
 
 
  784 0092 1B78     		ldrb	r3, [r3]
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  827              		.file 5 "Generated_Source\\PSoC4/BLE_StackGatt.h"
  828              		.file 6 "Generated_Source\\PSoC4/BLE_StackGattServer.h"
  829              		.file 7 "Generated_Source\\PSoC4/BLE_dis.h"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 25
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 25
 
 
  830              		.file 8 "Generated_Source\\PSoC4/BLE_eventHandler.h"
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  884 0065 04       		.byte	0x4
  885 0066 07       		.byte	0x7
  886 0067 2D100000 		.4byte	.LASF8
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 26
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 26
 
 
  887 006b 04       		.uleb128 0x4
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  941 00d8 04       		.sleb128 4
  942 00d9 08       		.uleb128 0x8
  943 00da 23000000 		.4byte	.LASF21
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 27
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 27
 
 
  944 00de 05       		.sleb128 5
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  998 014a 30       		.sleb128 48
  999 014b 08       		.uleb128 0x8
  1000 014c 01150000 		.4byte	.LASF40
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 28
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 28
 
 
  1001 0150 31       		.sleb128 49
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  1055 01c8 CC00     		.sleb128 76
  1056 01ca 08       		.uleb128 0x8
  1057 01cb 870B0000 		.4byte	.LASF59
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 29
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 29
 
 
  1058 01cf CD00     		.sleb128 77
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  1112 024d F600     		.sleb128 118
  1113 024f 08       		.uleb128 0x8
  1114 0250 53000000 		.4byte	.LASF78
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 30
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 30
 
 
  1115 0254 F700     		.sleb128 119
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  1169 02c5 09       		.sleb128 9
  1170 02c6 08       		.uleb128 0x8
  1171 02c7 7D0D0000 		.4byte	.LASF95
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 31
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 31
 
 
  1172 02cb 0A       		.sleb128 10
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  1226 0339 8002     		.sleb128 256
  1227 033b 08       		.uleb128 0x8
  1228 033c 920C0000 		.4byte	.LASF114
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 32
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 32
 
 
  1229 0340 8102     		.sleb128 257
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  1283 03ae 3E120000 		.4byte	.LASF127
  1284 03b2 04       		.sleb128 4
  1285 03b3 08       		.uleb128 0x8
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 33
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 33
 
 
  1286 03b4 EA120000 		.4byte	.LASF128
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  1340 0423 5E130000 		.4byte	.LASF136
  1341 0427 01       		.sleb128 1
  1342 0428 08       		.uleb128 0x8
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 34
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 34
 
 
  1343 0429 7F090000 		.4byte	.LASF137
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  1397 0496 05       		.byte	0x5
  1398 0497 04       		.byte	0x4
  1399 0498 B401     		.2byte	0x1b4
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 35
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 35
 
 
  1400 049a E0040000 		.4byte	0x4e0
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  1454 050f 950A0000 		.4byte	.LASF162
  1455 0513 05       		.byte	0x5
  1456 0514 9B01     		.2byte	0x19b
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 36
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 36
 
 
  1457 0516 6B000000 		.4byte	0x6b
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  1511 0588 00       		.byte	0
  1512 0589 04       		.uleb128 0x4
  1513 058a AB0C0000 		.4byte	.LASF168
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 37
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 37
 
 
  1514 058e 05       		.byte	0x5
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  1568 05f8 07       		.sleb128 7
  1569 05f9 08       		.uleb128 0x8
  1570 05fa 370A0000 		.4byte	.LASF180
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 38
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 38
 
 
  1571 05fe 08       		.sleb128 8
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  1625 0669 91       		.byte	0x91
  1626 066a 48       		.sleb128 -56
  1627 066b 15       		.uleb128 0x15
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 39
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 39
 
 
  1628 066c 3E0C0000 		.4byte	.LASF190
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  1682 06cb 00       		.byte	0
  1683 06cc 0D       		.uleb128 0xd
  1684 06cd 04       		.byte	0x4
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 40
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 40
 
 
  1685 06ce E0040000 		.4byte	0x4e0
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  1739 0749 9C       		.byte	0x9c
  1740 074a 6D070000 		.4byte	0x76d
  1741 074e 1B       		.uleb128 0x1b
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 41
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 41
 
 
  1742 074f 0C0E0000 		.4byte	.LASF198
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  1796 07c1 09       		.byte	0x9
  1797 07c2 A902     		.2byte	0x2a9
  1798 07c4 6B000000 		.4byte	0x6b
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 42
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 42
 
 
  1799 07c8 1F       		.uleb128 0x1f
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  1853 0014 24       		.uleb128 0x24
  1854 0015 00       		.byte	0
  1855 0016 0B       		.uleb128 0xb
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 43
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 43
 
 
  1856 0017 0B       		.uleb128 0xb
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  1910 004d 01       		.uleb128 0x1
  1911 004e 13       		.uleb128 0x13
  1912 004f 00       		.byte	0
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 44
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 44
 
 
  1913 0050 00       		.byte	0
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  1967 0086 00       		.byte	0
  1968 0087 00       		.byte	0
  1969 0088 0D       		.uleb128 0xd
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 45
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 45
 
 
  1970 0089 0F       		.uleb128 0xf
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2024 00bf 03       		.uleb128 0x3
  2025 00c0 0E       		.uleb128 0xe
  2026 00c1 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 46
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 46
 
 
  2027 00c2 0B       		.uleb128 0xb
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2081 00f9 49       		.uleb128 0x49
  2082 00fa 13       		.uleb128 0x13
  2083 00fb 02       		.uleb128 0x2
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 47
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 47
 
 
  2084 00fc 18       		.uleb128 0x18
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2138 0132 03       		.uleb128 0x3
  2139 0133 0E       		.uleb128 0xe
  2140 0134 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 48
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 48
 
 
  2141 0135 0B       		.uleb128 0xb
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2195 016d 2E       		.uleb128 0x2e
  2196 016e 01       		.byte	0x1
  2197 016f 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 49
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 49
 
 
  2198 0170 19       		.uleb128 0x19
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2252 01a7 3B       		.uleb128 0x3b
  2253 01a8 05       		.uleb128 0x5
  2254 01a9 49       		.uleb128 0x49
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 50
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 50
 
 
  2255 01aa 13       		.uleb128 0x13
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2309 01e0 02       		.uleb128 0x2
  2310 01e1 18       		.uleb128 0x18
  2311 01e2 00       		.byte	0
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 51
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 51
 
 
  2312 01e3 00       		.byte	0
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2366 0070 00000000 		.4byte	.LFB42
  2367 0074 C8000000 		.4byte	.LFE42
  2368 0078 00000000 		.4byte	0
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 52
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 52
 
 
  2369 007c 00000000 		.4byte	0
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2388      505F434F 
  2388      4E4E4543 
  2389              	.LASF77:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 53
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 53
 
 
  2390 0104 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_CNF\000"
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2409 0241 74797065 		.ascii	"type\000"
  2409      00
  2410              	.LASF18:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 54
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 54
 
 
  2411 0246 4359424C 		.ascii	"CYBLE_EVT_TIMEOUT\000"
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2430      505F4244 
  2430      5F414444 
  2430      525F5400 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 55
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 55
 
 
  2431              	.LASF124:
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2450      54545F44 
  2450      425F4154 
  2450      54525F48 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 56
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 56
 
 
  2451              	.LASF105:
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2470      53697A65 
  2470      00
  2471              	.LASF73:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 57
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 57
 
 
  2472 0545 4359424C 		.ascii	"CYBLE_EVT_L2CAP_COMMAND_REJ\000"
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2492      4341505F 
  2492      43424643 
  2493              	.LASF86:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 58
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 58
 
 
  2494 065d 4359424C 		.ascii	"CYBLE_ERROR_INVALID_PARAMETER\000"
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2514      455F4556 
  2514      545F4C32 
  2514      4341505F 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 59
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 59
 
 
  2514      434F4E4E 
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2534      6420696E 
  2534      7400
  2535              	.LASF43:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 60
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 60
 
 
  2536 085d 4359424C 		.ascii	"CYBLE_EVT_GAP_CONN_ESTB\000"
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2554      5454435F 
  2554      46494E44 
  2555              	.LASF22:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 61
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 61
 
 
  2556 0966 4359424C 		.ascii	"CYBLE_EVT_MEMORY_REQUEST\000"
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2576      545F4741 
  2576      505F5041 
  2576      53534B45 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 62
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 62
 
 
  2577              	.LASF47:
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2598      455F5354 
  2598      4154455F 
  2598      494E4954 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 63
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 63
 
 
  2598      49414C49 
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2618      7400
  2619              	.LASF117:
  2620 0c48 4359424C 		.ascii	"CYBLE_API_RESULT_T\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 64
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 64
 
 
  2620      455F4150 
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2640      655F7065 
  2640      6E64696E 
  2640      67466C61 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 65
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 65
 
 
  2640      73685772 
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2662      54696D65 
  2662      7200
  2663              	.LASF65:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 66
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 66
 
 
  2664 0e28 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_IND\000"
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2682 0f33 4359424C 		.ascii	"CYBLE_GAP_AUTH_ERROR_COMMAND_NOT_SUPPORTED\000"
  2682      455F4741 
  2682      505F4155 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 67
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 67
 
 
  2682      54485F45 
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2702      5454535F 
  2702      52454144 
  2703              	.LASF37:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 68
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 68
 
 
  2704 1063 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYPRESS_NOTIFICATION\000"
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2723              	.LASF125:
  2724 1174 4359424C 		.ascii	"CYBLE_BLESS_STATE_EVENT_CLOSE\000"
  2724      455F424C 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 69
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 69
 
 
  2724      4553535F 
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2743              	.LASF139:
  2744 1283 4359424C 		.ascii	"CYBLE_GAP_AUTH_ERROR_CONFIRM_VALUE_NOT_MATCH\000"
  2744      455F4741 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 70
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 70
 
 
  2744      505F4155 
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2762      392E3320 
  2762      32303135 
  2762      30333033 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 71
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 71
 
 
  2763 13d1 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 1
  2782      455F424C 
  2782      4553535F 
  2782      41435449 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccsJrA9j.s 			page 72
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccJaVoRX.s 			page 72
 
 
  2782      564500

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 1
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccMmoiYc.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 1
   30:Generated_Source\PSoC4/cyutils.c ****     ***************************************************************************/
   31:Generated_Source\PSoC4/cyutils.c ****     void CySetReg24(uint32 volatile * addr, uint32 value)
   32:Generated_Source\PSoC4/cyutils.c ****     {
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 2
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccMmoiYc.s 			page 2
 
 
   26              		.loc 1 32 0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 1
   72              		.thumb_func
   73              		.type	CyGetReg24, %function
   74              	CyGetReg24:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 3
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccMmoiYc.s 			page 3
 
 
   75              	.LFB1:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 1
  104              		.loc 1 65 0
  105 0024 FB68     		ldr	r3, [r7, #12]
  106 0026 0233     		add	r3, r3, #2
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 4
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccMmoiYc.s 			page 4
 
 
  107 0028 1B78     		ldrb	r3, [r3]
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 1
  158 0042 04       		.byte	0x4
  159 0043 05       		.byte	0x5
  160 0044 96010000 		.4byte	.LASF4
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 5
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccMmoiYc.s 			page 5
 
 
  161 0048 02       		.uleb128 0x2
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 1
  215 00b3 E2000000 		.4byte	0xe2
  216 00b7 07       		.uleb128 0x7
  217 00b8 4C000000 		.4byte	.LASF14
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 6
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccMmoiYc.s 			page 6
 
 
  218 00bc 01       		.byte	0x1
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 1
  272 0122 74       		.sleb128 -12
  273 0123 08       		.uleb128 0x8
  274 0124 00000000 		.4byte	.LASF15
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 7
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccMmoiYc.s 			page 7
 
 
  275 0128 01       		.byte	0x1
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 1
  329 0022 0B       		.uleb128 0xb
  330 0023 3E       		.uleb128 0x3e
  331 0024 0B       		.uleb128 0xb
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccMmoiYc.s 			page 8
 
 
  332 0025 03       		.uleb128 0x3
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 1
  386 005c 3A       		.uleb128 0x3a
  387 005d 0B       		.uleb128 0xb
  388 005e 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 9
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccMmoiYc.s 			page 9
 
 
  389 005f 0B       		.uleb128 0xb
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 1
  443 0096 01       		.uleb128 0x1
  444 0097 13       		.uleb128 0x13
  445 0098 00       		.byte	0
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 10
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccMmoiYc.s 			page 10
 
 
  446 0099 00       		.byte	0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 1
  487      6F63756D 
  488 0049 736E00   		.ascii	"sn\000"
  489              	.LASF14:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 11
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccMmoiYc.s 			page 11
 
 
  490 004c 61646472 		.ascii	"addr\000"
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 1
  512      206C6F6E 
  512      6720756E 
  512      7369676E 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccLHX3RJ.s 			page 12
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccMmoiYc.s 			page 12
 
 
  512      65642069 
