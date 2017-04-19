@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="TPT02\TPT02r\Header Files\common.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="TPT02\TPT02r\Source Files\scps.c">
 <ExpandedNodeIds>
 <v>TPT02</v>
 <v>TPT02\TPT02\TopDesign</v>
@@ -567,61 +567,6 @@
 <VisibleNodeIds>
 <v>TPT02</v>
 <v>TPT02\TPT02</v>
-<v>TPT02\TPT02\CortexM0</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_INT.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_intClock.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_IRQ.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\ADC_PM.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\Advertising_LED.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\Advertising_LED_PM.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\bas.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_bas.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_bless_isr.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_dis.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_eventHandler.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_gatt.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_HAL_INT.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_HAL_PVT.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_hids.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_scps.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\CapsLock_LED.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\CapsLock_LED_PM.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\Cm0Start.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLFClk.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\debug.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\Disconnect_LED.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\Disconnect_LED_PM.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\hids.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\scps.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\SWBACK.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\SWBACK_PM.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\SWBLACKOUT.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\SWBLACKOUT_PM.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\SWID.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\SWID_PM.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\SWMAIN.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\SWMAIN_PM.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_DEB.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_DEB_BOOT.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_DEB_PM.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_DEB_rx.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_DEB_rx_PM.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_DEB_SCBCLK.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_DEB_SPI_UART.lst</v>
-<v>TPT02\TPT02\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_DEB_SPI_UART_INT.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -753,7 +698,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1532, 879" SelectedTabbedMdiWindow="5d4d6b49-2542-478e-8250-5ed17438ca53"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="49f9fec6-4843-451f-acc2-c82cfae7e8ac" /><DocumentWindow Key="2d42beaa-e30d-43eb-bcdd-8261a9108416" Guid="5d4d6b49-2542-478e-8250-5ed17438ca53" /><DocumentWindow Key="508f731b-cbbb-4b26-a018-45489f9967ea" Guid="56f1c948-626a-4eb3-ae05-d2171ce3dfc9" /><DocumentWindow Key="a10e52bb-9e09-4f54-b81e-d848bafbee0f" Guid="6ab2ad0b-2e8b-486a-b341-a08af5f56f0f" /><DocumentWindow Key="a3148726-7fd1-4269-b12a-f7086ab3b4c0" Guid="fb780874-c8ea-462a-bf29-21a6ce2663f6" /><DocumentWindow Key="551decc4-b8da-4a20-bfe4-9d139fccfd04" Guid="c9c6713f-f45c-467e-8e60-0e5e659b4c2b" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1532, 879" SelectedTabbedMdiWindow="3ca9a7c6-0b5b-46f9-a21c-6a14cbf83fc9"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="49f9fec6-4843-451f-acc2-c82cfae7e8ac" /><DocumentWindow Key="a4e52b09-69a2-4afe-ad3b-48a023766308" Guid="3ca9a7c6-0b5b-46f9-a21c-6a14cbf83fc9" /><DocumentWindow Key="7cd72312-9fa2-4a9f-8732-0f2dacd5bac2" Guid="53033fbc-adb6-4e02-9557-4f549a3db0bf" /><DocumentWindow Key="8653812e-df4f-4719-870d-1b5ea22ae1ee" Guid="68b7a56a-6107-4f22-865f-f0278cdbf87e" /><DocumentWindow Key="3895e588-4316-44e4-933c-75d2ad766bfb" Guid="5c1d75d7-d963-477d-a053-3c61f7247d4b" /><DocumentWindow Key="422c4149-b391-4b41-a6c2-cfb947894c1a" Guid="b8ac4c55-a595-423e-a1a5-74bd8cc26c30" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

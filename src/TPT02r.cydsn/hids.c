@@ -197,6 +197,7 @@ void SimulateKeyboard(void)
             keyboard_data[3u] = 0x4f; // right arrow
             fPress = 1;
             mainPress++;
+        
         }
     }
     else mainPress = 0u;

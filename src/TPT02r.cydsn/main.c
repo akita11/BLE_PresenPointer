@@ -29,6 +29,9 @@
 
 volatile uint32 mainTimer = 0;
 
+int Ton = 0;
+int Tconnect = 0;
+uint8_t fUpdate = 0;
 
 /*******************************************************************************
 * Function Name: AppCallBack()
@@ -183,6 +186,8 @@ void AppCallBack(uint32 event, void* eventParam)
             break;
         case CYBLE_EVT_GATT_DISCONNECT_IND:
             DBG_PRINTF("CYBLE_EVT_GATT_DISCONNECT_IND \r\n");
+            fUpdate = 0;
+            Tconnect = 0;
             break;
         case CYBLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ:
             /* Triggered on server side when client sends read request and when
@@ -210,8 +215,6 @@ void AppCallBack(uint32 event, void* eventParam)
 	}
 
 }
-
-int Ton = 0;
 
 /*******************************************************************************
 * Function Name: Timer_Interrupt
@@ -246,7 +249,11 @@ CY_ISR(Timer_Interrupt)
         CySysWdtClearInterrupt(WDT_INTERRUPT_SOURCE);
     }
     Ton++;
-    if ((Ton % 10) == 0) DBG_PRINTF("Ton=%d\r\n", Ton);
+    if ((CyBle_GetState() == CYBLE_STATE_CONNECTED) && fUpdate == 0)
+    {
+        Tconnect++;
+    }
+    if ((Ton % 10) == 0) DBG_PRINTF("Ton=%d Tconnect=%d\r\n", Ton, Tconnect);
 }
 
 /*******************************************************************************
@@ -393,7 +400,7 @@ int main()
 #if (DEBUG_UART_ENABLED == ENABLED)
     UART_DEB_Start();
 #endif /* (DEBUG_UART_ENABLED == ENABLED) */
-    DBG_PRINTF("FingerPresenterBLE\r\n");
+    DBG_PRINTF("BLE Presenter v1.6E\r\n");
 
     Disconnect_LED_Write(LED_OFF);
     Advertising_LED_Write(LED_OFF);
@@ -401,7 +408,7 @@ int main()
 
     /* Start CYBLE component and register generic event handler */
     CyBle_Start(AppCallBack);
-    WDT_Start();
+        WDT_Start();
 
 #if (BAS_MEASURE_ENABLE != 0)
     ADC_Start();
@@ -431,6 +438,28 @@ int main()
             CySysPmHibernate();
             DBG_PRINTF("done");
         }
+        
+        if (Tconnect > 10 * 10 && fUpdate == 0){
+            // 10sec after connection
+            DBG_PRINTF("sending L2CAP connectup update request...\r\n");
+            CYBLE_GAP_CONN_UPDATE_PARAM_T connUpdateParam;
+            /* Send Connection Parameter Update Request to Client */
+            connUpdateParam.connIntvMin = CYBLE_GAPP_CONNECTION_INTERVAL_MIN;
+            connUpdateParam.connIntvMax = CYBLE_GAPP_CONNECTION_INTERVAL_MAX;
+            connUpdateParam.connLatency = CYBLE_GAPP_CONNECTION_SLAVE_LATENCY;
+            connUpdateParam.supervisionTO = CYBLE_GAPP_CONNECTION_TIME_OUT;
+            CYBLE_API_RESULT_T apiResult;
+            apiResult = CyBle_L2capLeConnectionParamUpdateRequest(cyBle_connHandle.bdHandle, &connUpdateParam);
+            if(apiResult == CYBLE_ERROR_OK)
+            {
+                DBG_PRINTF("CyBle_L2capLeConnectionParamUpdateRequest OK\r\n");
+            }
+            else
+            {
+                DBG_PRINTF("CyBle_L2capLeConnectionParamUpdateRequest API Error: %x \r\n", apiResult);
+            }
+            fUpdate = 1;
+        }
         /* CyBle_ProcessEvents() allows BLE stack to process pending events */
         CyBle_ProcessEvents();
 
@@ -438,7 +467,8 @@ int main()
         LowPowerImplementation();
 
         if((CyBle_GetState() == CYBLE_STATE_CONNECTED) && (suspend != CYBLE_HIDS_CP_SUSPEND))
-        {
+        {            
+            
             if(mainTimer != 0u)
             {
                 mainTimer = 0u;                
@@ -453,7 +483,6 @@ int main()
                 if(keyboardSimulation == ENABLED)
                 {
                     SimulateKeyboard();
-                    
                 }
             }
             /* Store bonding data to flash only when all debug information has been sent */

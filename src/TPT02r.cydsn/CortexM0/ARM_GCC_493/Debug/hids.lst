@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
   17:hids.c        **** *******************************************************************************/
   18:hids.c        **** 
   19:hids.c        **** #include "common.h"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 2
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 2
 
 
   20:hids.c        **** #include "hids.h"
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
   63 001e 1B68     		ldr	r3, [r3]
   64 0020 9F46     		mov	pc, r3
   65              		.section	.rodata
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 3
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 3
 
 
   66              		.align	2
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  103 003e 0022     		mov	r2, #0
  104 0040 1A80     		strh	r2, [r3]
   67:hids.c        ****             }
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 4
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 4
 
 
   68:hids.c        ****             break;
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
   92:hids.c        ****             break;
  135              		.loc 1 92 0
  136 0064 2CE0     		b	.L1
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 5
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 5
 
 
  137              	.L10:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  176 009c 002B     		cmp	r3, #0
  177 009e 03D0     		beq	.L22
  105:hids.c        ****                     {
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 6
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 6
 
 
  106:hids.c        ****                         CapsLock_LED_Write(LED_ON);
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  203 00c0 BD46     		mov	sp, r7
  204 00c2 04B0     		add	sp, sp, #16
  205              		@ sp needed
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 7
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 7
 
 
  206 00c4 80BD     		pop	{r7, pc}
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  242 0010 0022     		mov	r2, #0
  243 0012 1A80     		strh	r2, [r3]
  152:hids.c        ****     /* Read CCCD configurations from flash */
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 8
 
 
  153:hids.c        ****     apiResult = CyBle_HidssGetCharacteristicDescriptor(CYBLE_HUMAN_INTERFACE_DEVICE_SERVICE_INDEX, 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  289 0064 0AD1     		bne	.L27
  290              		.loc 1 161 0 is_stmt 0 discriminator 1
  291 0066 3B1D     		add	r3, r7, #4
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 9
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 9
 
 
  292 0068 1B88     		ldrh	r3, [r3]
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  177:hids.c        **** void SimulateKeyboard(void)
  178:hids.c        **** {
  331              		.loc 1 178 0
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 10
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 10
 
 
  332              		.cfi_startproc
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  366              		.loc 1 198 0
  367 002e 7E4B     		ldr	r3, .L49+12
  368 0030 0122     		mov	r2, #1
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 11
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 11
 
 
  369 0032 1A70     		strb	r2, [r3]
@@ -612,58 +612,59 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  376 003e 1A70     		strb	r2, [r3]
  377 0040 02E0     		b	.L35
  378              	.L33:
- 200:hids.c        ****         }
- 201:hids.c        ****     }
- 202:hids.c        ****     else mainPress = 0u;
- 379              		.loc 1 202 0
+ 200:hids.c        ****         
+ 201:hids.c        ****         }
+ 202:hids.c        ****     }
+ 203:hids.c        ****     else mainPress = 0u;
+ 379              		.loc 1 203 0
  380 0042 774B     		ldr	r3, .L49+4
  381 0044 0022     		mov	r2, #0
  382 0046 1A70     		strb	r2, [r3]
  383              	.L35:
- 203:hids.c        **** 
- 204:hids.c        ****     if(0u == SWBACK_Read())
- 384              		.loc 1 204 0
+ 204:hids.c        **** 
+ 205:hids.c        ****     if(0u == SWBACK_Read())
+ 384              		.loc 1 205 0
  385 0048 FFF7FEFF 		bl	SWBACK_Read
  386 004c 031E     		sub	r3, r0, #0
  387 004e 19D1     		bne	.L36
- 205:hids.c        ****     {
- 206:hids.c        **** //        if(backPress < KEYBOARD_JITTER_SIZE) backPress++;
- 207:hids.c        **** //        else if(backPress == KEYBOARD_JITTER_SIZE)
- 208:hids.c        ****         Ton = 0; // reset sleep timer if SW pressed
- 388              		.loc 1 208 0
+ 206:hids.c        ****     {
+ 207:hids.c        **** //        if(backPress < KEYBOARD_JITTER_SIZE) backPress++;
+ 208:hids.c        **** //        else if(backPress == KEYBOARD_JITTER_SIZE)
+ 209:hids.c        ****         Ton = 0; // reset sleep timer if SW pressed
+ 388              		.loc 1 209 0
  389 0050 724B     		ldr	r3, .L49
  390 0052 0022     		mov	r2, #0
  391 0054 1A60     		str	r2, [r3]
- 209:hids.c        ****         backPress++;
- 392              		.loc 1 209 0
+ 210:hids.c        ****         backPress++;
+ 392              		.loc 1 210 0
  393 0056 754B     		ldr	r3, .L49+16
  394 0058 1B78     		ldrb	r3, [r3]
  395 005a 0133     		add	r3, r3, #1
  396 005c DAB2     		uxtb	r2, r3
  397 005e 734B     		ldr	r3, .L49+16
  398 0060 1A70     		strb	r2, [r3]
- 210:hids.c        ****         if (backPress == 1)
- 399              		.loc 1 210 0
+ 211:hids.c        ****         if (backPress == 1)
+ 399              		.loc 1 211 0
  400 0062 724B     		ldr	r3, .L49+16
  401 0064 1B78     		ldrb	r3, [r3]
  402 0066 012B     		cmp	r3, #1
  403 0068 0FD1     		bne	.L38
- 211:hids.c        ****         {
- 212:hids.c        ****             keyboard_data[3u] = 0x50; // Left arrow
- 404              		.loc 1 212 0
+ 212:hids.c        ****         {
+ 213:hids.c        ****             keyboard_data[3u] = 0x50; // Left arrow
+ 404              		.loc 1 213 0
  405 006a 6E4B     		ldr	r3, .L49+8
  406 006c 5022     		mov	r2, #80
  407 006e DA70     		strb	r2, [r3, #3]
- 213:hids.c        ****             fPress = 1;
- 408              		.loc 1 213 0
+ 214:hids.c        ****             fPress = 1;
+ 408              		.loc 1 214 0
  409 0070 6D4B     		ldr	r3, .L49+12
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 12
+
+
  410 0072 0122     		mov	r2, #1
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 12
-
-
  411 0074 1A70     		strb	r2, [r3]
- 214:hids.c        ****             backPress++;
- 412              		.loc 1 214 0
+ 215:hids.c        ****             backPress++;
+ 412              		.loc 1 215 0
  413 0076 6D4B     		ldr	r3, .L49+16
  414 0078 1B78     		ldrb	r3, [r3]
  415 007a 0133     		add	r3, r3, #1
@@ -672,58 +673,58 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  418 0080 1A70     		strb	r2, [r3]
  419 0082 02E0     		b	.L38
  420              	.L36:
- 215:hids.c        ****         }
- 216:hids.c        ****     }
- 217:hids.c        ****     else backPress = 0u;
- 421              		.loc 1 217 0
+ 216:hids.c        ****         }
+ 217:hids.c        ****     }
+ 218:hids.c        ****     else backPress = 0u;
+ 421              		.loc 1 218 0
  422 0084 694B     		ldr	r3, .L49+16
  423 0086 0022     		mov	r2, #0
  424 0088 1A70     		strb	r2, [r3]
  425              	.L38:
- 218:hids.c        **** 
- 219:hids.c        ****     if(0u == SWBLACKOUT_Read())
- 426              		.loc 1 219 0
+ 219:hids.c        **** 
+ 220:hids.c        ****     if(0u == SWBLACKOUT_Read())
+ 426              		.loc 1 220 0
  427 008a FFF7FEFF 		bl	SWBLACKOUT_Read
  428 008e 031E     		sub	r3, r0, #0
  429 0090 19D1     		bne	.L39
- 220:hids.c        ****     {
- 221:hids.c        **** //        if(blackoutPress < KEYBOARD_JITTER_SIZE) blackoutPress++;
- 222:hids.c        **** //        else if(blackoutPress == KEYBOARD_JITTER_SIZE)
- 223:hids.c        ****         Ton = 0; // reset sleep timer if SW pressed
- 430              		.loc 1 223 0
+ 221:hids.c        ****     {
+ 222:hids.c        **** //        if(blackoutPress < KEYBOARD_JITTER_SIZE) blackoutPress++;
+ 223:hids.c        **** //        else if(blackoutPress == KEYBOARD_JITTER_SIZE)
+ 224:hids.c        ****         Ton = 0; // reset sleep timer if SW pressed
+ 430              		.loc 1 224 0
  431 0092 624B     		ldr	r3, .L49
  432 0094 0022     		mov	r2, #0
  433 0096 1A60     		str	r2, [r3]
- 224:hids.c        ****         blackoutPress++;
- 434              		.loc 1 224 0
+ 225:hids.c        ****         blackoutPress++;
+ 434              		.loc 1 225 0
  435 0098 654B     		ldr	r3, .L49+20
  436 009a 1B78     		ldrb	r3, [r3]
  437 009c 0133     		add	r3, r3, #1
  438 009e DAB2     		uxtb	r2, r3
  439 00a0 634B     		ldr	r3, .L49+20
  440 00a2 1A70     		strb	r2, [r3]
- 225:hids.c        ****         if (blackoutPress == 1)
- 441              		.loc 1 225 0
+ 226:hids.c        ****         if (blackoutPress == 1)
+ 441              		.loc 1 226 0
  442 00a4 624B     		ldr	r3, .L49+20
  443 00a6 1B78     		ldrb	r3, [r3]
  444 00a8 012B     		cmp	r3, #1
  445 00aa 0FD1     		bne	.L41
- 226:hids.c        ****         {
- 227:hids.c        ****             keyboard_data[3u] = 0x05; // 'B'
- 446              		.loc 1 227 0
+ 227:hids.c        ****         {
+ 228:hids.c        ****             keyboard_data[3u] = 0x05; // 'B'
+ 446              		.loc 1 228 0
  447 00ac 5D4B     		ldr	r3, .L49+8
  448 00ae 0522     		mov	r2, #5
  449 00b0 DA70     		strb	r2, [r3, #3]
- 228:hids.c        ****             fPress = 1;
- 450              		.loc 1 228 0
+ 229:hids.c        ****             fPress = 1;
+ 450              		.loc 1 229 0
  451 00b2 5D4B     		ldr	r3, .L49+12
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 13
+
+
  452 00b4 0122     		mov	r2, #1
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 13
-
-
  453 00b6 1A70     		strb	r2, [r3]
- 229:hids.c        ****             blackoutPress++;
- 454              		.loc 1 229 0
+ 230:hids.c        ****             blackoutPress++;
+ 454              		.loc 1 230 0
  455 00b8 5D4B     		ldr	r3, .L49+20
  456 00ba 1B78     		ldrb	r3, [r3]
  457 00bc 0133     		add	r3, r3, #1
@@ -732,17 +733,17 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  460 00c2 1A70     		strb	r2, [r3]
  461 00c4 02E0     		b	.L41
  462              	.L39:
- 230:hids.c        ****         }
- 231:hids.c        ****     }
- 232:hids.c        ****     else blackoutPress = 0u;
- 463              		.loc 1 232 0
+ 231:hids.c        ****         }
+ 232:hids.c        ****     }
+ 233:hids.c        ****     else blackoutPress = 0u;
+ 463              		.loc 1 233 0
  464 00c6 5A4B     		ldr	r3, .L49+20
  465 00c8 0022     		mov	r2, #0
  466 00ca 1A70     		strb	r2, [r3]
  467              	.L41:
- 233:hids.c        **** 
- 234:hids.c        ****     if((CyBle_GattGetBusyStatus() == CYBLE_STACK_STATE_FREE) && (fPress == 1))
- 468              		.loc 1 234 0
+ 234:hids.c        **** 
+ 235:hids.c        ****     if((CyBle_GattGetBusyStatus() == CYBLE_STACK_STATE_FREE) && (fPress == 1))
+ 468              		.loc 1 235 0
  469 00cc 594B     		ldr	r3, .L49+24
  470 00ce 1B78     		ldrb	r3, [r3]
  471 00d0 DBB2     		uxtb	r3, r3
@@ -750,39 +751,39 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  473 00d4 00D0     		beq	.LCB386
  474 00d6 9EE0     		b	.L32	@long jump
  475              	.LCB386:
- 476              		.loc 1 234 0 is_stmt 0 discriminator 1
+ 476              		.loc 1 235 0 is_stmt 0 discriminator 1
  477 00d8 534B     		ldr	r3, .L49+12
  478 00da 1B78     		ldrb	r3, [r3]
  479 00dc 012B     		cmp	r3, #1
  480 00de 00D0     		beq	.LCB390
  481 00e0 99E0     		b	.L32	@long jump
  482              	.LCB390:
- 235:hids.c        ****     {
- 236:hids.c        ****         fPress = 0;
- 483              		.loc 1 236 0 is_stmt 1
+ 236:hids.c        ****     {
+ 237:hids.c        ****         fPress = 0;
+ 483              		.loc 1 237 0 is_stmt 1
  484 00e2 514B     		ldr	r3, .L49+12
  485 00e4 0022     		mov	r2, #0
  486 00e6 1A70     		strb	r2, [r3]
- 237:hids.c        **** 
- 238:hids.c        ****         // flash LED when button pressed
- 239:hids.c        ****         Advertising_LED_Write(0);
- 487              		.loc 1 239 0
+ 238:hids.c        **** 
+ 239:hids.c        ****         // flash LED when button pressed
+ 240:hids.c        ****         Advertising_LED_Write(0);
+ 487              		.loc 1 240 0
  488 00e8 0020     		mov	r0, #0
  489 00ea FFF7FEFF 		bl	Advertising_LED_Write
- 240:hids.c        ****         CyDelay(1);
- 490              		.loc 1 240 0
+ 241:hids.c        ****         CyDelay(1);
+ 490              		.loc 1 241 0
  491 00ee 0120     		mov	r0, #1
  492 00f0 FFF7FEFF 		bl	CyDelay
- 241:hids.c        ****         Advertising_LED_Write(1);
- 493              		.loc 1 241 0
+ 242:hids.c        ****         Advertising_LED_Write(1);
+ 493              		.loc 1 242 0
  494 00f4 0120     		mov	r0, #1
  495 00f6 FFF7FEFF 		bl	Advertising_LED_Write
- 242:hids.c        **** 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 14
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 14
 
 
- 243:hids.c        ****         apiResult = CyBle_HidssGetCharacteristicValue(CYBLE_HUMAN_INTERFACE_DEVICE_SERVICE_INDEX, 
- 496              		.loc 1 243 0
+ 243:hids.c        **** 
+ 244:hids.c        ****         apiResult = CyBle_HidssGetCharacteristicValue(CYBLE_HUMAN_INTERFACE_DEVICE_SERVICE_INDEX, 
+ 496              		.loc 1 244 0
  497 00fa BC1D     		add	r4, r7, #6
  498 00fc 4E4B     		ldr	r3, .L49+28
  499 00fe 0020     		mov	r0, #0
@@ -791,56 +792,56 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  502 0104 FFF7FEFF 		bl	CyBle_HidssGetCharacteristicValue
  503 0108 031C     		mov	r3, r0
  504 010a 2380     		strh	r3, [r4]
- 244:hids.c        ****             CYBLE_HIDS_PROTOCOL_MODE, sizeof(protocol), &protocol);
- 245:hids.c        ****         if(apiResult == CYBLE_ERROR_OK)
- 505              		.loc 1 245 0
+ 245:hids.c        ****             CYBLE_HIDS_PROTOCOL_MODE, sizeof(protocol), &protocol);
+ 246:hids.c        ****         if(apiResult == CYBLE_ERROR_OK)
+ 505              		.loc 1 246 0
  506 010c BB1D     		add	r3, r7, #6
  507 010e 1B88     		ldrh	r3, [r3]
  508 0110 002B     		cmp	r3, #0
  509 0112 00D0     		beq	.LCB411
  510 0114 7FE0     		b	.L32	@long jump
  511              	.LCB411:
- 246:hids.c        ****         {
- 247:hids.c        ****             DBG_PRINTF("HID notification: ");
- 248:hids.c        ****             for(i = 0; i < KEYBOARD_DATA_SIZE; i++)
- 512              		.loc 1 248 0
+ 247:hids.c        ****         {
+ 248:hids.c        ****             DBG_PRINTF("HID notification: ");
+ 249:hids.c        ****             for(i = 0; i < KEYBOARD_DATA_SIZE; i++)
+ 512              		.loc 1 249 0
  513 0116 7B1D     		add	r3, r7, #5
  514 0118 0022     		mov	r2, #0
  515 011a 1A70     		strb	r2, [r3]
  516 011c 04E0     		b	.L43
  517              	.L44:
- 518              		.loc 1 248 0 is_stmt 0 discriminator 3
+ 518              		.loc 1 249 0 is_stmt 0 discriminator 3
  519 011e 7B1D     		add	r3, r7, #5
  520 0120 1A78     		ldrb	r2, [r3]
  521 0122 7B1D     		add	r3, r7, #5
  522 0124 0132     		add	r2, r2, #1
  523 0126 1A70     		strb	r2, [r3]
  524              	.L43:
- 525              		.loc 1 248 0 discriminator 1
+ 525              		.loc 1 249 0 discriminator 1
  526 0128 7B1D     		add	r3, r7, #5
  527 012a 1B78     		ldrb	r3, [r3]
  528 012c 072B     		cmp	r3, #7
  529 012e F6D9     		bls	.L44
- 249:hids.c        ****             {
- 250:hids.c        ****                 DBG_PRINTF("%2.2x,", keyboard_data[i]);
- 251:hids.c        ****             }
- 252:hids.c        ****             DBG_PRINTF("\r\n");
- 253:hids.c        ****             
- 254:hids.c        ****             if(protocol == CYBLE_HIDS_PROTOCOL_MODE_BOOT)
- 530              		.loc 1 254 0 is_stmt 1
+ 250:hids.c        ****             {
+ 251:hids.c        ****                 DBG_PRINTF("%2.2x,", keyboard_data[i]);
+ 252:hids.c        ****             }
+ 253:hids.c        ****             DBG_PRINTF("\r\n");
+ 254:hids.c        ****             
+ 255:hids.c        ****             if(protocol == CYBLE_HIDS_PROTOCOL_MODE_BOOT)
+ 530              		.loc 1 255 0 is_stmt 1
  531 0130 414B     		ldr	r3, .L49+28
  532 0132 1B78     		ldrb	r3, [r3]
  533 0134 002B     		cmp	r3, #0
  534 0136 16D1     		bne	.L45
- 255:hids.c        ****             {
- 256:hids.c        ****                 apiResult = CyBle_HidssSendNotification(cyBle_connHandle, CYBLE_HUMAN_INTERFACE_DEV
- 535              		.loc 1 256 0
+ 256:hids.c        ****             {
+ 257:hids.c        ****                 apiResult = CyBle_HidssSendNotification(cyBle_connHandle, CYBLE_HUMAN_INTERFACE_DEV
+ 535              		.loc 1 257 0
  536 0138 BC1D     		add	r4, r7, #6
  537 013a 404B     		ldr	r3, .L49+32
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 15
+
+
  538 013c 394A     		ldr	r2, .L49+8
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 15
-
-
  539 013e 0092     		str	r2, [sp]
  540 0140 1A78     		ldrb	r2, [r3]
  541 0142 5B78     		ldrb	r3, [r3, #1]
@@ -861,12 +862,12 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  556 0162 2380     		strh	r3, [r4]
  557 0164 15E0     		b	.L46
  558              	.L45:
- 257:hids.c        ****                     CYBLE_HIDS_BOOT_KYBRD_IN_REP, KEYBOARD_DATA_SIZE, keyboard_data);
- 258:hids.c        ****             }
- 259:hids.c        ****             else
- 260:hids.c        ****             {
- 261:hids.c        ****                 apiResult = CyBle_HidssSendNotification(cyBle_connHandle, CYBLE_HUMAN_INTERFACE_DEV
- 559              		.loc 1 261 0
+ 258:hids.c        ****                     CYBLE_HIDS_BOOT_KYBRD_IN_REP, KEYBOARD_DATA_SIZE, keyboard_data);
+ 259:hids.c        ****             }
+ 260:hids.c        ****             else
+ 261:hids.c        ****             {
+ 262:hids.c        ****                 apiResult = CyBle_HidssSendNotification(cyBle_connHandle, CYBLE_HUMAN_INTERFACE_DEV
+ 559              		.loc 1 262 0
  560 0166 BC1D     		add	r4, r7, #6
  561 0168 344B     		ldr	r3, .L49+32
  562 016a 2E4A     		ldr	r2, .L49+8
@@ -889,38 +890,38 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  579 018e 031C     		mov	r3, r0
  580 0190 2380     		strh	r3, [r4]
  581              	.L46:
- 262:hids.c        ****                     CYBLE_HUMAN_INTERFACE_DEVICE_REPORT_IN, KEYBOARD_DATA_SIZE, keyboard_data);
- 263:hids.c        ****             }
- 264:hids.c        ****             
- 265:hids.c        ****             if(apiResult == CYBLE_ERROR_OK)
- 582              		.loc 1 265 0
+ 263:hids.c        ****                     CYBLE_HUMAN_INTERFACE_DEVICE_REPORT_IN, KEYBOARD_DATA_SIZE, keyboard_data);
+ 264:hids.c        ****             }
+ 265:hids.c        ****             
+ 266:hids.c        ****             if(apiResult == CYBLE_ERROR_OK)
+ 582              		.loc 1 266 0
  583 0192 BB1D     		add	r3, r7, #6
  584 0194 1B88     		ldrh	r3, [r3]
  585 0196 002B     		cmp	r3, #0
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 16
+
+
  586 0198 36D1     		bne	.L47
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 16
-
-
- 266:hids.c        ****             {
- 267:hids.c        ****                 keyboard_data[2u] = 0u;
- 587              		.loc 1 267 0
+ 267:hids.c        ****             {
+ 268:hids.c        ****                 keyboard_data[2u] = 0u;
+ 587              		.loc 1 268 0
  588 019a 224B     		ldr	r3, .L49+8
  589 019c 0022     		mov	r2, #0
  590 019e 9A70     		strb	r2, [r3, #2]
- 268:hids.c        ****                 keyboard_data[3u] = 0u;
- 591              		.loc 1 268 0
+ 269:hids.c        ****                 keyboard_data[3u] = 0u;
+ 591              		.loc 1 269 0
  592 01a0 204B     		ldr	r3, .L49+8
  593 01a2 0022     		mov	r2, #0
  594 01a4 DA70     		strb	r2, [r3, #3]
- 269:hids.c        ****                 if(protocol == CYBLE_HIDS_PROTOCOL_MODE_BOOT)
- 595              		.loc 1 269 0
+ 270:hids.c        ****                 if(protocol == CYBLE_HIDS_PROTOCOL_MODE_BOOT)
+ 595              		.loc 1 270 0
  596 01a6 244B     		ldr	r3, .L49+28
  597 01a8 1B78     		ldrb	r3, [r3]
  598 01aa 002B     		cmp	r3, #0
  599 01ac 16D1     		bne	.L48
- 270:hids.c        ****                 {
- 271:hids.c        ****                     apiResult = CyBle_HidssSendNotification(cyBle_connHandle, CYBLE_HUMAN_INTERFACE
- 600              		.loc 1 271 0
+ 271:hids.c        ****                 {
+ 272:hids.c        ****                     apiResult = CyBle_HidssSendNotification(cyBle_connHandle, CYBLE_HUMAN_INTERFACE
+ 600              		.loc 1 272 0
  601 01ae BC1D     		add	r4, r7, #6
  602 01b0 224B     		ldr	r3, .L49+32
  603 01b2 1C4A     		ldr	r2, .L49+8
@@ -944,12 +945,12 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  621 01d8 2380     		strh	r3, [r4]
  622 01da 15E0     		b	.L47
  623              	.L48:
- 272:hids.c        ****                         CYBLE_HIDS_BOOT_KYBRD_IN_REP, KEYBOARD_DATA_SIZE, keyboard_data);
- 273:hids.c        ****                 }
- 274:hids.c        ****                 else
- 275:hids.c        ****                 {
- 276:hids.c        ****                     apiResult = CyBle_HidssSendNotification(cyBle_connHandle, CYBLE_HUMAN_INTERFACE
- 624              		.loc 1 276 0
+ 273:hids.c        ****                         CYBLE_HIDS_BOOT_KYBRD_IN_REP, KEYBOARD_DATA_SIZE, keyboard_data);
+ 274:hids.c        ****                 }
+ 275:hids.c        ****                 else
+ 276:hids.c        ****                 {
+ 277:hids.c        ****                     apiResult = CyBle_HidssSendNotification(cyBle_connHandle, CYBLE_HUMAN_INTERFACE
+ 624              		.loc 1 277 0
  625 01dc BC1D     		add	r4, r7, #6
  626 01de 174B     		ldr	r3, .L49+32
  627 01e0 104A     		ldr	r2, .L49+8
@@ -957,10 +958,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  629 01e4 1A78     		ldrb	r2, [r3]
  630 01e6 5B78     		ldrb	r3, [r3, #1]
  631 01e8 1B02     		lsl	r3, r3, #8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 17
+
+
  632 01ea 1A43     		orr	r2, r3
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 17
-
-
  633 01ec 0023     		mov	r3, #0
  634 01ee 1204     		lsl	r2, r2, #16
  635 01f0 120C     		lsr	r2, r2, #16
@@ -975,112 +976,112 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  644 0204 031C     		mov	r3, r0
  645 0206 2380     		strh	r3, [r4]
  646              	.L47:
- 277:hids.c        ****                         CYBLE_HUMAN_INTERFACE_DEVICE_REPORT_IN, KEYBOARD_DATA_SIZE, keyboard_data);
- 278:hids.c        ****                 }
- 279:hids.c        ****             }
- 280:hids.c        ****             if(apiResult != CYBLE_ERROR_OK)
- 647              		.loc 1 280 0
+ 278:hids.c        ****                         CYBLE_HUMAN_INTERFACE_DEVICE_REPORT_IN, KEYBOARD_DATA_SIZE, keyboard_data);
+ 279:hids.c        ****                 }
+ 280:hids.c        ****             }
+ 281:hids.c        ****             if(apiResult != CYBLE_ERROR_OK)
+ 647              		.loc 1 281 0
  648 0208 BB1D     		add	r3, r7, #6
  649 020a 1B88     		ldrh	r3, [r3]
  650 020c 002B     		cmp	r3, #0
  651 020e 02D0     		beq	.L32
- 281:hids.c        ****             {
- 282:hids.c        ****                 DBG_PRINTF("HID notification API Error: %x \r\n", apiResult);
- 283:hids.c        ****                 keyboardSimulation = DISABLED;
- 652              		.loc 1 283 0
+ 282:hids.c        ****             {
+ 283:hids.c        ****                 DBG_PRINTF("HID notification API Error: %x \r\n", apiResult);
+ 284:hids.c        ****                 keyboardSimulation = DISABLED;
+ 652              		.loc 1 284 0
  653 0210 0B4B     		ldr	r3, .L49+36
  654 0212 0022     		mov	r2, #0
  655 0214 1A80     		strh	r2, [r3]
  656              	.L32:
- 284:hids.c        ****             }
- 285:hids.c        ****         }
- 286:hids.c        ****     }
- 287:hids.c        **** 
- 288:hids.c        ****     /*
- 289:hids.c        ****     if(0u == SW2_Read())
- 290:hids.c        ****     {
- 291:hids.c        ****         if(capsLockPress < KEYBOARD_JITTER_SIZE)
- 292:hids.c        ****         {
- 293:hids.c        ****             capsLockPress++;
- 294:hids.c        ****         } 
- 295:hids.c        ****         else if(capsLockPress == KEYBOARD_JITTER_SIZE)
- 296:hids.c        ****         {
- 297:hids.c        ****             keyboard_data[2u] = CAPS_LOCK;
- 298:hids.c        ****             keyboardTimer = 1u;
- 299:hids.c        ****             capsLockPress++;
- 300:hids.c        ****         }
- 301:hids.c        ****         else
- 302:hids.c        ****         {
- 303:hids.c        ****         }
- 304:hids.c        ****     }
- 305:hids.c        ****     else
- 306:hids.c        ****     {
- 307:hids.c        ****         capsLockPress = 0u;
- 308:hids.c        ****     }
- 309:hids.c        ****     if((CyBle_GattGetBusyStatus() == CYBLE_STACK_STATE_FREE) && (--keyboardTimer == 0u))
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 18
+ 285:hids.c        ****             }
+ 286:hids.c        ****         }
+ 287:hids.c        ****     }
+ 288:hids.c        **** 
+ 289:hids.c        ****     /*
+ 290:hids.c        ****     if(0u == SW2_Read())
+ 291:hids.c        ****     {
+ 292:hids.c        ****         if(capsLockPress < KEYBOARD_JITTER_SIZE)
+ 293:hids.c        ****         {
+ 294:hids.c        ****             capsLockPress++;
+ 295:hids.c        ****         } 
+ 296:hids.c        ****         else if(capsLockPress == KEYBOARD_JITTER_SIZE)
+ 297:hids.c        ****         {
+ 298:hids.c        ****             keyboard_data[2u] = CAPS_LOCK;
+ 299:hids.c        ****             keyboardTimer = 1u;
+ 300:hids.c        ****             capsLockPress++;
+ 301:hids.c        ****         }
+ 302:hids.c        ****         else
+ 303:hids.c        ****         {
+ 304:hids.c        ****         }
+ 305:hids.c        ****     }
+ 306:hids.c        ****     else
+ 307:hids.c        ****     {
+ 308:hids.c        ****         capsLockPress = 0u;
+ 309:hids.c        ****     }
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 18
 
 
- 310:hids.c        ****     {
- 311:hids.c        ****         keyboardTimer = KEYBOARD_TIMEOUT;
- 312:hids.c        ****     
- 313:hids.c        ****         simKey++;
- 314:hids.c        ****         if(simKey > SIM_KEY_MAX)
- 315:hids.c        ****         {
- 316:hids.c        ****             simKey = SIM_KEY_MIN; 
- 317:hids.c        ****         }
- 318:hids.c        ****         keyboard_data[3u] = simKey;              
- 319:hids.c        ****         
- 320:hids.c        ****         apiResult = CyBle_HidssGetCharacteristicValue(CYBLE_HUMAN_INTERFACE_DEVICE_SERVICE_INDEX, 
- 321:hids.c        ****             CYBLE_HIDS_PROTOCOL_MODE, sizeof(protocol), &protocol);
- 322:hids.c        ****         if(apiResult == CYBLE_ERROR_OK)
- 323:hids.c        ****         {
- 324:hids.c        ****             DBG_PRINTF("HID notification: ");
- 325:hids.c        ****             for(i = 0; i < KEYBOARD_DATA_SIZE; i++)
- 326:hids.c        ****             {
- 327:hids.c        ****                 DBG_PRINTF("%2.2x,", keyboard_data[i]);
- 328:hids.c        ****             }
- 329:hids.c        ****             DBG_PRINTF("\r\n");
- 330:hids.c        ****             
- 331:hids.c        ****             if(protocol == CYBLE_HIDS_PROTOCOL_MODE_BOOT)
- 332:hids.c        ****             {
- 333:hids.c        ****                 apiResult = CyBle_HidssSendNotification(cyBle_connHandle, CYBLE_HUMAN_INTERFACE_DEV
- 334:hids.c        ****                     CYBLE_HIDS_BOOT_KYBRD_IN_REP, KEYBOARD_DATA_SIZE, keyboard_data);
- 335:hids.c        ****             }
- 336:hids.c        ****             else
- 337:hids.c        ****             {
- 338:hids.c        ****                 apiResult = CyBle_HidssSendNotification(cyBle_connHandle, CYBLE_HUMAN_INTERFACE_DEV
- 339:hids.c        ****                     CYBLE_HUMAN_INTERFACE_DEVICE_REPORT_IN, KEYBOARD_DATA_SIZE, keyboard_data);
- 340:hids.c        ****             }
- 341:hids.c        ****             
- 342:hids.c        ****             if(apiResult == CYBLE_ERROR_OK)
- 343:hids.c        ****             {
- 344:hids.c        ****                 keyboard_data[2u] = 0u;
- 345:hids.c        ****                 keyboard_data[3u] = 0u;
- 346:hids.c        ****                 if(protocol == CYBLE_HIDS_PROTOCOL_MODE_BOOT)
- 347:hids.c        ****                 {
- 348:hids.c        ****                     apiResult = CyBle_HidssSendNotification(cyBle_connHandle, CYBLE_HUMAN_INTERFACE
- 349:hids.c        ****                         CYBLE_HIDS_BOOT_KYBRD_IN_REP, KEYBOARD_DATA_SIZE, keyboard_data);
- 350:hids.c        ****                 }
- 351:hids.c        ****                 else
- 352:hids.c        ****                 {
- 353:hids.c        ****                     apiResult = CyBle_HidssSendNotification(cyBle_connHandle, CYBLE_HUMAN_INTERFACE
- 354:hids.c        ****                         CYBLE_HUMAN_INTERFACE_DEVICE_REPORT_IN, KEYBOARD_DATA_SIZE, keyboard_data);
- 355:hids.c        ****                 }
- 356:hids.c        ****             }
- 357:hids.c        ****             if(apiResult != CYBLE_ERROR_OK)
- 358:hids.c        ****             {
- 359:hids.c        ****                 DBG_PRINTF("HID notification API Error: %x \r\n", apiResult);
- 360:hids.c        ****                 keyboardSimulation = DISABLED;
- 361:hids.c        ****             }
- 362:hids.c        ****         }
- 363:hids.c        ****     }
- 364:hids.c        **** */    
- 365:hids.c        **** }
- 657              		.loc 1 365 0
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 19
+ 310:hids.c        ****     if((CyBle_GattGetBusyStatus() == CYBLE_STACK_STATE_FREE) && (--keyboardTimer == 0u))
+ 311:hids.c        ****     {
+ 312:hids.c        ****         keyboardTimer = KEYBOARD_TIMEOUT;
+ 313:hids.c        ****     
+ 314:hids.c        ****         simKey++;
+ 315:hids.c        ****         if(simKey > SIM_KEY_MAX)
+ 316:hids.c        ****         {
+ 317:hids.c        ****             simKey = SIM_KEY_MIN; 
+ 318:hids.c        ****         }
+ 319:hids.c        ****         keyboard_data[3u] = simKey;              
+ 320:hids.c        ****         
+ 321:hids.c        ****         apiResult = CyBle_HidssGetCharacteristicValue(CYBLE_HUMAN_INTERFACE_DEVICE_SERVICE_INDEX, 
+ 322:hids.c        ****             CYBLE_HIDS_PROTOCOL_MODE, sizeof(protocol), &protocol);
+ 323:hids.c        ****         if(apiResult == CYBLE_ERROR_OK)
+ 324:hids.c        ****         {
+ 325:hids.c        ****             DBG_PRINTF("HID notification: ");
+ 326:hids.c        ****             for(i = 0; i < KEYBOARD_DATA_SIZE; i++)
+ 327:hids.c        ****             {
+ 328:hids.c        ****                 DBG_PRINTF("%2.2x,", keyboard_data[i]);
+ 329:hids.c        ****             }
+ 330:hids.c        ****             DBG_PRINTF("\r\n");
+ 331:hids.c        ****             
+ 332:hids.c        ****             if(protocol == CYBLE_HIDS_PROTOCOL_MODE_BOOT)
+ 333:hids.c        ****             {
+ 334:hids.c        ****                 apiResult = CyBle_HidssSendNotification(cyBle_connHandle, CYBLE_HUMAN_INTERFACE_DEV
+ 335:hids.c        ****                     CYBLE_HIDS_BOOT_KYBRD_IN_REP, KEYBOARD_DATA_SIZE, keyboard_data);
+ 336:hids.c        ****             }
+ 337:hids.c        ****             else
+ 338:hids.c        ****             {
+ 339:hids.c        ****                 apiResult = CyBle_HidssSendNotification(cyBle_connHandle, CYBLE_HUMAN_INTERFACE_DEV
+ 340:hids.c        ****                     CYBLE_HUMAN_INTERFACE_DEVICE_REPORT_IN, KEYBOARD_DATA_SIZE, keyboard_data);
+ 341:hids.c        ****             }
+ 342:hids.c        ****             
+ 343:hids.c        ****             if(apiResult == CYBLE_ERROR_OK)
+ 344:hids.c        ****             {
+ 345:hids.c        ****                 keyboard_data[2u] = 0u;
+ 346:hids.c        ****                 keyboard_data[3u] = 0u;
+ 347:hids.c        ****                 if(protocol == CYBLE_HIDS_PROTOCOL_MODE_BOOT)
+ 348:hids.c        ****                 {
+ 349:hids.c        ****                     apiResult = CyBle_HidssSendNotification(cyBle_connHandle, CYBLE_HUMAN_INTERFACE
+ 350:hids.c        ****                         CYBLE_HIDS_BOOT_KYBRD_IN_REP, KEYBOARD_DATA_SIZE, keyboard_data);
+ 351:hids.c        ****                 }
+ 352:hids.c        ****                 else
+ 353:hids.c        ****                 {
+ 354:hids.c        ****                     apiResult = CyBle_HidssSendNotification(cyBle_connHandle, CYBLE_HUMAN_INTERFACE
+ 355:hids.c        ****                         CYBLE_HUMAN_INTERFACE_DEVICE_REPORT_IN, KEYBOARD_DATA_SIZE, keyboard_data);
+ 356:hids.c        ****                 }
+ 357:hids.c        ****             }
+ 358:hids.c        ****             if(apiResult != CYBLE_ERROR_OK)
+ 359:hids.c        ****             {
+ 360:hids.c        ****                 DBG_PRINTF("HID notification API Error: %x \r\n", apiResult);
+ 361:hids.c        ****                 keyboardSimulation = DISABLED;
+ 362:hids.c        ****             }
+ 363:hids.c        ****         }
+ 364:hids.c        ****     }
+ 365:hids.c        **** */    
+ 366:hids.c        **** }
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 19
 
 
+ 657              		.loc 1 366 0
  658 0216 BD46     		mov	sp, r7
  659 0218 03B0     		add	sp, sp, #12
  660              		@ sp needed
@@ -1137,10 +1138,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  710 0004 0400     		.2byte	0x4
  711 0006 00000000 		.4byte	.Ldebug_abbrev0
  712 000a 04       		.byte	0x4
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 20
+
+
  713 000b 01       		.uleb128 0x1
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 20
-
-
  714 000c 8D270000 		.4byte	.LASF455
  715 0010 01       		.byte	0x1
  716 0011 03140000 		.4byte	.LASF456
@@ -1197,10 +1198,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  767 0078 95350000 		.4byte	.LASF10
  768 007c 02       		.byte	0x2
  769 007d BA01     		.2byte	0x1ba
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 21
+
+
  770 007f 3A000000 		.4byte	0x3a
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 21
-
-
  771 0083 04       		.uleb128 0x4
  772 0084 B0020000 		.4byte	.LASF11
  773 0088 02       		.byte	0x2
@@ -1257,10 +1258,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  824 00ea 20       		.sleb128 32
  825 00eb 08       		.uleb128 0x8
  826 00ec 78060000 		.4byte	.LASF24
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 22
+
+
  827 00f0 21       		.sleb128 33
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 22
-
-
  828 00f1 08       		.uleb128 0x8
  829 00f2 201A0000 		.4byte	.LASF25
  830 00f6 22       		.sleb128 34
@@ -1317,10 +1318,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  881 015c 33       		.sleb128 51
  882 015d 08       		.uleb128 0x8
  883 015e 990D0000 		.4byte	.LASF43
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 23
+
+
  884 0162 34       		.sleb128 52
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 23
-
-
  885 0163 08       		.uleb128 0x8
  886 0164 E22E0000 		.4byte	.LASF44
  887 0168 35       		.sleb128 53
@@ -1377,10 +1378,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  938 01dd CF00     		.sleb128 79
  939 01df 08       		.uleb128 0x8
  940 01e0 C92D0000 		.4byte	.LASF62
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 24
+
+
  941 01e4 D000     		.sleb128 80
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 24
-
-
  942 01e6 08       		.uleb128 0x8
  943 01e7 4D100000 		.4byte	.LASF63
  944 01eb D100     		.sleb128 81
@@ -1437,10 +1438,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  995 0262 F900     		.sleb128 121
  996 0264 08       		.uleb128 0x8
  997 0265 02340000 		.4byte	.LASF81
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 25
+
+
  998 0269 FA00     		.sleb128 122
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 25
-
-
  999 026b 08       		.uleb128 0x8
  1000 026c 7E1C0000 		.4byte	.LASF82
  1001 0270 FA01     		.sleb128 250
@@ -1497,10 +1498,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  1052 02d7 0C       		.sleb128 12
  1053 02d8 08       		.uleb128 0x8
  1054 02d9 88200000 		.4byte	.LASF98
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 26
+
+
  1055 02dd 0D       		.sleb128 13
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 26
-
-
  1056 02de 08       		.uleb128 0x8
  1057 02df 2E180000 		.4byte	.LASF99
  1058 02e3 0E       		.sleb128 14
@@ -1557,10 +1558,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  1109 034e 8302     		.sleb128 259
  1110 0350 00       		.byte	0
  1111 0351 04       		.uleb128 0x4
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 27
+
+
  1112 0352 0D300000 		.4byte	.LASF117
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 27
-
-
  1113 0356 03       		.byte	0x3
  1114 0357 3E04     		.2byte	0x43e
  1115 0359 81020000 		.4byte	0x281
@@ -1617,10 +1618,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  1166 03c4 04       		.uleb128 0x4
  1167 03c5 4D050000 		.4byte	.LASF122
  1168 03c9 04       		.byte	0x4
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 28
+
+
  1169 03ca C801     		.2byte	0x1c8
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 28
-
-
  1170 03cc 93030000 		.4byte	0x393
  1171 03d0 0D       		.uleb128 0xd
  1172 03d1 01       		.byte	0x1
@@ -1677,10 +1678,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  1223 0431 150F0000 		.4byte	.LASF136
  1224 0435 05       		.byte	0x5
  1225 0436 5C       		.byte	0x5c
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 29
+
+
  1226 0437 DF030000 		.4byte	0x3df
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 29
-
-
  1227 043b 0D       		.uleb128 0xd
  1228 043c 01       		.byte	0x1
  1229 043d 05       		.byte	0x5
@@ -1737,10 +1738,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  1280 04a0 05       		.byte	0x5
  1281 04a1 D0       		.byte	0xd0
  1282 04a2 5C040000 		.4byte	0x45c
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 30
+
+
  1283 04a6 0D       		.uleb128 0xd
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 30
-
-
  1284 04a7 01       		.byte	0x1
  1285 04a8 06       		.byte	0x6
  1286 04a9 22       		.byte	0x22
@@ -1797,10 +1798,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  1337 0510 B8250000 		.4byte	.LASF160
  1338 0514 8402     		.sleb128 260
  1339 0516 08       		.uleb128 0x8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 31
+
+
  1340 0517 612C0000 		.4byte	.LASF161
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 31
-
-
  1341 051b 8502     		.sleb128 261
  1342 051d 08       		.uleb128 0x8
  1343 051e BB0D0000 		.4byte	.LASF162
@@ -1857,10 +1858,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  1394 0595 051F0000 		.4byte	.LASF179
  1395 0599 9702     		.sleb128 279
  1396 059b 08       		.uleb128 0x8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 32
+
+
  1397 059c 57120000 		.4byte	.LASF180
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 32
-
-
  1398 05a0 9802     		.sleb128 280
  1399 05a2 08       		.uleb128 0x8
  1400 05a3 1F2D0000 		.4byte	.LASF181
@@ -1917,10 +1918,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  1451 061a 03030000 		.4byte	.LASF198
  1452 061e AA02     		.sleb128 298
  1453 0620 08       		.uleb128 0x8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 33
+
+
  1454 0621 27030000 		.4byte	.LASF199
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 33
-
-
  1455 0625 AB02     		.sleb128 299
  1456 0627 08       		.uleb128 0x8
  1457 0628 82000000 		.4byte	.LASF200
@@ -1977,10 +1978,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  1508 069f 0F1C0000 		.4byte	.LASF217
  1509 06a3 BD02     		.sleb128 317
  1510 06a5 08       		.uleb128 0x8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 34
+
+
  1511 06a6 32300000 		.4byte	.LASF218
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 34
-
-
  1512 06aa BE02     		.sleb128 318
  1513 06ac 08       		.uleb128 0x8
  1514 06ad EA070000 		.4byte	.LASF219
@@ -2037,10 +2038,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  1565 0724 EC100000 		.4byte	.LASF236
  1566 0728 D002     		.sleb128 336
  1567 072a 08       		.uleb128 0x8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 35
+
+
  1568 072b 89260000 		.4byte	.LASF237
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 35
-
-
  1569 072f D102     		.sleb128 337
  1570 0731 08       		.uleb128 0x8
  1571 0732 32220000 		.4byte	.LASF238
@@ -2097,10 +2098,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  1622 07a9 43150000 		.4byte	.LASF255
  1623 07ad E302     		.sleb128 355
  1624 07af 08       		.uleb128 0x8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 36
+
+
  1625 07b0 15130000 		.4byte	.LASF256
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 36
-
-
  1626 07b4 E402     		.sleb128 356
  1627 07b6 08       		.uleb128 0x8
  1628 07b7 951F0000 		.4byte	.LASF257
@@ -2157,10 +2158,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  1679 082e 0E0B0000 		.4byte	.LASF274
  1680 0832 F602     		.sleb128 374
  1681 0834 08       		.uleb128 0x8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 37
+
+
  1682 0835 FC2C0000 		.4byte	.LASF275
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 37
-
-
  1683 0839 F702     		.sleb128 375
  1684 083b 08       		.uleb128 0x8
  1685 083c 09160000 		.4byte	.LASF276
@@ -2217,10 +2218,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  1736 08b3 451E0000 		.4byte	.LASF293
  1737 08b7 8903     		.sleb128 393
  1738 08b9 08       		.uleb128 0x8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 38
+
+
  1739 08ba 960B0000 		.4byte	.LASF294
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 38
-
-
  1740 08be 8A03     		.sleb128 394
  1741 08c0 08       		.uleb128 0x8
  1742 08c1 46160000 		.4byte	.LASF295
@@ -2277,10 +2278,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  1793 0938 B4360000 		.4byte	.LASF312
  1794 093c 9C03     		.sleb128 412
  1795 093e 08       		.uleb128 0x8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 39
+
+
  1796 093f 43230000 		.4byte	.LASF313
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 39
-
-
  1797 0943 9D03     		.sleb128 413
  1798 0945 08       		.uleb128 0x8
  1799 0946 C4230000 		.4byte	.LASF314
@@ -2337,10 +2338,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  1850 09bd 45070000 		.4byte	.LASF331
  1851 09c1 AF03     		.sleb128 431
  1852 09c3 08       		.uleb128 0x8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 40
+
+
  1853 09c4 1F0E0000 		.4byte	.LASF332
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 40
-
-
  1854 09c8 B003     		.sleb128 432
  1855 09ca 08       		.uleb128 0x8
  1856 09cb 46350000 		.4byte	.LASF333
@@ -2397,10 +2398,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  1907 0a42 56250000 		.4byte	.LASF350
  1908 0a46 C203     		.sleb128 450
  1909 0a48 08       		.uleb128 0x8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 41
+
+
  1910 0a49 B8140000 		.4byte	.LASF351
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 41
-
-
  1911 0a4d C303     		.sleb128 451
  1912 0a4f 08       		.uleb128 0x8
  1913 0a50 D9320000 		.4byte	.LASF352
@@ -2457,10 +2458,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  1964 0ac7 C9030000 		.4byte	.LASF369
  1965 0acb D503     		.sleb128 469
  1966 0acd 08       		.uleb128 0x8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 42
+
+
  1967 0ace 82150000 		.4byte	.LASF370
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 42
-
-
  1968 0ad2 D603     		.sleb128 470
  1969 0ad4 08       		.uleb128 0x8
  1970 0ad5 32080000 		.4byte	.LASF371
@@ -2517,10 +2518,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2021 0b4c FA0D0000 		.4byte	.LASF388
  2022 0b50 E803     		.sleb128 488
  2023 0b52 08       		.uleb128 0x8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 43
+
+
  2024 0b53 F51F0000 		.4byte	.LASF389
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 43
-
-
  2025 0b57 E903     		.sleb128 489
  2026 0b59 08       		.uleb128 0x8
  2027 0b5a 3D2F0000 		.4byte	.LASF390
@@ -2577,10 +2578,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2078 0bd1 2B070000 		.4byte	.LASF407
  2079 0bd5 FB03     		.sleb128 507
  2080 0bd7 08       		.uleb128 0x8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 44
+
+
  2081 0bd8 291F0000 		.4byte	.LASF408
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 44
-
-
  2082 0bdc FC03     		.sleb128 508
  2083 0bde 08       		.uleb128 0x8
  2084 0bdf 00000000 		.4byte	.LASF409
@@ -2637,10 +2638,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2135 0c56 75010000 		.4byte	.LASF426
  2136 0c5a 8E04     		.sleb128 526
  2137 0c5c 08       		.uleb128 0x8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 45
+
+
  2138 0c5d 0F250000 		.4byte	.LASF427
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 45
-
-
  2139 0c61 8F04     		.sleb128 527
  2140 0c63 08       		.uleb128 0x8
  2141 0c64 6C100000 		.4byte	.LASF428
@@ -2697,10 +2698,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2192 0cce 00       		.byte	0
  2193 0ccf 09       		.uleb128 0x9
  2194 0cd0 04       		.byte	0x4
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 46
+
+
  2195 0cd1 9B040000 		.4byte	0x49b
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 46
-
-
  2196 0cd5 11       		.uleb128 0x11
  2197 0cd6 8A300000 		.4byte	.LASF437
  2198 0cda 01       		.byte	0x1
@@ -2757,10 +2758,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2249 0d40 01       		.byte	0x1
  2250 0d41 B5       		.byte	0xb5
  2251 0d42 83000000 		.4byte	0x83
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 47
+
+
  2252 0d46 05       		.uleb128 0x5
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 47
-
-
  2253 0d47 03       		.byte	0x3
  2254 0d48 04000000 		.4byte	keyboardTimer.8320
  2255 0d4c 13       		.uleb128 0x13
@@ -2817,10 +2818,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2306 0db3 BE0D0000 		.4byte	0xdbe
  2307 0db7 16       		.uleb128 0x16
  2308 0db8 A9000000 		.4byte	0xa9
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 48
+
+
  2309 0dbc 07       		.byte	0x7
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 48
-
-
  2310 0dbd 00       		.byte	0
  2311 0dbe 17       		.uleb128 0x17
  2312 0dbf 2C2C0000 		.4byte	.LASF449
@@ -2877,10 +2878,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2363              	.Ldebug_abbrev0:
  2364 0000 01       		.uleb128 0x1
  2365 0001 11       		.uleb128 0x11
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 49
+
+
  2366 0002 01       		.byte	0x1
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 49
-
-
  2367 0003 25       		.uleb128 0x25
  2368 0004 0E       		.uleb128 0xe
  2369 0005 13       		.uleb128 0x13
@@ -2937,10 +2938,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2420 0038 00       		.byte	0
  2421 0039 49       		.uleb128 0x49
  2422 003a 13       		.uleb128 0x13
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 50
+
+
  2423 003b 00       		.byte	0
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 50
-
-
  2424 003c 00       		.byte	0
  2425 003d 06       		.uleb128 0x6
  2426 003e 0F       		.uleb128 0xf
@@ -2997,10 +2998,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2477 0071 0D       		.uleb128 0xd
  2478 0072 00       		.byte	0
  2479 0073 03       		.uleb128 0x3
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 51
+
+
  2480 0074 0E       		.uleb128 0xe
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 51
-
-
  2481 0075 3A       		.uleb128 0x3a
  2482 0076 0B       		.uleb128 0xb
  2483 0077 3B       		.uleb128 0x3b
@@ -3057,10 +3058,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2534 00aa 01       		.byte	0x1
  2535 00ab 0B       		.uleb128 0xb
  2536 00ac 0B       		.uleb128 0xb
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 52
+
+
  2537 00ad 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 52
-
-
  2538 00ae 0B       		.uleb128 0xb
  2539 00af 3B       		.uleb128 0x3b
  2540 00b0 0B       		.uleb128 0xb
@@ -3117,10 +3118,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2591 00e4 0B       		.uleb128 0xb
  2592 00e5 3B       		.uleb128 0x3b
  2593 00e6 0B       		.uleb128 0xb
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 53
+
+
  2594 00e7 49       		.uleb128 0x49
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 53
-
-
  2595 00e8 13       		.uleb128 0x13
  2596 00e9 02       		.uleb128 0x2
  2597 00ea 18       		.uleb128 0x18
@@ -3177,10 +3178,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2648 011d 17       		.uleb128 0x17
  2649 011e 34       		.uleb128 0x34
  2650 011f 00       		.byte	0
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 54
+
+
  2651 0120 03       		.uleb128 0x3
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 54
-
-
  2652 0121 0E       		.uleb128 0xe
  2653 0122 3A       		.uleb128 0x3a
  2654 0123 0B       		.uleb128 0xb
@@ -3237,10 +3238,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2705 000b 00       		.byte	0
  2706 000c 0000     		.2byte	0
  2707 000e 0000     		.2byte	0
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 55
+
+
  2708 0010 00000000 		.4byte	.LFB37
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 55
-
-
  2709 0014 D8000000 		.4byte	.LFE37-.LFB37
  2710 0018 00000000 		.4byte	.LFB38
  2711 001c 8C000000 		.4byte	.LFE38-.LFB38
@@ -3297,10 +3298,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2740 0082 4359424C 		.ascii	"CYBLE_EVT_BCSC_READ_CHAR_RESPONSE\000"
  2740      455F4556 
  2740      545F4243 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 56
+
+
  2740      53435F52 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 56
-
-
  2740      4541445F 
  2741              	.LASF223:
  2742 00a4 4359424C 		.ascii	"CYBLE_EVT_CGMSC_INDICATION\000"
@@ -3357,10 +3358,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2759              	.LASF252:
  2760 01b9 4359424C 		.ascii	"CYBLE_EVT_CSCSC_READ_CHAR_RESPONSE\000"
  2760      455F4556 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 57
+
+
  2760      545F4353 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 57
-
-
  2760      4353435F 
  2760      52454144 
  2761              	.LASF228:
@@ -3417,10 +3418,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2780      455F4556 
  2780      545F5253 
  2780      4353435F 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 58
+
+
  2780      57524954 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 58
-
-
  2781              	.LASF198:
  2782 0303 4359424C 		.ascii	"CYBLE_EVT_BCSS_INDICATION_CONFIRMED\000"
  2782      455F4556 
@@ -3477,10 +3478,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2798      57524954 
  2799              	.LASF394:
  2800 042d 4359424C 		.ascii	"CYBLE_EVT_TPSS_NOTIFICATION_ENABLED\000"
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 59
+
+
  2800      455F4556 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 59
-
-
  2800      545F5450 
  2800      53535F4E 
  2800      4F544946 
@@ -3537,10 +3538,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2818      455F4556 
  2818      545F4353 
  2818      4353535F 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 60
+
+
  2818      494E4449 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 60
-
-
  2819              	.LASF348:
  2820 0583 4359424C 		.ascii	"CYBLE_EVT_LNSC_INDICATION\000"
  2820      455F4556 
@@ -3597,10 +3598,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2836      54485F52 
  2837              	.LASF172:
  2838 068f 4359424C 		.ascii	"CYBLE_EVT_GATTC_CHAR_DISCOVERY_COMPLETE\000"
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 61
+
+
  2838      455F4556 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 61
-
-
  2838      545F4741 
  2838      5454435F 
  2838      43484152 
@@ -3657,10 +3658,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2856      455F4556 
  2856      545F424D 
  2856      53435F52 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 62
+
+
  2856      4541445F 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 62
-
-
  2857              	.LASF38:
  2858 07b8 4359424C 		.ascii	"CYBLE_EVT_GAP_OOB_GENERATED_NOTIFICATION\000"
  2858      455F4556 
@@ -3717,10 +3718,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2876 08dd 4359424C 		.ascii	"CYBLE_EVT_CPSC_WRITE_DESCR_RESPONSE\000"
  2876      455F4556 
  2876      545F4350 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 63
+
+
  2876      53435F57 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 63
-
-
  2876      52495445 
  2877              	.LASF80:
  2878 0901 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_TX_CREDIT_IND\000"
@@ -3777,10 +3778,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2895              	.LASF438:
  2896 0a09 6C6F6345 		.ascii	"locEventParam\000"
  2896      76656E74 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 64
+
+
  2896      50617261 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 64
-
-
  2896      6D00
  2897              	.LASF277:
  2898 0a17 4359424C 		.ascii	"CYBLE_EVT_ESSC_WRITE_DESCR_RESPONSE\000"
@@ -3837,10 +3838,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2915      53435F52 
  2915      4541445F 
  2916              	.LASF297:
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 65
+
+
  2917 0b30 4359424C 		.ascii	"CYBLE_EVT_HIDSC_NOTIFICATION\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 65
-
-
  2917      455F4556 
  2917      545F4849 
  2917      4453435F 
@@ -3897,10 +3898,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2936              	.LASF85:
  2937 0c42 4359424C 		.ascii	"CYBLE_ERROR_OK\000"
  2937      455F4552 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 66
+
+
  2937      524F525F 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 66
-
-
  2937      4F4B00
  2938              	.LASF51:
  2939 0c51 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP\000"
@@ -3957,10 +3958,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2955      494E4449 
  2956              	.LASF42:
  2957 0d72 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_NEGOTIATED_AUTH_INFO\000"
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 67
+
+
  2957      455F4556 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 67
-
-
  2957      545F4741 
  2957      505F534D 
  2957      505F4E45 
@@ -4017,10 +4018,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2975      4353535F 
  2975      4E4F5449 
  2976              	.LASF39:
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 68
+
+
  2977 0eae 4359424C 		.ascii	"CYBLE_EVT_GAP_DATA_LENGTH_CHANGE\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 68
-
-
  2977      455F4556 
  2977      545F4741 
  2977      505F4441 
@@ -4077,10 +4078,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  2995      53435F52 
  2995      4541445F 
  2996              	.LASF92:
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 69
+
+
  2997 0fcc 4359424C 		.ascii	"CYBLE_ERROR_NO_DEVICE_ENTITY\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 69
-
-
  2997      455F4552 
  2997      524F525F 
  2997      4E4F5F44 
@@ -4137,10 +4138,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3015 10ec 4359424C 		.ascii	"CYBLE_EVT_CPSS_CHAR_WRITE\000"
  3015      455F4556 
  3015      545F4350 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 70
+
+
  3015      53535F43 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 70
-
-
  3015      4841525F 
  3016              	.LASF310:
  3017 1106 4359424C 		.ascii	"CYBLE_EVT_HRSS_ENERGY_EXPENDED_RESET\000"
@@ -4197,10 +4198,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3033      434F4E54 
  3033      524F4C4C 
  3034              	.LASF86:
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 71
+
+
  3035 121f 4359424C 		.ascii	"CYBLE_ERROR_INVALID_PARAMETER\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 71
-
-
  3035      455F4552 
  3035      524F525F 
  3035      494E5641 
@@ -4257,10 +4258,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3053 135d 4359424C 		.ascii	"CYBLE_EVT_WPTSS_WRITE_CHAR\000"
  3053      455F4556 
  3053      545F5750 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 72
+
+
  3053      5453535F 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 72
-
-
  3053      57524954 
  3054              	.LASF339:
  3055 1378 4359424C 		.ascii	"CYBLE_EVT_LLSS_WRITE_CHAR_REQ\000"
@@ -4317,10 +4318,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3073 1483 4359424C 		.ascii	"CYBLE_HIDS_DESCR_COUNT\000"
  3073      455F4849 
  3073      44535F44 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 73
+
+
  3073      45534352 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 73
-
-
  3073      5F434F55 
  3074              	.LASF445:
  3075 149a 63617073 		.ascii	"capsLockPress\000"
@@ -4377,10 +4378,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3092              	.LASF311:
  3093 15a5 4359424C 		.ascii	"CYBLE_EVT_HRSS_NOTIFICATION_ENABLED\000"
  3093      455F4556 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 74
+
+
  3093      545F4852 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 74
-
-
  3093      53535F4E 
  3093      4F544946 
  3094              	.LASF27:
@@ -4437,10 +4438,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3112              	.LASF299:
  3113 16d7 4359424C 		.ascii	"CYBLE_EVT_HIDSC_WRITE_CHAR_RESPONSE\000"
  3113      455F4556 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 75
+
+
  3113      545F4849 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 75
-
-
  3113      4453435F 
  3113      57524954 
  3114              	.LASF5:
@@ -4497,10 +4498,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3131      545F414E 
  3131      53435F52 
  3131      4541445F 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 76
+
+
  3132              	.LASF99:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 76
-
-
  3133 182e 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_PSM_ALREADY_REGISTERED\000"
  3133      455F4552 
  3133      524F525F 
@@ -4557,10 +4558,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3151      545F4347 
  3151      4D53435F 
  3151      52454144 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 77
+
+
  3152              	.LASF253:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 77
-
-
  3153 1960 4359424C 		.ascii	"CYBLE_EVT_CSCSC_WRITE_CHAR_RESPONSE\000"
  3153      455F4556 
  3153      545F4353 
@@ -4617,10 +4618,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3170              	.LASF234:
  3171 1a77 4359424C 		.ascii	"CYBLE_EVT_CPSS_BROADCAST_ENABLED\000"
  3171      455F4556 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 78
+
+
  3171      545F4350 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 78
-
-
  3171      53535F42 
  3171      524F4144 
  3172              	.LASF336:
@@ -4677,10 +4678,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3189      53535F4E 
  3189      4F544946 
  3190              	.LASF306:
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 79
+
+
  3191 1baa 4359424C 		.ascii	"CYBLE_EVT_HPSC_READ_CHAR_RESPONSE\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 79
-
-
  3191      455F4556 
  3191      545F4850 
  3191      53435F52 
@@ -4737,10 +4738,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3209      5453535F 
  3209      4E4F5449 
  3210              	.LASF353:
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 80
+
+
  3211 1ce9 4359424C 		.ascii	"CYBLE_EVT_LNSC_WRITE_DESCR_RESPONSE\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 80
-
-
  3211      455F4556 
  3211      545F4C4E 
  3211      53435F57 
@@ -4797,10 +4798,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3229 1e00 4359424C 		.ascii	"CYBLE_EVT_ESSS_INDICATION_ENABLED\000"
  3229      455F4556 
  3229      545F4553 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 81
+
+
  3229      53535F49 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 81
-
-
  3229      4E444943 
  3230              	.LASF12:
  3231 1e22 666C6F61 		.ascii	"float\000"
@@ -4857,10 +4858,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3249      455F4556 
  3249      545F5544 
  3249      53435F4E 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 82
+
+
  3249      4F544946 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 82
-
-
  3250              	.LASF422:
  3251 1f45 4359424C 		.ascii	"CYBLE_EVT_WPTSC_WRITE_CHAR_RESPONSE\000"
  3251      455F4556 
@@ -4917,10 +4918,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3268              	.LASF156:
  3269 2065 4359424C 		.ascii	"CYBLE_AUTHENTICATION_REQUEST_REPLY\000"
  3269      455F4155 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 83
+
+
  3269      5448454E 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 83
-
-
  3269      54494341 
  3269      54494F4E 
  3270              	.LASF98:
@@ -4977,10 +4978,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3287      53435F57 
  3287      52495445 
  3288              	.LASF421:
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 84
+
+
  3289 21a6 4359424C 		.ascii	"CYBLE_EVT_WPTSC_INDICATION\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 84
-
-
  3289      455F4556 
  3289      545F5750 
  3289      5453435F 
@@ -5037,10 +5038,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3307 22a4 4359424C 		.ascii	"CYBLE_EVT_BMSC_WRITE_CHAR_RESPONSE\000"
  3307      455F4556 
  3307      545F424D 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 85
+
+
  3307      53435F57 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 85
-
-
  3307      52495445 
  3308              	.LASF328:
  3309 22c7 4359424C 		.ascii	"CYBLE_EVT_HTSC_READ_DESCR_RESPONSE\000"
@@ -5097,10 +5098,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3325      53435F52 
  3325      4541445F 
  3326              	.LASF192:
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 86
+
+
  3327 23e6 4359424C 		.ascii	"CYBLE_EVT_BASC_NOTIFICATION\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 86
-
-
  3327      455F4556 
  3327      545F4241 
  3327      53435F4E 
@@ -5157,10 +5158,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3345      545F4C4E 
  3345      53535F49 
  3345      4E444943 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 87
+
+
  3346              	.LASF427:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 87
-
-
  3347 250f 4359424C 		.ascii	"CYBLE_EVT_WSSS_INDICATION_DISABLED\000"
  3347      455F4556 
  3347      545F5753 
@@ -5217,10 +5218,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3364              	.LASF116:
  3365 2627 4359424C 		.ascii	"CYBLE_ERROR_INVALID_STATE\000"
  3365      455F4552 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 88
+
+
  3365      524F525F 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 88
-
-
  3365      494E5641 
  3365      4C49445F 
  3366              	.LASF78:
@@ -5277,10 +5278,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3385 2727 4359424C 		.ascii	"CYBLE_EVT_GLSS_INDICATION_DISABLED\000"
  3385      455F4556 
  3385      545F474C 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 89
+
+
  3385      53535F49 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 89
-
-
  3385      4E444943 
  3386              	.LASF167:
  3387 274a 4359424C 		.ascii	"CYBLE_EVT_GATTC_SRVC_DUPLICATION\000"
@@ -5337,10 +5338,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3403      455F4556 
  3403      545F504C 
  3403      5853535F 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 90
+
+
  3403      57524954 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 90
-
-
  3404              	.LASF229:
  3405 28aa 4359424C 		.ascii	"CYBLE_EVT_CPSS_NOTIFICATION_ENABLED\000"
  3405      455F4556 
@@ -5397,10 +5398,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3423 29c5 61706952 		.ascii	"apiResult\000"
  3423      6573756C 
  3423      7400
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 91
+
+
  3424              	.LASF395:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 91
-
-
  3425 29cf 4359424C 		.ascii	"CYBLE_EVT_TPSS_NOTIFICATION_DISABLED\000"
  3425      455F4556 
  3425      545F5450 
@@ -5457,10 +5458,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3442              	.LASF380:
  3443 2aed 4359424C 		.ascii	"CYBLE_EVT_RSCSC_NOTIFICATION\000"
  3443      455F4556 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 92
+
+
  3443      545F5253 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 92
-
-
  3443      4353435F 
  3443      4E4F5449 
  3444              	.LASF29:
@@ -5517,10 +5518,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3462              	.LASF449:
  3463 2c2c 6379426C 		.ascii	"cyBle_connHandle\000"
  3463      655F636F 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 93
+
+
  3463      6E6E4861 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 93
-
-
  3463      6E646C65 
  3463      00
  3464              	.LASF2:
@@ -5577,10 +5578,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3481      4552524F 
  3482              	.LASF195:
  3483 2d3e 4359424C 		.ascii	"CYBLE_EVT_BASC_WRITE_DESCR_RESPONSE\000"
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 94
+
+
  3483      455F4556 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 94
-
-
  3483      545F4241 
  3483      53435F57 
  3483      52495445 
@@ -5637,10 +5638,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3501      545F5544 
  3501      53535F49 
  3501      4E444943 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 95
+
+
  3502              	.LASF338:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 95
-
-
  3503 2e6b 4359424C 		.ascii	"CYBLE_EVT_IPSC_READ_BLOB_RSP\000"
  3503      455F4556 
  3503      545F4950 
@@ -5697,10 +5698,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3520              	.LASF443:
  3521 2f88 6B657962 		.ascii	"keyboardTimer\000"
  3521      6F617264 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 96
+
+
  3521      54696D65 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 96
-
-
  3521      7200
  3522              	.LASF139:
  3523 2f96 4359424C 		.ascii	"CYBLE_HIDS_REPORT_MAP_ERRD\000"
@@ -5757,10 +5758,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3539      5454435F 
  3539      44495343 
  3540              	.LASF437:
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 97
+
+
  3541 308a 48696473 		.ascii	"HidsInit\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 97
-
-
  3541      496E6974 
  3541      00
  3542              	.LASF222:
@@ -5817,10 +5818,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3559      545F4950 
  3559      53435F45 
  3559      52524F52 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 98
+
+
  3560              	.LASF329:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 98
-
-
  3561 31a5 4359424C 		.ascii	"CYBLE_EVT_HTSC_WRITE_DESCR_RESPONSE\000"
  3561      455F4556 
  3561      545F4854 
@@ -5877,10 +5878,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3579      455F4556 
  3579      545F414E 
  3579      53435F57 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 99
+
+
  3579      52495445 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 99
-
-
  3580              	.LASF352:
  3581 32d9 4359424C 		.ascii	"CYBLE_EVT_LNSC_READ_DESCR_RESPONSE\000"
  3581      455F4556 
@@ -5937,10 +5938,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3599      54545F44 
  3599      4953434F 
  3600              	.LASF159:
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 100
+
+
  3601 33dc 4359424C 		.ascii	"CYBLE_KEY_EXCHANGE_INFO_REQUEST_REPLY\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 100
-
-
  3601      455F4B45 
  3601      595F4558 
  3601      4348414E 
@@ -5997,10 +5998,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3619 3505 4359424C 		.ascii	"CYBLE_EVT_HIDSS_BOOT_MODE_ENTER\000"
  3619      455F4556 
  3619      545F4849 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 101
+
+
  3619      4453535F 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 101
-
-
  3619      424F4F54 
  3620              	.LASF66:
  3621 3525 4359424C 		.ascii	"CYBLE_EVT_GATTS_HANDLE_VALUE_CNF\000"
@@ -6057,10 +6058,10 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 1
  3639      53435F49 
  3639      4E444943 
  3640              	.LASF290:
+ARM GAS  C:\Users\akita\AppData\Local\Temp\ccqOOvGa.s 			page 102
+
+
  3641 3646 4359424C 		.ascii	"CYBLE_EVT_HIDSS_NOTIFICATION_ENABLED\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccSio3bq.s 			page 102
-
-
  3641      455F4556 
  3641      545F4849 
  3641      4453535F 
