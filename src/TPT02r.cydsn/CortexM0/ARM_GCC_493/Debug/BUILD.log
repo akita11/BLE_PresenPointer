@@ -1,11 +1,7 @@
---------------- Build Started: 04/19/2017 11:36:11 Project: TPT02r, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Build Started: 04/20/2017 08:10:35 Project: TPT02r, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c main.c -o .\CortexM0\ARM_GCC_493\Debug\main.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/bas.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c bas.c -o .\CortexM0\ARM_GCC_493\Debug\bas.o
-bas.c: In function 'BasCallBack':
-bas.c:49:11: warning: variable 'locServiceIndex' set but not used [-Wunused-but-set-variable]
-     uint8 locServiceIndex;
-           ^
 bas.c: In function 'BasInit':
 bas.c:112:12: warning: unused variable 'cccdValue' [-Wunused-variable]
      uint16 cccdValue;
@@ -31,6 +27,6 @@ arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_493\Debug\TPT02r.a
 arm-none-eabi-gcc.exe -Wl,--start-group -o .\CortexM0\ARM_GCC_493\Debug\TPT02r.elf .\CortexM0\ARM_GCC_493\Debug\main.o .\CortexM0\ARM_GCC_493\Debug\bas.o .\CortexM0\ARM_GCC_493\Debug\debug.o .\CortexM0\ARM_GCC_493\Debug\hids.o .\CortexM0\ARM_GCC_493\Debug\scps.o .\CortexM0\ARM_GCC_493\Debug\cymetadata.o .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o .\CortexM0\ARM_GCC_493\Debug\TPT02r.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\BLE_v3_20\Library\gccCyBLEStack_BLE_SOC_PERIPHERAL.a" "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m0 -mthumb -g -ffunction-sections -O0 -ffat-lto-objects -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_493\Debug/TPT02r.map -T C:\Users\akita\Documents\TPT02\src\TPT02r.cydsn\Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
 cyelftool.exe -C C:\Users\akita\Documents\TPT02\src\TPT02r.cydsn\CortexM0\ARM_GCC_493\Debug\TPT02r.elf --flash_row_size 128 --flash_size 131072
 cyelftool.exe -S C:\Users\akita\Documents\TPT02\src\TPT02r.cydsn\CortexM0\ARM_GCC_493\Debug\TPT02r.elf
-Flash used: 93879 of 131072 bytes (71.6%).
-SRAM used: 12128 of 16384 bytes (74.0%). Stack: 2048 bytes. Heap: 1024 bytes.
---------------- Build Succeeded: 04/19/2017 11:36:13 ---------------
+Flash used: 101775 of 131072 bytes (77.6%).
+SRAM used: 12152 of 16384 bytes (74.2%). Stack: 2048 bytes. Heap: 1024 bytes.
+--------------- Build Succeeded: 04/20/2017 08:10:37 ---------------

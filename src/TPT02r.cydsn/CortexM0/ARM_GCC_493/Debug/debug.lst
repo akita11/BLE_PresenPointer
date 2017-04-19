@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 1
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -18,13 +18,13 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 1
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
   17              		.comm	Ton,4,4
-  18              		.section	.text.ShowValue,"ax",%progbits
+  18              		.section	.text._write,"ax",%progbits
   19              		.align	2
-  20              		.global	ShowValue
+  20              		.global	_write
   21              		.code	16
   22              		.thumb_func
-  23              		.type	ShowValue, %function
-  24              	ShowValue:
+  23              		.type	_write, %function
+  24              	_write:
   25              	.LFB37:
   26              		.file 1 "debug.c"
    1:debug.c       **** /*******************************************************************************
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 1
   29:debug.c       **** };
   30:debug.c       **** 
   31:debug.c       **** enum 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 2
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 2
 
 
   32:debug.c       **** {
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 1
   86:debug.c       **** 
   87:debug.c       ****     return (nChars);
   88:debug.c       **** }
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 3
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 3
 
 
   89:debug.c       **** 
@@ -127,14 +127,81 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 1
   92:debug.c       **** /* For GCC compiler revise _write() function for printf functionality */
   93:debug.c       **** int _write(int file, char *ptr, int len)
   94:debug.c       **** {
+  27              		.loc 1 94 0
+  28              		.cfi_startproc
+  29 0000 80B5     		push	{r7, lr}
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 7, -8
+  32              		.cfi_offset 14, -4
+  33 0002 86B0     		sub	sp, sp, #24
+  34              		.cfi_def_cfa_offset 32
+  35 0004 00AF     		add	r7, sp, #0
+  36              		.cfi_def_cfa_register 7
+  37 0006 F860     		str	r0, [r7, #12]
+  38 0008 B960     		str	r1, [r7, #8]
+  39 000a 7A60     		str	r2, [r7, #4]
   95:debug.c       ****     int i;
   96:debug.c       ****     file = file;
   97:debug.c       ****     for (i = 0; i < len; i++)
+  40              		.loc 1 97 0
+  41 000c 0023     		mov	r3, #0
+  42 000e 7B61     		str	r3, [r7, #20]
+  43 0010 09E0     		b	.L2
+  44              	.L3:
   98:debug.c       ****     {
   99:debug.c       ****         UART_DEB_UartPutChar(*ptr++);
+  45              		.loc 1 99 0 discriminator 3
+  46 0012 BB68     		ldr	r3, [r7, #8]
+  47 0014 5A1C     		add	r2, r3, #1
+  48 0016 BA60     		str	r2, [r7, #8]
+  49 0018 1B78     		ldrb	r3, [r3]
+  50 001a 181C     		mov	r0, r3
+  51 001c FFF7FEFF 		bl	UART_DEB_SpiUartWriteTxData
+  97:debug.c       ****     {
+  52              		.loc 1 97 0 discriminator 3
+  53 0020 7B69     		ldr	r3, [r7, #20]
+  54 0022 0133     		add	r3, r3, #1
+  55 0024 7B61     		str	r3, [r7, #20]
+  56              	.L2:
+  97:debug.c       ****     {
+  57              		.loc 1 97 0 is_stmt 0 discriminator 1
+  58 0026 7A69     		ldr	r2, [r7, #20]
+  59 0028 7B68     		ldr	r3, [r7, #4]
+  60 002a 9A42     		cmp	r2, r3
+  61 002c F1DB     		blt	.L3
  100:debug.c       ****     }
  101:debug.c       ****     return len;
+  62              		.loc 1 101 0 is_stmt 1
+  63 002e 7B68     		ldr	r3, [r7, #4]
  102:debug.c       **** }
+  64              		.loc 1 102 0
+  65 0030 181C     		mov	r0, r3
+  66 0032 BD46     		mov	sp, r7
+  67 0034 06B0     		add	sp, sp, #24
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 4
+
+
+  68              		@ sp needed
+  69 0036 80BD     		pop	{r7, pc}
+  70              		.cfi_endproc
+  71              	.LFE37:
+  72              		.size	_write, .-_write
+  73              		.section	.rodata
+  74              		.align	2
+  75              	.LC0:
+  76 0000 25322E32 		.ascii	"%2.2x \000"
+  76      782000
+  77 0007 00       		.align	2
+  78              	.LC2:
+  79 0008 0D00     		.ascii	"\015\000"
+  80 000a 0000     		.section	.text.ShowValue,"ax",%progbits
+  81              		.align	2
+  82              		.global	ShowValue
+  83              		.code	16
+  84              		.thumb_func
+  85              		.type	ShowValue, %function
+  86              	ShowValue:
+  87              	.LFB38:
  103:debug.c       **** 
  104:debug.c       **** 
  105:debug.c       **** #endif  /* (__ARMCC_VERSION) */   
@@ -143,137 +210,165 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 1
  108:debug.c       **** 
  109:debug.c       **** void ShowValue(CYBLE_GATT_VALUE_T *value)
  110:debug.c       **** {
-  27              		.loc 1 110 0
-  28              		.cfi_startproc
-  29 0000 80B5     		push	{r7, lr}
-  30              		.cfi_def_cfa_offset 8
-  31              		.cfi_offset 7, -8
-  32              		.cfi_offset 14, -4
-  33 0002 84B0     		sub	sp, sp, #16
-  34              		.cfi_def_cfa_offset 24
-  35 0004 00AF     		add	r7, sp, #0
-  36              		.cfi_def_cfa_register 7
-  37 0006 7860     		str	r0, [r7, #4]
+  88              		.loc 1 110 0
+  89              		.cfi_startproc
+  90 0000 80B5     		push	{r7, lr}
+  91              		.cfi_def_cfa_offset 8
+  92              		.cfi_offset 7, -8
+  93              		.cfi_offset 14, -4
+  94 0002 84B0     		sub	sp, sp, #16
+  95              		.cfi_def_cfa_offset 24
+  96 0004 00AF     		add	r7, sp, #0
+  97              		.cfi_def_cfa_register 7
+  98 0006 7860     		str	r0, [r7, #4]
  111:debug.c       ****     int16 i;
  112:debug.c       ****     
  113:debug.c       ****     for(i = 0; i < value->len; i++)
-  38              		.loc 1 113 0
-  39 0008 0E23     		mov	r3, #14
-  40 000a FB18     		add	r3, r7, r3
-  41 000c 0022     		mov	r2, #0
-  42 000e 1A80     		strh	r2, [r3]
-  43 0010 08E0     		b	.L2
-  44              	.L3:
-  45              		.loc 1 113 0 is_stmt 0 discriminator 3
-  46 0012 0E23     		mov	r3, #14
-  47 0014 FB18     		add	r3, r7, r3
-  48 0016 1B88     		ldrh	r3, [r3]
-  49 0018 9BB2     		uxth	r3, r3
-  50 001a 0133     		add	r3, r3, #1
-  51 001c 9AB2     		uxth	r2, r3
-  52 001e 0E23     		mov	r3, #14
-  53 0020 FB18     		add	r3, r7, r3
-  54 0022 1A80     		strh	r2, [r3]
-  55              	.L2:
-  56              		.loc 1 113 0 discriminator 1
-  57 0024 0E23     		mov	r3, #14
-  58 0026 FB18     		add	r3, r7, r3
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 4
-
-
-  59 0028 0022     		mov	r2, #0
-  60 002a 9B5E     		ldrsh	r3, [r3, r2]
-  61 002c 7A68     		ldr	r2, [r7, #4]
-  62 002e 9288     		ldrh	r2, [r2, #4]
-  63 0030 9342     		cmp	r3, r2
-  64 0032 EEDB     		blt	.L3
+  99              		.loc 1 113 0
+ 100 0008 0E23     		mov	r3, #14
+ 101 000a FB18     		add	r3, r7, r3
+ 102 000c 0022     		mov	r2, #0
+ 103 000e 1A80     		strh	r2, [r3]
+ 104 0010 16E0     		b	.L6
+ 105              	.L7:
  114:debug.c       ****     {
  115:debug.c       ****         DBG_PRINTF("%2.2x ", value->val[i]);
+ 106              		.loc 1 115 0 discriminator 3
+ 107 0012 7B68     		ldr	r3, [r7, #4]
+ 108 0014 1A68     		ldr	r2, [r3]
+ 109 0016 0E23     		mov	r3, #14
+ 110 0018 FB18     		add	r3, r7, r3
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 5
+
+
+ 111 001a 0021     		mov	r1, #0
+ 112 001c 5B5E     		ldrsh	r3, [r3, r1]
+ 113 001e D318     		add	r3, r2, r3
+ 114 0020 1B78     		ldrb	r3, [r3]
+ 115 0022 1A1C     		mov	r2, r3
+ 116 0024 0E4B     		ldr	r3, .L8
+ 117 0026 181C     		mov	r0, r3
+ 118 0028 111C     		mov	r1, r2
+ 119 002a FFF7FEFF 		bl	printf
+ 113:debug.c       ****     {
+ 120              		.loc 1 113 0 discriminator 3
+ 121 002e 0E23     		mov	r3, #14
+ 122 0030 FB18     		add	r3, r7, r3
+ 123 0032 1B88     		ldrh	r3, [r3]
+ 124 0034 9BB2     		uxth	r3, r3
+ 125 0036 0133     		add	r3, r3, #1
+ 126 0038 9AB2     		uxth	r2, r3
+ 127 003a 0E23     		mov	r3, #14
+ 128 003c FB18     		add	r3, r7, r3
+ 129 003e 1A80     		strh	r2, [r3]
+ 130              	.L6:
+ 113:debug.c       ****     {
+ 131              		.loc 1 113 0 is_stmt 0 discriminator 1
+ 132 0040 0E23     		mov	r3, #14
+ 133 0042 FB18     		add	r3, r7, r3
+ 134 0044 0022     		mov	r2, #0
+ 135 0046 9B5E     		ldrsh	r3, [r3, r2]
+ 136 0048 7A68     		ldr	r2, [r7, #4]
+ 137 004a 9288     		ldrh	r2, [r2, #4]
+ 138 004c 9342     		cmp	r3, r2
+ 139 004e E0DB     		blt	.L7
  116:debug.c       ****     }
  117:debug.c       ****     DBG_PRINTF("\r\n");
+ 140              		.loc 1 117 0 is_stmt 1
+ 141 0050 044B     		ldr	r3, .L8+4
+ 142 0052 181C     		mov	r0, r3
+ 143 0054 FFF7FEFF 		bl	puts
  118:debug.c       **** }
-  65              		.loc 1 118 0 is_stmt 1
-  66 0034 BD46     		mov	sp, r7
-  67 0036 04B0     		add	sp, sp, #16
-  68              		@ sp needed
-  69 0038 80BD     		pop	{r7, pc}
-  70              		.cfi_endproc
-  71              	.LFE37:
-  72              		.size	ShowValue, .-ShowValue
-  73 003a C046     		.section	.text.Set32ByPtr,"ax",%progbits
-  74              		.align	2
-  75              		.global	Set32ByPtr
-  76              		.code	16
-  77              		.thumb_func
-  78              		.type	Set32ByPtr, %function
-  79              	Set32ByPtr:
-  80              	.LFB38:
+ 144              		.loc 1 118 0
+ 145 0058 BD46     		mov	sp, r7
+ 146 005a 04B0     		add	sp, sp, #16
+ 147              		@ sp needed
+ 148 005c 80BD     		pop	{r7, pc}
+ 149              	.L9:
+ 150 005e C046     		.align	2
+ 151              	.L8:
+ 152 0060 00000000 		.word	.LC0
+ 153 0064 08000000 		.word	.LC2
+ 154              		.cfi_endproc
+ 155              	.LFE38:
+ 156              		.size	ShowValue, .-ShowValue
+ 157              		.section	.text.Set32ByPtr,"ax",%progbits
+ 158              		.align	2
+ 159              		.global	Set32ByPtr
+ 160              		.code	16
+ 161              		.thumb_func
+ 162              		.type	Set32ByPtr, %function
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 6
+
+
+ 163              	Set32ByPtr:
+ 164              	.LFB39:
  119:debug.c       **** 
  120:debug.c       **** 
  121:debug.c       **** void Set32ByPtr(uint8 ptr[], uint32 value)
  122:debug.c       **** {
-  81              		.loc 1 122 0
-  82              		.cfi_startproc
-  83 0000 80B5     		push	{r7, lr}
-  84              		.cfi_def_cfa_offset 8
-  85              		.cfi_offset 7, -8
-  86              		.cfi_offset 14, -4
-  87 0002 82B0     		sub	sp, sp, #8
-  88              		.cfi_def_cfa_offset 16
-  89 0004 00AF     		add	r7, sp, #0
-  90              		.cfi_def_cfa_register 7
-  91 0006 7860     		str	r0, [r7, #4]
-  92 0008 3960     		str	r1, [r7]
+ 165              		.loc 1 122 0
+ 166              		.cfi_startproc
+ 167 0000 80B5     		push	{r7, lr}
+ 168              		.cfi_def_cfa_offset 8
+ 169              		.cfi_offset 7, -8
+ 170              		.cfi_offset 14, -4
+ 171 0002 82B0     		sub	sp, sp, #8
+ 172              		.cfi_def_cfa_offset 16
+ 173 0004 00AF     		add	r7, sp, #0
+ 174              		.cfi_def_cfa_register 7
+ 175 0006 7860     		str	r0, [r7, #4]
+ 176 0008 3960     		str	r1, [r7]
  123:debug.c       ****     ptr[0u] = (uint8) value;
-  93              		.loc 1 123 0
-  94 000a 3B68     		ldr	r3, [r7]
-  95 000c DAB2     		uxtb	r2, r3
-  96 000e 7B68     		ldr	r3, [r7, #4]
-  97 0010 1A70     		strb	r2, [r3]
+ 177              		.loc 1 123 0
+ 178 000a 3B68     		ldr	r3, [r7]
+ 179 000c DAB2     		uxtb	r2, r3
+ 180 000e 7B68     		ldr	r3, [r7, #4]
+ 181 0010 1A70     		strb	r2, [r3]
  124:debug.c       ****     ptr[1u] = (uint8) (value >> 8u);    
-  98              		.loc 1 124 0
-  99 0012 7B68     		ldr	r3, [r7, #4]
- 100 0014 0133     		add	r3, r3, #1
- 101 0016 3A68     		ldr	r2, [r7]
- 102 0018 120A     		lsr	r2, r2, #8
- 103 001a D2B2     		uxtb	r2, r2
- 104 001c 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 5
-
-
+ 182              		.loc 1 124 0
+ 183 0012 7B68     		ldr	r3, [r7, #4]
+ 184 0014 0133     		add	r3, r3, #1
+ 185 0016 3A68     		ldr	r2, [r7]
+ 186 0018 120A     		lsr	r2, r2, #8
+ 187 001a D2B2     		uxtb	r2, r2
+ 188 001c 1A70     		strb	r2, [r3]
  125:debug.c       ****     ptr[2u] = (uint8) (value >> 16u);    
- 105              		.loc 1 125 0
- 106 001e 7B68     		ldr	r3, [r7, #4]
- 107 0020 0233     		add	r3, r3, #2
- 108 0022 3A68     		ldr	r2, [r7]
- 109 0024 120C     		lsr	r2, r2, #16
- 110 0026 D2B2     		uxtb	r2, r2
- 111 0028 1A70     		strb	r2, [r3]
+ 189              		.loc 1 125 0
+ 190 001e 7B68     		ldr	r3, [r7, #4]
+ 191 0020 0233     		add	r3, r3, #2
+ 192 0022 3A68     		ldr	r2, [r7]
+ 193 0024 120C     		lsr	r2, r2, #16
+ 194 0026 D2B2     		uxtb	r2, r2
+ 195 0028 1A70     		strb	r2, [r3]
  126:debug.c       ****     ptr[3u] = (uint8) (value >> 24u);
- 112              		.loc 1 126 0
- 113 002a 7B68     		ldr	r3, [r7, #4]
- 114 002c 0333     		add	r3, r3, #3
- 115 002e 3A68     		ldr	r2, [r7]
- 116 0030 120E     		lsr	r2, r2, #24
- 117 0032 D2B2     		uxtb	r2, r2
- 118 0034 1A70     		strb	r2, [r3]
+ 196              		.loc 1 126 0
+ 197 002a 7B68     		ldr	r3, [r7, #4]
+ 198 002c 0333     		add	r3, r3, #3
+ 199 002e 3A68     		ldr	r2, [r7]
+ 200 0030 120E     		lsr	r2, r2, #24
+ 201 0032 D2B2     		uxtb	r2, r2
+ 202 0034 1A70     		strb	r2, [r3]
  127:debug.c       **** }
- 119              		.loc 1 127 0
- 120 0036 BD46     		mov	sp, r7
- 121 0038 02B0     		add	sp, sp, #8
- 122              		@ sp needed
- 123 003a 80BD     		pop	{r7, pc}
- 124              		.cfi_endproc
- 125              	.LFE38:
- 126              		.size	Set32ByPtr, .-Set32ByPtr
- 127              		.section	.text.ShowError,"ax",%progbits
- 128              		.align	2
- 129              		.global	ShowError
- 130              		.code	16
- 131              		.thumb_func
- 132              		.type	ShowError, %function
- 133              	ShowError:
- 134              	.LFB39:
+ 203              		.loc 1 127 0
+ 204 0036 BD46     		mov	sp, r7
+ 205 0038 02B0     		add	sp, sp, #8
+ 206              		@ sp needed
+ 207 003a 80BD     		pop	{r7, pc}
+ 208              		.cfi_endproc
+ 209              	.LFE39:
+ 210              		.size	Set32ByPtr, .-Set32ByPtr
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 7
+
+
+ 211              		.section	.text.ShowError,"ax",%progbits
+ 212              		.align	2
+ 213              		.global	ShowError
+ 214              		.code	16
+ 215              		.thumb_func
+ 216              		.type	ShowError, %function
+ 217              	ShowError:
+ 218              	.LFB40:
  128:debug.c       **** 
  129:debug.c       **** 
  130:debug.c       **** /*******************************************************************************
@@ -286,1440 +381,1554 @@ ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 1
  137:debug.c       **** *******************************************************************************/
  138:debug.c       **** void ShowError(void)
  139:debug.c       **** {
- 135              		.loc 1 139 0
- 136              		.cfi_startproc
- 137 0000 80B5     		push	{r7, lr}
- 138              		.cfi_def_cfa_offset 8
- 139              		.cfi_offset 7, -8
- 140              		.cfi_offset 14, -4
- 141 0002 00AF     		add	r7, sp, #0
- 142              		.cfi_def_cfa_register 7
+ 219              		.loc 1 139 0
+ 220              		.cfi_startproc
+ 221 0000 80B5     		push	{r7, lr}
+ 222              		.cfi_def_cfa_offset 8
+ 223              		.cfi_offset 7, -8
+ 224              		.cfi_offset 14, -4
+ 225 0002 00AF     		add	r7, sp, #0
+ 226              		.cfi_def_cfa_register 7
  140:debug.c       ****     Disconnect_LED_Write(LED_ON);
- 143              		.loc 1 140 0
- 144 0004 0020     		mov	r0, #0
- 145 0006 FFF7FEFF 		bl	Disconnect_LED_Write
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 6
-
-
+ 227              		.loc 1 140 0
+ 228 0004 0020     		mov	r0, #0
+ 229 0006 FFF7FEFF 		bl	Disconnect_LED_Write
  141:debug.c       ****     Advertising_LED_Write(LED_ON);
- 146              		.loc 1 141 0
- 147 000a 0020     		mov	r0, #0
- 148 000c FFF7FEFF 		bl	Advertising_LED_Write
+ 230              		.loc 1 141 0
+ 231 000a 0020     		mov	r0, #0
+ 232 000c FFF7FEFF 		bl	Advertising_LED_Write
  142:debug.c       ****     CapsLock_LED_Write(LED_ON);
- 149              		.loc 1 142 0
- 150 0010 0020     		mov	r0, #0
- 151 0012 FFF7FEFF 		bl	CapsLock_LED_Write
+ 233              		.loc 1 142 0
+ 234 0010 0020     		mov	r0, #0
+ 235 0012 FFF7FEFF 		bl	CapsLock_LED_Write
  143:debug.c       ****     /* Halt CPU in Debug mode */
  144:debug.c       ****     CYASSERT(0u != 0u);
- 152              		.loc 1 144 0
- 153 0016 0020     		mov	r0, #0
- 154 0018 FFF7FEFF 		bl	CyHalt
+ 236              		.loc 1 144 0
+ 237 0016 0020     		mov	r0, #0
+ 238 0018 FFF7FEFF 		bl	CyHalt
  145:debug.c       **** }
- 155              		.loc 1 145 0
- 156 001c BD46     		mov	sp, r7
- 157              		@ sp needed
- 158 001e 80BD     		pop	{r7, pc}
- 159              		.cfi_endproc
- 160              	.LFE39:
- 161              		.size	ShowError, .-ShowError
- 162              		.text
- 163              	.Letext0:
- 164              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
- 165              		.file 3 "Generated_Source\\PSoC4/BLE_StackGatt.h"
- 166              		.file 4 "Generated_Source\\PSoC4/BLE_Stack.h"
- 167              		.file 5 "Generated_Source\\PSoC4/BLE_dis.h"
- 168              		.file 6 "common.h"
- 169              		.section	.debug_info,"",%progbits
- 170              	.Ldebug_info0:
- 171 0000 95030000 		.4byte	0x395
- 172 0004 0400     		.2byte	0x4
- 173 0006 00000000 		.4byte	.Ldebug_abbrev0
- 174 000a 04       		.byte	0x4
- 175 000b 01       		.uleb128 0x1
- 176 000c 7E060000 		.4byte	.LASF101
- 177 0010 01       		.byte	0x1
- 178 0011 AC040000 		.4byte	.LASF102
- 179 0015 AC010000 		.4byte	.LASF103
- 180 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 181 001d 00000000 		.4byte	0
- 182 0021 00000000 		.4byte	.Ldebug_line0
- 183 0025 02       		.uleb128 0x2
- 184 0026 01       		.byte	0x1
- 185 0027 06       		.byte	0x6
- 186 0028 B4040000 		.4byte	.LASF0
- 187 002c 02       		.uleb128 0x2
- 188 002d 01       		.byte	0x1
- 189 002e 08       		.byte	0x8
- 190 002f 60040000 		.4byte	.LASF1
- 191 0033 02       		.uleb128 0x2
- 192 0034 02       		.byte	0x2
- 193 0035 05       		.byte	0x5
- 194 0036 95000000 		.4byte	.LASF2
- 195 003a 02       		.uleb128 0x2
- 196 003b 02       		.byte	0x2
- 197 003c 07       		.byte	0x7
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 7
+ 239              		.loc 1 145 0
+ 240 001c BD46     		mov	sp, r7
+ 241              		@ sp needed
+ 242 001e 80BD     		pop	{r7, pc}
+ 243              		.cfi_endproc
+ 244              	.LFE40:
+ 245              		.size	ShowError, .-ShowError
+ 246              		.text
+ 247              	.Letext0:
+ 248              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 249              		.file 3 "Generated_Source\\PSoC4/BLE_StackGatt.h"
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 8
 
 
- 198 003d 28070000 		.4byte	.LASF3
- 199 0041 02       		.uleb128 0x2
- 200 0042 04       		.byte	0x4
- 201 0043 05       		.byte	0x5
- 202 0044 23030000 		.4byte	.LASF4
- 203 0048 02       		.uleb128 0x2
- 204 0049 04       		.byte	0x4
- 205 004a 07       		.byte	0x7
- 206 004b 50050000 		.4byte	.LASF5
- 207 004f 02       		.uleb128 0x2
- 208 0050 08       		.byte	0x8
- 209 0051 05       		.byte	0x5
- 210 0052 FB000000 		.4byte	.LASF6
- 211 0056 02       		.uleb128 0x2
- 212 0057 08       		.byte	0x8
- 213 0058 07       		.byte	0x7
- 214 0059 EB020000 		.4byte	.LASF7
- 215 005d 03       		.uleb128 0x3
- 216 005e 04       		.byte	0x4
- 217 005f 05       		.byte	0x5
- 218 0060 696E7400 		.ascii	"int\000"
- 219 0064 02       		.uleb128 0x2
- 220 0065 04       		.byte	0x4
- 221 0066 07       		.byte	0x7
- 222 0067 1D050000 		.4byte	.LASF8
- 223 006b 04       		.uleb128 0x4
- 224 006c 34040000 		.4byte	.LASF9
- 225 0070 02       		.byte	0x2
- 226 0071 B901     		.2byte	0x1b9
- 227 0073 2C000000 		.4byte	0x2c
- 228 0077 04       		.uleb128 0x4
- 229 0078 A5010000 		.4byte	.LASF10
- 230 007c 02       		.byte	0x2
- 231 007d BA01     		.2byte	0x1ba
- 232 007f 3A000000 		.4byte	0x3a
- 233 0083 04       		.uleb128 0x4
- 234 0084 9A070000 		.4byte	.LASF11
- 235 0088 02       		.byte	0x2
- 236 0089 BB01     		.2byte	0x1bb
- 237 008b 48000000 		.4byte	0x48
- 238 008f 04       		.uleb128 0x4
- 239 0090 DC010000 		.4byte	.LASF12
- 240 0094 02       		.byte	0x2
- 241 0095 BD01     		.2byte	0x1bd
- 242 0097 33000000 		.4byte	0x33
- 243 009b 02       		.uleb128 0x2
- 244 009c 04       		.byte	0x4
- 245 009d 04       		.byte	0x4
- 246 009e 82020000 		.4byte	.LASF13
- 247 00a2 02       		.uleb128 0x2
- 248 00a3 08       		.byte	0x8
- 249 00a4 04       		.byte	0x4
- 250 00a5 E2070000 		.4byte	.LASF14
- 251 00a9 02       		.uleb128 0x2
- 252 00aa 01       		.byte	0x1
- 253 00ab 08       		.byte	0x8
- 254 00ac 66060000 		.4byte	.LASF15
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 8
+ 250              		.file 4 "Generated_Source\\PSoC4/BLE_Stack.h"
+ 251              		.file 5 "Generated_Source\\PSoC4/BLE_dis.h"
+ 252              		.file 6 "common.h"
+ 253              		.section	.debug_info,"",%progbits
+ 254              	.Ldebug_info0:
+ 255 0000 EB030000 		.4byte	0x3eb
+ 256 0004 0400     		.2byte	0x4
+ 257 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 258 000a 04       		.byte	0x4
+ 259 000b 01       		.uleb128 0x1
+ 260 000c 69060000 		.4byte	.LASF102
+ 261 0010 01       		.byte	0x1
+ 262 0011 80040000 		.4byte	.LASF103
+ 263 0015 80010000 		.4byte	.LASF104
+ 264 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 265 001d 00000000 		.4byte	0
+ 266 0021 00000000 		.4byte	.Ldebug_line0
+ 267 0025 02       		.uleb128 0x2
+ 268 0026 01       		.byte	0x1
+ 269 0027 06       		.byte	0x6
+ 270 0028 88040000 		.4byte	.LASF0
+ 271 002c 02       		.uleb128 0x2
+ 272 002d 01       		.byte	0x1
+ 273 002e 08       		.byte	0x8
+ 274 002f 34040000 		.4byte	.LASF1
+ 275 0033 02       		.uleb128 0x2
+ 276 0034 02       		.byte	0x2
+ 277 0035 05       		.byte	0x5
+ 278 0036 95000000 		.4byte	.LASF2
+ 279 003a 02       		.uleb128 0x2
+ 280 003b 02       		.byte	0x2
+ 281 003c 07       		.byte	0x7
+ 282 003d 13070000 		.4byte	.LASF3
+ 283 0041 02       		.uleb128 0x2
+ 284 0042 04       		.byte	0x4
+ 285 0043 05       		.byte	0x5
+ 286 0044 F7020000 		.4byte	.LASF4
+ 287 0048 02       		.uleb128 0x2
+ 288 0049 04       		.byte	0x4
+ 289 004a 07       		.byte	0x7
+ 290 004b 24050000 		.4byte	.LASF5
+ 291 004f 02       		.uleb128 0x2
+ 292 0050 08       		.byte	0x8
+ 293 0051 05       		.byte	0x5
+ 294 0052 FB000000 		.4byte	.LASF6
+ 295 0056 02       		.uleb128 0x2
+ 296 0057 08       		.byte	0x8
+ 297 0058 07       		.byte	0x7
+ 298 0059 BF020000 		.4byte	.LASF7
+ 299 005d 03       		.uleb128 0x3
+ 300 005e 04       		.byte	0x4
+ 301 005f 05       		.byte	0x5
+ 302 0060 696E7400 		.ascii	"int\000"
+ 303 0064 02       		.uleb128 0x2
+ 304 0065 04       		.byte	0x4
+ 305 0066 07       		.byte	0x7
+ 306 0067 F1040000 		.4byte	.LASF8
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 9
 
 
- 255 00b0 02       		.uleb128 0x2
- 256 00b1 04       		.byte	0x4
- 257 00b2 07       		.byte	0x7
- 258 00b3 B9000000 		.4byte	.LASF16
- 259 00b7 05       		.uleb128 0x5
- 260 00b8 01       		.byte	0x1
- 261 00b9 04       		.byte	0x4
- 262 00ba 3101     		.2byte	0x131
- 263 00bc 86020000 		.4byte	0x286
- 264 00c0 06       		.uleb128 0x6
- 265 00c1 2C020000 		.4byte	.LASF17
- 266 00c5 00       		.sleb128 0
- 267 00c6 06       		.uleb128 0x6
- 268 00c7 74010000 		.4byte	.LASF18
- 269 00cb 01       		.sleb128 1
- 270 00cc 06       		.uleb128 0x6
- 271 00cd 75090000 		.4byte	.LASF19
- 272 00d1 02       		.sleb128 2
- 273 00d2 06       		.uleb128 0x6
- 274 00d3 5A080000 		.4byte	.LASF20
- 275 00d7 03       		.sleb128 3
- 276 00d8 06       		.uleb128 0x6
- 277 00d9 3E010000 		.4byte	.LASF21
- 278 00dd 04       		.sleb128 4
- 279 00de 06       		.uleb128 0x6
- 280 00df 3E080000 		.4byte	.LASF22
- 281 00e3 05       		.sleb128 5
- 282 00e4 06       		.uleb128 0x6
- 283 00e5 3E000000 		.4byte	.LASF23
- 284 00e9 06       		.sleb128 6
- 285 00ea 06       		.uleb128 0x6
- 286 00eb B8080000 		.4byte	.LASF24
- 287 00ef 20       		.sleb128 32
- 288 00f0 06       		.uleb128 0x6
- 289 00f1 62050000 		.4byte	.LASF25
- 290 00f5 21       		.sleb128 33
- 291 00f6 06       		.uleb128 0x6
- 292 00f7 00000000 		.4byte	.LASF26
- 293 00fb 22       		.sleb128 34
- 294 00fc 06       		.uleb128 0x6
- 295 00fd CC030000 		.4byte	.LASF27
- 296 0101 23       		.sleb128 35
- 297 0102 06       		.uleb128 0x6
- 298 0103 01050000 		.4byte	.LASF28
- 299 0107 24       		.sleb128 36
- 300 0108 06       		.uleb128 0x6
- 301 0109 9F000000 		.4byte	.LASF29
- 302 010d 25       		.sleb128 37
- 303 010e 06       		.uleb128 0x6
- 304 010f 6C030000 		.4byte	.LASF30
- 305 0113 26       		.sleb128 38
- 306 0114 06       		.uleb128 0x6
- 307 0115 4D030000 		.4byte	.LASF31
- 308 0119 27       		.sleb128 39
- 309 011a 06       		.uleb128 0x6
- 310 011b 660A0000 		.4byte	.LASF32
- 311 011f 28       		.sleb128 40
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 9
+ 307 006b 04       		.uleb128 0x4
+ 308 006c 08040000 		.4byte	.LASF9
+ 309 0070 02       		.byte	0x2
+ 310 0071 B901     		.2byte	0x1b9
+ 311 0073 2C000000 		.4byte	0x2c
+ 312 0077 04       		.uleb128 0x4
+ 313 0078 79010000 		.4byte	.LASF10
+ 314 007c 02       		.byte	0x2
+ 315 007d BA01     		.2byte	0x1ba
+ 316 007f 3A000000 		.4byte	0x3a
+ 317 0083 04       		.uleb128 0x4
+ 318 0084 85070000 		.4byte	.LASF11
+ 319 0088 02       		.byte	0x2
+ 320 0089 BB01     		.2byte	0x1bb
+ 321 008b 48000000 		.4byte	0x48
+ 322 008f 04       		.uleb128 0x4
+ 323 0090 B0010000 		.4byte	.LASF12
+ 324 0094 02       		.byte	0x2
+ 325 0095 BD01     		.2byte	0x1bd
+ 326 0097 33000000 		.4byte	0x33
+ 327 009b 02       		.uleb128 0x2
+ 328 009c 04       		.byte	0x4
+ 329 009d 04       		.byte	0x4
+ 330 009e 56020000 		.4byte	.LASF13
+ 331 00a2 02       		.uleb128 0x2
+ 332 00a3 08       		.byte	0x8
+ 333 00a4 04       		.byte	0x4
+ 334 00a5 CD070000 		.4byte	.LASF14
+ 335 00a9 02       		.uleb128 0x2
+ 336 00aa 01       		.byte	0x1
+ 337 00ab 08       		.byte	0x8
+ 338 00ac 3A060000 		.4byte	.LASF15
+ 339 00b0 02       		.uleb128 0x2
+ 340 00b1 04       		.byte	0x4
+ 341 00b2 07       		.byte	0x7
+ 342 00b3 B9000000 		.4byte	.LASF16
+ 343 00b7 05       		.uleb128 0x5
+ 344 00b8 04       		.byte	0x4
+ 345 00b9 A9000000 		.4byte	0xa9
+ 346 00bd 06       		.uleb128 0x6
+ 347 00be 01       		.byte	0x1
+ 348 00bf 04       		.byte	0x4
+ 349 00c0 3101     		.2byte	0x131
+ 350 00c2 8C020000 		.4byte	0x28c
+ 351 00c6 07       		.uleb128 0x7
+ 352 00c7 00020000 		.4byte	.LASF17
+ 353 00cb 00       		.sleb128 0
+ 354 00cc 07       		.uleb128 0x7
+ 355 00cd 48010000 		.4byte	.LASF18
+ 356 00d1 01       		.sleb128 1
+ 357 00d2 07       		.uleb128 0x7
+ 358 00d3 81090000 		.4byte	.LASF19
+ 359 00d7 02       		.sleb128 2
+ 360 00d8 07       		.uleb128 0x7
+ 361 00d9 45080000 		.4byte	.LASF20
+ 362 00dd 03       		.sleb128 3
+ 363 00de 07       		.uleb128 0x7
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 10
 
 
- 312 0120 06       		.uleb128 0x6
- 313 0121 9A050000 		.4byte	.LASF33
- 314 0125 29       		.sleb128 41
- 315 0126 06       		.uleb128 0x6
- 316 0127 16060000 		.4byte	.LASF34
- 317 012b 2A       		.sleb128 42
- 318 012c 06       		.uleb128 0x6
- 319 012d AB090000 		.4byte	.LASF35
- 320 0131 2B       		.sleb128 43
- 321 0132 06       		.uleb128 0x6
- 322 0133 F2050000 		.4byte	.LASF36
- 323 0137 2C       		.sleb128 44
- 324 0138 06       		.uleb128 0x6
- 325 0139 A1020000 		.4byte	.LASF37
- 326 013d 2D       		.sleb128 45
- 327 013e 06       		.uleb128 0x6
- 328 013f 71000000 		.4byte	.LASF38
- 329 0143 2E       		.sleb128 46
- 330 0144 06       		.uleb128 0x6
- 331 0145 DE0A0000 		.4byte	.LASF39
- 332 0149 2F       		.sleb128 47
- 333 014a 06       		.uleb128 0x6
- 334 014b C2000000 		.4byte	.LASF40
- 335 014f 30       		.sleb128 48
- 336 0150 06       		.uleb128 0x6
- 337 0151 10040000 		.4byte	.LASF41
- 338 0155 31       		.sleb128 49
- 339 0156 06       		.uleb128 0x6
- 340 0157 CA020000 		.4byte	.LASF42
- 341 015b 32       		.sleb128 50
- 342 015c 06       		.uleb128 0x6
- 343 015d 3F060000 		.4byte	.LASF43
- 344 0161 33       		.sleb128 51
- 345 0162 06       		.uleb128 0x6
- 346 0163 B7050000 		.4byte	.LASF44
- 347 0167 34       		.sleb128 52
- 348 0168 06       		.uleb128 0x6
- 349 0169 21080000 		.4byte	.LASF45
- 350 016d 35       		.sleb128 53
- 351 016e 06       		.uleb128 0x6
- 352 016f 02030000 		.4byte	.LASF46
- 353 0173 36       		.sleb128 54
- 354 0174 06       		.uleb128 0x6
- 355 0175 57000000 		.4byte	.LASF47
- 356 0179 C000     		.sleb128 64
- 357 017b 06       		.uleb128 0x6
- 358 017c 35050000 		.4byte	.LASF48
- 359 0180 C100     		.sleb128 65
- 360 0182 06       		.uleb128 0x6
- 361 0183 AC0A0000 		.4byte	.LASF49
- 362 0187 C200     		.sleb128 66
- 363 0189 06       		.uleb128 0x6
- 364 018a 87010000 		.4byte	.LASF50
- 365 018e C300     		.sleb128 67
- 366 0190 06       		.uleb128 0x6
- 367 0191 40090000 		.4byte	.LASF51
- 368 0195 C400     		.sleb128 68
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 10
+ 364 00df 2E010000 		.4byte	.LASF21
+ 365 00e3 04       		.sleb128 4
+ 366 00e4 07       		.uleb128 0x7
+ 367 00e5 29080000 		.4byte	.LASF22
+ 368 00e9 05       		.sleb128 5
+ 369 00ea 07       		.uleb128 0x7
+ 370 00eb 3E000000 		.4byte	.LASF23
+ 371 00ef 06       		.sleb128 6
+ 372 00f0 07       		.uleb128 0x7
+ 373 00f1 A3080000 		.4byte	.LASF24
+ 374 00f5 20       		.sleb128 32
+ 375 00f6 07       		.uleb128 0x7
+ 376 00f7 36050000 		.4byte	.LASF25
+ 377 00fb 21       		.sleb128 33
+ 378 00fc 07       		.uleb128 0x7
+ 379 00fd 00000000 		.4byte	.LASF26
+ 380 0101 22       		.sleb128 34
+ 381 0102 07       		.uleb128 0x7
+ 382 0103 A0030000 		.4byte	.LASF27
+ 383 0107 23       		.sleb128 35
+ 384 0108 07       		.uleb128 0x7
+ 385 0109 D5040000 		.4byte	.LASF28
+ 386 010d 24       		.sleb128 36
+ 387 010e 07       		.uleb128 0x7
+ 388 010f 9F000000 		.4byte	.LASF29
+ 389 0113 25       		.sleb128 37
+ 390 0114 07       		.uleb128 0x7
+ 391 0115 40030000 		.4byte	.LASF30
+ 392 0119 26       		.sleb128 38
+ 393 011a 07       		.uleb128 0x7
+ 394 011b 21030000 		.4byte	.LASF31
+ 395 011f 27       		.sleb128 39
+ 396 0120 07       		.uleb128 0x7
+ 397 0121 720A0000 		.4byte	.LASF32
+ 398 0125 28       		.sleb128 40
+ 399 0126 07       		.uleb128 0x7
+ 400 0127 6E050000 		.4byte	.LASF33
+ 401 012b 29       		.sleb128 41
+ 402 012c 07       		.uleb128 0x7
+ 403 012d EA050000 		.4byte	.LASF34
+ 404 0131 2A       		.sleb128 42
+ 405 0132 07       		.uleb128 0x7
+ 406 0133 B7090000 		.4byte	.LASF35
+ 407 0137 2B       		.sleb128 43
+ 408 0138 07       		.uleb128 0x7
+ 409 0139 C6050000 		.4byte	.LASF36
+ 410 013d 2C       		.sleb128 44
+ 411 013e 07       		.uleb128 0x7
+ 412 013f 75020000 		.4byte	.LASF37
+ 413 0143 2D       		.sleb128 45
+ 414 0144 07       		.uleb128 0x7
+ 415 0145 71000000 		.4byte	.LASF38
+ 416 0149 2E       		.sleb128 46
+ 417 014a 07       		.uleb128 0x7
+ 418 014b EA0A0000 		.4byte	.LASF39
+ 419 014f 2F       		.sleb128 47
+ 420 0150 07       		.uleb128 0x7
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 11
 
 
- 369 0197 06       		.uleb128 0x6
- 370 0198 02090000 		.4byte	.LASF52
- 371 019c C500     		.sleb128 69
- 372 019e 06       		.uleb128 0x6
- 373 019f 53010000 		.4byte	.LASF53
- 374 01a3 C600     		.sleb128 70
- 375 01a5 06       		.uleb128 0x6
- 376 01a6 010A0000 		.4byte	.LASF54
- 377 01aa C700     		.sleb128 71
- 378 01ac 06       		.uleb128 0x6
- 379 01ad DA040000 		.4byte	.LASF55
- 380 01b1 C800     		.sleb128 72
- 381 01b3 06       		.uleb128 0x6
- 382 01b4 88020000 		.4byte	.LASF56
- 383 01b8 C900     		.sleb128 73
- 384 01ba 06       		.uleb128 0x6
- 385 01bb 5D070000 		.4byte	.LASF57
- 386 01bf CA00     		.sleb128 74
- 387 01c1 06       		.uleb128 0x6
- 388 01c2 EC010000 		.4byte	.LASF58
- 389 01c6 CB00     		.sleb128 75
- 390 01c8 06       		.uleb128 0x6
- 391 01c9 C0040000 		.4byte	.LASF59
- 392 01cd CC00     		.sleb128 76
- 393 01cf 06       		.uleb128 0x6
- 394 01d0 24000000 		.4byte	.LASF60
- 395 01d4 CD00     		.sleb128 77
- 396 01d6 06       		.uleb128 0x6
- 397 01d7 20010000 		.4byte	.LASF61
- 398 01db CE00     		.sleb128 78
- 399 01dd 06       		.uleb128 0x6
- 400 01de 6E040000 		.4byte	.LASF62
- 401 01e2 CF00     		.sleb128 79
- 402 01e4 06       		.uleb128 0x6
- 403 01e5 470A0000 		.4byte	.LASF63
- 404 01e9 D000     		.sleb128 80
- 405 01eb 06       		.uleb128 0x6
- 406 01ec 7B070000 		.4byte	.LASF64
- 407 01f0 D100     		.sleb128 81
- 408 01f2 06       		.uleb128 0x6
- 409 01f3 94030000 		.4byte	.LASF65
- 410 01f7 D200     		.sleb128 82
- 411 01f9 06       		.uleb128 0x6
- 412 01fa 2C030000 		.4byte	.LASF66
- 413 01fe D300     		.sleb128 83
- 414 0200 06       		.uleb128 0x6
- 415 0201 0B020000 		.4byte	.LASF67
- 416 0205 D400     		.sleb128 84
- 417 0207 06       		.uleb128 0x6
- 418 0208 880A0000 		.4byte	.LASF68
- 419 020c D500     		.sleb128 85
- 420 020e 06       		.uleb128 0x6
- 421 020f 1F0A0000 		.4byte	.LASF69
- 422 0213 D600     		.sleb128 86
- 423 0215 06       		.uleb128 0x6
- 424 0216 D8090000 		.4byte	.LASF70
- 425 021a D700     		.sleb128 87
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 11
+ 421 0151 C2000000 		.4byte	.LASF40
+ 422 0155 30       		.sleb128 48
+ 423 0156 07       		.uleb128 0x7
+ 424 0157 E4030000 		.4byte	.LASF41
+ 425 015b 31       		.sleb128 49
+ 426 015c 07       		.uleb128 0x7
+ 427 015d 9E020000 		.4byte	.LASF42
+ 428 0161 32       		.sleb128 50
+ 429 0162 07       		.uleb128 0x7
+ 430 0163 13060000 		.4byte	.LASF43
+ 431 0167 33       		.sleb128 51
+ 432 0168 07       		.uleb128 0x7
+ 433 0169 8B050000 		.4byte	.LASF44
+ 434 016d 34       		.sleb128 52
+ 435 016e 07       		.uleb128 0x7
+ 436 016f 0C080000 		.4byte	.LASF45
+ 437 0173 35       		.sleb128 53
+ 438 0174 07       		.uleb128 0x7
+ 439 0175 D6020000 		.4byte	.LASF46
+ 440 0179 36       		.sleb128 54
+ 441 017a 07       		.uleb128 0x7
+ 442 017b 57000000 		.4byte	.LASF47
+ 443 017f C000     		.sleb128 64
+ 444 0181 07       		.uleb128 0x7
+ 445 0182 09050000 		.4byte	.LASF48
+ 446 0186 C100     		.sleb128 65
+ 447 0188 07       		.uleb128 0x7
+ 448 0189 B80A0000 		.4byte	.LASF49
+ 449 018d C200     		.sleb128 66
+ 450 018f 07       		.uleb128 0x7
+ 451 0190 5B010000 		.4byte	.LASF50
+ 452 0194 C300     		.sleb128 67
+ 453 0196 07       		.uleb128 0x7
+ 454 0197 4C090000 		.4byte	.LASF51
+ 455 019b C400     		.sleb128 68
+ 456 019d 07       		.uleb128 0x7
+ 457 019e ED080000 		.4byte	.LASF52
+ 458 01a2 C500     		.sleb128 69
+ 459 01a4 07       		.uleb128 0x7
+ 460 01a5 2B090000 		.4byte	.LASF53
+ 461 01a9 C600     		.sleb128 70
+ 462 01ab 07       		.uleb128 0x7
+ 463 01ac 0D0A0000 		.4byte	.LASF54
+ 464 01b0 C700     		.sleb128 71
+ 465 01b2 07       		.uleb128 0x7
+ 466 01b3 AE040000 		.4byte	.LASF55
+ 467 01b7 C800     		.sleb128 72
+ 468 01b9 07       		.uleb128 0x7
+ 469 01ba 5C020000 		.4byte	.LASF56
+ 470 01be C900     		.sleb128 73
+ 471 01c0 07       		.uleb128 0x7
+ 472 01c1 48070000 		.4byte	.LASF57
+ 473 01c5 CA00     		.sleb128 74
+ 474 01c7 07       		.uleb128 0x7
+ 475 01c8 C0010000 		.4byte	.LASF58
+ 476 01cc CB00     		.sleb128 75
+ 477 01ce 07       		.uleb128 0x7
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 12
 
 
- 426 021c 06       		.uleb128 0x6
- 427 021d CF050000 		.4byte	.LASF71
- 428 0221 D800     		.sleb128 88
- 429 0223 06       		.uleb128 0x6
- 430 0224 3A040000 		.4byte	.LASF72
- 431 0228 F000     		.sleb128 112
- 432 022a 06       		.uleb128 0x6
- 433 022b 92080000 		.4byte	.LASF73
- 434 022f F100     		.sleb128 113
- 435 0231 06       		.uleb128 0x6
- 436 0232 0C070000 		.4byte	.LASF74
- 437 0236 F200     		.sleb128 114
- 438 0238 06       		.uleb128 0x6
- 439 0239 43020000 		.4byte	.LASF75
- 440 023d F300     		.sleb128 115
- 441 023f 06       		.uleb128 0x6
- 442 0240 F2030000 		.4byte	.LASF76
- 443 0244 F400     		.sleb128 116
- 444 0246 06       		.uleb128 0x6
- 445 0247 79050000 		.4byte	.LASF77
- 446 024b F500     		.sleb128 117
- 447 024d 06       		.uleb128 0x6
- 448 024e 61020000 		.4byte	.LASF78
- 449 0252 F600     		.sleb128 118
- 450 0254 06       		.uleb128 0x6
- 451 0255 73080000 		.4byte	.LASF79
- 452 0259 F700     		.sleb128 119
- 453 025b 06       		.uleb128 0x6
- 454 025c BF070000 		.4byte	.LASF80
- 455 0260 F800     		.sleb128 120
- 456 0262 06       		.uleb128 0x6
- 457 0263 E9070000 		.4byte	.LASF81
- 458 0267 F900     		.sleb128 121
- 459 0269 06       		.uleb128 0x6
- 460 026a 87090000 		.4byte	.LASF82
- 461 026e FA00     		.sleb128 122
- 462 0270 06       		.uleb128 0x6
- 463 0271 A1070000 		.4byte	.LASF83
- 464 0275 FA01     		.sleb128 250
- 465 0277 06       		.uleb128 0x6
- 466 0278 8D040000 		.4byte	.LASF84
- 467 027c FB01     		.sleb128 251
- 468 027e 06       		.uleb128 0x6
- 469 027f CA090000 		.4byte	.LASF85
- 470 0283 FF01     		.sleb128 255
- 471 0285 00       		.byte	0
- 472 0286 07       		.uleb128 0x7
- 473 0287 04       		.byte	0x4
- 474 0288 6B000000 		.4byte	0x6b
- 475 028c 08       		.uleb128 0x8
- 476 028d 08       		.byte	0x8
- 477 028e 03       		.byte	0x3
- 478 028f B901     		.2byte	0x1b9
- 479 0291 BD020000 		.4byte	0x2bd
- 480 0295 09       		.uleb128 0x9
- 481 0296 76616C00 		.ascii	"val\000"
- 482 029a 03       		.byte	0x3
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 12
+ 478 01cf 94040000 		.4byte	.LASF59
+ 479 01d3 CC00     		.sleb128 76
+ 480 01d5 07       		.uleb128 0x7
+ 481 01d6 24000000 		.4byte	.LASF60
+ 482 01da CD00     		.sleb128 77
+ 483 01dc 07       		.uleb128 0x7
+ 484 01dd 10010000 		.4byte	.LASF61
+ 485 01e1 CE00     		.sleb128 78
+ 486 01e3 07       		.uleb128 0x7
+ 487 01e4 42040000 		.4byte	.LASF62
+ 488 01e8 CF00     		.sleb128 79
+ 489 01ea 07       		.uleb128 0x7
+ 490 01eb 530A0000 		.4byte	.LASF63
+ 491 01ef D000     		.sleb128 80
+ 492 01f1 07       		.uleb128 0x7
+ 493 01f2 66070000 		.4byte	.LASF64
+ 494 01f6 D100     		.sleb128 81
+ 495 01f8 07       		.uleb128 0x7
+ 496 01f9 68030000 		.4byte	.LASF65
+ 497 01fd D200     		.sleb128 82
+ 498 01ff 07       		.uleb128 0x7
+ 499 0200 00030000 		.4byte	.LASF66
+ 500 0204 D300     		.sleb128 83
+ 501 0206 07       		.uleb128 0x7
+ 502 0207 DF010000 		.4byte	.LASF67
+ 503 020b D400     		.sleb128 84
+ 504 020d 07       		.uleb128 0x7
+ 505 020e 940A0000 		.4byte	.LASF68
+ 506 0212 D500     		.sleb128 85
+ 507 0214 07       		.uleb128 0x7
+ 508 0215 2B0A0000 		.4byte	.LASF69
+ 509 0219 D600     		.sleb128 86
+ 510 021b 07       		.uleb128 0x7
+ 511 021c E4090000 		.4byte	.LASF70
+ 512 0220 D700     		.sleb128 87
+ 513 0222 07       		.uleb128 0x7
+ 514 0223 A3050000 		.4byte	.LASF71
+ 515 0227 D800     		.sleb128 88
+ 516 0229 07       		.uleb128 0x7
+ 517 022a 0E040000 		.4byte	.LASF72
+ 518 022e F000     		.sleb128 112
+ 519 0230 07       		.uleb128 0x7
+ 520 0231 7D080000 		.4byte	.LASF73
+ 521 0235 F100     		.sleb128 113
+ 522 0237 07       		.uleb128 0x7
+ 523 0238 F7060000 		.4byte	.LASF74
+ 524 023c F200     		.sleb128 114
+ 525 023e 07       		.uleb128 0x7
+ 526 023f 17020000 		.4byte	.LASF75
+ 527 0243 F300     		.sleb128 115
+ 528 0245 07       		.uleb128 0x7
+ 529 0246 C6030000 		.4byte	.LASF76
+ 530 024a F400     		.sleb128 116
+ 531 024c 07       		.uleb128 0x7
+ 532 024d 4D050000 		.4byte	.LASF77
+ 533 0251 F500     		.sleb128 117
+ 534 0253 07       		.uleb128 0x7
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 13
 
 
- 483 029b BC01     		.2byte	0x1bc
- 484 029d 86020000 		.4byte	0x286
- 485 02a1 00       		.byte	0
- 486 02a2 09       		.uleb128 0x9
- 487 02a3 6C656E00 		.ascii	"len\000"
- 488 02a7 03       		.byte	0x3
- 489 02a8 BF01     		.2byte	0x1bf
- 490 02aa 77000000 		.4byte	0x77
- 491 02ae 04       		.byte	0x4
- 492 02af 0A       		.uleb128 0xa
- 493 02b0 F8080000 		.4byte	.LASF86
- 494 02b4 03       		.byte	0x3
- 495 02b5 C601     		.2byte	0x1c6
- 496 02b7 77000000 		.4byte	0x77
- 497 02bb 06       		.byte	0x6
- 498 02bc 00       		.byte	0
- 499 02bd 04       		.uleb128 0x4
- 500 02be 6B060000 		.4byte	.LASF87
- 501 02c2 03       		.byte	0x3
- 502 02c3 C801     		.2byte	0x1c8
- 503 02c5 8C020000 		.4byte	0x28c
- 504 02c9 07       		.uleb128 0x7
- 505 02ca 04       		.byte	0x4
- 506 02cb BD020000 		.4byte	0x2bd
- 507 02cf 0B       		.uleb128 0xb
- 508 02d0 01       		.byte	0x1
- 509 02d1 05       		.byte	0x5
- 510 02d2 22       		.byte	0x22
- 511 02d3 14030000 		.4byte	0x314
- 512 02d7 06       		.uleb128 0x6
- 513 02d8 DC080000 		.4byte	.LASF88
- 514 02dc 00       		.sleb128 0
- 515 02dd 06       		.uleb128 0x6
- 516 02de B5030000 		.4byte	.LASF89
- 517 02e2 01       		.sleb128 1
- 518 02e3 06       		.uleb128 0x6
- 519 02e4 E3000000 		.4byte	.LASF90
- 520 02e8 02       		.sleb128 2
- 521 02e9 06       		.uleb128 0x6
- 522 02ea 5E090000 		.4byte	.LASF91
- 523 02ee 03       		.sleb128 3
- 524 02ef 06       		.uleb128 0x6
- 525 02f0 29090000 		.4byte	.LASF92
- 526 02f4 04       		.sleb128 4
- 527 02f5 06       		.uleb128 0x6
- 528 02f6 09010000 		.4byte	.LASF93
- 529 02fa 05       		.sleb128 5
- 530 02fb 06       		.uleb128 0x6
- 531 02fc CA0A0000 		.4byte	.LASF94
- 532 0300 06       		.sleb128 6
- 533 0301 06       		.uleb128 0x6
- 534 0302 45070000 		.4byte	.LASF95
- 535 0306 07       		.sleb128 7
- 536 0307 06       		.uleb128 0x6
- 537 0308 070B0000 		.4byte	.LASF96
- 538 030c 08       		.sleb128 8
- 539 030d 06       		.uleb128 0x6
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 13
+ 535 0254 35020000 		.4byte	.LASF78
+ 536 0258 F600     		.sleb128 118
+ 537 025a 07       		.uleb128 0x7
+ 538 025b 5E080000 		.4byte	.LASF79
+ 539 025f F700     		.sleb128 119
+ 540 0261 07       		.uleb128 0x7
+ 541 0262 AA070000 		.4byte	.LASF80
+ 542 0266 F800     		.sleb128 120
+ 543 0268 07       		.uleb128 0x7
+ 544 0269 D4070000 		.4byte	.LASF81
+ 545 026d F900     		.sleb128 121
+ 546 026f 07       		.uleb128 0x7
+ 547 0270 93090000 		.4byte	.LASF82
+ 548 0274 FA00     		.sleb128 122
+ 549 0276 07       		.uleb128 0x7
+ 550 0277 8C070000 		.4byte	.LASF83
+ 551 027b FA01     		.sleb128 250
+ 552 027d 07       		.uleb128 0x7
+ 553 027e 61040000 		.4byte	.LASF84
+ 554 0282 FB01     		.sleb128 251
+ 555 0284 07       		.uleb128 0x7
+ 556 0285 D6090000 		.4byte	.LASF85
+ 557 0289 FF01     		.sleb128 255
+ 558 028b 00       		.byte	0
+ 559 028c 05       		.uleb128 0x5
+ 560 028d 04       		.byte	0x4
+ 561 028e 6B000000 		.4byte	0x6b
+ 562 0292 08       		.uleb128 0x8
+ 563 0293 08       		.byte	0x8
+ 564 0294 03       		.byte	0x3
+ 565 0295 B901     		.2byte	0x1b9
+ 566 0297 C3020000 		.4byte	0x2c3
+ 567 029b 09       		.uleb128 0x9
+ 568 029c 76616C00 		.ascii	"val\000"
+ 569 02a0 03       		.byte	0x3
+ 570 02a1 BC01     		.2byte	0x1bc
+ 571 02a3 8C020000 		.4byte	0x28c
+ 572 02a7 00       		.byte	0
+ 573 02a8 09       		.uleb128 0x9
+ 574 02a9 6C656E00 		.ascii	"len\000"
+ 575 02ad 03       		.byte	0x3
+ 576 02ae BF01     		.2byte	0x1bf
+ 577 02b0 77000000 		.4byte	0x77
+ 578 02b4 04       		.byte	0x4
+ 579 02b5 0A       		.uleb128 0xa
+ 580 02b6 E3080000 		.4byte	.LASF86
+ 581 02ba 03       		.byte	0x3
+ 582 02bb C601     		.2byte	0x1c6
+ 583 02bd 77000000 		.4byte	0x77
+ 584 02c1 06       		.byte	0x6
+ 585 02c2 00       		.byte	0
+ 586 02c3 04       		.uleb128 0x4
+ 587 02c4 56060000 		.4byte	.LASF87
+ 588 02c8 03       		.byte	0x3
+ 589 02c9 C801     		.2byte	0x1c8
+ 590 02cb 92020000 		.4byte	0x292
+ 591 02cf 05       		.uleb128 0x5
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 14
 
 
- 540 030e 0C080000 		.4byte	.LASF97
- 541 0312 09       		.sleb128 9
- 542 0313 00       		.byte	0
- 543 0314 0C       		.uleb128 0xc
- 544 0315 3B070000 		.4byte	.LASF98
- 545 0319 01       		.byte	0x1
- 546 031a 6D       		.byte	0x6d
- 547 031b 00000000 		.4byte	.LFB37
- 548 031f 3A000000 		.4byte	.LFE37-.LFB37
- 549 0323 01       		.uleb128 0x1
- 550 0324 9C       		.byte	0x9c
- 551 0325 44030000 		.4byte	0x344
- 552 0329 0D       		.uleb128 0xd
- 553 032a 410A0000 		.4byte	.LASF100
- 554 032e 01       		.byte	0x1
- 555 032f 6D       		.byte	0x6d
- 556 0330 C9020000 		.4byte	0x2c9
- 557 0334 02       		.uleb128 0x2
- 558 0335 91       		.byte	0x91
- 559 0336 6C       		.sleb128 -20
- 560 0337 0E       		.uleb128 0xe
- 561 0338 6900     		.ascii	"i\000"
- 562 033a 01       		.byte	0x1
- 563 033b 6F       		.byte	0x6f
- 564 033c 8F000000 		.4byte	0x8f
- 565 0340 02       		.uleb128 0x2
- 566 0341 91       		.byte	0x91
- 567 0342 76       		.sleb128 -10
- 568 0343 00       		.byte	0
- 569 0344 0C       		.uleb128 0xc
- 570 0345 2A050000 		.4byte	.LASF99
- 571 0349 01       		.byte	0x1
- 572 034a 79       		.byte	0x79
- 573 034b 00000000 		.4byte	.LFB38
- 574 034f 3C000000 		.4byte	.LFE38-.LFB38
- 575 0353 01       		.uleb128 0x1
- 576 0354 9C       		.byte	0x9c
- 577 0355 76030000 		.4byte	0x376
- 578 0359 0F       		.uleb128 0xf
- 579 035a 70747200 		.ascii	"ptr\000"
- 580 035e 01       		.byte	0x1
- 581 035f 79       		.byte	0x79
- 582 0360 86020000 		.4byte	0x286
- 583 0364 02       		.uleb128 0x2
- 584 0365 91       		.byte	0x91
- 585 0366 74       		.sleb128 -12
- 586 0367 0D       		.uleb128 0xd
- 587 0368 410A0000 		.4byte	.LASF100
- 588 036c 01       		.byte	0x1
- 589 036d 79       		.byte	0x79
- 590 036e 83000000 		.4byte	0x83
- 591 0372 02       		.uleb128 0x2
- 592 0373 91       		.byte	0x91
- 593 0374 70       		.sleb128 -16
- 594 0375 00       		.byte	0
- 595 0376 10       		.uleb128 0x10
- 596 0377 E2010000 		.4byte	.LASF104
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 14
+ 592 02d0 04       		.byte	0x4
+ 593 02d1 C3020000 		.4byte	0x2c3
+ 594 02d5 0B       		.uleb128 0xb
+ 595 02d6 01       		.byte	0x1
+ 596 02d7 05       		.byte	0x5
+ 597 02d8 22       		.byte	0x22
+ 598 02d9 1A030000 		.4byte	0x31a
+ 599 02dd 07       		.uleb128 0x7
+ 600 02de C7080000 		.4byte	.LASF88
+ 601 02e2 00       		.sleb128 0
+ 602 02e3 07       		.uleb128 0x7
+ 603 02e4 89030000 		.4byte	.LASF89
+ 604 02e8 01       		.sleb128 1
+ 605 02e9 07       		.uleb128 0x7
+ 606 02ea E3000000 		.4byte	.LASF90
+ 607 02ee 02       		.sleb128 2
+ 608 02ef 07       		.uleb128 0x7
+ 609 02f0 6A090000 		.4byte	.LASF91
+ 610 02f4 03       		.sleb128 3
+ 611 02f5 07       		.uleb128 0x7
+ 612 02f6 14090000 		.4byte	.LASF92
+ 613 02fa 04       		.sleb128 4
+ 614 02fb 07       		.uleb128 0x7
+ 615 02fc 3F060000 		.4byte	.LASF93
+ 616 0300 05       		.sleb128 5
+ 617 0301 07       		.uleb128 0x7
+ 618 0302 D60A0000 		.4byte	.LASF94
+ 619 0306 06       		.sleb128 6
+ 620 0307 07       		.uleb128 0x7
+ 621 0308 30070000 		.4byte	.LASF95
+ 622 030c 07       		.sleb128 7
+ 623 030d 07       		.uleb128 0x7
+ 624 030e 130B0000 		.4byte	.LASF96
+ 625 0312 08       		.sleb128 8
+ 626 0313 07       		.uleb128 0x7
+ 627 0314 F7070000 		.4byte	.LASF97
+ 628 0318 09       		.sleb128 9
+ 629 0319 00       		.byte	0
+ 630 031a 0C       		.uleb128 0xc
+ 631 031b 09010000 		.4byte	.LASF105
+ 632 031f 01       		.byte	0x1
+ 633 0320 5D       		.byte	0x5d
+ 634 0321 5D000000 		.4byte	0x5d
+ 635 0325 00000000 		.4byte	.LFB37
+ 636 0329 38000000 		.4byte	.LFE37-.LFB37
+ 637 032d 01       		.uleb128 0x1
+ 638 032e 9C       		.byte	0x9c
+ 639 032f 6A030000 		.4byte	0x36a
+ 640 0333 0D       		.uleb128 0xd
+ 641 0334 43010000 		.4byte	.LASF98
+ 642 0338 01       		.byte	0x1
+ 643 0339 5D       		.byte	0x5d
+ 644 033a 5D000000 		.4byte	0x5d
+ 645 033e 02       		.uleb128 0x2
+ 646 033f 91       		.byte	0x91
+ 647 0340 6C       		.sleb128 -20
+ 648 0341 0E       		.uleb128 0xe
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 15
 
 
- 597 037b 01       		.byte	0x1
- 598 037c 8A       		.byte	0x8a
- 599 037d 00000000 		.4byte	.LFB39
- 600 0381 20000000 		.4byte	.LFE39-.LFB39
- 601 0385 01       		.uleb128 0x1
- 602 0386 9C       		.byte	0x9c
- 603 0387 11       		.uleb128 0x11
- 604 0388 546F6E00 		.ascii	"Ton\000"
- 605 038c 06       		.byte	0x6
- 606 038d 3D       		.byte	0x3d
- 607 038e 5D000000 		.4byte	0x5d
- 608 0392 05       		.uleb128 0x5
- 609 0393 03       		.byte	0x3
- 610 0394 00000000 		.4byte	Ton
- 611 0398 00       		.byte	0
- 612              		.section	.debug_abbrev,"",%progbits
- 613              	.Ldebug_abbrev0:
- 614 0000 01       		.uleb128 0x1
- 615 0001 11       		.uleb128 0x11
- 616 0002 01       		.byte	0x1
- 617 0003 25       		.uleb128 0x25
- 618 0004 0E       		.uleb128 0xe
- 619 0005 13       		.uleb128 0x13
- 620 0006 0B       		.uleb128 0xb
- 621 0007 03       		.uleb128 0x3
- 622 0008 0E       		.uleb128 0xe
- 623 0009 1B       		.uleb128 0x1b
- 624 000a 0E       		.uleb128 0xe
- 625 000b 55       		.uleb128 0x55
- 626 000c 17       		.uleb128 0x17
- 627 000d 11       		.uleb128 0x11
- 628 000e 01       		.uleb128 0x1
- 629 000f 10       		.uleb128 0x10
- 630 0010 17       		.uleb128 0x17
- 631 0011 00       		.byte	0
- 632 0012 00       		.byte	0
- 633 0013 02       		.uleb128 0x2
- 634 0014 24       		.uleb128 0x24
- 635 0015 00       		.byte	0
- 636 0016 0B       		.uleb128 0xb
- 637 0017 0B       		.uleb128 0xb
- 638 0018 3E       		.uleb128 0x3e
- 639 0019 0B       		.uleb128 0xb
- 640 001a 03       		.uleb128 0x3
- 641 001b 0E       		.uleb128 0xe
- 642 001c 00       		.byte	0
- 643 001d 00       		.byte	0
- 644 001e 03       		.uleb128 0x3
- 645 001f 24       		.uleb128 0x24
- 646 0020 00       		.byte	0
- 647 0021 0B       		.uleb128 0xb
- 648 0022 0B       		.uleb128 0xb
- 649 0023 3E       		.uleb128 0x3e
- 650 0024 0B       		.uleb128 0xb
- 651 0025 03       		.uleb128 0x3
- 652 0026 08       		.uleb128 0x8
- 653 0027 00       		.byte	0
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 15
+ 649 0342 70747200 		.ascii	"ptr\000"
+ 650 0346 01       		.byte	0x1
+ 651 0347 5D       		.byte	0x5d
+ 652 0348 B7000000 		.4byte	0xb7
+ 653 034c 02       		.uleb128 0x2
+ 654 034d 91       		.byte	0x91
+ 655 034e 68       		.sleb128 -24
+ 656 034f 0E       		.uleb128 0xe
+ 657 0350 6C656E00 		.ascii	"len\000"
+ 658 0354 01       		.byte	0x1
+ 659 0355 5D       		.byte	0x5d
+ 660 0356 5D000000 		.4byte	0x5d
+ 661 035a 02       		.uleb128 0x2
+ 662 035b 91       		.byte	0x91
+ 663 035c 64       		.sleb128 -28
+ 664 035d 0F       		.uleb128 0xf
+ 665 035e 6900     		.ascii	"i\000"
+ 666 0360 01       		.byte	0x1
+ 667 0361 5F       		.byte	0x5f
+ 668 0362 5D000000 		.4byte	0x5d
+ 669 0366 02       		.uleb128 0x2
+ 670 0367 91       		.byte	0x91
+ 671 0368 74       		.sleb128 -12
+ 672 0369 00       		.byte	0
+ 673 036a 10       		.uleb128 0x10
+ 674 036b 26070000 		.4byte	.LASF100
+ 675 036f 01       		.byte	0x1
+ 676 0370 6D       		.byte	0x6d
+ 677 0371 00000000 		.4byte	.LFB38
+ 678 0375 68000000 		.4byte	.LFE38-.LFB38
+ 679 0379 01       		.uleb128 0x1
+ 680 037a 9C       		.byte	0x9c
+ 681 037b 9A030000 		.4byte	0x39a
+ 682 037f 0D       		.uleb128 0xd
+ 683 0380 4D0A0000 		.4byte	.LASF99
+ 684 0384 01       		.byte	0x1
+ 685 0385 6D       		.byte	0x6d
+ 686 0386 CF020000 		.4byte	0x2cf
+ 687 038a 02       		.uleb128 0x2
+ 688 038b 91       		.byte	0x91
+ 689 038c 6C       		.sleb128 -20
+ 690 038d 0F       		.uleb128 0xf
+ 691 038e 6900     		.ascii	"i\000"
+ 692 0390 01       		.byte	0x1
+ 693 0391 6F       		.byte	0x6f
+ 694 0392 8F000000 		.4byte	0x8f
+ 695 0396 02       		.uleb128 0x2
+ 696 0397 91       		.byte	0x91
+ 697 0398 76       		.sleb128 -10
+ 698 0399 00       		.byte	0
+ 699 039a 11       		.uleb128 0x11
+ 700 039b FE040000 		.4byte	.LASF101
+ 701 039f 01       		.byte	0x1
+ 702 03a0 79       		.byte	0x79
+ 703 03a1 00000000 		.4byte	.LFB39
+ 704 03a5 3C000000 		.4byte	.LFE39-.LFB39
+ 705 03a9 01       		.uleb128 0x1
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 16
 
 
- 654 0028 00       		.byte	0
- 655 0029 04       		.uleb128 0x4
- 656 002a 16       		.uleb128 0x16
- 657 002b 00       		.byte	0
- 658 002c 03       		.uleb128 0x3
- 659 002d 0E       		.uleb128 0xe
- 660 002e 3A       		.uleb128 0x3a
- 661 002f 0B       		.uleb128 0xb
- 662 0030 3B       		.uleb128 0x3b
- 663 0031 05       		.uleb128 0x5
- 664 0032 49       		.uleb128 0x49
- 665 0033 13       		.uleb128 0x13
- 666 0034 00       		.byte	0
- 667 0035 00       		.byte	0
- 668 0036 05       		.uleb128 0x5
- 669 0037 04       		.uleb128 0x4
- 670 0038 01       		.byte	0x1
- 671 0039 0B       		.uleb128 0xb
- 672 003a 0B       		.uleb128 0xb
- 673 003b 3A       		.uleb128 0x3a
- 674 003c 0B       		.uleb128 0xb
- 675 003d 3B       		.uleb128 0x3b
- 676 003e 05       		.uleb128 0x5
- 677 003f 01       		.uleb128 0x1
- 678 0040 13       		.uleb128 0x13
- 679 0041 00       		.byte	0
- 680 0042 00       		.byte	0
- 681 0043 06       		.uleb128 0x6
- 682 0044 28       		.uleb128 0x28
- 683 0045 00       		.byte	0
- 684 0046 03       		.uleb128 0x3
- 685 0047 0E       		.uleb128 0xe
- 686 0048 1C       		.uleb128 0x1c
- 687 0049 0D       		.uleb128 0xd
- 688 004a 00       		.byte	0
- 689 004b 00       		.byte	0
- 690 004c 07       		.uleb128 0x7
- 691 004d 0F       		.uleb128 0xf
- 692 004e 00       		.byte	0
- 693 004f 0B       		.uleb128 0xb
- 694 0050 0B       		.uleb128 0xb
- 695 0051 49       		.uleb128 0x49
- 696 0052 13       		.uleb128 0x13
- 697 0053 00       		.byte	0
- 698 0054 00       		.byte	0
- 699 0055 08       		.uleb128 0x8
- 700 0056 13       		.uleb128 0x13
- 701 0057 01       		.byte	0x1
- 702 0058 0B       		.uleb128 0xb
- 703 0059 0B       		.uleb128 0xb
- 704 005a 3A       		.uleb128 0x3a
- 705 005b 0B       		.uleb128 0xb
- 706 005c 3B       		.uleb128 0x3b
- 707 005d 05       		.uleb128 0x5
- 708 005e 01       		.uleb128 0x1
- 709 005f 13       		.uleb128 0x13
- 710 0060 00       		.byte	0
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 16
+ 706 03aa 9C       		.byte	0x9c
+ 707 03ab CC030000 		.4byte	0x3cc
+ 708 03af 0E       		.uleb128 0xe
+ 709 03b0 70747200 		.ascii	"ptr\000"
+ 710 03b4 01       		.byte	0x1
+ 711 03b5 79       		.byte	0x79
+ 712 03b6 8C020000 		.4byte	0x28c
+ 713 03ba 02       		.uleb128 0x2
+ 714 03bb 91       		.byte	0x91
+ 715 03bc 74       		.sleb128 -12
+ 716 03bd 0D       		.uleb128 0xd
+ 717 03be 4D0A0000 		.4byte	.LASF99
+ 718 03c2 01       		.byte	0x1
+ 719 03c3 79       		.byte	0x79
+ 720 03c4 83000000 		.4byte	0x83
+ 721 03c8 02       		.uleb128 0x2
+ 722 03c9 91       		.byte	0x91
+ 723 03ca 70       		.sleb128 -16
+ 724 03cb 00       		.byte	0
+ 725 03cc 12       		.uleb128 0x12
+ 726 03cd B6010000 		.4byte	.LASF106
+ 727 03d1 01       		.byte	0x1
+ 728 03d2 8A       		.byte	0x8a
+ 729 03d3 00000000 		.4byte	.LFB40
+ 730 03d7 20000000 		.4byte	.LFE40-.LFB40
+ 731 03db 01       		.uleb128 0x1
+ 732 03dc 9C       		.byte	0x9c
+ 733 03dd 13       		.uleb128 0x13
+ 734 03de 546F6E00 		.ascii	"Ton\000"
+ 735 03e2 06       		.byte	0x6
+ 736 03e3 3D       		.byte	0x3d
+ 737 03e4 5D000000 		.4byte	0x5d
+ 738 03e8 05       		.uleb128 0x5
+ 739 03e9 03       		.byte	0x3
+ 740 03ea 00000000 		.4byte	Ton
+ 741 03ee 00       		.byte	0
+ 742              		.section	.debug_abbrev,"",%progbits
+ 743              	.Ldebug_abbrev0:
+ 744 0000 01       		.uleb128 0x1
+ 745 0001 11       		.uleb128 0x11
+ 746 0002 01       		.byte	0x1
+ 747 0003 25       		.uleb128 0x25
+ 748 0004 0E       		.uleb128 0xe
+ 749 0005 13       		.uleb128 0x13
+ 750 0006 0B       		.uleb128 0xb
+ 751 0007 03       		.uleb128 0x3
+ 752 0008 0E       		.uleb128 0xe
+ 753 0009 1B       		.uleb128 0x1b
+ 754 000a 0E       		.uleb128 0xe
+ 755 000b 55       		.uleb128 0x55
+ 756 000c 17       		.uleb128 0x17
+ 757 000d 11       		.uleb128 0x11
+ 758 000e 01       		.uleb128 0x1
+ 759 000f 10       		.uleb128 0x10
+ 760 0010 17       		.uleb128 0x17
+ 761 0011 00       		.byte	0
+ 762 0012 00       		.byte	0
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 17
 
 
- 711 0061 00       		.byte	0
- 712 0062 09       		.uleb128 0x9
- 713 0063 0D       		.uleb128 0xd
- 714 0064 00       		.byte	0
- 715 0065 03       		.uleb128 0x3
- 716 0066 08       		.uleb128 0x8
- 717 0067 3A       		.uleb128 0x3a
- 718 0068 0B       		.uleb128 0xb
- 719 0069 3B       		.uleb128 0x3b
- 720 006a 05       		.uleb128 0x5
- 721 006b 49       		.uleb128 0x49
- 722 006c 13       		.uleb128 0x13
- 723 006d 38       		.uleb128 0x38
- 724 006e 0B       		.uleb128 0xb
- 725 006f 00       		.byte	0
- 726 0070 00       		.byte	0
- 727 0071 0A       		.uleb128 0xa
- 728 0072 0D       		.uleb128 0xd
- 729 0073 00       		.byte	0
- 730 0074 03       		.uleb128 0x3
- 731 0075 0E       		.uleb128 0xe
- 732 0076 3A       		.uleb128 0x3a
- 733 0077 0B       		.uleb128 0xb
- 734 0078 3B       		.uleb128 0x3b
- 735 0079 05       		.uleb128 0x5
- 736 007a 49       		.uleb128 0x49
- 737 007b 13       		.uleb128 0x13
- 738 007c 38       		.uleb128 0x38
- 739 007d 0B       		.uleb128 0xb
- 740 007e 00       		.byte	0
- 741 007f 00       		.byte	0
- 742 0080 0B       		.uleb128 0xb
- 743 0081 04       		.uleb128 0x4
- 744 0082 01       		.byte	0x1
- 745 0083 0B       		.uleb128 0xb
- 746 0084 0B       		.uleb128 0xb
- 747 0085 3A       		.uleb128 0x3a
- 748 0086 0B       		.uleb128 0xb
- 749 0087 3B       		.uleb128 0x3b
- 750 0088 0B       		.uleb128 0xb
- 751 0089 01       		.uleb128 0x1
- 752 008a 13       		.uleb128 0x13
- 753 008b 00       		.byte	0
- 754 008c 00       		.byte	0
- 755 008d 0C       		.uleb128 0xc
- 756 008e 2E       		.uleb128 0x2e
- 757 008f 01       		.byte	0x1
- 758 0090 3F       		.uleb128 0x3f
- 759 0091 19       		.uleb128 0x19
- 760 0092 03       		.uleb128 0x3
- 761 0093 0E       		.uleb128 0xe
- 762 0094 3A       		.uleb128 0x3a
- 763 0095 0B       		.uleb128 0xb
- 764 0096 3B       		.uleb128 0x3b
- 765 0097 0B       		.uleb128 0xb
- 766 0098 27       		.uleb128 0x27
- 767 0099 19       		.uleb128 0x19
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 17
+ 763 0013 02       		.uleb128 0x2
+ 764 0014 24       		.uleb128 0x24
+ 765 0015 00       		.byte	0
+ 766 0016 0B       		.uleb128 0xb
+ 767 0017 0B       		.uleb128 0xb
+ 768 0018 3E       		.uleb128 0x3e
+ 769 0019 0B       		.uleb128 0xb
+ 770 001a 03       		.uleb128 0x3
+ 771 001b 0E       		.uleb128 0xe
+ 772 001c 00       		.byte	0
+ 773 001d 00       		.byte	0
+ 774 001e 03       		.uleb128 0x3
+ 775 001f 24       		.uleb128 0x24
+ 776 0020 00       		.byte	0
+ 777 0021 0B       		.uleb128 0xb
+ 778 0022 0B       		.uleb128 0xb
+ 779 0023 3E       		.uleb128 0x3e
+ 780 0024 0B       		.uleb128 0xb
+ 781 0025 03       		.uleb128 0x3
+ 782 0026 08       		.uleb128 0x8
+ 783 0027 00       		.byte	0
+ 784 0028 00       		.byte	0
+ 785 0029 04       		.uleb128 0x4
+ 786 002a 16       		.uleb128 0x16
+ 787 002b 00       		.byte	0
+ 788 002c 03       		.uleb128 0x3
+ 789 002d 0E       		.uleb128 0xe
+ 790 002e 3A       		.uleb128 0x3a
+ 791 002f 0B       		.uleb128 0xb
+ 792 0030 3B       		.uleb128 0x3b
+ 793 0031 05       		.uleb128 0x5
+ 794 0032 49       		.uleb128 0x49
+ 795 0033 13       		.uleb128 0x13
+ 796 0034 00       		.byte	0
+ 797 0035 00       		.byte	0
+ 798 0036 05       		.uleb128 0x5
+ 799 0037 0F       		.uleb128 0xf
+ 800 0038 00       		.byte	0
+ 801 0039 0B       		.uleb128 0xb
+ 802 003a 0B       		.uleb128 0xb
+ 803 003b 49       		.uleb128 0x49
+ 804 003c 13       		.uleb128 0x13
+ 805 003d 00       		.byte	0
+ 806 003e 00       		.byte	0
+ 807 003f 06       		.uleb128 0x6
+ 808 0040 04       		.uleb128 0x4
+ 809 0041 01       		.byte	0x1
+ 810 0042 0B       		.uleb128 0xb
+ 811 0043 0B       		.uleb128 0xb
+ 812 0044 3A       		.uleb128 0x3a
+ 813 0045 0B       		.uleb128 0xb
+ 814 0046 3B       		.uleb128 0x3b
+ 815 0047 05       		.uleb128 0x5
+ 816 0048 01       		.uleb128 0x1
+ 817 0049 13       		.uleb128 0x13
+ 818 004a 00       		.byte	0
+ 819 004b 00       		.byte	0
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 18
 
 
- 768 009a 11       		.uleb128 0x11
- 769 009b 01       		.uleb128 0x1
- 770 009c 12       		.uleb128 0x12
- 771 009d 06       		.uleb128 0x6
- 772 009e 40       		.uleb128 0x40
- 773 009f 18       		.uleb128 0x18
- 774 00a0 9742     		.uleb128 0x2117
- 775 00a2 19       		.uleb128 0x19
- 776 00a3 01       		.uleb128 0x1
- 777 00a4 13       		.uleb128 0x13
- 778 00a5 00       		.byte	0
- 779 00a6 00       		.byte	0
- 780 00a7 0D       		.uleb128 0xd
- 781 00a8 05       		.uleb128 0x5
- 782 00a9 00       		.byte	0
- 783 00aa 03       		.uleb128 0x3
- 784 00ab 0E       		.uleb128 0xe
- 785 00ac 3A       		.uleb128 0x3a
- 786 00ad 0B       		.uleb128 0xb
- 787 00ae 3B       		.uleb128 0x3b
- 788 00af 0B       		.uleb128 0xb
- 789 00b0 49       		.uleb128 0x49
- 790 00b1 13       		.uleb128 0x13
- 791 00b2 02       		.uleb128 0x2
- 792 00b3 18       		.uleb128 0x18
- 793 00b4 00       		.byte	0
- 794 00b5 00       		.byte	0
- 795 00b6 0E       		.uleb128 0xe
- 796 00b7 34       		.uleb128 0x34
- 797 00b8 00       		.byte	0
- 798 00b9 03       		.uleb128 0x3
- 799 00ba 08       		.uleb128 0x8
- 800 00bb 3A       		.uleb128 0x3a
- 801 00bc 0B       		.uleb128 0xb
- 802 00bd 3B       		.uleb128 0x3b
- 803 00be 0B       		.uleb128 0xb
- 804 00bf 49       		.uleb128 0x49
- 805 00c0 13       		.uleb128 0x13
- 806 00c1 02       		.uleb128 0x2
- 807 00c2 18       		.uleb128 0x18
- 808 00c3 00       		.byte	0
- 809 00c4 00       		.byte	0
- 810 00c5 0F       		.uleb128 0xf
- 811 00c6 05       		.uleb128 0x5
- 812 00c7 00       		.byte	0
- 813 00c8 03       		.uleb128 0x3
- 814 00c9 08       		.uleb128 0x8
- 815 00ca 3A       		.uleb128 0x3a
- 816 00cb 0B       		.uleb128 0xb
- 817 00cc 3B       		.uleb128 0x3b
- 818 00cd 0B       		.uleb128 0xb
- 819 00ce 49       		.uleb128 0x49
- 820 00cf 13       		.uleb128 0x13
- 821 00d0 02       		.uleb128 0x2
- 822 00d1 18       		.uleb128 0x18
- 823 00d2 00       		.byte	0
- 824 00d3 00       		.byte	0
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 18
+ 820 004c 07       		.uleb128 0x7
+ 821 004d 28       		.uleb128 0x28
+ 822 004e 00       		.byte	0
+ 823 004f 03       		.uleb128 0x3
+ 824 0050 0E       		.uleb128 0xe
+ 825 0051 1C       		.uleb128 0x1c
+ 826 0052 0D       		.uleb128 0xd
+ 827 0053 00       		.byte	0
+ 828 0054 00       		.byte	0
+ 829 0055 08       		.uleb128 0x8
+ 830 0056 13       		.uleb128 0x13
+ 831 0057 01       		.byte	0x1
+ 832 0058 0B       		.uleb128 0xb
+ 833 0059 0B       		.uleb128 0xb
+ 834 005a 3A       		.uleb128 0x3a
+ 835 005b 0B       		.uleb128 0xb
+ 836 005c 3B       		.uleb128 0x3b
+ 837 005d 05       		.uleb128 0x5
+ 838 005e 01       		.uleb128 0x1
+ 839 005f 13       		.uleb128 0x13
+ 840 0060 00       		.byte	0
+ 841 0061 00       		.byte	0
+ 842 0062 09       		.uleb128 0x9
+ 843 0063 0D       		.uleb128 0xd
+ 844 0064 00       		.byte	0
+ 845 0065 03       		.uleb128 0x3
+ 846 0066 08       		.uleb128 0x8
+ 847 0067 3A       		.uleb128 0x3a
+ 848 0068 0B       		.uleb128 0xb
+ 849 0069 3B       		.uleb128 0x3b
+ 850 006a 05       		.uleb128 0x5
+ 851 006b 49       		.uleb128 0x49
+ 852 006c 13       		.uleb128 0x13
+ 853 006d 38       		.uleb128 0x38
+ 854 006e 0B       		.uleb128 0xb
+ 855 006f 00       		.byte	0
+ 856 0070 00       		.byte	0
+ 857 0071 0A       		.uleb128 0xa
+ 858 0072 0D       		.uleb128 0xd
+ 859 0073 00       		.byte	0
+ 860 0074 03       		.uleb128 0x3
+ 861 0075 0E       		.uleb128 0xe
+ 862 0076 3A       		.uleb128 0x3a
+ 863 0077 0B       		.uleb128 0xb
+ 864 0078 3B       		.uleb128 0x3b
+ 865 0079 05       		.uleb128 0x5
+ 866 007a 49       		.uleb128 0x49
+ 867 007b 13       		.uleb128 0x13
+ 868 007c 38       		.uleb128 0x38
+ 869 007d 0B       		.uleb128 0xb
+ 870 007e 00       		.byte	0
+ 871 007f 00       		.byte	0
+ 872 0080 0B       		.uleb128 0xb
+ 873 0081 04       		.uleb128 0x4
+ 874 0082 01       		.byte	0x1
+ 875 0083 0B       		.uleb128 0xb
+ 876 0084 0B       		.uleb128 0xb
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 19
 
 
- 825 00d4 10       		.uleb128 0x10
- 826 00d5 2E       		.uleb128 0x2e
- 827 00d6 00       		.byte	0
- 828 00d7 3F       		.uleb128 0x3f
- 829 00d8 19       		.uleb128 0x19
- 830 00d9 03       		.uleb128 0x3
- 831 00da 0E       		.uleb128 0xe
- 832 00db 3A       		.uleb128 0x3a
- 833 00dc 0B       		.uleb128 0xb
- 834 00dd 3B       		.uleb128 0x3b
- 835 00de 0B       		.uleb128 0xb
- 836 00df 27       		.uleb128 0x27
- 837 00e0 19       		.uleb128 0x19
- 838 00e1 11       		.uleb128 0x11
- 839 00e2 01       		.uleb128 0x1
- 840 00e3 12       		.uleb128 0x12
- 841 00e4 06       		.uleb128 0x6
- 842 00e5 40       		.uleb128 0x40
- 843 00e6 18       		.uleb128 0x18
- 844 00e7 9642     		.uleb128 0x2116
- 845 00e9 19       		.uleb128 0x19
- 846 00ea 00       		.byte	0
- 847 00eb 00       		.byte	0
- 848 00ec 11       		.uleb128 0x11
- 849 00ed 34       		.uleb128 0x34
- 850 00ee 00       		.byte	0
- 851 00ef 03       		.uleb128 0x3
- 852 00f0 08       		.uleb128 0x8
- 853 00f1 3A       		.uleb128 0x3a
- 854 00f2 0B       		.uleb128 0xb
- 855 00f3 3B       		.uleb128 0x3b
- 856 00f4 0B       		.uleb128 0xb
- 857 00f5 49       		.uleb128 0x49
- 858 00f6 13       		.uleb128 0x13
- 859 00f7 3F       		.uleb128 0x3f
- 860 00f8 19       		.uleb128 0x19
- 861 00f9 02       		.uleb128 0x2
- 862 00fa 18       		.uleb128 0x18
- 863 00fb 00       		.byte	0
- 864 00fc 00       		.byte	0
- 865 00fd 00       		.byte	0
- 866              		.section	.debug_aranges,"",%progbits
- 867 0000 2C000000 		.4byte	0x2c
- 868 0004 0200     		.2byte	0x2
- 869 0006 00000000 		.4byte	.Ldebug_info0
- 870 000a 04       		.byte	0x4
- 871 000b 00       		.byte	0
- 872 000c 0000     		.2byte	0
- 873 000e 0000     		.2byte	0
- 874 0010 00000000 		.4byte	.LFB37
- 875 0014 3A000000 		.4byte	.LFE37-.LFB37
- 876 0018 00000000 		.4byte	.LFB38
- 877 001c 3C000000 		.4byte	.LFE38-.LFB38
- 878 0020 00000000 		.4byte	.LFB39
- 879 0024 20000000 		.4byte	.LFE39-.LFB39
- 880 0028 00000000 		.4byte	0
- 881 002c 00000000 		.4byte	0
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 19
+ 877 0085 3A       		.uleb128 0x3a
+ 878 0086 0B       		.uleb128 0xb
+ 879 0087 3B       		.uleb128 0x3b
+ 880 0088 0B       		.uleb128 0xb
+ 881 0089 01       		.uleb128 0x1
+ 882 008a 13       		.uleb128 0x13
+ 883 008b 00       		.byte	0
+ 884 008c 00       		.byte	0
+ 885 008d 0C       		.uleb128 0xc
+ 886 008e 2E       		.uleb128 0x2e
+ 887 008f 01       		.byte	0x1
+ 888 0090 3F       		.uleb128 0x3f
+ 889 0091 19       		.uleb128 0x19
+ 890 0092 03       		.uleb128 0x3
+ 891 0093 0E       		.uleb128 0xe
+ 892 0094 3A       		.uleb128 0x3a
+ 893 0095 0B       		.uleb128 0xb
+ 894 0096 3B       		.uleb128 0x3b
+ 895 0097 0B       		.uleb128 0xb
+ 896 0098 27       		.uleb128 0x27
+ 897 0099 19       		.uleb128 0x19
+ 898 009a 49       		.uleb128 0x49
+ 899 009b 13       		.uleb128 0x13
+ 900 009c 11       		.uleb128 0x11
+ 901 009d 01       		.uleb128 0x1
+ 902 009e 12       		.uleb128 0x12
+ 903 009f 06       		.uleb128 0x6
+ 904 00a0 40       		.uleb128 0x40
+ 905 00a1 18       		.uleb128 0x18
+ 906 00a2 9642     		.uleb128 0x2116
+ 907 00a4 19       		.uleb128 0x19
+ 908 00a5 01       		.uleb128 0x1
+ 909 00a6 13       		.uleb128 0x13
+ 910 00a7 00       		.byte	0
+ 911 00a8 00       		.byte	0
+ 912 00a9 0D       		.uleb128 0xd
+ 913 00aa 05       		.uleb128 0x5
+ 914 00ab 00       		.byte	0
+ 915 00ac 03       		.uleb128 0x3
+ 916 00ad 0E       		.uleb128 0xe
+ 917 00ae 3A       		.uleb128 0x3a
+ 918 00af 0B       		.uleb128 0xb
+ 919 00b0 3B       		.uleb128 0x3b
+ 920 00b1 0B       		.uleb128 0xb
+ 921 00b2 49       		.uleb128 0x49
+ 922 00b3 13       		.uleb128 0x13
+ 923 00b4 02       		.uleb128 0x2
+ 924 00b5 18       		.uleb128 0x18
+ 925 00b6 00       		.byte	0
+ 926 00b7 00       		.byte	0
+ 927 00b8 0E       		.uleb128 0xe
+ 928 00b9 05       		.uleb128 0x5
+ 929 00ba 00       		.byte	0
+ 930 00bb 03       		.uleb128 0x3
+ 931 00bc 08       		.uleb128 0x8
+ 932 00bd 3A       		.uleb128 0x3a
+ 933 00be 0B       		.uleb128 0xb
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 20
 
 
- 882              		.section	.debug_ranges,"",%progbits
- 883              	.Ldebug_ranges0:
- 884 0000 00000000 		.4byte	.LFB37
- 885 0004 3A000000 		.4byte	.LFE37
- 886 0008 00000000 		.4byte	.LFB38
- 887 000c 3C000000 		.4byte	.LFE38
- 888 0010 00000000 		.4byte	.LFB39
- 889 0014 20000000 		.4byte	.LFE39
- 890 0018 00000000 		.4byte	0
- 891 001c 00000000 		.4byte	0
- 892              		.section	.debug_line,"",%progbits
- 893              	.Ldebug_line0:
- 894 0000 CB000000 		.section	.debug_str,"MS",%progbits,1
- 894      02007D00 
- 894      00000201 
- 894      FB0E0D00 
- 894      01010101 
- 895              	.LASF26:
- 896 0000 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_ENTRY_REQUEST\000"
- 896      455F4556 
- 896      545F4741 
- 896      505F5041 
- 896      53534B45 
- 897              	.LASF60:
- 898 0024 4359424C 		.ascii	"CYBLE_EVT_GATTC_WRITE_RSP\000"
- 898      455F4556 
- 898      545F4741 
- 898      5454435F 
- 898      57524954 
- 899              	.LASF23:
- 900 003e 4359424C 		.ascii	"CYBLE_EVT_MEMORY_REQUEST\000"
- 900      455F4556 
- 900      545F4D45 
- 900      4D4F5259 
- 900      5F524551 
- 901              	.LASF47:
- 902 0057 4359424C 		.ascii	"CYBLE_EVT_GATTC_ERROR_RSP\000"
- 902      455F4556 
- 902      545F4741 
- 902      5454435F 
- 902      4552524F 
- 903              	.LASF38:
- 904 0071 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYPRESS_NOTIFICATION\000"
- 904      455F4556 
- 904      545F4741 
- 904      505F4B45 
- 904      59505245 
- 905              	.LASF2:
- 906 0095 73686F72 		.ascii	"short int\000"
- 906      7420696E 
- 906      7400
- 907              	.LASF29:
- 908 009f 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_FAILED\000"
- 908      455F4556 
- 908      545F4741 
- 908      505F4155 
- 908      54485F46 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 20
+ 934 00bf 3B       		.uleb128 0x3b
+ 935 00c0 0B       		.uleb128 0xb
+ 936 00c1 49       		.uleb128 0x49
+ 937 00c2 13       		.uleb128 0x13
+ 938 00c3 02       		.uleb128 0x2
+ 939 00c4 18       		.uleb128 0x18
+ 940 00c5 00       		.byte	0
+ 941 00c6 00       		.byte	0
+ 942 00c7 0F       		.uleb128 0xf
+ 943 00c8 34       		.uleb128 0x34
+ 944 00c9 00       		.byte	0
+ 945 00ca 03       		.uleb128 0x3
+ 946 00cb 08       		.uleb128 0x8
+ 947 00cc 3A       		.uleb128 0x3a
+ 948 00cd 0B       		.uleb128 0xb
+ 949 00ce 3B       		.uleb128 0x3b
+ 950 00cf 0B       		.uleb128 0xb
+ 951 00d0 49       		.uleb128 0x49
+ 952 00d1 13       		.uleb128 0x13
+ 953 00d2 02       		.uleb128 0x2
+ 954 00d3 18       		.uleb128 0x18
+ 955 00d4 00       		.byte	0
+ 956 00d5 00       		.byte	0
+ 957 00d6 10       		.uleb128 0x10
+ 958 00d7 2E       		.uleb128 0x2e
+ 959 00d8 01       		.byte	0x1
+ 960 00d9 3F       		.uleb128 0x3f
+ 961 00da 19       		.uleb128 0x19
+ 962 00db 03       		.uleb128 0x3
+ 963 00dc 0E       		.uleb128 0xe
+ 964 00dd 3A       		.uleb128 0x3a
+ 965 00de 0B       		.uleb128 0xb
+ 966 00df 3B       		.uleb128 0x3b
+ 967 00e0 0B       		.uleb128 0xb
+ 968 00e1 27       		.uleb128 0x27
+ 969 00e2 19       		.uleb128 0x19
+ 970 00e3 11       		.uleb128 0x11
+ 971 00e4 01       		.uleb128 0x1
+ 972 00e5 12       		.uleb128 0x12
+ 973 00e6 06       		.uleb128 0x6
+ 974 00e7 40       		.uleb128 0x40
+ 975 00e8 18       		.uleb128 0x18
+ 976 00e9 9642     		.uleb128 0x2116
+ 977 00eb 19       		.uleb128 0x19
+ 978 00ec 01       		.uleb128 0x1
+ 979 00ed 13       		.uleb128 0x13
+ 980 00ee 00       		.byte	0
+ 981 00ef 00       		.byte	0
+ 982 00f0 11       		.uleb128 0x11
+ 983 00f1 2E       		.uleb128 0x2e
+ 984 00f2 01       		.byte	0x1
+ 985 00f3 3F       		.uleb128 0x3f
+ 986 00f4 19       		.uleb128 0x19
+ 987 00f5 03       		.uleb128 0x3
+ 988 00f6 0E       		.uleb128 0xe
+ 989 00f7 3A       		.uleb128 0x3a
+ 990 00f8 0B       		.uleb128 0xb
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 21
 
 
- 909              	.LASF16:
- 910 00b9 73697A65 		.ascii	"sizetype\000"
- 910      74797065 
- 910      00
- 911              	.LASF40:
- 912 00c2 4359424C 		.ascii	"CYBLE_EVT_GAP_DATA_LENGTH_CHANGE\000"
- 912      455F4556 
- 912      545F4741 
- 912      505F4441 
- 912      54415F4C 
- 913              	.LASF90:
- 914 00e3 4359424C 		.ascii	"CYBLE_DIS_SERIAL_NUMBER\000"
- 914      455F4449 
- 914      535F5345 
- 914      5249414C 
- 914      5F4E554D 
- 915              	.LASF6:
- 916 00fb 6C6F6E67 		.ascii	"long long int\000"
- 916      206C6F6E 
- 916      6720696E 
- 916      7400
- 917              	.LASF93:
- 918 0109 4359424C 		.ascii	"CYBLE_DIS_SOFTWARE_REV\000"
- 918      455F4449 
- 918      535F534F 
- 918      46545741 
- 918      52455F52 
- 919              	.LASF61:
- 920 0120 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_CMD_REQ\000"
- 920      455F4556 
- 920      545F4741 
- 920      5454535F 
- 920      57524954 
- 921              	.LASF21:
- 922 013e 4359424C 		.ascii	"CYBLE_EVT_HCI_STATUS\000"
- 922      455F4556 
- 922      545F4843 
- 922      495F5354 
- 922      41545553 
- 923              	.LASF53:
- 924 0153 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_TYPE_RSP\000"
- 924      455F4556 
- 924      545F4741 
- 924      5454435F 
- 924      52454144 
- 925              	.LASF18:
- 926 0174 4359424C 		.ascii	"CYBLE_EVT_STACK_ON\000"
- 926      455F4556 
- 926      545F5354 
- 926      41434B5F 
- 926      4F4E00
- 927              	.LASF50:
- 928 0187 4359424C 		.ascii	"CYBLE_EVT_GATTS_XCNHG_MTU_REQ\000"
- 928      455F4556 
- 928      545F4741 
- 928      5454535F 
- 928      58434E48 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 21
+ 991 00f9 3B       		.uleb128 0x3b
+ 992 00fa 0B       		.uleb128 0xb
+ 993 00fb 27       		.uleb128 0x27
+ 994 00fc 19       		.uleb128 0x19
+ 995 00fd 11       		.uleb128 0x11
+ 996 00fe 01       		.uleb128 0x1
+ 997 00ff 12       		.uleb128 0x12
+ 998 0100 06       		.uleb128 0x6
+ 999 0101 40       		.uleb128 0x40
+ 1000 0102 18       		.uleb128 0x18
+ 1001 0103 9742     		.uleb128 0x2117
+ 1002 0105 19       		.uleb128 0x19
+ 1003 0106 01       		.uleb128 0x1
+ 1004 0107 13       		.uleb128 0x13
+ 1005 0108 00       		.byte	0
+ 1006 0109 00       		.byte	0
+ 1007 010a 12       		.uleb128 0x12
+ 1008 010b 2E       		.uleb128 0x2e
+ 1009 010c 00       		.byte	0
+ 1010 010d 3F       		.uleb128 0x3f
+ 1011 010e 19       		.uleb128 0x19
+ 1012 010f 03       		.uleb128 0x3
+ 1013 0110 0E       		.uleb128 0xe
+ 1014 0111 3A       		.uleb128 0x3a
+ 1015 0112 0B       		.uleb128 0xb
+ 1016 0113 3B       		.uleb128 0x3b
+ 1017 0114 0B       		.uleb128 0xb
+ 1018 0115 27       		.uleb128 0x27
+ 1019 0116 19       		.uleb128 0x19
+ 1020 0117 11       		.uleb128 0x11
+ 1021 0118 01       		.uleb128 0x1
+ 1022 0119 12       		.uleb128 0x12
+ 1023 011a 06       		.uleb128 0x6
+ 1024 011b 40       		.uleb128 0x40
+ 1025 011c 18       		.uleb128 0x18
+ 1026 011d 9642     		.uleb128 0x2116
+ 1027 011f 19       		.uleb128 0x19
+ 1028 0120 00       		.byte	0
+ 1029 0121 00       		.byte	0
+ 1030 0122 13       		.uleb128 0x13
+ 1031 0123 34       		.uleb128 0x34
+ 1032 0124 00       		.byte	0
+ 1033 0125 03       		.uleb128 0x3
+ 1034 0126 08       		.uleb128 0x8
+ 1035 0127 3A       		.uleb128 0x3a
+ 1036 0128 0B       		.uleb128 0xb
+ 1037 0129 3B       		.uleb128 0x3b
+ 1038 012a 0B       		.uleb128 0xb
+ 1039 012b 49       		.uleb128 0x49
+ 1040 012c 13       		.uleb128 0x13
+ 1041 012d 3F       		.uleb128 0x3f
+ 1042 012e 19       		.uleb128 0x19
+ 1043 012f 02       		.uleb128 0x2
+ 1044 0130 18       		.uleb128 0x18
+ 1045 0131 00       		.byte	0
+ 1046 0132 00       		.byte	0
+ 1047 0133 00       		.byte	0
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 22
 
 
- 929              	.LASF10:
- 930 01a5 75696E74 		.ascii	"uint16\000"
- 930      313600
- 931              	.LASF103:
- 932 01ac 433A5C55 		.ascii	"C:\\Users\\akita\\Documents\\TPT02\\src\\TPT02r.cyd"
- 932      73657273 
- 932      5C616B69 
- 932      74615C44 
- 932      6F63756D 
- 933 01d9 736E00   		.ascii	"sn\000"
- 934              	.LASF12:
- 935 01dc 696E7431 		.ascii	"int16\000"
- 935      3600
- 936              	.LASF104:
- 937 01e2 53686F77 		.ascii	"ShowError\000"
- 937      4572726F 
- 937      7200
- 938              	.LASF58:
- 939 01ec 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_MULTI_RSP\000"
- 939      455F4556 
- 939      545F4741 
- 939      5454435F 
- 939      52454144 
- 940              	.LASF67:
- 941 020b 4359424C 		.ascii	"CYBLE_EVT_GATTS_HANDLE_VALUE_CNF\000"
- 941      455F4556 
- 941      545F4741 
- 941      5454535F 
- 941      48414E44 
- 942              	.LASF17:
- 943 022c 4359424C 		.ascii	"CYBLE_EVT_HOST_INVALID\000"
- 943      455F4556 
- 943      545F484F 
- 943      53545F49 
- 943      4E56414C 
- 944              	.LASF75:
- 945 0243 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_IND\000"
- 945      455F4556 
- 945      545F4C32 
- 945      4341505F 
- 945      43424643 
- 946              	.LASF78:
- 947 0261 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_CNF\000"
- 947      455F4556 
- 947      545F4C32 
- 947      4341505F 
- 947      43424643 
- 948              	.LASF13:
- 949 0282 666C6F61 		.ascii	"float\000"
- 949      7400
- 950              	.LASF56:
- 951 0288 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_RSP\000"
- 951      455F4556 
- 951      545F4741 
- 951      5454435F 
- 951      52454144 
- 952              	.LASF37:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 22
+ 1048              		.section	.debug_aranges,"",%progbits
+ 1049 0000 34000000 		.4byte	0x34
+ 1050 0004 0200     		.2byte	0x2
+ 1051 0006 00000000 		.4byte	.Ldebug_info0
+ 1052 000a 04       		.byte	0x4
+ 1053 000b 00       		.byte	0
+ 1054 000c 0000     		.2byte	0
+ 1055 000e 0000     		.2byte	0
+ 1056 0010 00000000 		.4byte	.LFB37
+ 1057 0014 38000000 		.4byte	.LFE37-.LFB37
+ 1058 0018 00000000 		.4byte	.LFB38
+ 1059 001c 68000000 		.4byte	.LFE38-.LFB38
+ 1060 0020 00000000 		.4byte	.LFB39
+ 1061 0024 3C000000 		.4byte	.LFE39-.LFB39
+ 1062 0028 00000000 		.4byte	.LFB40
+ 1063 002c 20000000 		.4byte	.LFE40-.LFB40
+ 1064 0030 00000000 		.4byte	0
+ 1065 0034 00000000 		.4byte	0
+ 1066              		.section	.debug_ranges,"",%progbits
+ 1067              	.Ldebug_ranges0:
+ 1068 0000 00000000 		.4byte	.LFB37
+ 1069 0004 38000000 		.4byte	.LFE37
+ 1070 0008 00000000 		.4byte	.LFB38
+ 1071 000c 68000000 		.4byte	.LFE38
+ 1072 0010 00000000 		.4byte	.LFB39
+ 1073 0014 3C000000 		.4byte	.LFE39
+ 1074 0018 00000000 		.4byte	.LFB40
+ 1075 001c 20000000 		.4byte	.LFE40
+ 1076 0020 00000000 		.4byte	0
+ 1077 0024 00000000 		.4byte	0
+ 1078              		.section	.debug_line,"",%progbits
+ 1079              	.Ldebug_line0:
+ 1080 0000 F5000000 		.section	.debug_str,"MS",%progbits,1
+ 1080      02007D00 
+ 1080      00000201 
+ 1080      FB0E0D00 
+ 1080      01010101 
+ 1081              	.LASF26:
+ 1082 0000 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_ENTRY_REQUEST\000"
+ 1082      455F4556 
+ 1082      545F4741 
+ 1082      505F5041 
+ 1082      53534B45 
+ 1083              	.LASF60:
+ 1084 0024 4359424C 		.ascii	"CYBLE_EVT_GATTC_WRITE_RSP\000"
+ 1084      455F4556 
+ 1084      545F4741 
+ 1084      5454435F 
+ 1084      57524954 
+ 1085              	.LASF23:
+ 1086 003e 4359424C 		.ascii	"CYBLE_EVT_MEMORY_REQUEST\000"
+ 1086      455F4556 
+ 1086      545F4D45 
+ 1086      4D4F5259 
+ 1086      5F524551 
+ 1087              	.LASF47:
+ 1088 0057 4359424C 		.ascii	"CYBLE_EVT_GATTC_ERROR_RSP\000"
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 23
 
 
- 953 02a1 4359424C 		.ascii	"CYBLE_EVT_GAP_NUMERIC_COMPARISON_REQUEST\000"
- 953      455F4556 
- 953      545F4741 
- 953      505F4E55 
- 953      4D455249 
- 954              	.LASF42:
- 955 02ca 4359424C 		.ascii	"CYBLE_EVT_GAPC_DIRECT_ADV_REPORT\000"
- 955      455F4556 
- 955      545F4741 
- 955      50435F44 
- 955      49524543 
- 956              	.LASF7:
- 957 02eb 6C6F6E67 		.ascii	"long long unsigned int\000"
- 957      206C6F6E 
- 957      6720756E 
- 957      7369676E 
- 957      65642069 
- 958              	.LASF46:
- 959 0302 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ_REPLY_ERR\000"
- 959      455F4556 
- 959      545F4741 
- 959      505F4155 
- 959      54485F52 
- 960              	.LASF4:
- 961 0323 6C6F6E67 		.ascii	"long int\000"
- 961      20696E74 
- 961      00
- 962              	.LASF66:
- 963 032c 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_IND\000"
- 963      455F4556 
- 963      545F4741 
- 963      5454435F 
- 963      48414E44 
- 964              	.LASF31:
- 965 034d 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_CONNECTED\000"
- 965      455F4556 
- 965      545F4741 
- 965      505F4445 
- 965      56494345 
- 966              	.LASF30:
- 967 036c 4359424C 		.ascii	"CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP\000"
- 967      455F4556 
- 967      545F4741 
- 967      50505F41 
- 967      44564552 
- 968              	.LASF65:
- 969 0394 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_NTF\000"
- 969      455F4556 
- 969      545F4741 
- 969      5454435F 
- 969      48414E44 
- 970              	.LASF89:
- 971 03b5 4359424C 		.ascii	"CYBLE_DIS_MODEL_NUMBER\000"
- 971      455F4449 
- 971      535F4D4F 
- 971      44454C5F 
- 971      4E554D42 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 23
+ 1088      455F4556 
+ 1088      545F4741 
+ 1088      5454435F 
+ 1088      4552524F 
+ 1089              	.LASF38:
+ 1090 0071 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYPRESS_NOTIFICATION\000"
+ 1090      455F4556 
+ 1090      545F4741 
+ 1090      505F4B45 
+ 1090      59505245 
+ 1091              	.LASF2:
+ 1092 0095 73686F72 		.ascii	"short int\000"
+ 1092      7420696E 
+ 1092      7400
+ 1093              	.LASF29:
+ 1094 009f 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_FAILED\000"
+ 1094      455F4556 
+ 1094      545F4741 
+ 1094      505F4155 
+ 1094      54485F46 
+ 1095              	.LASF16:
+ 1096 00b9 73697A65 		.ascii	"sizetype\000"
+ 1096      74797065 
+ 1096      00
+ 1097              	.LASF40:
+ 1098 00c2 4359424C 		.ascii	"CYBLE_EVT_GAP_DATA_LENGTH_CHANGE\000"
+ 1098      455F4556 
+ 1098      545F4741 
+ 1098      505F4441 
+ 1098      54415F4C 
+ 1099              	.LASF90:
+ 1100 00e3 4359424C 		.ascii	"CYBLE_DIS_SERIAL_NUMBER\000"
+ 1100      455F4449 
+ 1100      535F5345 
+ 1100      5249414C 
+ 1100      5F4E554D 
+ 1101              	.LASF6:
+ 1102 00fb 6C6F6E67 		.ascii	"long long int\000"
+ 1102      206C6F6E 
+ 1102      6720696E 
+ 1102      7400
+ 1103              	.LASF105:
+ 1104 0109 5F777269 		.ascii	"_write\000"
+ 1104      746500
+ 1105              	.LASF61:
+ 1106 0110 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_CMD_REQ\000"
+ 1106      455F4556 
+ 1106      545F4741 
+ 1106      5454535F 
+ 1106      57524954 
+ 1107              	.LASF21:
+ 1108 012e 4359424C 		.ascii	"CYBLE_EVT_HCI_STATUS\000"
+ 1108      455F4556 
+ 1108      545F4843 
+ 1108      495F5354 
+ 1108      41545553 
+ 1109              	.LASF98:
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 24
 
 
- 972              	.LASF27:
- 973 03cc 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST\000"
- 973      455F4556 
- 973      545F4741 
- 973      505F5041 
- 973      53534B45 
- 974              	.LASF76:
- 975 03f2 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_CNF\000"
- 975      455F4556 
- 975      545F4C32 
- 975      4341505F 
- 975      43424643 
- 976              	.LASF41:
- 977 0410 4359424C 		.ascii	"CYBLE_EVT_GAP_ENHANCE_CONN_COMPLETE\000"
- 977      455F4556 
- 977      545F4741 
- 977      505F454E 
- 977      48414E43 
- 978              	.LASF9:
- 979 0434 75696E74 		.ascii	"uint8\000"
- 979      3800
- 980              	.LASF72:
- 981 043a 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_REQ\000"
- 981      455F4556 
- 981      545F4C32 
- 981      4341505F 
- 981      434F4E4E 
- 982              	.LASF1:
- 983 0460 756E7369 		.ascii	"unsigned char\000"
- 983      676E6564 
- 983      20636861 
- 983      7200
- 984              	.LASF62:
- 985 046e 4359424C 		.ascii	"CYBLE_EVT_GATTS_PREP_WRITE_REQ\000"
- 985      455F4556 
- 985      545F4741 
- 985      5454535F 
- 985      50524550 
- 986              	.LASF84:
- 987 048d 4359424C 		.ascii	"CYBLE_EVT_LE_PING_AUTH_TIMEOUT\000"
- 987      455F4556 
- 987      545F4C45 
- 987      5F50494E 
- 987      475F4155 
- 988              	.LASF102:
- 989 04ac 64656275 		.ascii	"debug.c\000"
- 989      672E6300 
- 990              	.LASF0:
- 991 04b4 7369676E 		.ascii	"signed char\000"
- 991      65642063 
- 991      68617200 
- 992              	.LASF59:
- 993 04c0 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_REQ\000"
- 993      455F4556 
- 993      545F4741 
- 993      5454535F 
- 993      57524954 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 24
+ 1110 0143 66696C65 		.ascii	"file\000"
+ 1110      00
+ 1111              	.LASF18:
+ 1112 0148 4359424C 		.ascii	"CYBLE_EVT_STACK_ON\000"
+ 1112      455F4556 
+ 1112      545F5354 
+ 1112      41434B5F 
+ 1112      4F4E00
+ 1113              	.LASF50:
+ 1114 015b 4359424C 		.ascii	"CYBLE_EVT_GATTS_XCNHG_MTU_REQ\000"
+ 1114      455F4556 
+ 1114      545F4741 
+ 1114      5454535F 
+ 1114      58434E48 
+ 1115              	.LASF10:
+ 1116 0179 75696E74 		.ascii	"uint16\000"
+ 1116      313600
+ 1117              	.LASF104:
+ 1118 0180 433A5C55 		.ascii	"C:\\Users\\akita\\Documents\\TPT02\\src\\TPT02r.cyd"
+ 1118      73657273 
+ 1118      5C616B69 
+ 1118      74615C44 
+ 1118      6F63756D 
+ 1119 01ad 736E00   		.ascii	"sn\000"
+ 1120              	.LASF12:
+ 1121 01b0 696E7431 		.ascii	"int16\000"
+ 1121      3600
+ 1122              	.LASF106:
+ 1123 01b6 53686F77 		.ascii	"ShowError\000"
+ 1123      4572726F 
+ 1123      7200
+ 1124              	.LASF58:
+ 1125 01c0 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_MULTI_RSP\000"
+ 1125      455F4556 
+ 1125      545F4741 
+ 1125      5454435F 
+ 1125      52454144 
+ 1126              	.LASF67:
+ 1127 01df 4359424C 		.ascii	"CYBLE_EVT_GATTS_HANDLE_VALUE_CNF\000"
+ 1127      455F4556 
+ 1127      545F4741 
+ 1127      5454535F 
+ 1127      48414E44 
+ 1128              	.LASF17:
+ 1129 0200 4359424C 		.ascii	"CYBLE_EVT_HOST_INVALID\000"
+ 1129      455F4556 
+ 1129      545F484F 
+ 1129      53545F49 
+ 1129      4E56414C 
+ 1130              	.LASF75:
+ 1131 0217 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_IND\000"
+ 1131      455F4556 
+ 1131      545F4C32 
+ 1131      4341505F 
+ 1131      43424643 
+ 1132              	.LASF78:
+ 1133 0235 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_CNF\000"
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 25
 
 
- 994              	.LASF55:
- 995 04da 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_BY_TYPE_VALUE_RSP\000"
- 995      455F4556 
- 995      545F4741 
- 995      5454435F 
- 995      46494E44 
- 996              	.LASF28:
- 997 0501 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_COMPLETE\000"
- 997      455F4556 
- 997      545F4741 
- 997      505F4155 
- 997      54485F43 
- 998              	.LASF8:
- 999 051d 756E7369 		.ascii	"unsigned int\000"
- 999      676E6564 
- 999      20696E74 
- 999      00
- 1000              	.LASF99:
- 1001 052a 53657433 		.ascii	"Set32ByPtr\000"
- 1001      32427950 
- 1001      747200
- 1002              	.LASF48:
- 1003 0535 4359424C 		.ascii	"CYBLE_EVT_GATT_CONNECT_IND\000"
- 1003      455F4556 
- 1003      545F4741 
- 1003      54545F43 
- 1003      4F4E4E45 
- 1004              	.LASF5:
- 1005 0550 6C6F6E67 		.ascii	"long unsigned int\000"
- 1005      20756E73 
- 1005      69676E65 
- 1005      6420696E 
- 1005      7400
- 1006              	.LASF25:
- 1007 0562 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ\000"
- 1007      455F4556 
- 1007      545F4741 
- 1007      505F4155 
- 1007      54485F52 
- 1008              	.LASF77:
- 1009 0579 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_IND\000"
- 1009      455F4556 
- 1009      545F4C32 
- 1009      4341505F 
- 1009      43424643 
- 1010              	.LASF33:
- 1011 059a 4359424C 		.ascii	"CYBLE_EVT_GAP_ENCRYPT_CHANGE\000"
- 1011      455F4556 
- 1011      545F4741 
- 1011      505F454E 
- 1011      43525950 
- 1012              	.LASF44:
- 1013 05b7 4359424C 		.ascii	"CYBLE_EVT_GAP_CONN_ESTB\000"
- 1013      455F4556 
- 1013      545F4741 
- 1013      505F434F 
- 1013      4E4E5F45 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 25
+ 1133      455F4556 
+ 1133      545F4C32 
+ 1133      4341505F 
+ 1133      43424643 
+ 1134              	.LASF13:
+ 1135 0256 666C6F61 		.ascii	"float\000"
+ 1135      7400
+ 1136              	.LASF56:
+ 1137 025c 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_RSP\000"
+ 1137      455F4556 
+ 1137      545F4741 
+ 1137      5454435F 
+ 1137      52454144 
+ 1138              	.LASF37:
+ 1139 0275 4359424C 		.ascii	"CYBLE_EVT_GAP_NUMERIC_COMPARISON_REQUEST\000"
+ 1139      455F4556 
+ 1139      545F4741 
+ 1139      505F4E55 
+ 1139      4D455249 
+ 1140              	.LASF42:
+ 1141 029e 4359424C 		.ascii	"CYBLE_EVT_GAPC_DIRECT_ADV_REPORT\000"
+ 1141      455F4556 
+ 1141      545F4741 
+ 1141      50435F44 
+ 1141      49524543 
+ 1142              	.LASF7:
+ 1143 02bf 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1143      206C6F6E 
+ 1143      6720756E 
+ 1143      7369676E 
+ 1143      65642069 
+ 1144              	.LASF46:
+ 1145 02d6 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ_REPLY_ERR\000"
+ 1145      455F4556 
+ 1145      545F4741 
+ 1145      505F4155 
+ 1145      54485F52 
+ 1146              	.LASF4:
+ 1147 02f7 6C6F6E67 		.ascii	"long int\000"
+ 1147      20696E74 
+ 1147      00
+ 1148              	.LASF66:
+ 1149 0300 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_IND\000"
+ 1149      455F4556 
+ 1149      545F4741 
+ 1149      5454435F 
+ 1149      48414E44 
+ 1150              	.LASF31:
+ 1151 0321 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_CONNECTED\000"
+ 1151      455F4556 
+ 1151      545F4741 
+ 1151      505F4445 
+ 1151      56494345 
+ 1152              	.LASF30:
+ 1153 0340 4359424C 		.ascii	"CYBLE_EVT_GAPP_ADVERTISEMENT_START_STOP\000"
+ 1153      455F4556 
+ 1153      545F4741 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 26
 
 
- 1014              	.LASF71:
- 1015 05cf 4359424C 		.ascii	"CYBLE_EVT_GATTC_LONG_PROCEDURE_END\000"
- 1015      455F4556 
- 1015      545F4741 
- 1015      5454435F 
- 1015      4C4F4E47 
- 1016              	.LASF36:
- 1017 05f2 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYINFO_EXCHNGE_CMPLT\000"
- 1017      455F4556 
- 1017      545F4741 
- 1017      505F4B45 
- 1017      59494E46 
- 1018              	.LASF34:
- 1019 0616 4359424C 		.ascii	"CYBLE_EVT_GAP_CONNECTION_UPDATE_COMPLETE\000"
- 1019      455F4556 
- 1019      545F4741 
- 1019      505F434F 
- 1019      4E4E4543 
- 1020              	.LASF43:
- 1021 063f 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_NEGOTIATED_AUTH_INFO\000"
- 1021      455F4556 
- 1021      545F4741 
- 1021      505F534D 
- 1021      505F4E45 
- 1022              	.LASF15:
- 1023 0666 63686172 		.ascii	"char\000"
- 1023      00
- 1024              	.LASF87:
- 1025 066b 4359424C 		.ascii	"CYBLE_GATT_VALUE_T\000"
- 1025      455F4741 
- 1025      54545F56 
- 1025      414C5545 
- 1025      5F5400
- 1026              	.LASF101:
- 1027 067e 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1027      4320342E 
- 1027      392E3320 
- 1027      32303135 
- 1027      30333033 
- 1028 06b1 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
- 1028      20726576 
- 1028      6973696F 
- 1028      6E203232 
- 1028      31323230 
- 1029 06e4 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 1029      66756E63 
- 1029      74696F6E 
- 1029      2D736563 
- 1029      74696F6E 
- 1030              	.LASF74:
- 1031 070c 4359424C 		.ascii	"CYBLE_EVT_L2CAP_COMMAND_REJ\000"
- 1031      455F4556 
- 1031      545F4C32 
- 1031      4341505F 
- 1031      434F4D4D 
- 1032              	.LASF3:
- 1033 0728 73686F72 		.ascii	"short unsigned int\000"
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 26
+ 1153      50505F41 
+ 1153      44564552 
+ 1154              	.LASF65:
+ 1155 0368 4359424C 		.ascii	"CYBLE_EVT_GATTC_HANDLE_VALUE_NTF\000"
+ 1155      455F4556 
+ 1155      545F4741 
+ 1155      5454435F 
+ 1155      48414E44 
+ 1156              	.LASF89:
+ 1157 0389 4359424C 		.ascii	"CYBLE_DIS_MODEL_NUMBER\000"
+ 1157      455F4449 
+ 1157      535F4D4F 
+ 1157      44454C5F 
+ 1157      4E554D42 
+ 1158              	.LASF27:
+ 1159 03a0 4359424C 		.ascii	"CYBLE_EVT_GAP_PASSKEY_DISPLAY_REQUEST\000"
+ 1159      455F4556 
+ 1159      545F4741 
+ 1159      505F5041 
+ 1159      53534B45 
+ 1160              	.LASF76:
+ 1161 03c6 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_CONN_CNF\000"
+ 1161      455F4556 
+ 1161      545F4C32 
+ 1161      4341505F 
+ 1161      43424643 
+ 1162              	.LASF41:
+ 1163 03e4 4359424C 		.ascii	"CYBLE_EVT_GAP_ENHANCE_CONN_COMPLETE\000"
+ 1163      455F4556 
+ 1163      545F4741 
+ 1163      505F454E 
+ 1163      48414E43 
+ 1164              	.LASF9:
+ 1165 0408 75696E74 		.ascii	"uint8\000"
+ 1165      3800
+ 1166              	.LASF72:
+ 1167 040e 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_REQ\000"
+ 1167      455F4556 
+ 1167      545F4C32 
+ 1167      4341505F 
+ 1167      434F4E4E 
+ 1168              	.LASF1:
+ 1169 0434 756E7369 		.ascii	"unsigned char\000"
+ 1169      676E6564 
+ 1169      20636861 
+ 1169      7200
+ 1170              	.LASF62:
+ 1171 0442 4359424C 		.ascii	"CYBLE_EVT_GATTS_PREP_WRITE_REQ\000"
+ 1171      455F4556 
+ 1171      545F4741 
+ 1171      5454535F 
+ 1171      50524550 
+ 1172              	.LASF84:
+ 1173 0461 4359424C 		.ascii	"CYBLE_EVT_LE_PING_AUTH_TIMEOUT\000"
+ 1173      455F4556 
+ 1173      545F4C45 
+ 1173      5F50494E 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 27
 
 
- 1033      7420756E 
- 1033      7369676E 
- 1033      65642069 
- 1033      6E7400
- 1034              	.LASF98:
- 1035 073b 53686F77 		.ascii	"ShowValue\000"
- 1035      56616C75 
- 1035      6500
- 1036              	.LASF95:
- 1037 0745 4359424C 		.ascii	"CYBLE_DIS_REG_CERT_DATA\000"
- 1037      455F4449 
- 1037      535F5245 
- 1037      475F4345 
- 1037      52545F44 
- 1038              	.LASF57:
- 1039 075d 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BLOB_RSP\000"
- 1039      455F4556 
- 1039      545F4741 
- 1039      5454435F 
- 1039      52454144 
- 1040              	.LASF64:
- 1041 077b 4359424C 		.ascii	"CYBLE_EVT_GATTC_EXEC_WRITE_RSP\000"
- 1041      455F4556 
- 1041      545F4741 
- 1041      5454435F 
- 1041      45584543 
- 1042              	.LASF11:
- 1043 079a 75696E74 		.ascii	"uint32\000"
- 1043      333200
- 1044              	.LASF83:
- 1045 07a1 4359424C 		.ascii	"CYBLE_EVT_PENDING_FLASH_WRITE\000"
- 1045      455F4556 
- 1045      545F5045 
- 1045      4E44494E 
- 1045      475F464C 
- 1046              	.LASF80:
- 1047 07bf 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_RX_CREDIT_IND\000"
- 1047      455F4556 
- 1047      545F4C32 
- 1047      4341505F 
- 1047      43424643 
- 1048              	.LASF14:
- 1049 07e2 646F7562 		.ascii	"double\000"
- 1049      6C6500
- 1050              	.LASF81:
- 1051 07e9 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_TX_CREDIT_IND\000"
- 1051      455F4556 
- 1051      545F4C32 
- 1051      4341505F 
- 1051      43424643 
- 1052              	.LASF97:
- 1053 080c 4359424C 		.ascii	"CYBLE_DIS_CHAR_COUNT\000"
- 1053      455F4449 
- 1053      535F4348 
- 1053      41525F43 
- 1053      4F554E54 
- 1054              	.LASF45:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 27
+ 1173      475F4155 
+ 1174              	.LASF103:
+ 1175 0480 64656275 		.ascii	"debug.c\000"
+ 1175      672E6300 
+ 1176              	.LASF0:
+ 1177 0488 7369676E 		.ascii	"signed char\000"
+ 1177      65642063 
+ 1177      68617200 
+ 1178              	.LASF59:
+ 1179 0494 4359424C 		.ascii	"CYBLE_EVT_GATTS_WRITE_REQ\000"
+ 1179      455F4556 
+ 1179      545F4741 
+ 1179      5454535F 
+ 1179      57524954 
+ 1180              	.LASF55:
+ 1181 04ae 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_BY_TYPE_VALUE_RSP\000"
+ 1181      455F4556 
+ 1181      545F4741 
+ 1181      5454435F 
+ 1181      46494E44 
+ 1182              	.LASF28:
+ 1183 04d5 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_COMPLETE\000"
+ 1183      455F4556 
+ 1183      545F4741 
+ 1183      505F4155 
+ 1183      54485F43 
+ 1184              	.LASF8:
+ 1185 04f1 756E7369 		.ascii	"unsigned int\000"
+ 1185      676E6564 
+ 1185      20696E74 
+ 1185      00
+ 1186              	.LASF101:
+ 1187 04fe 53657433 		.ascii	"Set32ByPtr\000"
+ 1187      32427950 
+ 1187      747200
+ 1188              	.LASF48:
+ 1189 0509 4359424C 		.ascii	"CYBLE_EVT_GATT_CONNECT_IND\000"
+ 1189      455F4556 
+ 1189      545F4741 
+ 1189      54545F43 
+ 1189      4F4E4E45 
+ 1190              	.LASF5:
+ 1191 0524 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1191      20756E73 
+ 1191      69676E65 
+ 1191      6420696E 
+ 1191      7400
+ 1192              	.LASF25:
+ 1193 0536 4359424C 		.ascii	"CYBLE_EVT_GAP_AUTH_REQ\000"
+ 1193      455F4556 
+ 1193      545F4741 
+ 1193      505F4155 
+ 1193      54485F52 
+ 1194              	.LASF77:
+ 1195 054d 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DISCONN_IND\000"
+ 1195      455F4556 
+ 1195      545F4C32 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 28
 
 
- 1055 0821 4359424C 		.ascii	"CYBLE_EVT_GAP_SCAN_REQ_RECVD\000"
- 1055      455F4556 
- 1055      545F4741 
- 1055      505F5343 
- 1055      414E5F52 
- 1056              	.LASF22:
- 1057 083e 4359424C 		.ascii	"CYBLE_EVT_STACK_BUSY_STATUS\000"
- 1057      455F4556 
- 1057      545F5354 
- 1057      41434B5F 
- 1057      42555359 
- 1058              	.LASF20:
- 1059 085a 4359424C 		.ascii	"CYBLE_EVT_HARDWARE_ERROR\000"
- 1059      455F4556 
- 1059      545F4841 
- 1059      52445741 
- 1059      52455F45 
- 1060              	.LASF79:
- 1061 0873 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_READ\000"
- 1061      455F4556 
- 1061      545F4C32 
- 1061      4341505F 
- 1061      43424643 
- 1062              	.LASF73:
- 1063 0892 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_RSP\000"
- 1063      455F4556 
- 1063      545F4C32 
- 1063      4341505F 
- 1063      434F4E4E 
- 1064              	.LASF24:
- 1065 08b8 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT\000"
- 1065      455F4556 
- 1065      545F4741 
- 1065      50435F53 
- 1065      43414E5F 
- 1066              	.LASF88:
- 1067 08dc 4359424C 		.ascii	"CYBLE_DIS_MANUFACTURER_NAME\000"
- 1067      455F4449 
- 1067      535F4D41 
- 1067      4E554641 
- 1067      43545552 
- 1068              	.LASF86:
- 1069 08f8 61637475 		.ascii	"actualLen\000"
- 1069      616C4C65 
- 1069      6E00
- 1070              	.LASF52:
- 1071 0902 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP\000"
- 1071      455F4556 
- 1071      545F4741 
- 1071      5454435F 
- 1071      52454144 
- 1072              	.LASF92:
- 1073 0929 4359424C 		.ascii	"CYBLE_DIS_FIRMWARE_REV\000"
- 1073      455F4449 
- 1073      535F4649 
- 1073      524D5741 
- 1073      52455F52 
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 28
+ 1195      4341505F 
+ 1195      43424643 
+ 1196              	.LASF33:
+ 1197 056e 4359424C 		.ascii	"CYBLE_EVT_GAP_ENCRYPT_CHANGE\000"
+ 1197      455F4556 
+ 1197      545F4741 
+ 1197      505F454E 
+ 1197      43525950 
+ 1198              	.LASF44:
+ 1199 058b 4359424C 		.ascii	"CYBLE_EVT_GAP_CONN_ESTB\000"
+ 1199      455F4556 
+ 1199      545F4741 
+ 1199      505F434F 
+ 1199      4E4E5F45 
+ 1200              	.LASF71:
+ 1201 05a3 4359424C 		.ascii	"CYBLE_EVT_GATTC_LONG_PROCEDURE_END\000"
+ 1201      455F4556 
+ 1201      545F4741 
+ 1201      5454435F 
+ 1201      4C4F4E47 
+ 1202              	.LASF36:
+ 1203 05c6 4359424C 		.ascii	"CYBLE_EVT_GAP_KEYINFO_EXCHNGE_CMPLT\000"
+ 1203      455F4556 
+ 1203      545F4741 
+ 1203      505F4B45 
+ 1203      59494E46 
+ 1204              	.LASF34:
+ 1205 05ea 4359424C 		.ascii	"CYBLE_EVT_GAP_CONNECTION_UPDATE_COMPLETE\000"
+ 1205      455F4556 
+ 1205      545F4741 
+ 1205      505F434F 
+ 1205      4E4E4543 
+ 1206              	.LASF43:
+ 1207 0613 4359424C 		.ascii	"CYBLE_EVT_GAP_SMP_NEGOTIATED_AUTH_INFO\000"
+ 1207      455F4556 
+ 1207      545F4741 
+ 1207      505F534D 
+ 1207      505F4E45 
+ 1208              	.LASF15:
+ 1209 063a 63686172 		.ascii	"char\000"
+ 1209      00
+ 1210              	.LASF93:
+ 1211 063f 4359424C 		.ascii	"CYBLE_DIS_SOFTWARE_REV\000"
+ 1211      455F4449 
+ 1211      535F534F 
+ 1211      46545741 
+ 1211      52455F52 
+ 1212              	.LASF87:
+ 1213 0656 4359424C 		.ascii	"CYBLE_GATT_VALUE_T\000"
+ 1213      455F4741 
+ 1213      54545F56 
+ 1213      414C5545 
+ 1213      5F5400
+ 1214              	.LASF102:
+ 1215 0669 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1215      4320342E 
+ 1215      392E3320 
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 29
 
 
- 1074              	.LASF51:
- 1075 0940 4359424C 		.ascii	"CYBLE_EVT_GATTC_XCHNG_MTU_RSP\000"
- 1075      455F4556 
- 1075      545F4741 
- 1075      5454435F 
- 1075      5843484E 
- 1076              	.LASF91:
- 1077 095e 4359424C 		.ascii	"CYBLE_DIS_HARDWARE_REV\000"
- 1077      455F4449 
- 1077      535F4841 
- 1077      52445741 
- 1077      52455F52 
- 1078              	.LASF19:
- 1079 0975 4359424C 		.ascii	"CYBLE_EVT_TIMEOUT\000"
- 1079      455F4556 
- 1079      545F5449 
- 1079      4D454F55 
- 1079      5400
- 1080              	.LASF82:
- 1081 0987 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_WRITE_IND\000"
- 1081      455F4556 
- 1081      545F4C32 
- 1081      4341505F 
- 1081      43424643 
- 1082              	.LASF35:
- 1083 09ab 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_START_STOP\000"
- 1083      455F4556 
- 1083      545F4741 
- 1083      50435F53 
- 1083      43414E5F 
- 1084              	.LASF85:
- 1085 09ca 4359424C 		.ascii	"CYBLE_EVT_MAX\000"
- 1085      455F4556 
- 1085      545F4D41 
- 1085      5800
- 1086              	.LASF70:
- 1087 09d8 4359424C 		.ascii	"CYBLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ\000"
- 1087      455F4556 
- 1087      545F4741 
- 1087      5454535F 
- 1087      52454144 
- 1088              	.LASF54:
- 1089 0a01 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_INFO_RSP\000"
- 1089      455F4556 
- 1089      545F4741 
- 1089      5454435F 
- 1089      46494E44 
- 1090              	.LASF69:
- 1091 0a1f 4359424C 		.ascii	"CYBLE_EVT_GATTC_STOP_CMD_COMPLETE\000"
- 1091      455F4556 
- 1091      545F4741 
- 1091      5454435F 
- 1091      53544F50 
- 1092              	.LASF100:
- 1093 0a41 76616C75 		.ascii	"value\000"
- 1093      6500
- 1094              	.LASF63:
-ARM GAS  C:\Users\akita\AppData\Local\Temp\ccNqLY1c.s 			page 29
+ 1215      32303135 
+ 1215      30333033 
+ 1216 069c 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 1216      20726576 
+ 1216      6973696F 
+ 1216      6E203232 
+ 1216      31323230 
+ 1217 06cf 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1217      66756E63 
+ 1217      74696F6E 
+ 1217      2D736563 
+ 1217      74696F6E 
+ 1218              	.LASF74:
+ 1219 06f7 4359424C 		.ascii	"CYBLE_EVT_L2CAP_COMMAND_REJ\000"
+ 1219      455F4556 
+ 1219      545F4C32 
+ 1219      4341505F 
+ 1219      434F4D4D 
+ 1220              	.LASF3:
+ 1221 0713 73686F72 		.ascii	"short unsigned int\000"
+ 1221      7420756E 
+ 1221      7369676E 
+ 1221      65642069 
+ 1221      6E7400
+ 1222              	.LASF100:
+ 1223 0726 53686F77 		.ascii	"ShowValue\000"
+ 1223      56616C75 
+ 1223      6500
+ 1224              	.LASF95:
+ 1225 0730 4359424C 		.ascii	"CYBLE_DIS_REG_CERT_DATA\000"
+ 1225      455F4449 
+ 1225      535F5245 
+ 1225      475F4345 
+ 1225      52545F44 
+ 1226              	.LASF57:
+ 1227 0748 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BLOB_RSP\000"
+ 1227      455F4556 
+ 1227      545F4741 
+ 1227      5454435F 
+ 1227      52454144 
+ 1228              	.LASF64:
+ 1229 0766 4359424C 		.ascii	"CYBLE_EVT_GATTC_EXEC_WRITE_RSP\000"
+ 1229      455F4556 
+ 1229      545F4741 
+ 1229      5454435F 
+ 1229      45584543 
+ 1230              	.LASF11:
+ 1231 0785 75696E74 		.ascii	"uint32\000"
+ 1231      333200
+ 1232              	.LASF83:
+ 1233 078c 4359424C 		.ascii	"CYBLE_EVT_PENDING_FLASH_WRITE\000"
+ 1233      455F4556 
+ 1233      545F5045 
+ 1233      4E44494E 
+ 1233      475F464C 
+ 1234              	.LASF80:
+ 1235 07aa 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_RX_CREDIT_IND\000"
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 30
 
 
- 1095 0a47 4359424C 		.ascii	"CYBLE_EVT_GATTS_EXEC_WRITE_REQ\000"
- 1095      455F4556 
- 1095      545F4741 
- 1095      5454535F 
- 1095      45584543 
- 1096              	.LASF32:
- 1097 0a66 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_DISCONNECTED\000"
- 1097      455F4556 
- 1097      545F4741 
- 1097      505F4445 
- 1097      56494345 
- 1098              	.LASF68:
- 1099 0a88 4359424C 		.ascii	"CYBLE_EVT_GATTS_DATA_SIGNED_CMD_REQ\000"
- 1099      455F4556 
- 1099      545F4741 
- 1099      5454535F 
- 1099      44415441 
- 1100              	.LASF49:
- 1101 0aac 4359424C 		.ascii	"CYBLE_EVT_GATT_DISCONNECT_IND\000"
- 1101      455F4556 
- 1101      545F4741 
- 1101      54545F44 
- 1101      4953434F 
- 1102              	.LASF94:
- 1103 0aca 4359424C 		.ascii	"CYBLE_DIS_SYSTEM_ID\000"
- 1103      455F4449 
- 1103      535F5359 
- 1103      5354454D 
- 1103      5F494400 
- 1104              	.LASF39:
- 1105 0ade 4359424C 		.ascii	"CYBLE_EVT_GAP_OOB_GENERATED_NOTIFICATION\000"
- 1105      455F4556 
- 1105      545F4741 
- 1105      505F4F4F 
- 1105      425F4745 
- 1106              	.LASF96:
- 1107 0b07 4359424C 		.ascii	"CYBLE_DIS_PNP_ID\000"
- 1107      455F4449 
- 1107      535F504E 
- 1107      505F4944 
- 1107      00
- 1108              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 1235      455F4556 
+ 1235      545F4C32 
+ 1235      4341505F 
+ 1235      43424643 
+ 1236              	.LASF14:
+ 1237 07cd 646F7562 		.ascii	"double\000"
+ 1237      6C6500
+ 1238              	.LASF81:
+ 1239 07d4 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_TX_CREDIT_IND\000"
+ 1239      455F4556 
+ 1239      545F4C32 
+ 1239      4341505F 
+ 1239      43424643 
+ 1240              	.LASF97:
+ 1241 07f7 4359424C 		.ascii	"CYBLE_DIS_CHAR_COUNT\000"
+ 1241      455F4449 
+ 1241      535F4348 
+ 1241      41525F43 
+ 1241      4F554E54 
+ 1242              	.LASF45:
+ 1243 080c 4359424C 		.ascii	"CYBLE_EVT_GAP_SCAN_REQ_RECVD\000"
+ 1243      455F4556 
+ 1243      545F4741 
+ 1243      505F5343 
+ 1243      414E5F52 
+ 1244              	.LASF22:
+ 1245 0829 4359424C 		.ascii	"CYBLE_EVT_STACK_BUSY_STATUS\000"
+ 1245      455F4556 
+ 1245      545F5354 
+ 1245      41434B5F 
+ 1245      42555359 
+ 1246              	.LASF20:
+ 1247 0845 4359424C 		.ascii	"CYBLE_EVT_HARDWARE_ERROR\000"
+ 1247      455F4556 
+ 1247      545F4841 
+ 1247      52445741 
+ 1247      52455F45 
+ 1248              	.LASF79:
+ 1249 085e 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_READ\000"
+ 1249      455F4556 
+ 1249      545F4C32 
+ 1249      4341505F 
+ 1249      43424643 
+ 1250              	.LASF73:
+ 1251 087d 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CONN_PARAM_UPDATE_RSP\000"
+ 1251      455F4556 
+ 1251      545F4C32 
+ 1251      4341505F 
+ 1251      434F4E4E 
+ 1252              	.LASF24:
+ 1253 08a3 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT\000"
+ 1253      455F4556 
+ 1253      545F4741 
+ 1253      50435F53 
+ 1253      43414E5F 
+ 1254              	.LASF88:
+ 1255 08c7 4359424C 		.ascii	"CYBLE_DIS_MANUFACTURER_NAME\000"
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 31
+
+
+ 1255      455F4449 
+ 1255      535F4D41 
+ 1255      4E554641 
+ 1255      43545552 
+ 1256              	.LASF86:
+ 1257 08e3 61637475 		.ascii	"actualLen\000"
+ 1257      616C4C65 
+ 1257      6E00
+ 1258              	.LASF52:
+ 1259 08ed 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_GROUP_TYPE_RSP\000"
+ 1259      455F4556 
+ 1259      545F4741 
+ 1259      5454435F 
+ 1259      52454144 
+ 1260              	.LASF92:
+ 1261 0914 4359424C 		.ascii	"CYBLE_DIS_FIRMWARE_REV\000"
+ 1261      455F4449 
+ 1261      535F4649 
+ 1261      524D5741 
+ 1261      52455F52 
+ 1262              	.LASF53:
+ 1263 092b 4359424C 		.ascii	"CYBLE_EVT_GATTC_READ_BY_TYPE_RSP\000"
+ 1263      455F4556 
+ 1263      545F4741 
+ 1263      5454435F 
+ 1263      52454144 
+ 1264              	.LASF51:
+ 1265 094c 4359424C 		.ascii	"CYBLE_EVT_GATTC_XCHNG_MTU_RSP\000"
+ 1265      455F4556 
+ 1265      545F4741 
+ 1265      5454435F 
+ 1265      5843484E 
+ 1266              	.LASF91:
+ 1267 096a 4359424C 		.ascii	"CYBLE_DIS_HARDWARE_REV\000"
+ 1267      455F4449 
+ 1267      535F4841 
+ 1267      52445741 
+ 1267      52455F52 
+ 1268              	.LASF19:
+ 1269 0981 4359424C 		.ascii	"CYBLE_EVT_TIMEOUT\000"
+ 1269      455F4556 
+ 1269      545F5449 
+ 1269      4D454F55 
+ 1269      5400
+ 1270              	.LASF82:
+ 1271 0993 4359424C 		.ascii	"CYBLE_EVT_L2CAP_CBFC_DATA_WRITE_IND\000"
+ 1271      455F4556 
+ 1271      545F4C32 
+ 1271      4341505F 
+ 1271      43424643 
+ 1272              	.LASF35:
+ 1273 09b7 4359424C 		.ascii	"CYBLE_EVT_GAPC_SCAN_START_STOP\000"
+ 1273      455F4556 
+ 1273      545F4741 
+ 1273      50435F53 
+ 1273      43414E5F 
+ 1274              	.LASF85:
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 32
+
+
+ 1275 09d6 4359424C 		.ascii	"CYBLE_EVT_MAX\000"
+ 1275      455F4556 
+ 1275      545F4D41 
+ 1275      5800
+ 1276              	.LASF70:
+ 1277 09e4 4359424C 		.ascii	"CYBLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ\000"
+ 1277      455F4556 
+ 1277      545F4741 
+ 1277      5454535F 
+ 1277      52454144 
+ 1278              	.LASF54:
+ 1279 0a0d 4359424C 		.ascii	"CYBLE_EVT_GATTC_FIND_INFO_RSP\000"
+ 1279      455F4556 
+ 1279      545F4741 
+ 1279      5454435F 
+ 1279      46494E44 
+ 1280              	.LASF69:
+ 1281 0a2b 4359424C 		.ascii	"CYBLE_EVT_GATTC_STOP_CMD_COMPLETE\000"
+ 1281      455F4556 
+ 1281      545F4741 
+ 1281      5454435F 
+ 1281      53544F50 
+ 1282              	.LASF99:
+ 1283 0a4d 76616C75 		.ascii	"value\000"
+ 1283      6500
+ 1284              	.LASF63:
+ 1285 0a53 4359424C 		.ascii	"CYBLE_EVT_GATTS_EXEC_WRITE_REQ\000"
+ 1285      455F4556 
+ 1285      545F4741 
+ 1285      5454535F 
+ 1285      45584543 
+ 1286              	.LASF32:
+ 1287 0a72 4359424C 		.ascii	"CYBLE_EVT_GAP_DEVICE_DISCONNECTED\000"
+ 1287      455F4556 
+ 1287      545F4741 
+ 1287      505F4445 
+ 1287      56494345 
+ 1288              	.LASF68:
+ 1289 0a94 4359424C 		.ascii	"CYBLE_EVT_GATTS_DATA_SIGNED_CMD_REQ\000"
+ 1289      455F4556 
+ 1289      545F4741 
+ 1289      5454535F 
+ 1289      44415441 
+ 1290              	.LASF49:
+ 1291 0ab8 4359424C 		.ascii	"CYBLE_EVT_GATT_DISCONNECT_IND\000"
+ 1291      455F4556 
+ 1291      545F4741 
+ 1291      54545F44 
+ 1291      4953434F 
+ 1292              	.LASF94:
+ 1293 0ad6 4359424C 		.ascii	"CYBLE_DIS_SYSTEM_ID\000"
+ 1293      455F4449 
+ 1293      535F5359 
+ 1293      5354454D 
+ 1293      5F494400 
+ 1294              	.LASF39:
+ 1295 0aea 4359424C 		.ascii	"CYBLE_EVT_GAP_OOB_GENERATED_NOTIFICATION\000"
+ARM GAS  C:\Users\akita\AppData\Local\Temp\cczdY8Ma.s 			page 33
+
+
+ 1295      455F4556 
+ 1295      545F4741 
+ 1295      505F4F4F 
+ 1295      425F4745 
+ 1296              	.LASF96:
+ 1297 0b13 4359424C 		.ascii	"CYBLE_DIS_PNP_ID\000"
+ 1297      455F4449 
+ 1297      535F504E 
+ 1297      505F4944 
+ 1297      00
+ 1298              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

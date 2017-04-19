@@ -425,7 +425,8 @@ int main()
         }
 */
 
-        if (Ton == 10 * 60 * 10){ // 10 min
+        if (Ton == 10 * 60 * 30){ // 30 min
+//        if (Ton == 10 * 60 * 10){ // 10 min
 //        if (Ton == 30 * 10){ // 30 sec
             DBG_PRINTF("going to shutdown");
             int i;

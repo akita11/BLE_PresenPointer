@@ -194,7 +194,8 @@ void SimulateKeyboard(void)
         mainPress++;
         if(mainPress == 1)
         {
-            keyboard_data[3u] = 0x4f; // right arrow
+//            keyboard_data[3u] = 0x4f; // right arrow
+            keyboard_data[3u] = 0x4e; // page down
             fPress = 1;
             mainPress++;
         
@@ -210,7 +211,8 @@ void SimulateKeyboard(void)
         backPress++;
         if (backPress == 1)
         {
-            keyboard_data[3u] = 0x50; // Left arrow
+//            keyboard_data[3u] = 0x50; // Left arrow
+            keyboard_data[3u] = 0x4b; // page up
             fPress = 1;
             backPress++;
         }
