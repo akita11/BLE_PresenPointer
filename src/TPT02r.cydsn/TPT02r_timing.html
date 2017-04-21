@@ -537,19 +537,37 @@ function getElementsByClass(rootNode, elemName, className)
 <h1> Static Timing Analysis </h1>
 <table class="property">
 <tr> <td class="prop"> Project :</td>
-<td class="proptext"> Hibernate_PSoC4_Example01</td></tr>
+<td class="proptext"> TPT02r</td></tr>
 <tr> <td class="prop"> Build Time :</td>
-<td class="proptext"> 04/21/17 12:50:17</td></tr>
+<td class="proptext"> 04/21/17 18:21:05</td></tr>
 <tr> <td class="prop"> Device :</td>
-<td class="proptext"> CY8C4245AXI-483</td></tr>
+<td class="proptext"> CYBLE-014008-00</td></tr>
 <tr> <td class="prop"> Temperature :</td>
 <td class="proptext"> -40C - 85C</td></tr>
 <tr> <td class="prop"> VDDA :</td>
-<td class="proptext"> 5.00</td></tr>
-<tr> <td class="prop"> VDDD :</td>
-<td class="proptext"> 5.00</td></tr>
+<td class="proptext"> 3.30</td></tr>
+<tr> <td class="prop"> VDDA_CTB :</td>
+<td class="proptext"> 3.30</td></tr>
+<tr> <td class="prop"> VDDD_0 :</td>
+<td class="proptext"> 3.30</td></tr>
+<tr> <td class="prop"> VDDIO_0 :</td>
+<td class="proptext"> 3.30</td></tr>
+<tr> <td class="prop"> VDDIO_1 :</td>
+<td class="proptext"> 3.30</td></tr>
+<tr> <td class="prop"> VDDIO_2 :</td>
+<td class="proptext"> 3.30</td></tr>
+<tr> <td class="prop"> VDDR_BGLS :</td>
+<td class="proptext"> 3.30</td></tr>
+<tr> <td class="prop"> VDDR_HF :</td>
+<td class="proptext"> 3.30</td></tr>
+<tr> <td class="prop"> VDDR_HLS :</td>
+<td class="proptext"> 3.30</td></tr>
+<tr> <td class="prop"> VDDR_LF :</td>
+<td class="proptext"> 3.30</td></tr>
+<tr> <td class="prop"> VDDR_SYN :</td>
+<td class="proptext"> 3.30</td></tr>
 <tr> <td class="prop"> Voltage :</td>
-<td class="proptext"> 5.0</td></tr>
+<td class="proptext"> 3.3</td></tr>
 </table>
 <div>
 <a href="#" onclick="expandAllSections(1);return false;">Expand All</a> |
@@ -585,10 +603,42 @@ Clock Summary Section</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">CyHFCLK</td>
- <td class = "text_info">CyHFCLK</td>
+ <td class = "text_info">ADC_intClock(FFB)</td>
+ <td class = "text_info">ADC_intClock(FFB)</td>
+ <td class = "number">1.600&nbsp;MHz</td>
+ <td class = "number">1.600&nbsp;MHz</td>
+ <td class = "number"> N/A </td>
+ <td class = "text_info"> </td>
+</tr>
+<tr> 
+ <td class = "text_info">CyECO</td>
+ <td class = "text_info">CyECO</td>
  <td class = "number">24.000&nbsp;MHz</td>
  <td class = "number">24.000&nbsp;MHz</td>
+ <td class = "number"> N/A </td>
+ <td class = "text_info"> </td>
+</tr>
+<tr> 
+ <td class = "text_info">CyHFCLK</td>
+ <td class = "text_info">CyHFCLK</td>
+ <td class = "number">48.000&nbsp;MHz</td>
+ <td class = "number">48.000&nbsp;MHz</td>
+ <td class = "number"> N/A </td>
+ <td class = "text_info"> </td>
+</tr>
+<tr> 
+ <td class = "text_info">UART_DEB_SCBCLK</td>
+ <td class = "text_info">CyHFCLK</td>
+ <td class = "number">1.846&nbsp;MHz</td>
+ <td class = "number">1.846&nbsp;MHz</td>
+ <td class = "number"> N/A </td>
+ <td class = "text_info"> </td>
+</tr>
+<tr> 
+ <td class = "text_info">ADC_intClock</td>
+ <td class = "text_info">CyHFCLK</td>
+ <td class = "number">1.600&nbsp;MHz</td>
+ <td class = "number">1.600&nbsp;MHz</td>
  <td class = "number"> N/A </td>
  <td class = "text_info"> </td>
 </tr>
@@ -603,24 +653,24 @@ Clock Summary Section</span>
 <tr> 
  <td class = "text_info">CyIMO</td>
  <td class = "text_info">CyIMO</td>
- <td class = "number">24.000&nbsp;MHz</td>
- <td class = "number">24.000&nbsp;MHz</td>
+ <td class = "number">48.000&nbsp;MHz</td>
+ <td class = "number">48.000&nbsp;MHz</td>
  <td class = "number"> N/A </td>
  <td class = "text_info"> </td>
 </tr>
 <tr> 
  <td class = "text_info">CyLFCLK</td>
  <td class = "text_info">CyLFCLK</td>
- <td class = "number">32.000&nbsp;kHz</td>
- <td class = "number">32.000&nbsp;kHz</td>
+ <td class = "number">32.768&nbsp;kHz</td>
+ <td class = "number">32.768&nbsp;kHz</td>
  <td class = "number"> N/A </td>
  <td class = "text_info"> </td>
 </tr>
 <tr> 
  <td class = "text_info">CyRouted1</td>
  <td class = "text_info">CyRouted1</td>
- <td class = "number">24.000&nbsp;MHz</td>
- <td class = "number">24.000&nbsp;MHz</td>
+ <td class = "number">48.000&nbsp;MHz</td>
+ <td class = "number">48.000&nbsp;MHz</td>
  <td class = "number"> N/A </td>
  <td class = "text_info"> </td>
 </tr>
@@ -629,6 +679,22 @@ Clock Summary Section</span>
  <td class = "text_info">CySYSCLK</td>
  <td class = "number">24.000&nbsp;MHz</td>
  <td class = "number">24.000&nbsp;MHz</td>
+ <td class = "number"> N/A </td>
+ <td class = "text_info"> </td>
+</tr>
+<tr> 
+ <td class = "text_info">CyWCO</td>
+ <td class = "text_info">CyWCO</td>
+ <td class = "number">32.768&nbsp;kHz</td>
+ <td class = "number">32.768&nbsp;kHz</td>
+ <td class = "number"> N/A </td>
+ <td class = "text_info"> </td>
+</tr>
+<tr> 
+ <td class = "text_info">UART_DEB_SCBCLK(FFB)</td>
+ <td class = "text_info">UART_DEB_SCBCLK(FFB)</td>
+ <td class = "number">1.846&nbsp;MHz</td>
+ <td class = "number">1.846&nbsp;MHz</td>
  <td class = "number"> N/A </td>
  <td class = "text_info"> </td>
 </tr>

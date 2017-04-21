@@ -1,7 +1,6 @@
-C:\Users\akita\Documents\TPT02\src\TPT02.cydsn\TPT02.cyprj|b2034adb-188c-4a50-b162-e93f2ee54ea2
-C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|a855c8af-7a0d-427f-abb7-f1f5ae36c780
-C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|928dbc1c-3bdc-41e5-a75a-a6e68719324e
-C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|6098e4d9-16d1-4ba7-aa0b-62b1dcffe246
-C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|7597830c-d0ac-448f-8677-475c036282e6
-C:\Users\akita\Documents\TPT02\src\TPT02r.cydsn\TPT02r.cyprj|ca984db1-4b68-43a4-9e0f-28ac1937ed57
-C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|898c7727-4e8b-4db1-a847-1cdf785262d0
+C:\Users\akita\Documents\TPT02\src\TPT02.cydsn\TPT02.cyprj|5e65046e-e116-4dd5-967d-d714a7392090
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|687bb0b0-55fe-41fb-8281-38f5f4690e32
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|2c346900-e20b-4195-a920-d6e88df3d76b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|d6d468a9-3b51-4ff9-9d9f-fa269e8a2647
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|c9585522-f914-40b9-af33-56b7e9d9f9b4
+C:\Users\akita\Documents\TPT02\src\TPT02r.cydsn\TPT02r.cyprj|b4510597-e8b0-42c6-95b4-65f1fe62e83a
