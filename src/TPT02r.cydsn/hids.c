@@ -1,3 +1,7 @@
+// BLE Presenter Module Firmware v1.5
+//   Based on Cypress PSoC Creator (4.0), BLE-HID sample project
+//   (c) Junichi Akita (akita@ifdl.jp), 2017/4/20
+
 /*******************************************************************************
 * File Name: hids.c
 *
@@ -236,13 +240,6 @@ void SimulateKeyboard(void)
 
     if((CyBle_GattGetBusyStatus() == CYBLE_STACK_STATE_FREE) && (fPress == 1))
     {
-        fPress = 0;
-
-        // flash LED when button pressed
-        Advertising_LED_Write(0);
-        CyDelay(1);
-        Advertising_LED_Write(1);
-
         apiResult = CyBle_HidssGetCharacteristicValue(CYBLE_HUMAN_INTERFACE_DEVICE_SERVICE_INDEX, 
             CYBLE_HIDS_PROTOCOL_MODE, sizeof(protocol), &protocol);
         if(apiResult == CYBLE_ERROR_OK)
@@ -285,7 +282,36 @@ void SimulateKeyboard(void)
                 DBG_PRINTF("HID notification API Error: %x \r\n", apiResult);
                 keyboardSimulation = DISABLED;
             }
+/*            
+        if (fUpdate_b < 5){
+            DBG_PRINTF("sending L2CAP connectup update request...\r\n");
+            CYBLE_GAP_CONN_UPDATE_PARAM_T connUpdateParam;
+            connUpdateParam.connIntvMin = CYBLE_GAPP_CONNECTION_INTERVAL_MIN;
+            connUpdateParam.connIntvMax = CYBLE_GAPP_CONNECTION_INTERVAL_MAX;
+            connUpdateParam.connLatency = CYBLE_GAPP_CONNECTION_SLAVE_LATENCY;
+            connUpdateParam.supervisionTO = CYBLE_GAPP_CONNECTION_TIME_OUT;
+            CYBLE_API_RESULT_T apiResult;
+            apiResult = CyBle_L2capLeConnectionParamUpdateRequest(cyBle_connHandle.bdHandle, &connUpdateParam);
+            if(apiResult == CYBLE_ERROR_OK)
+            {
+                DBG_PRINTF("CyBle_L2capLeConnectionParamUpdateRequest OK\r\n");
+            }
+            else
+            {
+                DBG_PRINTF("CyBle_L2capLeConnectionParamUpdateRequest API Error: %x \r\n", apiResult);
+            }
+            fUpdate_b++;
         }
+*/        
+
+        }
+        fPress = 0;
+
+        // flash LED when button pressed
+        Advertising_LED_Write(0);
+        CyDelay(1);
+        Advertising_LED_Write(1);
+
     }
 
     /*

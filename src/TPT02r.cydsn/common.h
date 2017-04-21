@@ -1,3 +1,7 @@
+// BLE Presenter Module Firmware v1.5
+//   Based on Cypress PSoC Creator (4.0), BLE-HID sample project
+//   (c) Junichi Akita (akita@ifdl.jp), 2017/4/20
+
 /*******************************************************************************
 * File Name: common.h
 *
@@ -16,6 +20,11 @@
 
 #include <project.h>
 #include <stdio.h>
+
+// sending L2CAP ConnectionParamUpdateRequest flag
+extern uint8_t fUpdate;
+//extern uint8_t fUpdate_b;
+extern volatile uint16_t Ton;
 
 #define ENABLED                     (1u)
 #define DISABLED                    (0u)
@@ -57,7 +66,5 @@ void ShowError(void);
 #else
     #define DBG_PRINTF(...)
 #endif /* (DEBUG_UART_ENABLED == ENABLED) */
-
-int Ton;
 
 /* [] END OF FILE */

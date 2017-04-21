@@ -1,32 +1,5 @@
---------------- Build Started: 04/20/2017 08:10:35 Project: TPT02r, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Build Started: 04/21/2017 14:36:15 Project: TPT02r, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
 The code generation step is up to date.
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c main.c -o .\CortexM0\ARM_GCC_493\Debug\main.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/bas.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c bas.c -o .\CortexM0\ARM_GCC_493\Debug\bas.o
-bas.c: In function 'BasInit':
-bas.c:112:12: warning: unused variable 'cccdValue' [-Wunused-variable]
-     uint16 cccdValue;
-            ^
-bas.c:111:24: warning: unused variable 'apiResult' [-Wunused-variable]
-     CYBLE_API_RESULT_T apiResult;
-                        ^
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/debug.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c debug.c -o .\CortexM0\ARM_GCC_493\Debug\debug.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/hids.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c hids.c -o .\CortexM0\ARM_GCC_493\Debug\hids.o
-hids.c: In function 'SimulateKeyboard':
-hids.c:183:18: warning: unused variable 'capsLockPress' [-Wunused-variable]
-     static uint8 capsLockPress = 0u;
-                  ^
-hids.c:182:18: warning: unused variable 'simKey' [-Wunused-variable]
-     static uint8 simKey; 
-                  ^
-hids.c:181:19: warning: unused variable 'keyboardTimer' [-Wunused-variable]
-     static uint32 keyboardTimer = KEYBOARD_TIMEOUT;
-                   ^
-arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/scps.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c scps.c -o .\CortexM0\ARM_GCC_493\Debug\scps.o
-arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_493\Debug\TPT02r.a .\CortexM0\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_493\Debug\BLE_bas.o .\CortexM0\ARM_GCC_493\Debug\BLE.o .\CortexM0\ARM_GCC_493\Debug\BLE_gatt.o .\CortexM0\ARM_GCC_493\Debug\BLE_eventHandler.o .\CortexM0\ARM_GCC_493\Debug\BLE_hids.o .\CortexM0\ARM_GCC_493\Debug\BLE_HAL_INT.o .\CortexM0\ARM_GCC_493\Debug\BLE_HAL_PVT.o .\CortexM0\ARM_GCC_493\Debug\BLE_scps.o .\CortexM0\ARM_GCC_493\Debug\BLE_dis.o .\CortexM0\ARM_GCC_493\Debug\WDT_Interrupt.o .\CortexM0\ARM_GCC_493\Debug\Advertising_LED.o .\CortexM0\ARM_GCC_493\Debug\Advertising_LED_PM.o .\CortexM0\ARM_GCC_493\Debug\CapsLock_LED.o .\CortexM0\ARM_GCC_493\Debug\CapsLock_LED_PM.o .\CortexM0\ARM_GCC_493\Debug\Disconnect_LED.o .\CortexM0\ARM_GCC_493\Debug\Disconnect_LED_PM.o .\CortexM0\ARM_GCC_493\Debug\Wakeup_Interrupt.o .\CortexM0\ARM_GCC_493\Debug\UART_DEB.o .\CortexM0\ARM_GCC_493\Debug\UART_DEB_SPI_UART.o .\CortexM0\ARM_GCC_493\Debug\UART_DEB_SPI_UART_INT.o .\CortexM0\ARM_GCC_493\Debug\UART_DEB_PM.o .\CortexM0\ARM_GCC_493\Debug\UART_DEB_UART.o .\CortexM0\ARM_GCC_493\Debug\UART_DEB_BOOT.o .\CortexM0\ARM_GCC_493\Debug\UART_DEB_UART_BOOT.o .\CortexM0\ARM_GCC_493\Debug\ADC.o .\CortexM0\ARM_GCC_493\Debug\ADC_PM.o .\CortexM0\ARM_GCC_493\Debug\ADC_INT.o .\CortexM0\ARM_GCC_493\Debug\Vref.o .\CortexM0\ARM_GCC_493\Debug\Vref_PM.o .\CortexM0\ARM_GCC_493\Debug\BLE_bless_isr.o .\CortexM0\ARM_GCC_493\Debug\UART_DEB_SCBCLK.o .\CortexM0\ARM_GCC_493\Debug\UART_DEB_tx.o .\CortexM0\ARM_GCC_493\Debug\UART_DEB_tx_PM.o .\CortexM0\ARM_GCC_493\Debug\UART_DEB_rx.o .\CortexM0\ARM_GCC_493\Debug\UART_DEB_rx_PM.o .\CortexM0\ARM_GCC_493\Debug\ADC_IRQ.o .\CortexM0\ARM_GCC_493\Debug\ADC_intClock.o .\CortexM0\ARM_GCC_493\Debug\CyFlash.o .\CortexM0\ARM_GCC_493\Debug\CyLib.o .\CortexM0\ARM_GCC_493\Debug\cyPm.o .\CortexM0\ARM_GCC_493\Debug\cyutils.o .\CortexM0\ARM_GCC_493\Debug\CyLFClk.o .\CortexM0\ARM_GCC_493\Debug\SWID.o .\CortexM0\ARM_GCC_493\Debug\SWID_PM.o .\CortexM0\ARM_GCC_493\Debug\SWMAIN.o .\CortexM0\ARM_GCC_493\Debug\SWMAIN_PM.o .\CortexM0\ARM_GCC_493\Debug\SWBACK.o .\CortexM0\ARM_GCC_493\Debug\SWBACK_PM.o .\CortexM0\ARM_GCC_493\Debug\SWBLACKOUT.o .\CortexM0\ARM_GCC_493\Debug\SWBLACKOUT_PM.o .\CortexM0\ARM_GCC_493\Debug\CyBootAsmGnu.o
-arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_493\Debug\TPT02r.a
-arm-none-eabi-gcc.exe -Wl,--start-group -o .\CortexM0\ARM_GCC_493\Debug\TPT02r.elf .\CortexM0\ARM_GCC_493\Debug\main.o .\CortexM0\ARM_GCC_493\Debug\bas.o .\CortexM0\ARM_GCC_493\Debug\debug.o .\CortexM0\ARM_GCC_493\Debug\hids.o .\CortexM0\ARM_GCC_493\Debug\scps.o .\CortexM0\ARM_GCC_493\Debug\cymetadata.o .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o .\CortexM0\ARM_GCC_493\Debug\TPT02r.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\BLE_v3_20\Library\gccCyBLEStack_BLE_SOC_PERIPHERAL.a" "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m0 -mthumb -g -ffunction-sections -O0 -ffat-lto-objects -L Generated_Source\PSoC4 -Wl,-Map,.\CortexM0\ARM_GCC_493\Debug/TPT02r.map -T C:\Users\akita\Documents\TPT02\src\TPT02r.cydsn\Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
-cyelftool.exe -C C:\Users\akita\Documents\TPT02\src\TPT02r.cydsn\CortexM0\ARM_GCC_493\Debug\TPT02r.elf --flash_row_size 128 --flash_size 131072
-cyelftool.exe -S C:\Users\akita\Documents\TPT02\src\TPT02r.cydsn\CortexM0\ARM_GCC_493\Debug\TPT02r.elf
-Flash used: 101775 of 131072 bytes (77.6%).
-SRAM used: 12152 of 16384 bytes (74.2%). Stack: 2048 bytes. Heap: 1024 bytes.
---------------- Build Succeeded: 04/20/2017 08:10:37 ---------------
+The compile step is up to date, no work needs to be done.
+The link step is up to date, no work needs to be done.
+--------------- Build Succeeded: 04/21/2017 14:36:15 ---------------

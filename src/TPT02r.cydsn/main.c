@@ -1,3 +1,7 @@
+// BLE Presenter Module Firmware v1.5
+//   Based on Cypress PSoC Creator (4.0), BLE-HID sample project
+//   (c) Junichi Akita (akita@ifdl.jp), 2017/4/20
+
 /*******************************************************************************
 * File Name: main.c
 *
@@ -29,9 +33,20 @@
 
 volatile uint32 mainTimer = 0;
 
-int Ton = 0;
-int Tconnect = 0;
-uint8_t fUpdate = 0;
+volatile uint16_t Ton = 0;
+volatile uint16_t Tconnect = 0;
+uint8_t fUpdated = 0;
+
+CY_ISR(SWID_Handler)
+{
+    /* Clear pending Interrupt */
+    Wakeup_Interrupt_ClearPending();
+
+    /* Clear pin Interrupt */
+    SWID_ClearInterrupt();
+//    DBG_PRINTF("ID\r\n");
+}
+
 
 /*******************************************************************************
 * Function Name: AppCallBack()
@@ -186,8 +201,9 @@ void AppCallBack(uint32 event, void* eventParam)
             break;
         case CYBLE_EVT_GATT_DISCONNECT_IND:
             DBG_PRINTF("CYBLE_EVT_GATT_DISCONNECT_IND \r\n");
-            fUpdate = 0;
+            fUpdated = 0;
             Tconnect = 0;
+            Ton = 0;
             break;
         case CYBLE_EVT_GATTS_READ_CHAR_VAL_ACCESS_REQ:
             /* Triggered on server side when client sends read request and when
@@ -249,11 +265,13 @@ CY_ISR(Timer_Interrupt)
         CySysWdtClearInterrupt(WDT_INTERRUPT_SOURCE);
     }
     Ton++;
-    if ((CyBle_GetState() == CYBLE_STATE_CONNECTED) && fUpdate == 0)
-    {
-        Tconnect++;
+    if ((Ton % 10) == 0){
+        if (CyBle_GetState() == CYBLE_STATE_CONNECTED)
+        {
+            Tconnect++;
+        }
+        DBG_PRINTF("%d %d %d\r\n", Ton, Tconnect, fUpdated);
     }
-    if ((Ton % 10) == 0) DBG_PRINTF("Ton=%d Tconnect=%d\r\n", Ton, Tconnect);
 }
 
 /*******************************************************************************
@@ -395,6 +413,7 @@ static void LowPowerImplementation(void)
 *******************************************************************************/
 int main()
 {
+    Wakeup_Interrupt_StartEx(SWID_Handler);
     CyGlobalIntEnable;  
 
 #if (DEBUG_UART_ENABLED == ENABLED)
@@ -408,7 +427,7 @@ int main()
 
     /* Start CYBLE component and register generic event handler */
     CyBle_Start(AppCallBack);
-        WDT_Start();
+    WDT_Start();
 
 #if (BAS_MEASURE_ENABLE != 0)
     ADC_Start();
@@ -416,18 +435,9 @@ int main()
 
     while(1) 
     {           
-/*        
-        if(0u == SWMAIN_Read()){
-            DBG_PRINTF("going to shut down");
-//            CySysPmStop();
-            CySysPmHibernate();
-            DBG_PRINTF("done");
-        }
-*/
-
-        if (Ton == 10 * 60 * 30){ // 30 min
-//        if (Ton == 10 * 60 * 10){ // 10 min
-//        if (Ton == 30 * 10){ // 30 sec
+//        if ((Ton % 10) == 0)DBG_PRINTF("Ton=%d / %d\r\n", Ton, 10*60*30);
+        if ((Tconnect == 0 && Ton > 10 * 60 * 2) // 2 min before connection
+        || (Tconnect > 0 && Ton > 10 * 60 * 30)){ // 30 min
             DBG_PRINTF("going to shutdown");
             int i;
             for (i = 0; i < 10; i++){
@@ -438,13 +448,14 @@ int main()
             }
             CySysPmHibernate();
             DBG_PRINTF("done");
+            Ton = 0;
         }
         
-        if (Tconnect > 10 * 10 && fUpdate == 0){
-            // 10sec after connection
+//        DBG_PRINTF("1");
+        if ((Tconnect > 10 && fUpdated == 0) || (Tconnect > 60 && fUpdated == 2))
+        {
             DBG_PRINTF("sending L2CAP connectup update request...\r\n");
             CYBLE_GAP_CONN_UPDATE_PARAM_T connUpdateParam;
-            /* Send Connection Parameter Update Request to Client */
             connUpdateParam.connIntvMin = CYBLE_GAPP_CONNECTION_INTERVAL_MIN;
             connUpdateParam.connIntvMax = CYBLE_GAPP_CONNECTION_INTERVAL_MAX;
             connUpdateParam.connLatency = CYBLE_GAPP_CONNECTION_SLAVE_LATENCY;
@@ -459,14 +470,18 @@ int main()
             {
                 DBG_PRINTF("CyBle_L2capLeConnectionParamUpdateRequest API Error: %x \r\n", apiResult);
             }
-            fUpdate = 1;
+            fUpdated++;
+            Tconnect = 1;
         }
+        if (fUpdated == 1 && Tconnect == 2) fUpdated = 2;
+        else if (fUpdated == 3 && Tconnect == 2) fUpdated = 1;
+//        DBG_PRINTF("2");
         /* CyBle_ProcessEvents() allows BLE stack to process pending events */
         CyBle_ProcessEvents();
-
+//        DBG_PRINTF("3");
         /* To achieve low power in the device */
         LowPowerImplementation();
-
+//        DBG_PRINTF("4");
         if((CyBle_GetState() == CYBLE_STATE_CONNECTED) && (suspend != CYBLE_HIDS_CP_SUSPEND))
         {            
             
@@ -504,6 +519,7 @@ int main()
             }
         #endif /* CYBLE_BONDING_REQUIREMENT == CYBLE_BONDING_YES */    
         }
+//        DBG_PRINTF("5\r\n");
 	}   
 }  
 

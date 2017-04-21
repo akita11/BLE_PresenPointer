@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.1.0">
+<eagle version="7.7.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -1828,8 +1828,8 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <part name="U2" library="akita" deviceset="REG_TPS61221" device=""/>
 <part name="L1" library="akita" deviceset="INDUCTOR" device="SMD2016" value="INDUCTORSMD2016"/>
 <part name="SW6" library="akita" deviceset="SW_TACT" device="EVQP7"/>
-<part name="R2" library="akita" deviceset="RES" device="0603" value="560k"/>
-<part name="R3" library="akita" deviceset="RES" device="0603" value="200k"/>
+<part name="R2" library="akita" deviceset="RES" device="0603" value="390k"/>
+<part name="R3" library="akita" deviceset="RES" device="0603" value="100k"/>
 </parts>
 <sheets>
 <sheet>

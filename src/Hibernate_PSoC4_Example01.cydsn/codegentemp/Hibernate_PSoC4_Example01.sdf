@@ -1,0 +1,23 @@
+(DELAYFILE
+ (SDFVERSION "IEEE 1497 4.0")
+ (DATE "2017-04-21T03:50:17Z")
+ (DESIGN "Hibernate_PSoC4_Example01")
+ (VENDOR "Cypress Semiconductor")
+ (PROGRAM "PSoC Creator")
+ (VERSION " 4.0")
+ (DIVIDER .)
+ (TIMESCALE 1 ns)
+ (CELL
+  (CELLTYPE "Hibernate_PSoC4_Example01")
+  (INSTANCE *)
+  (DELAY
+   (ABSOLUTE
+    (INTERCONNECT ClockBlock.hfclk isr_GPIO.clock (0.000:0.000:0.000))
+    (INTERCONNECT Pin_Sw.interrupt isr_GPIO.interrupt (1.000:1.000:1.000))
+    (INTERCONNECT Pin_Sw\(0\)_PAD Pin_Sw\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT LED_Mode\(0\)_PAD LED_Mode\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT LED_Status\(0\)_PAD LED_Status\(0\).pad_in (0.000:0.000:0.000))
+   )
+  )
+ )
+)
